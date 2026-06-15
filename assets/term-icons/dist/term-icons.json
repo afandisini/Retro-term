@@ -1,0 +1,506 @@
+[
+  {
+    "name": "dashboard",
+    "class": "term-icon-dashboard",
+    "symbol": "dashboard",
+    "category": "layout",
+    "source": "bootstrap-icons/speedometer2"
+  },
+  {
+    "name": "users",
+    "class": "term-icon-users",
+    "symbol": "users",
+    "category": "user",
+    "source": "bootstrap-icons/people"
+  },
+  {
+    "name": "user",
+    "class": "term-icon-user",
+    "symbol": "user",
+    "category": "user",
+    "source": "bootstrap-icons/person"
+  },
+  {
+    "name": "person-circle",
+    "class": "term-icon-person-circle",
+    "symbol": "person-circle",
+    "category": "user",
+    "source": "bootstrap-icons/person-circle"
+  },
+  {
+    "name": "person-plus",
+    "class": "term-icon-person-plus",
+    "symbol": "person-plus",
+    "category": "user",
+    "source": "bootstrap-icons/person-plus"
+  },
+  {
+    "name": "person-gear",
+    "class": "term-icon-person-gear",
+    "symbol": "person-gear",
+    "category": "user",
+    "source": "bootstrap-icons/person-gear"
+  },
+  {
+    "name": "settings",
+    "class": "term-icon-settings",
+    "symbol": "settings",
+    "category": "ui",
+    "source": "bootstrap-icons/gear"
+  },
+  {
+    "name": "logout",
+    "class": "term-icon-logout",
+    "symbol": "logout",
+    "category": "auth",
+    "source": "bootstrap-icons/power"
+  },
+  {
+    "name": "login",
+    "class": "term-icon-login",
+    "symbol": "login",
+    "category": "auth",
+    "source": "bootstrap-icons/box-arrow-in-right"
+  },
+  {
+    "name": "logout-box",
+    "class": "term-icon-logout-box",
+    "symbol": "logout-box",
+    "category": "auth",
+    "source": "bootstrap-icons/box-arrow-right"
+  },
+  {
+    "name": "menu",
+    "class": "term-icon-menu",
+    "symbol": "menu",
+    "category": "layout",
+    "source": "bootstrap-icons/list"
+  },
+  {
+    "name": "layout-sidebar",
+    "class": "term-icon-layout-sidebar",
+    "symbol": "layout-sidebar",
+    "category": "layout",
+    "source": "bootstrap-icons/layout-sidebar"
+  },
+  {
+    "name": "layout-text-sidebar",
+    "class": "term-icon-layout-text-sidebar",
+    "symbol": "layout-text-sidebar",
+    "category": "layout",
+    "source": "bootstrap-icons/layout-text-sidebar"
+  },
+  {
+    "name": "grid",
+    "class": "term-icon-grid",
+    "symbol": "grid",
+    "category": "layout",
+    "source": "bootstrap-icons/grid"
+  },
+  {
+    "name": "terminal",
+    "class": "term-icon-terminal",
+    "symbol": "terminal",
+    "category": "layout",
+    "source": "bootstrap-icons/terminal"
+  },
+  {
+    "name": "command",
+    "class": "term-icon-command",
+    "symbol": "command",
+    "category": "layout",
+    "source": "bootstrap-icons/command"
+  },
+  {
+    "name": "chevron-left",
+    "class": "term-icon-chevron-left",
+    "symbol": "chevron-left",
+    "category": "navigation",
+    "source": "bootstrap-icons/chevron-left"
+  },
+  {
+    "name": "chevron-right",
+    "class": "term-icon-chevron-right",
+    "symbol": "chevron-right",
+    "category": "navigation",
+    "source": "bootstrap-icons/chevron-right"
+  },
+  {
+    "name": "chevron-down",
+    "class": "term-icon-chevron-down",
+    "symbol": "chevron-down",
+    "category": "navigation",
+    "source": "bootstrap-icons/chevron-down"
+  },
+  {
+    "name": "arrow-left",
+    "class": "term-icon-arrow-left",
+    "symbol": "arrow-left",
+    "category": "navigation",
+    "source": "bootstrap-icons/arrow-left"
+  },
+  {
+    "name": "arrow-right",
+    "class": "term-icon-arrow-right",
+    "symbol": "arrow-right",
+    "category": "navigation",
+    "source": "bootstrap-icons/arrow-right"
+  },
+  {
+    "name": "arrow-up",
+    "class": "term-icon-arrow-up",
+    "symbol": "arrow-up",
+    "category": "navigation",
+    "source": "bootstrap-icons/arrow-up"
+  },
+  {
+    "name": "arrow-down",
+    "class": "term-icon-arrow-down",
+    "symbol": "arrow-down",
+    "category": "navigation",
+    "source": "bootstrap-icons/arrow-down"
+  },
+  {
+    "name": "caret-left",
+    "class": "term-icon-caret-left",
+    "symbol": "caret-left",
+    "category": "navigation",
+    "source": "bootstrap-icons/caret-left"
+  },
+  {
+    "name": "caret-right",
+    "class": "term-icon-caret-right",
+    "symbol": "caret-right",
+    "category": "navigation",
+    "source": "bootstrap-icons/caret-right"
+  },
+  {
+    "name": "caret-down",
+    "class": "term-icon-caret-down",
+    "symbol": "caret-down",
+    "category": "navigation",
+    "source": "bootstrap-icons/caret-down"
+  },
+  {
+    "name": "add",
+    "class": "term-icon-add",
+    "symbol": "add",
+    "category": "crud",
+    "source": "bootstrap-icons/plus"
+  },
+  {
+    "name": "minus",
+    "class": "term-icon-minus",
+    "symbol": "minus",
+    "category": "crud",
+    "source": "bootstrap-icons/dash"
+  },
+  {
+    "name": "edit",
+    "class": "term-icon-edit",
+    "symbol": "edit",
+    "category": "crud",
+    "source": "bootstrap-icons/pencil"
+  },
+  {
+    "name": "delete",
+    "class": "term-icon-delete",
+    "symbol": "delete",
+    "category": "crud",
+    "source": "bootstrap-icons/trash"
+  },
+  {
+    "name": "save",
+    "class": "term-icon-save",
+    "symbol": "save",
+    "category": "crud",
+    "source": "bootstrap-icons/save"
+  },
+  {
+    "name": "close",
+    "class": "term-icon-close",
+    "symbol": "close",
+    "category": "crud",
+    "source": "bootstrap-icons/x"
+  },
+  {
+    "name": "check",
+    "class": "term-icon-check",
+    "symbol": "check",
+    "category": "crud",
+    "source": "bootstrap-icons/check"
+  },
+  {
+    "name": "search",
+    "class": "term-icon-search",
+    "symbol": "search",
+    "category": "crud",
+    "source": "bootstrap-icons/search"
+  },
+  {
+    "name": "filter",
+    "class": "term-icon-filter",
+    "symbol": "filter",
+    "category": "crud",
+    "source": "bootstrap-icons/funnel"
+  },
+  {
+    "name": "sort-desc",
+    "class": "term-icon-sort-desc",
+    "symbol": "sort-desc",
+    "category": "crud",
+    "source": "bootstrap-icons/sort-down"
+  },
+  {
+    "name": "sort-asc",
+    "class": "term-icon-sort-asc",
+    "symbol": "sort-asc",
+    "category": "crud",
+    "source": "bootstrap-icons/sort-up"
+  },
+  {
+    "name": "refresh",
+    "class": "term-icon-refresh",
+    "symbol": "refresh",
+    "category": "crud",
+    "source": "bootstrap-icons/arrow-repeat"
+  },
+  {
+    "name": "file",
+    "class": "term-icon-file",
+    "symbol": "file",
+    "category": "file",
+    "source": "bootstrap-icons/file-earmark"
+  },
+  {
+    "name": "folder-open",
+    "class": "term-icon-folder-open",
+    "symbol": "folder-open",
+    "category": "file",
+    "source": "bootstrap-icons/folder2-open"
+  },
+  {
+    "name": "upload",
+    "class": "term-icon-upload",
+    "symbol": "upload",
+    "category": "file",
+    "source": "bootstrap-icons/upload"
+  },
+  {
+    "name": "download",
+    "class": "term-icon-download",
+    "symbol": "download",
+    "category": "file",
+    "source": "bootstrap-icons/download"
+  },
+  {
+    "name": "print",
+    "class": "term-icon-print",
+    "symbol": "print",
+    "category": "file",
+    "source": "bootstrap-icons/printer"
+  },
+  {
+    "name": "database",
+    "class": "term-icon-database",
+    "symbol": "database",
+    "category": "file",
+    "source": "bootstrap-icons/database"
+  },
+  {
+    "name": "server",
+    "class": "term-icon-server",
+    "symbol": "server",
+    "category": "file",
+    "source": "bootstrap-icons/server"
+  },
+  {
+    "name": "network",
+    "class": "term-icon-network",
+    "symbol": "network",
+    "category": "file",
+    "source": "bootstrap-icons/hdd-network"
+  },
+  {
+    "name": "cloud",
+    "class": "term-icon-cloud",
+    "symbol": "cloud",
+    "category": "file",
+    "source": "bootstrap-icons/cloud"
+  },
+  {
+    "name": "success-circle",
+    "class": "term-icon-success-circle",
+    "symbol": "success-circle",
+    "category": "status",
+    "source": "bootstrap-icons/check-circle"
+  },
+  {
+    "name": "error-circle",
+    "class": "term-icon-error-circle",
+    "symbol": "error-circle",
+    "category": "status",
+    "source": "bootstrap-icons/x-circle"
+  },
+  {
+    "name": "warning",
+    "class": "term-icon-warning",
+    "symbol": "warning",
+    "category": "status",
+    "source": "bootstrap-icons/exclamation-triangle"
+  },
+  {
+    "name": "info",
+    "class": "term-icon-info",
+    "symbol": "info",
+    "category": "status",
+    "source": "bootstrap-icons/info-circle"
+  },
+  {
+    "name": "question",
+    "class": "term-icon-question",
+    "symbol": "question",
+    "category": "status",
+    "source": "bootstrap-icons/question-circle"
+  },
+  {
+    "name": "notification",
+    "class": "term-icon-notification",
+    "symbol": "notification",
+    "category": "status",
+    "source": "bootstrap-icons/bell"
+  },
+  {
+    "name": "notification-fill",
+    "class": "term-icon-notification-fill",
+    "symbol": "notification-fill",
+    "category": "status",
+    "source": "bootstrap-icons/bell-fill"
+  },
+  {
+    "name": "activity",
+    "class": "term-icon-activity",
+    "symbol": "activity",
+    "category": "status",
+    "source": "bootstrap-icons/activity"
+  },
+  {
+    "name": "bug",
+    "class": "term-icon-bug",
+    "symbol": "bug",
+    "category": "status",
+    "source": "bootstrap-icons/bug"
+  },
+  {
+    "name": "sliders",
+    "class": "term-icon-sliders",
+    "symbol": "sliders",
+    "category": "ui",
+    "source": "bootstrap-icons/sliders"
+  },
+  {
+    "name": "show",
+    "class": "term-icon-show",
+    "symbol": "show",
+    "category": "ui",
+    "source": "bootstrap-icons/eye"
+  },
+  {
+    "name": "hide",
+    "class": "term-icon-hide",
+    "symbol": "hide",
+    "category": "ui",
+    "source": "bootstrap-icons/eye-slash"
+  },
+  {
+    "name": "calendar",
+    "class": "term-icon-calendar",
+    "symbol": "calendar",
+    "category": "ui",
+    "source": "bootstrap-icons/calendar"
+  },
+  {
+    "name": "clock",
+    "class": "term-icon-clock",
+    "symbol": "clock",
+    "category": "ui",
+    "source": "bootstrap-icons/clock"
+  },
+  {
+    "name": "table",
+    "class": "term-icon-table",
+    "symbol": "table",
+    "category": "ui",
+    "source": "bootstrap-icons/table"
+  },
+  {
+    "name": "card-list",
+    "class": "term-icon-card-list",
+    "symbol": "card-list",
+    "category": "ui",
+    "source": "bootstrap-icons/card-list"
+  },
+  {
+    "name": "window",
+    "class": "term-icon-window",
+    "symbol": "window",
+    "category": "ui",
+    "source": "bootstrap-icons/window"
+  },
+  {
+    "name": "fullscreen",
+    "class": "term-icon-fullscreen",
+    "symbol": "fullscreen",
+    "category": "ui",
+    "source": "bootstrap-icons/fullscreen"
+  },
+  {
+    "name": "fullscreen-exit",
+    "class": "term-icon-fullscreen-exit",
+    "symbol": "fullscreen-exit",
+    "category": "ui",
+    "source": "bootstrap-icons/fullscreen-exit"
+  },
+  {
+    "name": "sun",
+    "class": "term-icon-sun",
+    "symbol": "sun",
+    "category": "ui",
+    "source": "bootstrap-icons/sun"
+  },
+  {
+    "name": "moon",
+    "class": "term-icon-moon",
+    "symbol": "moon",
+    "category": "ui",
+    "source": "bootstrap-icons/moon"
+  },
+  {
+    "name": "chart-bar",
+    "class": "term-icon-chart-bar",
+    "symbol": "chart-bar",
+    "category": "chart",
+    "source": "bootstrap-icons/bar-chart"
+  },
+  {
+    "name": "chart-up",
+    "class": "term-icon-chart-up",
+    "symbol": "chart-up",
+    "category": "chart",
+    "source": "bootstrap-icons/graph-up"
+  },
+  {
+    "name": "chart-pie",
+    "class": "term-icon-chart-pie",
+    "symbol": "chart-pie",
+    "category": "chart",
+    "source": "bootstrap-icons/pie-chart"
+  },
+  {
+    "name": "diagram",
+    "class": "term-icon-diagram",
+    "symbol": "diagram",
+    "category": "chart",
+    "source": "bootstrap-icons/diagram-3"
+  }
+]

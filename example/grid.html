@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id" data-term-theme="retro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../core/js/term-theme.js"></script>
+  <title>Grid Demo</title>
+  <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
+  <link rel="stylesheet" href="../main.css">
+  <script defer src="../core/js/term-admin.js"></script>
+  <script defer src="../core/js/term-layout.js"></script>
+  <script defer src="./demo.js"></script>
+</head>
+
+<body class="term-layout-fixed" data-term-theme="retro" data-demo-active="grid" data-demo-title="Grid"
+  data-demo-desc="grid samples">
+  <div class="term-wrapper">
+    <header class="term-header">
+      <div class="term-nav-left">
+        <button class="term-btn term-btn-icon" type="button" data-demo-action="toggle-sidebar"
+          aria-label="Toggle sidebar">
+          <i class="term-icon term-icon-menu" aria-hidden="true"></i>
+        </button>
+        <div class="term-brand">
+          <span>Retro-term</span>
+          <span class="term-brand-subtext">demo / grid</span>
+        </div>
+      </div>
+      <div class="term-status-bar"><span>CPU: 12%</span><span>MEM: 4GB</span><span>DEMO</span></div>
+    </header>
+    <div id="demoSidebarMount"></div>
+    <div class="term-overlay" data-demo-action="toggle-sidebar" aria-hidden="true"></div>
+    <main class="term-content">
+      <section class="term-content-header">
+        <div class="term-content-title" id="demoTitle">GRID</div>
+        <div class="term-breadcrumb"><span class="term-breadcrumb-item">example</span><span
+            class="term-breadcrumb-item">grid</span></div>
+      </section>
+      <section class="term-content-body">
+        <div class="term-card term-mb-3">
+          <div class="term-card-header term-card-header-primary"><span class="term-card-title">GRID_SYSTEM</span></div>
+          <div class="term-card-body">
+            <div class="term-row term-mb-2">
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-3 term-mb-2">
+                <div class="term-card term-bg-neutral">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">COL 3</div>
+                    <div class="term-stat-value">25%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-3 term-mb-2">
+                <div class="term-card term-bg-neutral">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">COL 3</div>
+                    <div class="term-stat-value">25%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-3 term-mb-2">
+                <div class="term-card term-bg-neutral">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">COL 3</div>
+                    <div class="term-stat-value">25%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-3 term-mb-2">
+                <div class="term-card term-bg-neutral">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">COL 3</div>
+                    <div class="term-stat-value">25%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="term-row">
+              <div class="term-col term-col-12 term-col-lg-8 term-mb-2">
+                <div class="term-card term-bg-info">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">WIDE COLUMN</div>
+                    <div class="term-stat-note">Gunakan kombinasi term-col-*-* untuk layout responsif.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-lg-4 term-mb-2">
+                <div class="term-card term-bg-success">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">NARROW COLUMN</div>
+                    <div class="term-stat-note">Layout tetap rapih di desktop dan mobile.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-card-header term-card-header-info"><span class="term-card-title">GRID_NOTE</span></div>
+          <div class="term-card-body">
+            <p class="term-mb-2">Grid demo ini pakai class bawaan framework, jadi bisa langsung dipakai ulang di halaman
+              lain.</p>
+            <div class="term-alert term-alert-warning">Kalau ingin kombinasi yang lebih kompleks, tetap pakai pola
+              <code>term-row</code> dan <code>term-col</code>.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>
+
+

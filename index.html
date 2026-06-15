@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id" data-term-theme="retro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="core/js/term-theme.js"></script>
+    <title>Login Demo</title>
+    <link rel="stylesheet" href="assets/term-icons/dist/term-icons.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="core/css/term-dashboard.css">
+    <link rel="stylesheet" href="core/css/term-login.css">
+    <script defer src="core/js/term-admin.js"></script>
+</head>
+
+<body class="term-layout-fixed">
+    <main class="term-login-shell term-p-4" style="min-height:100vh; width:100%;">
+        <div class="term-login-panel" style="width:min(500px, 100%); margin:0 auto;">
+            <div class="term-login-hero term-py-4">
+                <div class="term-brand term-login-brand term-mb-2" style="justify-content:center;">
+                    <span>Retro-term</span>
+                </div>
+                <p class="term-login-copy" style="text-align:center;">
+                    Sign in to start your session
+                </p>
+            </div>
+
+            <section class="term-card term-login-card term-mb-2">
+                <div class="term-card-header">
+                    <span class="term-card-title">SIGN IN</span>
+                    <button id="loginThemeToggle" class="term-btn term-btn-theme term-btn-theme-compact" type="button"
+                        data-term-theme-toggle="true" data-term-action="toggle-theme" aria-label="Toggle theme"
+                        title="Toggle theme">
+                        <i class="term-icon term-icon-moon" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="term-card-body">
+                    <form id="loginForm" action="example/dashboard.html" method="get">
+                        <div class="term-form-group term-mb-2">
+                            <label class="term-form-label" for="loginEmail">Email</label>
+                            <div class="term-input-group">
+                                <input id="loginEmail" class="term-form-control" type="email"
+                                    value="demo@retro-term.com" placeholder="Email">
+                                <span class="term-input-addon">
+                                    <i class="term-icon term-icon-user" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="term-form-group term-mb-2">
+                            <label class="term-form-label" for="loginPass">Password</label>
+                            <div class="term-input-group">
+                                <input id="loginPass" class="term-form-control" type="password" value="demopassword"
+                                    placeholder="Password">
+                                <span class="term-input-addon">
+                                    <i class="term-icon term-icon-login" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="term-row term-mb-2">
+                            <div class="term-col term-col-6">
+                                <label class="term-checkline">
+                                    <input class="term-checkline-input" type="checkbox" checked>
+                                    <span class="term-checkline-box"></span>
+                                    <span class="term-checkline-label">Remember Me</span>
+                                </label>
+                            </div>
+                            <div class="term-col term-col-6" style="text-align:right;">
+                                <button class="term-btn term-btn-success" type="submit">Sign In</button>
+                            </div>
+                        </div>
+
+                        <div class="term-mb-2" style="text-align:center; color:var(--term-muted);">
+                            - OR -
+                        </div>
+
+                        <div class="term-dashboard-mini term-mb-2">
+                            <button class="term-btn term-btn-view term-mb-2" type="button" data-term-action="toast"
+                                data-term-message="Facebook login is a dummy action.">
+                                <i class="term-icon term-icon-users" aria-hidden="true"></i>
+                                Sign in using Facebook
+                            </button>
+                            <button class="term-btn term-btn-danger" type="button" data-term-action="toast"
+                                data-term-message="Google login is a dummy action.">
+                                <i class="term-icon term-icon-cloud" aria-hidden="true"></i>
+                                Sign in using Google
+                            </button>
+                        </div>
+
+                        <div class="term-login-links term-mb-2">
+                            <a href="#" class="term-form-label term-mb-2" style="display:block;">I forgot my
+                                password</a>
+                            <a href="#" class="term-form-label" style="display:block;">Register a new membership</a>
+                        </div>
+
+                        <div class="term-card-footer term-login-actions term-px-0 term-pb-0 term-mt-2">
+                            <a class="term-btn term-btn-secondary" href="index.html">Back to Dashboard</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        window.TermAdmin.init('retro', 'expanded');
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            window.location.href = 'example/dashboard.html';
+        });
+    </script>
+</body>
+
+</html>

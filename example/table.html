@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id" data-term-theme="retro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../core/js/term-theme.js"></script>
+  <title>Table Demo</title>
+  <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
+  <link rel="stylesheet" href="../main.css">
+  <script defer src="../core/js/term-admin.js"></script>
+  <script defer src="../core/js/term-layout.js"></script>
+  <script defer src="./demo.js"></script>
+</head>
+<body class="term-layout-fixed" data-term-theme="retro" data-demo-active="table" data-demo-title="Table" data-demo-desc="table samples">
+  <div class="term-wrapper">
+    <header class="term-header">
+      <div class="term-nav-left">
+        <button class="term-btn term-btn-icon" type="button" data-demo-action="toggle-sidebar" aria-label="Toggle sidebar">
+          <i class="term-icon term-icon-menu" aria-hidden="true"></i>
+        </button>
+        <div class="term-brand">
+          <span>Retro-term</span>
+          <span class="term-brand-subtext">demo / table</span>
+        </div>
+      </div>
+      <div class="term-status-bar"><span>CPU: 12%</span><span>MEM: 4GB</span><span>DEMO</span></div>
+    </header>
+    <div id="demoSidebarMount"></div>
+    <div class="term-overlay" data-demo-action="toggle-sidebar" aria-hidden="true"></div>
+    <main class="term-content">
+      <section class="term-content-header">
+        <div class="term-content-title" id="demoTitle">TABLE</div>
+        <div class="term-breadcrumb">
+          <span class="term-breadcrumb-item">example</span>
+          <span class="term-breadcrumb-item">table</span>
+        </div>
+      </section>
+
+      <section class="term-content-body">
+        <div class="term-card term-mb-3">
+          <div class="term-card-header term-card-header-info">
+            <span class="term-card-title">BASIC TABLE</span>
+          </div>
+          <div class="term-card-body">
+            <div class="term-table-toolbar">
+              <div class="term-table-search">
+                <input id="basicSearch" class="term-form-control" type="search" placeholder="Search basic table">
+                <i class="term-icon term-icon-search term-table-search-icon" aria-hidden="true"></i>
+              </div>
+              <div class="term-table-info" id="basicInfo">Showing 1-8 of 8 entries</div>
+            </div>
+
+            <div class="term-table-responsive term-table-responsive-stack">
+              <table class="term-table term-table-bordered term-table-hover" id="basicTable">
+                <thead>
+                  <tr>
+                    <th class="term-bg-primary">ID</th>
+                    <th class="term-bg-info">NAME</th>
+                    <th class="term-bg-success">ROLE</th>
+                    <th class="term-bg-warning">DEPARTMENT</th>
+                    <th class="term-bg-danger">STATUS</th>
+                    <th class="term-bg-neutral">ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="ID">001</td>
+                    <td data-label="Name">Alya Putri</td>
+                    <td data-label="Role">UI Designer</td>
+                    <td data-label="Department">Product</td>
+                    <td data-label="Status"><span class="term-badge term-badge-success">Active</span></td>
+                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
+                  </tr>
+                  <tr>
+                    <td data-label="ID">002</td>
+                    <td data-label="Name">Bagas Pratama</td>
+                    <td data-label="Role">Frontend Dev</td>
+                    <td data-label="Department">Engineering</td>
+                    <td data-label="Status"><span class="term-badge term-badge-info">Review</span></td>
+                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
+                  </tr>
+                  <tr>
+                    <td data-label="ID">003</td>
+                    <td data-label="Name">Citra Lestari</td>
+                    <td data-label="Role">QA Analyst</td>
+                    <td data-label="Department">Quality</td>
+                    <td data-label="Status"><span class="term-badge term-badge-warning">Pending</span></td>
+                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
+                  </tr>
+                  <tr>
+                    <td data-label="ID">004</td>
+                    <td data-label="Name">Dimas Akbar</td>
+                    <td data-label="Role">Backend Dev</td>
+                    <td data-label="Department">Engineering</td>
+                    <td data-label="Status"><span class="term-badge term-badge-success">Active</span></td>
+                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
+                  </tr>
+                  <tr>
+                    <td data-label="ID">005</td>
+                    <td data-label="Name">Eka Sari</td>
+                    <td data-label="Role">Product Owner</td>
+                    <td data-label="Department">Product</td>
+                    <td data-label="Status"><span class="term-badge term-badge-danger">Blocked</span></td>
+                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
+                  </tr>
+                  <tr>
+                    <td data-label="ID">006</td>
+                    <td data-label="Name">Fajar Nugroho</td>
+                    <td data-label="Role">DevOps</td>
+                    <td data-label="Department">Infrastructure</td>
+                    <td data-label="Status"><span class="term-badge term-badge-success">Active</span></td>
+                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
+                  </tr>
+                  <tr>
+                    <td data-label="ID">007</td>
+                    <td data-label="Name">Gita Maharani</td>
+                    <td data-label="Role">Content Writer</td>
+                    <td data-label="Department">Marketing</td>
+                    <td data-label="Status"><span class="term-badge term-badge-info">Review</span></td>
+                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
+                  </tr>
+                  <tr>
+                    <td data-label="ID">008</td>
+                    <td data-label="Name">Hendra Saputra</td>
+                    <td data-label="Role">Support Lead</td>
+                    <td data-label="Department">Operations</td>
+                    <td data-label="Status"><span class="term-badge term-badge-warning">Pending</span></td>
+                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="term-table-page">
+              <div class="term-table-info">Simple table untuk preview data cepat.</div>
+              <div class="term-pagination" aria-label="Basic table pagination">
+                <button class="term-btn term-btn-secondary term-pagination-button" type="button" disabled>Prev</button>
+                <button class="term-btn term-pagination-button term-is-active" type="button">1</button>
+                <button class="term-btn term-btn-secondary term-pagination-button" type="button">2</button>
+                <button class="term-btn term-btn-secondary term-pagination-button" type="button">3</button>
+                <button class="term-btn term-btn-secondary term-pagination-button" type="button">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-card-header term-card-header-success">
+            <span class="term-card-title">SERVER SIDE TABLE</span>
+          </div>
+          <div class="term-card-body">
+            <div class="term-table-toolbar">
+              <div class="term-table-search">
+                <input id="serverSearch" class="term-form-control" type="search" placeholder="Search server-side table">
+                <i class="term-icon term-icon-search term-table-search-icon" aria-hidden="true"></i>
+              </div>
+              <div class="term-table-info" id="serverInfo">Loading data...</div>
+            </div>
+
+            <div class="term-table-responsive term-table-responsive-stack">
+              <table class="term-table term-table-bordered term-table-hover" id="serverTable">
+                <thead>
+                  <tr>
+                    <th class="term-bg-primary">ID</th>
+                    <th class="term-bg-info">CUSTOMER</th>
+                    <th class="term-bg-success">PLAN</th>
+                    <th class="term-bg-warning">SOURCE</th>
+                    <th class="term-bg-danger">AMOUNT</th>
+                    <th class="term-bg-neutral">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody id="serverTableBody"></tbody>
+              </table>
+            </div>
+
+            <div class="term-table-page">
+              <div class="term-table-info" id="serverPageInfo"></div>
+              <div class="term-pagination" id="serverPagination" aria-label="Server side table pagination"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const serverData = Array.from({ length: 30 }, (_, index) => {
+        const id = String(index + 1).padStart(3, '0');
+        const plans = ['Starter', 'Growth', 'Pro'];
+        const sources = ['Organic', 'Referral', 'Ads', 'Direct'];
+        const statuses = [
+          { label: 'Active', tone: 'term-badge-success' },
+          { label: 'Review', tone: 'term-badge-info' },
+          { label: 'Pending', tone: 'term-badge-warning' },
+        ];
+
+        return {
+          id,
+          customer: ['Asha', 'Bima', 'Celine', 'Dewi', 'Edo', 'Fina', 'Gilang', 'Hana', 'Indra', 'Jihan'][index % 10] + ' ' + (index + 1),
+          plan: plans[index % plans.length],
+          source: sources[index % sources.length],
+          amount: 'Rp ' + ((index + 1) * 250000).toLocaleString('id-ID'),
+          status: statuses[index % statuses.length],
+        };
+      });
+
+      const basicSearch = document.getElementById('basicSearch');
+      const basicInfo = document.getElementById('basicInfo');
+      const basicTable = document.getElementById('basicTable');
+      const basicRows = basicTable ? Array.from(basicTable.tBodies[0].rows) : [];
+
+      function updateBasicTable() {
+        const query = (basicSearch?.value || '').trim().toLowerCase();
+        let visible = 0;
+
+        basicRows.forEach((row) => {
+          const match = !query || row.textContent.toLowerCase().includes(query);
+          row.hidden = !match;
+          if (match) {
+            visible += 1;
+          }
+        });
+
+        if (basicInfo) {
+          basicInfo.textContent = visible
+            ? `Showing 1-${visible} of ${visible} entries`
+            : 'Showing 0-0 of 0 entries';
+        }
+      }
+
+      const serverSearch = document.getElementById('serverSearch');
+      const serverInfo = document.getElementById('serverInfo');
+      const serverPageInfo = document.getElementById('serverPageInfo');
+      const serverTableBody = document.getElementById('serverTableBody');
+      const serverPagination = document.getElementById('serverPagination');
+      const pageSize = 10;
+      const state = { page: 1, query: '' };
+
+      function getFilteredServerData() {
+        const query = state.query.trim().toLowerCase();
+        if (!query) {
+          return serverData;
+        }
+
+        return serverData.filter((item) => (
+          [item.id, item.customer, item.plan, item.source, item.amount, item.status.label]
+            .join(' ')
+            .toLowerCase()
+            .includes(query)
+        ));
+      }
+
+      function renderServerTable() {
+        const filtered = getFilteredServerData();
+        const total = filtered.length;
+        const totalPages = Math.max(1, Math.ceil(total / pageSize));
+        state.page = Math.min(state.page, totalPages);
+        const start = (state.page - 1) * pageSize;
+        const end = start + pageSize;
+        const rows = filtered.slice(start, end);
+
+        if (serverTableBody) {
+          serverTableBody.innerHTML = rows.map((item) => `
+            <tr>
+              <td data-label="ID">${item.id}</td>
+              <td data-label="Customer">${item.customer}</td>
+              <td data-label="Plan">${item.plan}</td>
+              <td data-label="Source">${item.source}</td>
+              <td data-label="Amount">${item.amount}</td>
+              <td data-label="Status"><span class="term-badge ${item.status.tone}">${item.status.label}</span></td>
+            </tr>
+          `).join('');
+        }
+
+        if (serverInfo) {
+          serverInfo.textContent = `Showing ${total ? start + 1 : 0}-${Math.min(end, total)} of ${total} entries`;
+        }
+
+        if (serverPageInfo) {
+          serverPageInfo.textContent = `Page ${state.page} of ${totalPages} | 10 rows per page`;
+        }
+
+        if (serverPagination) {
+          const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+          serverPagination.innerHTML = [
+            `<button class="term-btn term-btn-secondary term-pagination-button" type="button" data-page="prev" ${state.page === 1 ? 'disabled' : ''}>Prev</button>`,
+            ...pages.map((page) => `
+              <button class="term-btn term-pagination-button ${page === state.page ? 'term-is-active' : 'term-btn-secondary'}" type="button" data-page="${page}">${page}</button>
+            `),
+            `<button class="term-btn term-btn-secondary term-pagination-button" type="button" data-page="next" ${state.page === totalPages ? 'disabled' : ''}>Next</button>`
+          ].join('');
+        }
+      }
+
+      basicSearch?.addEventListener('input', updateBasicTable);
+      serverSearch?.addEventListener('input', () => {
+        state.query = serverSearch.value;
+        state.page = 1;
+        renderServerTable();
+      });
+
+      serverPagination?.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-page]');
+        if (!button || button.disabled) {
+          return;
+        }
+
+        const page = button.getAttribute('data-page');
+        const filtered = getFilteredServerData();
+        const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+
+        if (page === 'prev') {
+          state.page = Math.max(1, state.page - 1);
+        } else if (page === 'next') {
+          state.page = Math.min(totalPages, state.page + 1);
+        } else {
+          state.page = Number(page);
+        }
+
+        renderServerTable();
+      });
+
+      updateBasicTable();
+      renderServerTable();
+    });
+  </script>
+</body>
+</html>
+
+
+
+

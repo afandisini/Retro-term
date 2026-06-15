@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../core/js/term-theme.js"></script>
+    <title>Retro-term</title>
+    <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../core/css/term-dashboard.css">
+    <script defer src="../core/js/term-admin.js"></script>
+    <script defer src="../core/js/term-layout.js"></script>
+    <script defer src="./demo.js"></script>
+</head>
+
+<body class="term-layout-fixed" data-term-theme="retro" data-demo-active="dashboard" data-demo-title="Dashboard" data-demo-desc="dashboard samples">
+    <div class="term-wrapper">
+        <header class="term-header">
+            <div class="term-nav-left">
+                <button class="term-btn term-btn-icon" type="button" data-term-action="toggle-sidebar" aria-label="Toggle sidebar">
+                    <i class="term-icon term-icon-menu" aria-hidden="true"></i>
+                </button>
+                <div class="term-brand">
+                    <span>Retro-term</span>
+                    <span class="term-brand-subtext">v2.0</span>
+                </div>
+            </div>
+            <div class="term-status-bar" aria-label="System status">
+                <button class="term-btn term-btn-icon term-btn-theme" type="button" data-term-action="toggle-theme" data-term-theme-toggle="true" aria-label="Toggle theme">
+                    <i class="term-icon term-icon-sun" aria-hidden="true"></i>
+                </button>
+                <button class="term-btn term-btn-icon term-btn-search" type="button" data-term-action="open-modal" data-term-target="searchModal" aria-label="Search">
+                    <i class="term-icon term-icon-search" aria-hidden="true"></i>
+                </button>
+                <div class="term-dropdown" data-term-dropdown>
+                    <button class="term-btn term-btn-icon term-btn-notification" type="button" data-term-action="toggle-dropdown" aria-label="Notifications">
+                        <i class="term-icon term-icon-notification-fill" aria-hidden="true"></i>
+                    </button>
+                    <div class="term-dropdown-menu term-dropdown-menu-notification" role="menu" aria-label="Notifications">
+                        <button class="term-dropdown-item" type="button">
+                            <i class="term-icon term-icon-info term-menu-icon" aria-hidden="true"></i>
+                            <span class="term-menu-text">System backup completed</span>
+                        </button>
+                        <button class="term-dropdown-item" type="button">
+                            <i class="term-icon term-icon-warning term-menu-icon" aria-hidden="true"></i>
+                            <span class="term-menu-text">High CPU usage detected</span>
+                        </button>
+                        <button class="term-dropdown-item" type="button">
+                            <i class="term-icon term-icon-success-circle term-menu-icon" aria-hidden="true"></i>
+                            <span class="term-menu-text">New user registered</span>
+                        </button>
+                        <button class="term-dropdown-item" type="button">
+                            <i class="term-icon term-icon-activity term-menu-icon" aria-hidden="true"></i>
+                            <span class="term-menu-text">Deployment finished</span>
+                        </button>
+                        <button class="term-dropdown-item" type="button">
+                            <i class="term-icon term-icon-bug term-menu-icon" aria-hidden="true"></i>
+                            <span class="term-menu-text">Security scan running</span>
+                        </button>
+                        <div class="term-dropdown-footer">
+                            <a href="alert.html">All Notidications</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="term-dropdown" data-term-dropdown>
+                    <button class="term-btn term-btn-user" type="button" data-term-action="toggle-dropdown" aria-label="User menu">
+                        <i class="term-icon term-icon-person-circle" aria-hidden="true"></i>
+                        <span>Sigianto</span>
+                    </button>
+                    <div class="term-dropdown-menu term-dropdown-menu-user" role="menu" aria-label="User menu">
+                        <button class="term-dropdown-item" type="button">
+                            <i class="term-icon term-icon-user" aria-hidden="true"></i>
+                            <span>Profile</span>
+                        </button>
+                        <button class="term-dropdown-item" type="button" data-term-action="open-modal" data-term-target="logoutModal">
+                            <i class="term-icon term-icon-logout" aria-hidden="true"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+                <span id="clock">00:00:00</span>
+            </div>
+        </header>
+        <div id="demoSidebarMount"></div>
+
+        <div class="term-overlay" data-term-action="toggle-sidebar" aria-hidden="true"></div>
+
+        <main class="term-content">
+            <section class="term-content-header">
+                <div class="term-content-title">DASHBOARD</div>
+                <div class="term-breadcrumb" aria-label="Breadcrumb">
+                    <span class="term-breadcrumb-item">home</span>
+                    <span class="term-breadcrumb-item">system</span>
+                    <span class="term-breadcrumb-item">dashboard</span>
+                </div>
+            </section>
+
+            <section class="term-content-body">
+                <div class="term-row term-dashboard-stats term-mb-3">
+                    <div class="term-col term-col-12 term-col-md-6 term-col-lg-3">
+                        <div class="term-dashboard-stat term-dashboard-stat-blue term-border">
+                            <div class="term-dashboard-stat-value">150</div>
+                            <div class="term-dashboard-stat-label">NEW ORDERS</div>
+                            <div class="term-dashboard-stat-meta">
+                                <i class="term-icon term-icon-chart-bar" aria-hidden="true"></i>
+                            </div>
+                            <div class="term-dashboard-stat-footer">More info <i
+                                    class="term-icon term-icon-chevron-right" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                    <div class="term-col term-col-12 term-col-md-6 term-col-lg-3">
+                        <div class="term-dashboard-stat term-dashboard-stat-green term-border">
+                            <div class="term-dashboard-stat-value">53%</div>
+                            <div class="term-dashboard-stat-label">BOUNCE RATE</div>
+                            <div class="term-dashboard-stat-meta">
+                                <i class="term-icon term-icon-person-plus" aria-hidden="true"></i>
+                            </div>
+                            <div class="term-dashboard-stat-footer">More info <i
+                                    class="term-icon term-icon-chevron-right" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                    <div class="term-col term-col-12 term-col-md-6 term-col-lg-3">
+                        <div class="term-dashboard-stat term-dashboard-stat-amber term-border">
+                            <div class="term-dashboard-stat-value">44</div>
+                            <div class="term-dashboard-stat-label">USER REGISTRATIONS</div>
+                            <div class="term-dashboard-stat-meta">
+                                <i class="term-icon term-icon-users" aria-hidden="true"></i>
+                            </div>
+                            <div class="term-dashboard-stat-footer">More info <i
+                                    class="term-icon term-icon-chevron-right" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                    <div class="term-col term-col-12 term-col-md-6 term-col-lg-3">
+                        <div class="term-dashboard-stat term-dashboard-stat-red term-border">
+                            <div class="term-dashboard-stat-value">65</div>
+                            <div class="term-dashboard-stat-label">UNIQUE VISITORS</div>
+                            <div class="term-dashboard-stat-meta">
+                                <i class="term-icon term-icon-chart-pie" aria-hidden="true"></i>
+                            </div>
+                            <div class="term-dashboard-stat-footer">More info <i
+                                    class="term-icon term-icon-chevron-right" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="term-row">
+                    <div class="term-col term-col-6 term-col-lg-6">
+                        <div class="term-card term-dashboard-panel">
+                            <div class="term-card-header">
+                                <span class="term-card-title">SALES_VALUE</span>
+                                <div class="term-card-tools">
+                                    <button class="term-btn term-btn-tool term-btn-view" type="button"
+                                        data-term-action="toast" data-term-message="Sales chart refreshed."
+                                        aria-label="Refresh sales chart">
+                                        <i class="term-icon term-icon-refresh" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="term-card-body term-dashboard-chart">
+                                <p class="term-stat-note">Monthly trend for sales and visits.</p>
+                                <div class="term-dashboard-chart-axis">
+                                    <div class="term-dashboard-chart-column">
+                                        <div class="term-dashboard-chart-value">64</div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-blue"
+                                            style="height:28%;"></div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-green"
+                                            style="height:64%; width:30%; left:70%;"></div>
+                                        <div class="term-dashboard-chart-label">Jan '23</div>
+                                    </div>
+                                    <div class="term-dashboard-chart-column">
+                                        <div class="term-dashboard-chart-value">59</div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-blue"
+                                            style="height:46%;"></div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-green"
+                                            style="height:59%; width:30%; left:70%;"></div>
+                                        <div class="term-dashboard-chart-label">Feb '23</div>
+                                    </div>
+                                    <div class="term-dashboard-chart-column">
+                                        <div class="term-dashboard-chart-value">80</div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-blue"
+                                            style="height:40%;"></div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-green"
+                                            style="height:80%; width:30%; left:70%;"></div>
+                                        <div class="term-dashboard-chart-label">Mar '23</div>
+                                    </div>
+                                    <div class="term-dashboard-chart-column">
+                                        <div class="term-dashboard-chart-value">81</div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-blue"
+                                            style="height:18%;"></div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-green"
+                                            style="height:81%; width:30%; left:70%;"></div>
+                                        <div class="term-dashboard-chart-label">Apr '23</div>
+                                    </div>
+                                    <div class="term-dashboard-chart-column">
+                                        <div class="term-dashboard-chart-value">56</div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-blue"
+                                            style="height:86%;"></div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-green"
+                                            style="height:56%; width:30%; left:70%;"></div>
+                                        <div class="term-dashboard-chart-label">May '23</div>
+                                    </div>
+                                    <div class="term-dashboard-chart-column">
+                                        <div class="term-dashboard-chart-value">55</div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-blue"
+                                            style="height:27%;"></div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-green"
+                                            style="height:55%; width:30%; left:70%;"></div>
+                                        <div class="term-dashboard-chart-label">Jun '23</div>
+                                    </div>
+                                    <div class="term-dashboard-chart-column">
+                                        <div class="term-dashboard-chart-value">40</div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-blue"
+                                            style="height:90%;"></div>
+                                        <div class="term-dashboard-chart-bar term-dashboard-chart-bar-green"
+                                            style="height:40%; width:30%; left:70%;"></div>
+                                        <div class="term-dashboard-chart-label">Jul '23</div>
+                                    </div>
+                                </div>
+                                <div class="term-dashboard-legend">
+                                    <span class="term-dashboard-legend-item"><span class="term-dashboard-legend-swatch"
+                                            style="color:#0c84ff;background:#0c84ff"></span>Sales</span>
+                                    <span class="term-dashboard-legend-item"><span class="term-dashboard-legend-swatch"
+                                            style="color:#18c98a;background:#18c98a"></span>Visitors</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="term-col term-col-6 term-col-lg-6">
+                        <div class="term-card term-dashboard-panel">
+                            <div class="term-card-header">
+                                <span class="term-card-title">TRAFFIC_PULSE</span>
+                                <div class="term-card-tools">
+                                    <button class="term-btn term-btn-tool term-btn-view" type="button"
+                                        data-term-action="toast" data-term-message="Traffic pulse updated."
+                                        aria-label="Refresh traffic pulse">
+                                        <i class="term-icon term-icon-activity" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="term-card-body">
+                                <div class="term-dashboard-mini">
+                                    <div class="term-dashboard-mini-item">
+                                        <div class="term-dashboard-mini-name"><i class="term-icon term-icon-users"
+                                                aria-hidden="true"></i><span>Visitors</span></div>
+                                        <div class="term-dashboard-mini-value">1,230</div>
+                                    </div>
+                                    <div class="term-dashboard-mini-item">
+                                        <div class="term-dashboard-mini-name"><i class="term-icon term-icon-activity"
+                                                aria-hidden="true"></i><span>Online</span></div>
+                                        <div class="term-dashboard-mini-value">324</div>
+                                    </div>
+                                    <div class="term-dashboard-mini-item">
+                                        <div class="term-dashboard-mini-name"><i class="term-icon term-icon-chart-bar"
+                                                aria-hidden="true"></i><span>Sales</span></div>
+                                        <div class="term-dashboard-mini-value">14.8K</div>
+                                    </div>
+                                    <div class="term-dashboard-mini-item">
+                                        <div class="term-dashboard-mini-name"><i class="term-icon term-icon-chart-pie"
+                                                aria-hidden="true"></i><span>Conversion</span></div>
+                                        <div class="term-dashboard-mini-value">12.4%</div>
+                                    </div>
+                                </div>
+
+                                <div class="term-card-footer term-dashboard-actions"
+                                    style="padding-left:0;padding-right:0;border-top:0;margin-top:16px;">
+                                    <button class="term-btn term-btn-success" type="button" data-term-action="toast"
+                                        data-term-message="Live data synced.">SYNC</button>
+                                    <button class="term-btn term-btn-secondary" type="button" data-term-action="toast"
+                                        data-term-message="Export prepared.">EXPORT</button>
+                                </div>
+
+                                <div style="margin-top:18px;">
+                                    <div class="term-dashboard-mini-item" style="margin-bottom:10px;">
+                                        <div class="term-dashboard-mini-name"><i class="term-icon term-icon-info"
+                                                aria-hidden="true"></i><span>Server uptime</span></div>
+                                        <div class="term-dashboard-mini-value">99.98%</div>
+                                    </div>
+                                    <div class="term-dashboard-mini-item" style="margin-bottom:10px;">
+                                        <div class="term-dashboard-mini-name"><i class="term-icon term-icon-info"
+                                                aria-hidden="true"></i><span>Orders processed</span></div>
+                                        <div class="term-dashboard-mini-value">4,320</div>
+                                    </div>
+                                    <div class="term-dashboard-mini-item" style="margin-bottom:10px;">
+                                        <div class="term-dashboard-mini-name"><i class="term-icon term-icon-info"
+                                                aria-hidden="true"></i><span>New accounts</span></div>
+                                        <div class="term-dashboard-mini-value">123 today</div>
+                                    </div>
+                                    <div class="term-dashboard-mini-item">
+                                        <div class="term-dashboard-mini-name"><i class="term-icon term-icon-info"
+                                                aria-hidden="true"></i><span>Alerts resolved</span></div>
+                                        <div class="term-dashboard-mini-value">18</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="term-modal-overlay" id="configModal" aria-hidden="true">
+            <div class="term-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="configTitle">
+                <div class="term-modal-header">
+                    <span id="configTitle">SYSTEM_CONFIG</span>
+                    <button class="term-btn term-btn-icon term-btn-close" type="button" data-term-action="close-modal"
+                        data-term-target="configModal" aria-label="Close modal">
+                        <i class="term-icon term-icon-close" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="term-modal-body">
+                    <div class="term-form-group">
+                        <label class="term-form-label" for="themeMode">THEME_MODE</label>
+                        <select id="themeMode" class="term-form-select">
+                            <option value="retro">RETRO</option>
+                            <option value="amber">AMBER</option>
+                            <option value="matrix">MATRIX</option>
+                        </select>
+                    </div>
+
+                    <div class="term-form-group">
+                        <label class="term-form-label" for="terminalOpacity">TERMINAL_OPACITY</label>
+                        <input id="terminalOpacity" class="term-form-range" type="range">
+                    </div>
+                </div>
+                <div class="term-modal-footer">
+                    <button class="term-btn term-btn-success" type="button" data-term-action="save-config">
+                        <i class="term-icon term-icon-check" aria-hidden="true"></i>
+                        APPLY
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-modal-overlay" id="logoutModal" aria-hidden="true">
+            <div class="term-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="logoutTitle">
+                <div class="term-modal-header term-modal-header-danger">
+                    <span id="logoutTitle">Logout</span>
+                    <button class="term-btn term-btn-icon term-btn-close" type="button" data-term-action="close-modal"
+                        data-term-target="logoutModal" aria-label="Close modal">
+                        <i class="term-icon term-icon-close" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="term-modal-body">
+                    <p>Are you sure you want to terminate the session?</p>
+                    <p style="color:var(--term-muted); font-size:12px; margin-top:10px;">Unsaved data will be lost.</p>
+                </div>
+                <div class="term-modal-footer">
+                    <button class="term-btn term-btn-secondary" type="button" data-term-action="close-modal"
+                        data-term-target="logoutModal">CANCEL</button>
+                    <button class="term-btn term-btn-delete" type="button" data-term-action="confirm-logout">
+                        <i class="term-icon term-icon-logout-box" aria-hidden="true"></i>
+                        CONFIRM
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-modal-overlay" id="searchModal" aria-hidden="true">
+            <div class="term-modal-dialog term-modal-lg" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+                <div class="term-modal-header">
+                    <span id="searchTitle">SEARCH</span>
+                    <button class="term-btn term-btn-icon term-btn-close" type="button" data-term-action="close-modal"
+                        data-term-target="searchModal" aria-label="Close modal">
+                        <i class="term-icon term-icon-close" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="term-modal-body">
+                    <div class="term-form-group">
+                        <label class="term-form-label" for="searchQuery">SEARCH QUERY</label>
+                        <input id="searchQuery" class="term-form-control" type="text" placeholder="Type to search...">
+                    </div>
+                </div>
+                <div class="term-modal-footer">
+                    <button class="term-btn term-btn-view" type="button" data-term-action="run-search">
+                        <i class="term-icon term-icon-search" aria-hidden="true"></i>
+                        SEARCH
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-toast-container" id="toastArea" aria-live="polite" aria-atomic="true"></div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id" data-term-theme="retro">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../core/js/term-theme.js"></script>
+  <title>Card Demo</title>
+  <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
+  <link rel="stylesheet" href="../main.css">
+  <script defer src="../core/js/term-admin.js"></script>
+  <script defer src="../core/js/term-layout.js"></script>
+  <script defer src="./demo.js"></script>
+</head>
+
+<body class="term-layout-fixed" data-term-theme="retro" data-demo-active="card" data-demo-title="Card"
+  data-demo-desc="card samples">
+  <div class="term-wrapper">
+    <header class="term-header">
+      <div class="term-nav-left">
+        <button class="term-btn term-btn-icon" type="button" data-demo-action="toggle-sidebar"
+          aria-label="Toggle sidebar">
+          <i class="term-icon term-icon-menu" aria-hidden="true"></i>
+        </button>
+        <div class="term-brand">
+          <span>Retro-term</span>
+          <span class="term-brand-subtext">demo / card</span>
+        </div>
+      </div>
+      <div class="term-status-bar"><span>CPU: 12%</span><span>MEM: 4GB</span><span>DEMO</span></div>
+    </header>
+    <div id="demoSidebarMount"></div>
+    <div class="term-overlay" data-demo-action="toggle-sidebar" aria-hidden="true"></div>
+    <main class="term-content">
+      <section class="term-content-header">
+        <div class="term-content-title" id="demoTitle">CARD</div>
+        <div class="term-breadcrumb"><span class="term-breadcrumb-item">example</span><span
+            class="term-breadcrumb-item">card</span></div>
+      </section>
+      <section class="term-content-body">
+        <div class="term-card term-mb-3">
+          <div class="term-card-header term-card-header-info">
+            <span class="term-card-title">CARD DEMO</span>
+          </div>
+          <div class="term-card-body">
+            <p>Sidebar demo tersedia di kiri untuk berpindah ke halaman komponen lain.</p>
+            <p class="term-mt-2" style="color:var(--term-muted);">Halaman ini disusun sebagai referensi kartu yang siap
+              dipakai ulang di halaman lain.</p>
+          </div>
+        </div>
+
+        <div class="term-card term-mb-3">
+          <div class="term-card-header">
+            <span class="term-card-title">VARIANT GRID</span>
+          </div>
+          <div class="term-card-body">
+            <div class="term-row">
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-4 term-mb-2">
+                <div class="term-card term-bg-primary">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">PRIMARY</div>
+                    <div class="term-stat-value">Blueprint</div>
+                    <div class="term-stat-note">Cocok untuk highlight utama.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-4 term-mb-2">
+                <div class="term-card term-bg-info">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">INFO</div>
+                    <div class="term-stat-value">Update</div>
+                    <div class="term-stat-note">Dipakai untuk status informatif.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-4 term-mb-2">
+                <div class="term-card term-bg-success">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">SUCCESS</div>
+                    <div class="term-stat-value">Stable</div>
+                    <div class="term-stat-note">Baik untuk indikator sukses.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-4 term-mb-2">
+                <div class="term-card term-bg-warning">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">WARNING</div>
+                    <div class="term-stat-value">Review</div>
+                    <div class="term-stat-note">Untuk perhatian atau pending.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-4 term-mb-2">
+                <div class="term-card term-bg-danger">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">DANGER</div>
+                    <div class="term-stat-value">Alert</div>
+                    <div class="term-stat-note">Untuk kondisi penting atau error.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="term-col term-col-12 term-col-md-6 term-col-lg-4 term-mb-2">
+                <div class="term-card term-bg-neutral">
+                  <div class="term-card-body">
+                    <div class="term-stat-label">NEUTRAL</div>
+                    <div class="term-stat-value">Base</div>
+                    <div class="term-stat-note">Untuk konten yang lebih tenang.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="term-card term-mb-3">
+          <div class="term-card-header term-card-header-warning">
+            <span class="term-card-title">MEDIA_CARD</span>
+          </div>
+          <div class="term-card-body">
+            <div class="term-row">
+              <div class="term-col term-col-12 term-col-lg-6 term-mb-2">
+                <div class="term-card term-card-media-top term-h100">
+                  <div class="term-card-media">
+                    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" role="img"
+                      aria-label="Top image card">
+                      <defs>
+                        <linearGradient id="cardTopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#0f172a"></stop>
+                          <stop offset="100%" stop-color="#334155"></stop>
+                        </linearGradient>
+                      </defs>
+                      <rect width="800" height="450" fill="url(#cardTopGrad)"></rect>
+                      <circle cx="650" cy="120" r="88" fill="rgba(96,165,250,0.22)"></circle>
+                      <circle cx="560" cy="320" r="130" fill="rgba(34,197,94,0.14)"></circle>
+                      <text x="48" y="170" fill="#ffffff" font-size="64" font-family="Ubuntu, Arial, sans-serif"
+                        font-weight="700">TOP</text>
+                      <text x="48" y="228" fill="#cbd5e1" font-size="24"
+                        font-family="Ubuntu, Arial, sans-serif">Responsive image at the top</text>
+                    </svg>
+                  </div>
+                  <div class="term-card-body">
+                    <div class="term-stat-label">TOP</div>
+                    <div class="term-stat-value">Responsive Hero</div>
+                    <div class="term-stat-note">Gambar penuh di atas, konten card di bawah.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="term-col term-col-12 term-col-lg-6 term-mb-2">
+                <div class="term-card term-card-media-left term-mb-2">
+                  <div class="term-card-media">
+                    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" role="img"
+                      aria-label="Left image card">
+                      <defs>
+                        <linearGradient id="cardLeftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#17324a"></stop>
+                          <stop offset="100%" stop-color="#0f766e"></stop>
+                        </linearGradient>
+                      </defs>
+                      <rect width="800" height="450" fill="url(#cardLeftGrad)"></rect>
+                      <rect x="90" y="90" width="240" height="270" rx="24" fill="rgba(255,255,255,0.12)"></rect>
+                      <text x="380" y="170" fill="#ffffff" font-size="58" font-family="Ubuntu, Arial, sans-serif"
+                        font-weight="700">LEFT</text>
+                      <text x="380" y="226" fill="#d1fae5" font-size="24" font-family="Ubuntu, Arial, sans-serif">Image
+                        on the left side</text>
+                    </svg>
+                  </div>
+                  <div class="term-card-body">
+                    <div class="term-stat-label">LEFT</div>
+                    <div class="term-stat-value">Side Layout</div>
+                    <div class="term-stat-note">Cocok untuk ringkasan, listing, atau media object.</div>
+                  </div>
+                </div>
+                <div class="term-card term-card-media-right term-mb-2">
+                  <div class="term-card-media">
+                    <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" role="img"
+                      aria-label="Right image card">
+                      <defs>
+                        <linearGradient id="cardRightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#7c2d12"></stop>
+                          <stop offset="100%" stop-color="#ea580c"></stop>
+                        </linearGradient>
+                      </defs>
+                      <rect width="800" height="450" fill="url(#cardRightGrad)"></rect>
+                      <circle cx="180" cy="120" r="96" fill="rgba(255,255,255,0.14)"></circle>
+                      <text x="56" y="172" fill="#ffffff" font-size="58" font-family="Ubuntu, Arial, sans-serif"
+                        font-weight="700">RIGHT</text>
+                      <text x="56" y="228" fill="#ffedd5" font-size="24" font-family="Ubuntu, Arial, sans-serif">Image
+                        on the right side</text>
+                    </svg>
+                  </div>
+                  <div class="term-card-body">
+                    <div class="term-stat-label">RIGHT</div>
+                    <div class="term-stat-value">Side Layout</div>
+                    <div class="term-stat-note">Pada mobile akan otomatis stack ke bawah.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="term-col term-col-12 term-mb-2">
+                <div class="term-card term-card-media-cover">
+                  <div class="term-card-media">
+                    <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" role="img"
+                      aria-label="Cover image card">
+                      <defs>
+                        <linearGradient id="cardCoverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#111827"></stop>
+                          <stop offset="100%" stop-color="#4b5563"></stop>
+                        </linearGradient>
+                      </defs>
+                      <rect width="1200" height="520" fill="url(#cardCoverGrad)"></rect>
+                      <circle cx="980" cy="110" r="120" fill="rgba(96,165,250,0.18)"></circle>
+                      <circle cx="1010" cy="360" r="170" fill="rgba(244,114,182,0.12)"></circle>
+                      <text x="58" y="168" fill="#ffffff" font-size="72" font-family="Ubuntu, Arial, sans-serif"
+                        font-weight="700">COVER</text>
+                      <text x="58" y="232" fill="#e2e8f0" font-size="26" font-family="Ubuntu, Arial, sans-serif">Image
+                        fills the whole card area</text>
+                    </svg>
+                  </div>
+                  <div class="term-card-body term-p-4">
+                    <div class="term-stat-label">COVER</div>
+                    <div class="term-stat-value">Full Bleed</div>
+                    <div class="term-stat-note">Pakai untuk hero card atau banner visual.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="term-card term-mb-3">
+          <div class="term-card-header term-card-header-success">
+            <span class="term-card-title">INSTALLATION</span>
+          </div>
+          <div class="term-card-body">
+            <p class="term-mb-2">Pola pemasangan card yang disarankan:</p>
+            <pre class="term-card term-bg-neutral term-p-3 term-mb-2"><code>&lt;div class="term-card term-bg-success"&gt;
+  &lt;div class="term-card-header"&gt;
+    &lt;span class="term-card-title"&gt;CARD TITLE&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="term-card-body"&gt;
+    &lt;p class="term-mb-2"&gt;Konten card&lt;/p&gt;
+    &lt;button class="term-btn term-btn-success"&gt;Action&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <p class="term-mb-2">Untuk gambar responsive, pakai modifier berikut:</p>
+            <pre class="term-card term-bg-neutral term-p-3"><code>&lt;div class="term-card term-card-media-top"&gt;
+  &lt;div class="term-card-media"&gt;
+    &lt;img src="image.jpg" alt="Card image" /&gt;
+  &lt;/div&gt;
+  &lt;div class="term-card-body"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="term-card term-card-media-left"&gt;
+  &lt;div class="term-card-media"&gt;...&lt;/div&gt;
+  &lt;div class="term-card-body"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="term-card term-card-media-right"&gt;
+  &lt;div class="term-card-media"&gt;...&lt;/div&gt;
+  &lt;div class="term-card-body"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="term-card term-card-media-cover"&gt;
+  &lt;div class="term-card-media"&gt;...&lt;/div&gt;
+  &lt;div class="term-card-body"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>

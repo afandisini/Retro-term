@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id" data-term-theme="retro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../core/js/term-theme.js"></script>
+  <title>Form Demo</title>
+  <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="../core/css/term-dashboard.css">
+  <script defer src="../core/js/term-admin.js"></script>
+  <script defer src="../core/js/term-layout.js"></script>
+  <script defer src="./demo.js"></script>
+</head>
+<body class="term-layout-fixed" data-term-theme="retro" data-demo-active="form" data-demo-title="Form" data-demo-desc="form samples">
+  <div class="term-wrapper">
+    <header class="term-header">
+      <div class="term-nav-left">
+        <button class="term-btn term-btn-icon" type="button" data-demo-action="toggle-sidebar" aria-label="Toggle sidebar">
+          <i class="term-icon term-icon-menu" aria-hidden="true"></i>
+        </button>
+        <div class="term-brand">
+          <span>Retro-term</span>
+          <span class="term-brand-subtext">demo / form</span>
+        </div>
+      </div>
+      <div class="term-status-bar"><span>CPU: 12%</span><span>MEM: 4GB</span><span>DEMO</span></div>
+    </header>
+    <div id="demoSidebarMount"></div>
+    <div class="term-overlay" data-demo-action="toggle-sidebar" aria-hidden="true"></div>
+    <main class="term-content">
+      <section class="term-content-header">
+        <div class="term-content-title" id="demoTitle">FORM</div>
+        <div class="term-breadcrumb"><span class="term-breadcrumb-item">example</span><span class="term-breadcrumb-item">form</span></div>
+      </section>
+      <section class="term-content-body">
+        <div class="term-row">
+          <div class="term-col term-col-12 term-col-lg-7 term-mb-2">
+            <div class="term-card">
+              <div class="term-card-header term-card-header-success"><span class="term-card-title">FORM DEMO</span></div>
+              <div class="term-card-body">
+                <form>
+                  <div class="term-form-group term-mb-2">
+                    <label class="term-form-label" for="demoFullName">FULL_NAME</label>
+                    <input id="demoFullName" class="term-form-control term-is-valid" type="text" value="Afan Dev">
+                    <small class="term-form-help term-form-help-success">Valid input example.</small>
+                  </div>
+                  <div class="term-form-group term-mb-2">
+                    <label class="term-form-label" for="demoEmail">EMAIL</label>
+                    <input id="demoEmail" class="term-form-control" type="email" value="afan@example.dev">
+                  </div>
+                  <div class="term-form-group term-mb-2">
+                    <label class="term-form-label" for="demoSecret">SECRET_KEY</label>
+                    <input id="demoSecret" class="term-form-control term-is-invalid" type="password" value="retro-terminal">
+                    <small class="term-form-help term-form-help-danger">Invalid input example.</small>
+                  </div>
+                  <div class="term-form-group term-mb-2">
+                    <label class="term-form-label" for="demoEnv">ENVIRONMENT</label>
+                    <select id="demoEnv" class="term-form-select">
+                      <option>development</option>
+                      <option>staging</option>
+                      <option selected>production</option>
+                    </select>
+                  </div>
+                  <div class="term-form-group term-mb-2">
+                    <label class="term-checkline">
+                      <input class="term-checkline-input" type="checkbox" checked>
+                      <span class="term-checkline-box"></span>
+                      <span class="term-checkline-label">ENABLE_BACKUP</span>
+                    </label>
+                  </div>
+                  <div class="term-form-group">
+                    <label class="term-switch">
+                      <input class="term-switch-input" type="checkbox" checked>
+                      <span class="term-switch-track">
+                        <span class="term-switch-thumb"></span>
+                      </span>
+                      <span class="term-switch-label">REMOTE_ACCESS</span>
+                    </label>
+                  </div>
+                  <div class="term-card-footer term-dashboard-actions">
+                    <button class="term-btn term-btn-success" type="submit">SAVE</button>
+                    <button class="term-btn term-btn-secondary" type="button">RESET</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-col term-col-12 term-col-lg-5 term-mb-2">
+            <div class="term-card">
+              <div class="term-card-header term-card-header-info"><span class="term-card-title">FORM_HELPERS</span></div>
+              <div class="term-card-body">
+                <div class="term-alert term-alert-info term-mb-2">Gunakan <code>term-form-control</code> untuk input utama.</div>
+                <div class="term-alert term-alert-success term-mb-2">State class seperti <code>term-is-valid</code> dan <code>term-is-invalid</code> sudah disediakan.</div>
+                <div class="term-alert term-alert-warning">Tema light/dark tetap ikut state global dari <code>TermAdmin</code>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id" data-term-theme="retro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../core/js/term-theme.js"></script>
+  <title>Timeline Demo</title>
+  <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
+  <link rel="stylesheet" href="../main.css">
+  <script defer src="../core/js/term-admin.js"></script>
+  <script defer src="../core/js/term-layout.js"></script>
+  <script defer src="./demo.js"></script>
+</head>
+<body class="term-layout-fixed" data-term-theme="retro" data-demo-active="timeline" data-demo-title="Timeline" data-demo-desc="timeline samples">
+  <div class="term-wrapper">
+    <header class="term-header">
+      <div class="term-nav-left">
+        <button class="term-btn term-btn-icon" type="button" data-demo-action="toggle-sidebar" aria-label="Toggle sidebar">
+          <i class="term-icon term-icon-menu" aria-hidden="true"></i>
+        </button>
+        <div class="term-brand">
+          <span>Retro-term</span>
+          <span class="term-brand-subtext">demo / timeline</span>
+        </div>
+      </div>
+      <div class="term-status-bar"><span>CPU: 12%</span><span>MEM: 4GB</span><span>DEMO</span></div>
+    </header>
+    <div id="demoSidebarMount"></div>
+    <div class="term-overlay" data-demo-action="toggle-sidebar" aria-hidden="true"></div>
+    <main class="term-content">
+      <section class="term-content-header">
+        <div class="term-content-title" id="demoTitle">Timeline</div>
+        <div class="term-breadcrumb"><span class="term-breadcrumb-item">Home</span><span class="term-breadcrumb-item">Timeline</span></div>
+      </section>
+      <section class="term-content-body">
+        <div class="term-row">
+          <div class="term-col term-col-12 term-col-lg-8 term-mb-2">
+            <div class="term-card">
+              <div class="term-card-header term-card-header-info">
+                <span class="term-card-title">TIMELINE_FEED</span>
+                <span class="term-card-tools">Activity log</span>
+              </div>
+              <div class="term-card-body">
+                <div class="term-timeline-shell">
+                  <div class="term-timeline-group">
+                    <div class="term-timeline-date">10 Feb. 2023</div>
+                    <div class="term-timeline-list">
+                      <article class="term-timeline-item">
+                        <div class="term-timeline-marker term-timeline-marker-blue">
+                          <i class="term-icon term-icon-users" aria-hidden="true"></i>
+                        </div>
+                        <div class="term-timeline-card">
+                          <div class="term-timeline-card-header">
+                            <div>
+                              <span class="term-timeline-card-title">Support Team</span>
+                              <span> sent you an email</span>
+                            </div>
+                            <div class="term-timeline-card-meta">
+                              <i class="term-icon term-icon-clock" aria-hidden="true"></i>
+                              <span>12:05</span>
+                            </div>
+                          </div>
+                          <div class="term-timeline-card-body">
+                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra. Babbely odeo kaboodle quora plaxo ideeli hulu weebly balihoo...
+                            <div class="term-timeline-actions">
+                              <button class="term-btn term-btn-view" type="button">Read more</button>
+                              <button class="term-btn term-btn-delete" type="button">Delete</button>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+
+                      <article class="term-timeline-item">
+                        <div class="term-timeline-marker term-timeline-marker-green">
+                          <i class="term-icon term-icon-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="term-timeline-card">
+                          <div class="term-timeline-card-header">
+                            <div>
+                              <span class="term-timeline-card-title">Sarah Young</span>
+                              <span> accepted your friend request</span>
+                            </div>
+                            <div class="term-timeline-card-meta">
+                              <i class="term-icon term-icon-clock" aria-hidden="true"></i>
+                              <span>5 mins ago</span>
+                            </div>
+                          </div>
+                          <div class="term-timeline-card-body">
+                            Request approved and synced to the active contact list.
+                          </div>
+                        </div>
+                      </article>
+
+                      <article class="term-timeline-item">
+                        <div class="term-timeline-marker term-timeline-marker-amber">
+                          <i class="term-icon term-icon-activity" aria-hidden="true"></i>
+                        </div>
+                        <div class="term-timeline-card">
+                          <div class="term-timeline-card-header">
+                            <div>
+                              <span class="term-timeline-card-title">Jay White</span>
+                              <span> commented on your post</span>
+                            </div>
+                            <div class="term-timeline-card-meta">
+                              <i class="term-icon term-icon-clock" aria-hidden="true"></i>
+                              <span>27 mins ago</span>
+                            </div>
+                          </div>
+                          <div class="term-timeline-card-body">
+                            Take me to your leader! Switzerland is small and neutral! We are more like Germany, ambitious and misunderstood!
+                            <div class="term-timeline-actions">
+                              <button class="term-btn term-btn-warning" type="button">View comment</button>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+
+                  <div class="term-timeline-group">
+                    <div class="term-timeline-date term-timeline-date-success">3 Jan. 2023</div>
+                    <div class="term-timeline-list">
+                      <article class="term-timeline-item">
+                        <div class="term-timeline-marker term-timeline-marker-cyan">
+                          <i class="term-icon term-icon-activity" aria-hidden="true"></i>
+                        </div>
+                        <div class="term-timeline-card">
+                          <div class="term-timeline-card-header">
+                            <div>
+                              <span class="term-timeline-card-title">Mina Lee</span>
+                              <span> uploaded new photos</span>
+                            </div>
+                            <div class="term-timeline-card-meta">
+                              <i class="term-icon term-icon-clock" aria-hidden="true"></i>
+                              <span>2 days ago</span>
+                            </div>
+                          </div>
+                          <div class="term-timeline-card-body">
+                            New gallery assets are available in the archive.
+                            <div class="term-timeline-photos">
+                              <div class="term-timeline-photo">Photo 01</div>
+                              <div class="term-timeline-photo">Photo 02</div>
+                              <div class="term-timeline-photo">Photo 03</div>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="term-col term-col-12 term-col-lg-4 term-mb-2">
+            <div class="term-card">
+              <div class="term-card-header term-card-header-warning"><span class="term-card-title">TIMELINE_NOTE</span></div>
+              <div class="term-card-body">
+                <p class="term-mb-2">Timeline cocok untuk aktivitas user, notifikasi, dan ringkasan status dalam format kronologis.</p>
+                <div class="term-card-footer term-timeline-actions" style="padding-left:0;padding-right:0;border-top:0;">
+                  <button class="term-btn term-btn-view" type="button">VIEW_ALL</button>
+                  <button class="term-btn term-btn-success" type="button">EXPORT</button>
+                </div>
+                <div class="term-alert term-alert-info term-mt-2">Konsep baru memakai jalur vertikal, badge tanggal, dan card putih dengan aksen warna.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+
+
+

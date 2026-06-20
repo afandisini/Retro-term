@@ -1,0 +1,1010 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light" data-base-url="http://localhost:8000/framework_css_retro/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Retro-term</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="retro-term.css">
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            overscroll-behavior: none;
+        }
+
+        /* ===== LOGIN PAGE LAYOUT ===== */
+        .rt-login {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(18px, 3vw, 40px);
+            overflow: hidden;
+            isolation: isolate;
+            background-color: var(--rt-bg);
+            background:
+                radial-gradient(circle at 12% 18%, rgba(var(--rt-primary-rgb), .18), transparent 36rem),
+                radial-gradient(circle at 88% 12%, rgba(0, 184, 255, .14), transparent 30rem),
+                radial-gradient(circle at 82% 88%, rgba(255, 122, 89, .12), transparent 32rem),
+                radial-gradient(circle at 18% 82%, rgba(109, 40, 217, .10), transparent 28rem),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0)),
+                var(--rt-bg);
+        }
+
+        .rt-login::before,
+        .rt-login::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .rt-login::before {
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.06));
+            opacity: .45;
+        }
+
+        .rt-login::after {
+            background:
+                radial-gradient(circle at 50% 18%, rgba(var(--rt-primary-rgb), .08), transparent 26rem),
+                radial-gradient(circle at 50% 80%, rgba(255, 122, 89, .06), transparent 22rem);
+            opacity: .7;
+        }
+
+        /* Decorative floating shapes */
+        .rt-login__shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: .5;
+            pointer-events: none;
+            animation: rtFloat 14s ease-in-out infinite;
+        }
+
+        .rt-login__shape--1 {
+            width: 320px;
+            height: 320px;
+            background: rgba(var(--rt-primary-rgb), .22);
+            top: -80px;
+            left: -80px;
+        }
+
+        .rt-login__shape--2 {
+            width: 260px;
+            height: 260px;
+            background: rgba(0, 184, 255, .18);
+            bottom: -60px;
+            right: -60px;
+            animation-delay: -5s;
+        }
+
+        .rt-login__shape--3 {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 122, 89, .16);
+            top: 30%;
+            right: 10%;
+            animation-delay: -9s;
+        }
+
+        @keyframes rtFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -20px) scale(1.05);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(.95);
+            }
+        }
+
+        /* ===== LOGIN CARD ===== */
+        .rt-login__card {
+            position: relative;
+            width: 100%;
+            max-width: 456px;
+            padding: 38px 36px 32px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            z-index: 2;
+            animation: rtCardIn .5s cubic-bezier(.2, .8, .2, 1) both;
+            transform-origin: center center;
+            transform: scale(var(--login-scale, 1));
+            max-height: calc(100dvh - 92px);
+            overflow: auto;
+        }
+
+        @keyframes rtCardIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px) scale(calc(var(--login-scale, 1) * .98));
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(var(--login-scale, 1));
+            }
+        }
+
+        /* ===== BRAND ===== */
+        .rt-login__brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 28px;
+            font-weight: 950;
+            letter-spacing: -.05em;
+            font-size: 1.12rem;
+        }
+
+        .rt-login__brand .rt-brand_dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--rt-primary), var(--rt-primary-2));
+            box-shadow: 0 0 0 8px rgba(var(--rt-primary-rgb), .13);
+        }
+
+        /* ===== HEADER ===== */
+        .rt-login__head {
+            margin-bottom: 26px;
+        }
+
+        .rt-login__home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: -6px;
+            margin-bottom: 20px;
+            color: var(--rt-primary);
+            font-size: .84rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: opacity .2s ease, transform .2s ease;
+        }
+
+        .rt-login__home:hover {
+            opacity: .8;
+            transform: translateX(-1px);
+        }
+
+        .rt-login__title {
+            font-size: 1.75rem;
+            font-weight: 950;
+            letter-spacing: -.045em;
+            line-height: 1.15;
+            margin: 0 0 8px;
+        }
+
+        .rt-login__subtitle {
+            margin: 0;
+            color: var(--rt-muted);
+            font-size: .92rem;
+            font-weight: 520;
+            line-height: 1.6;
+        }
+
+        /* ===== FORM ===== */
+        .rt-login__form {
+            display: grid;
+            gap: 16px;
+        }
+
+        .rt-field {
+            display: grid;
+            gap: 6px;
+        }
+
+        .rt-field__label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: .82rem;
+            font-weight: 800;
+            color: var(--rt-text);
+            letter-spacing: -.01em;
+        }
+
+        .rt-field__link {
+            font-size: .78rem;
+            font-weight: 800;
+            color: var(--rt-primary);
+            text-decoration: none;
+            transition: opacity .2s ease;
+        }
+
+        .rt-field__link:hover {
+            opacity: .75;
+        }
+
+        .rt-field__input-wrap {
+            position: relative;
+        }
+
+        .rt-field__input {
+            width: 100%;
+            height: 46px;
+            padding: 0 14px 0 42px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            color: var(--rt-text);
+            outline: none;
+            font-size: .9rem;
+            font-weight: 600;
+            transition: border-color .2s ease, background .2s ease;
+        }
+
+        .rt-field__input::placeholder {
+            color: var(--rt-muted);
+            font-weight: 500;
+        }
+
+        .rt-field__input:focus {
+            border-color: var(--rt-primary);
+            background: var(--rt-surface-solid);
+        }
+
+        .rt-field__icon {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 17px;
+            height: 17px;
+            color: var(--rt-muted);
+            stroke-width: 2;
+            pointer-events: none;
+            transition: color .2s ease;
+        }
+
+        .rt-field__input:focus~.rt-field__icon {
+            color: var(--rt-primary);
+        }
+
+        .rt-field__toggle {
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            display: inline-grid;
+            place-items: center;
+            background: transparent;
+            border: none;
+            color: var(--rt-muted);
+            cursor: pointer;
+            transition: color .2s ease;
+        }
+
+        .rt-field__toggle:hover {
+            color: var(--rt-primary);
+        }
+
+        .rt-field__toggle svg {
+            width: 16px;
+            height: 16px;
+            stroke-width: 2;
+        }
+
+        /* ===== CHECKBOX ===== */
+        .rt-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+            font-size: .84rem;
+            font-weight: 700;
+            color: var(--rt-text);
+        }
+
+        .rt-check__input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .rt-check__box {
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            display: inline-grid;
+            place-items: center;
+            transition: all .2s ease;
+            flex: 0 0 auto;
+        }
+
+        .rt-check__box svg {
+            width: 12px;
+            height: 12px;
+            stroke-width: 3;
+            color: #fff;
+            opacity: 0;
+            transform: scale(.5);
+            transition: all .2s ease;
+        }
+
+        .rt-check__input:checked~.rt-check__box {
+            background: var(--rt-primary);
+            border-color: var(--rt-primary);
+        }
+
+        .rt-check__input:checked~.rt-check__box svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .rt-login__row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        /* ===== SUBMIT BUTTON ===== */
+        .rt-login__submit {
+            width: 100%;
+            min-height: 48px;
+            margin-top: 6px;
+            font-size: .92rem;
+            font-weight: 900;
+            letter-spacing: -.01em;
+        }
+
+        .rt-login__submit .rt-spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, .35);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: rtSpin .7s linear infinite;
+        }
+
+        .rt-login__submit.is-loading .rt-spinner {
+            display: inline-block;
+        }
+
+        .rt-login__submit.is-loading .rt-btn-text {
+            opacity: .85;
+        }
+
+        @keyframes rtSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== DIVIDER ===== */
+        .rt-login__divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 22px 0 18px;
+            color: var(--rt-muted);
+            font-size: .74rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .rt-login__divider::before,
+        .rt-login__divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--rt-border);
+        }
+
+        /* ===== SOCIAL BUTTONS ===== */
+        .rt-login__socials {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .rt-login__social {
+            min-height: 44px;
+            padding: 0 14px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            color: var(--rt-text);
+            font-size: .84rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            transition: all .2s ease;
+        }
+
+        .rt-login__social:hover {
+            border-color: rgba(var(--rt-primary-rgb), .3);
+            transform: translateY(-1px);
+        }
+
+        .rt-login__social svg {
+            width: 17px;
+            height: 17px;
+            flex: 0 0 auto;
+        }
+
+        /* ===== FOOTER ===== */
+        .rt-login__foot {
+            margin-top: 24px;
+            text-align: center;
+            font-size: .86rem;
+            font-weight: 600;
+            color: var(--rt-muted);
+        }
+
+        .rt-login__foot a {
+            color: var(--rt-primary);
+            font-weight: 800;
+            text-decoration: none;
+            transition: opacity .2s ease;
+        }
+
+        .rt-login__foot a:hover {
+            opacity: .75;
+        }
+
+        /* ===== THEME TOGGLE ===== */
+        .rt-login__theme {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            color: var(--rt-text);
+            cursor: pointer;
+            display: inline-grid;
+            place-items: center;
+            z-index: 10;
+            transition: all .2s ease;
+        }
+
+        .rt-login__theme:hover {
+            transform: translateY(-1px);
+            color: var(--rt-primary);
+        }
+
+        .rt-login__theme svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2;
+        }
+
+        .rt-login__theme .sun-icon {
+            display: none;
+        }
+
+        html[data-theme='dark'] .rt-login__theme .moon-icon {
+            display: none;
+        }
+
+        html[data-theme='dark'] .rt-login__theme .sun-icon {
+            display: block;
+        }
+
+        /* ===== LEGAL ===== */
+        .rt-login__legal {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            text-align: center;
+            font-size: .72rem;
+            font-weight: 600;
+            color: var(--rt-muted);
+            z-index: 2;
+            padding: 0 12px;
+            pointer-events: none;
+        }
+
+        .rt-login__legal a {
+            color: var(--rt-muted);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: rgba(var(--rt-primary-rgb), .3);
+            pointer-events: auto;
+        }
+
+        .rt-login__legal a:hover {
+            color: var(--rt-primary);
+        }
+
+        /* ===== ERROR STATE ===== */
+        .rt-field.is-error .rt-field__input {
+            border-color: var(--rt-danger);
+        }
+
+        .rt-field__error {
+            display: none;
+            font-size: .76rem;
+            font-weight: 700;
+            color: var(--rt-danger);
+            margin-top: 2px;
+        }
+
+        .rt-field.is-error .rt-field__error {
+            display: block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .rt-login {
+                padding: 10px;
+                align-items: stretch;
+                justify-content: center;
+            }
+
+            .rt-login__card {
+                padding: 24px 18px 18px;
+                max-width: 100%;
+                max-height: none;
+                overflow: hidden;
+            }
+
+            .rt-login__brand {
+                margin-bottom: 18px;
+                font-size: 1rem;
+                gap: 8px;
+            }
+
+            .rt-login__head {
+                margin-bottom: 18px;
+            }
+
+            .rt-login__title {
+                font-size: 1.3rem;
+                margin-bottom: 6px;
+            }
+
+            .rt-login__subtitle {
+                font-size: .8rem;
+                line-height: 1.5;
+            }
+
+            .rt-login__form {
+                gap: 12px;
+            }
+
+            .rt-field {
+                gap: 5px;
+            }
+
+            .rt-field__label {
+                font-size: .75rem;
+            }
+
+            .rt-field__input {
+                height: 40px;
+                font-size: .84rem;
+            }
+
+            .rt-field__icon {
+                width: 16px;
+                height: 16px;
+            }
+
+            .rt-field__toggle {
+                width: 30px;
+                height: 30px;
+            }
+
+            .rt-check {
+                font-size: .8rem;
+            }
+
+            .rt-login__submit {
+                min-height: 44px;
+                margin-top: 2px;
+                font-size: .88rem;
+            }
+
+            .rt-login__divider {
+                margin: 14px 0 12px;
+                font-size: .68rem;
+            }
+
+            .rt-login__socials {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .rt-login__social {
+                min-height: 40px;
+                font-size: .8rem;
+            }
+
+            .rt-login__foot {
+                margin-top: 14px;
+                font-size: .78rem;
+            }
+
+            .rt-login__legal {
+                bottom: 6px;
+                font-size: .66rem;
+            }
+        }
+
+        /* Untuk layar pendek (height < 700px) */
+        @media (max-height: 700px) {
+            .rt-login {
+                padding: 10px;
+            }
+
+            .rt-login__card {
+                padding: 24px 18px 18px;
+                max-height: none;
+                overflow: hidden;
+            }
+
+            .rt-login__head {
+                margin-bottom: 18px;
+            }
+
+            .rt-login__form {
+                gap: 12px;
+            }
+
+            .rt-login__divider {
+                margin: 14px 0 12px;
+            }
+
+            .rt-login__socials {
+                margin-bottom: 12px;
+            }
+
+            .rt-login__foot {
+                margin-top: 14px;
+            }
+        }
+
+        /* ===== FLAT MODE OVERRIDE ===== */
+        .rt-login__card,
+        .rt-field__input,
+        .rt-login__social,
+        .rt-check__box,
+        .rt-login__theme {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        @media (min-width: 961px) {
+            .rt-login__card {
+                --login-scale: 0.8;
+                overflow: hidden;
+                max-height: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rt-login__card {
+                --login-scale: 0.92;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="rt-login">
+
+        <!-- Decorative Shapes -->
+        <div class="rt-login__shape rt-login__shape--1"></div>
+        <div class="rt-login__shape rt-login__shape--2"></div>
+        <div class="rt-login__shape rt-login__shape--3"></div>
+
+        <!-- Theme Toggle -->
+        <button class="rt-login__theme" id="themeToggle" aria-label="Toggle theme">
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+        </button>
+
+        <!-- LOGIN CARD -->
+        <main class="rt-login__card">
+
+            <!-- Brand -->
+            <div class="rt-login__brand">
+                <span class="rt-brand_dot"></span>
+                <span>Retro-term</span>
+            </div>
+
+            <!-- Header -->
+            <div class="rt-login__head">
+                <h1 class="rt-login__title">Welcome back &#128075;</h1>
+                <p class="rt-login__subtitle">Sign in to your account to continue to the dashboard.</p>
+            </div>
+
+            <a class="rt-tbl rt-tbl--secondary rt-tbl--sm rt-login__home" href="index.html" data-rt-href="index.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16" aria-hidden="true">
+                    <path d="M3 12l9-9 9 9"></path>
+                    <path d="M5 10v10h14V10"></path>
+                </svg>
+                Back to Home
+            </a>
+
+            <!-- Form -->
+            <form class="rt-login__form" id="loginForm" novalidate>
+
+                <!-- Email -->
+                <div class="rt-field" id="fieldEmail">
+                    <label class="rt-field__label" for="email">Email</label>
+                    <div class="rt-field__input-wrap">
+                        <input type="email" id="email" class="rt-field__input" placeholder="demo@retro-term.com"
+                            autocomplete="email" required>
+                        <svg class="rt-field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                    </div>
+                    <span class="rt-field__error">Enter a valid email address</span>
+                </div>
+
+                <!-- Password -->
+                <div class="rt-field" id="fieldPassword">
+                    <label class="rt-field__label" for="password">
+                        <span>Password</span>
+                        <a href="#" class="rt-field__link">Forgot password?</a>
+                    </label>
+                    <div class="rt-field__input-wrap">
+                        <input type="password" id="password" class="rt-field__input" placeholder="Enter password"
+                            autocomplete="current-password" required>
+                        <svg class="rt-field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg>
+                        <button type="button" class="rt-field__toggle" id="togglePassword"
+                            aria-label="Show password">
+                            <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                            <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                style="display:none">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                                <line x1="1" y1="1" x2="23" y2="23" />
+                            </svg>
+                        </button>
+                    </div>
+                    <span class="rt-field__error">Password minimal 6 karakter</span>
+                </div>
+
+                <!-- Remember + Forgot -->
+                <div class="rt-login__row">
+                    <label class="rt-check">
+                        <input type="checkbox" class="rt-check__input" id="remember">
+                        <span class="rt-check__box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </span>
+                        Remember me
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="rt-tbl rt-tbl--primary rt-login__submit" id="submitBtn">
+                    <span class="rt-btn-text">Login</span>
+                    <span class="rt-spinner"></span>
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="rt-login__divider">or sign in with</div>
+
+            <!-- Social -->
+            <div class="rt-login__socials">
+                <button type="button" class="rt-login__social">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                    Google
+                </button>
+                <button type="button" class="rt-login__social">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                    GitHub
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <p class="rt-login__foot">
+                Don't have an account? <a href="#">Sign up now</a>
+            </p>
+        </main>
+
+        <!-- Legal -->
+        <div class="rt-login__legal">
+            &copy; 2026 Retro-term &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            const html = document.documentElement;
+            const rawBase = (html.getAttribute('data-base-url') || window.RT_BASE_URL || localStorage.getItem('rt-base-url') || '').trim();
+            const baseUrl = rawBase
+                ? (rawBase.endsWith('/') ? rawBase : `${rawBase}/`)
+                : '';
+
+            window.RT = window.RT || {};
+            window.RT.config = window.RT.config || {};
+            if (!window.RT.config.baseUrl && baseUrl) {
+                window.RT.config.baseUrl = baseUrl;
+            }
+
+            if (typeof window.RT.url !== 'function') {
+                window.RT.url = function (path) {
+                    if (!path || /^(?:[a-z][a-z\d+\-.]*:|\/\/|#|mailto:|tel:|javascript:)/i.test(path)) {
+                        return path;
+                    }
+
+                    if (!window.RT.config.baseUrl) return path;
+
+                    try {
+                        return new URL(path, window.RT.config.baseUrl).href;
+                    } catch {
+                        return path;
+                    }
+                };
+            }
+        })();
+
+        // ===== THEME TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const RT = window.RT || { url: (path) => path };
+        const loginCard = document.querySelector('.rt-login__card');
+
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('rt-theme', theme);
+        }
+
+        function updateLoginScale() {
+            if (!loginCard) return;
+
+            const width = window.innerWidth;
+            let scale = 1;
+
+            if (width >= 961) {
+                scale = 0.8;
+            } else if (width <= 375) {
+                scale = 0.86;
+            } else if (width <= 430) {
+                scale = 0.9;
+            } else if (width <= 480) {
+                scale = 0.92;
+            }
+
+            html.style.setProperty('--login-scale', scale.toFixed(3));
+        }
+
+        const savedTheme = localStorage.getItem('rt-theme') || 'light';
+        setTheme(savedTheme);
+        updateLoginScale();
+
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // ===== PASSWORD TOGGLE =====
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeOpen = togglePassword.querySelector('.eye-open');
+        const eyeClosed = togglePassword.querySelector('.eye-closed');
+
+        togglePassword.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            eyeOpen.style.display = isPassword ? 'none' : 'block';
+            eyeClosed.style.display = isPassword ? 'block' : 'none';
+        });
+
+        window.addEventListener('resize', updateLoginScale, { passive: true });
+
+        // ===== FORM VALIDATION =====
+        const form = document.getElementById('loginForm');
+        const fieldEmail = document.getElementById('fieldEmail');
+        const fieldPassword = document.getElementById('fieldPassword');
+        const emailInput = document.getElementById('email');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Clear error on input
+        emailInput.addEventListener('input', () => fieldEmail.classList.remove('is-error'));
+        passwordInput.addEventListener('input', () => fieldPassword.classList.remove('is-error'));
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let valid = true;
+
+            if (!validateEmail(emailInput.value.trim())) {
+                fieldEmail.classList.add('is-error');
+                valid = false;
+            }
+
+            if (passwordInput.value.length < 6) {
+                fieldPassword.classList.add('is-error');
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            // Simulate loading
+            submitBtn.classList.add('is-loading');
+            submitBtn.disabled = true;
+            submitBtn.querySelector('.rt-btn-text').textContent = 'Signing in...';
+
+            setTimeout(() => {
+                submitBtn.classList.remove('is-loading');
+                submitBtn.disabled = false;
+                submitBtn.querySelector('.rt-btn-text').textContent = 'Login';
+                window.location.href = RT.url('example/dashboard.html');
+            }, 1500);
+        });
+    </script>
+
+</body>
+
+</html>
+

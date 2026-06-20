@@ -2,6 +2,14 @@
 
 Retro-term CSS is a retro-modern UI framework for admin dashboards, landing pages, documentation pages, and form-driven interfaces.
 
+## Preview
+
+![Front Page Preview](assets/images/front_page.png)
+
+![Admin Panel Preview](assets/images/admin_panel.png)
+
+![Login Page Preview](assets/images/login_page.png)
+
 ## What You Get
 
 - `retro-term.css`
@@ -31,6 +39,10 @@ framework_css_retro/
 |   |-- toast.html
 |   `-- typography.html
 |-- assets/
+|   |-- images/
+|   |   |-- admin_panel.png
+|   |   |-- front_page.png
+|   |   `-- login_page.png
 |   `-- term-icons/
 |       `-- dist/
 |-- sass/

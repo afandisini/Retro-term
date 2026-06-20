@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro-term - Badge</title>
+    <title>Retro-term - Buttons</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
@@ -13,40 +13,69 @@
 </head>
 
 <body>
+
     <div class="rt-admin">
+
+        <!-- SIDEBAR OVERLAY -->
         <div class="rt-sbr_overlay" id="sidebarOverlay"></div>
+
+        <!-- ===== SIDEBAR ===== -->
         <aside class="rt-sbr" id="sidebar">
-            <div class="rt-sbr_brand"><span class="rt-brand_dot"></span><span>Retro-term</span></div>
+            <div class="rt-sbr_brand">
+                <span class="rt-brand_dot"></span>
+                <span>Retro-term</span>
+            </div>
+
             <div class="rt-sbr_label">Main Menu</div>
             <nav class="rt-sbr_nav">
                 <a class="rt-sbr_link" href="dashboard.html">
                     <i class="rt-icon term-icon-dashboard" aria-hidden="true"></i>
                     Dashboard
                 </a>
+
+                <!-- Sidebar Dropdown: Retro-term Ui -->
                 <div class="rt-sd" data-sd>
-                    <button class="rt-sd_trigger" type="button">
+                    <button class="rt-sd_trigger is-active" type="button">
                         <i class="rt-icon term-icon-users" aria-hidden="true"></i>
                         UI Elements
                         <span class="rt-sbr_badge">8</span>
                         <i class="rt-icon term-icon-chevron-down rt-sd_chevron" aria-hidden="true"></i>
                     </button>
                     <div class="rt-sd_children">
-                        <a class="rt-sd_child" href="buttons.html">Button</a>
-                        <a class="rt-sd_child" href="badge.html">Badge</a>
-                        <a class="rt-sd_child" href="popup.html">Popup</a>
-                        <a class="rt-sd_child" href="toast.html">Toast</a>
-                        <a class="rt-sd_child" href="table.html">Table</a>
-                        <a class="rt-sd_child" href="input.html">Input Form</a>
-                        <a class="rt-sd_child" href="typography.html">Typography</a>
-                        <a class="rt-sd_child" href="color.html">Color</a>
+                        <a class="rt-sd_child is-active" href="buttons.html">
+                            Button
+                        </a>
+                        <a class="rt-sd_child" href="badge.html">
+                            Badge
+                        </a>
+                        <a class="rt-sd_child" href="popup.html">
+                            Popup
+                        </a>
+                        <a class="rt-sd_child" href="toast.html">
+                            Toast
+                        </a>
+                        <a class="rt-sd_child" href="table.html">
+                            Table
+                        </a>
+                        <a class="rt-sd_child" href="input.html">
+                            Input Form
+                        </a>
+                        <a class="rt-sd_child" href="typography.html">
+                            Typography
+                        </a>
+                        <a class="rt-sd_child" href="color.html">
+                            Color
+                        </a>
                     </div>
                 </div>
+
                 <div class="rt-sbr_label">Documentation</div>
                 <a class="rt-sbr_link" href="doc.html">
                     <i class="rt-icon term-icon-question" aria-hidden="true"></i>
                     Doc
                 </a>
             </nav>
+
             <div class="rt-sbr_footer">
                 <div class="rt-sbr_user">
                     <div class="rt-sbr_avatar">C</div>
@@ -58,12 +87,15 @@
             </div>
         </aside>
 
+        <!-- MAIN CONTENT -->
         <main class="rt-main">
+            <!-- TOPBAR -->
             <div class="rt-topbar">
                 <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
                     <i class="rt-icon term-icon-menu" aria-hidden="true"></i>
                 </button>
-                <h1 class="rt-topbar_title">Badge</h1>
+                <h1 class="rt-topbar_title">Buttons</h1>
+
                 <div class="rt-topbar_search">
                     <i class="rt-icon term-icon-search" aria-hidden="true"></i>
                     <input type="text" placeholder="Search something...">
@@ -121,53 +153,56 @@
                 </div>
             </div>
 
-            <div class="rt-panel rt-section rt-p3">
-                <h2>Basic Badges</h2>
-                <div class="rt-row">
-                    <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Primary</span>
-                    <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Success</span>
-                    <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Warning</span>
-                    <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Danger</span>
-                </div>
-            </div>
-
-            <div class="rt-grid rt-mt3">
-                <div class="rt-panel">
-                    <div class="rt-panel_head">
-                        <div>
-                            <div class="rt-panel_title">Status Tags</div>
-                            <div class="rt-panel_subtitle">Common usage in cards and tables</div>
-                        </div>
-                    </div>
-                    <div class="rt-panel_body">
-                        <div class="rt-row">
-                            <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Draft</span>
-                            <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Pending</span>
-                            <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Active</span>
-                            <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Expired</span>
-                        </div>
-                        <p style="color:var(--rt-muted);font-size:.9rem;line-height:1.7">
-                            Badge dipakai sebagai penanda status, filter cepat, dan label informasi di dashboard.
-                        </p>
+            <!-- DEMO: BUTTONS (rt-tbl) -->
+            <div class="rt-panel rt-section">
+                <div class="rt-panel_head">
+                    <div>
+                        <div class="rt-panel_title">Komponen: Tombol (rt-tbl)</div>
+                        <div class="rt-panel_subtitle">Variasi warna & ukuran</div>
                     </div>
                 </div>
-
-                <div class="rt-panel">
-                    <div class="rt-panel_head">
-                        <div>
-                            <div class="rt-panel_title">Counter Badge</div>
-                            <div class="rt-panel_subtitle">Combine with menu items</div>
-                        </div>
+                <div class="rt-panel_body">
+                    <div class="rt-label">Warna</div>
+                    <div class="rt-row rt-py2">
+                        <button class="rt-tbl rt-tbl-primary">Primary</button>
+                        <button class="rt-tbl rt-tbl-secondary">Secondary</button>
+                        <button class="rt-tbl rt-tbl-success">Success</button>
+                        <button class="rt-tbl rt-tbl-warning">Warning</button>
+                        <button class="rt-tbl rt-tbl-danger">Danger</button>
+                        <button class="rt-tbl rt-tbl-accent">Accent</button>
+                        <button class="rt-tbl rt-tbl-purple">Purple</button>
+                        <button class="rt-tbl rt-tbl-ghost">Ghost</button>
+                        <button class="rt-tbl rt-tbl-outline">Outline</button>
                     </div>
-                    <div class="rt-panel_body">
-                        <div class="rt-sbr_link" style="width:fit-content">
-                            Inbox
-                            <span class="rt-sbr_badge">24</span>
-                        </div>
-                        <div class="rt-sbr_link rt-mt2" style="width:fit-content">
-                            Notifications
-                            <span class="rt-sbr_badge">7</span>
-                        </div>
+
+                    <div class="rt-label">Dengan Ikon</div>
+                    <div class="rt-row rt-py2">
+                        <button class="rt-tbl rt-tbl-primary">
+                            <i class="rt-icon term-icon-add" aria-hidden="true"></i>
+                            Add Data
+                        </button>
+                        <button class="rt-tbl rt-tbl-success">
+                            <i class="rt-icon term-icon-check" aria-hidden="true"></i>
+                            Save
+                        </button>
+                        <button class="rt-tbl rt-tbl-danger">
+                            <i class="rt-icon term-icon-delete" aria-hidden="true"></i>
+                            Delete
+                        </button>
+                        <button class="rt-tbl rt-tbl-outline">
+                            <i class="rt-icon term-icon-download" aria-hidden="true"></i>
+                            Download
+                        </button>
+                    </div>
+
+                    <div class="rt-label">Ukuran</div>
+                    <div class="rt-row rt-py2">
+                        <button class="rt-tbl rt-tbl-primary rt-tbl--sm">Small</button>
+                        <button class="rt-tbl rt-tbl-primary">Default</button>
+                        <button class="rt-tbl rt-tbl-primary rt-tbl--lg">Large</button>
+                        <button class="rt-tbl rt-tbl-primary rt-tbl--icon" title="Icon only">
+                            <i class="rt-icon term-icon-add" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -175,6 +210,7 @@
     </div>
 
     <script src="../retro-term.js" defer></script>
+
 </body>
 
 </html>

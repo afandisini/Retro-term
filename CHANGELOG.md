@@ -1,18 +1,38 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to Retro-term CSS will be documented in this file.
 
-## [0.1.0] - 2026-06-15
+## [1.0.0] - 2026-06-20
 
 ### Added
 
-- Brand name `Retro-term` for the UI framework and demo surfaces.
-- `main.min.css` as the compressed production stylesheet.
-- `sass/main.scss` as the Sass source entry point.
-- Initial changelog for the new GitHub repo seed.
+- Initial Retro-term CSS framework structure
+- Main stylesheet `retro-term.css`
+- Minified stylesheet `retro-term.min.css`
+- JavaScript helper `retro-term.js`
+- Admin dashboard layout
+- Login page
+- Documentation page
+- Demo pages in `example/`
+- UI components for buttons, badges, tables, inputs, typography, popups, toast, and colors
+- Theme toggle support
+- Mobile sidebar and dropdown interactions
 
-### Changed
+### Updated
 
-- Unified visible branding text across docs, examples, and adapter sources.
-- Updated repository wording to use `Retro-term` consistently.
+- Landing page content and layout
+- Documentation layout with sidebar and search
+- Login layout for better desktop and mobile behavior
+- Dashboard and demo page navigation consistency
 
+### Fixed
+
+- Popup and modal scrolling behavior
+- Mobile spacing and overflow issues
+- Navigation links and logout redirects
+- Table demo layout and filter behavior
+
+### Notes
+
+- The project is designed to work as a static CSS framework.
+- Paths should be adjusted depending on whether the project runs from the root folder or a subfolder.

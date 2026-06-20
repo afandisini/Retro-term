@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro-term - Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
+    <link rel="stylesheet" href="../retro-term.css">
+
+    <style>
+        .rt-doc-card {
+            display: block;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            overflow: hidden;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .rt-doc-card__body {
+            padding: 18px 20px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .rt-doc-card__sample {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .rt-doc-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            font-size: .8rem;
+            font-weight: 700;
+            color: var(--rt-text);
+        }
+
+        .rt-doc-mini code {
+            font: inherit;
+            color: var(--rt-primary);
+        }
+
+        .rt-doc-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 10px;
+            border: 1px solid var(--rt-border);
+            background: rgba(var(--rt-primary-rgb), .06);
+            color: var(--rt-text);
+            font-size: .8rem;
+            font-weight: 700;
+        }
+
+        .rt-doc-input {
+            width: 100%;
+            height: 38px;
+            padding: 0 12px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            color: var(--rt-text);
+            font-size: .84rem;
+            outline: none;
+        }
+
+        .rt-doc-card--hidden {
+            display: none !important;
+        }
+
+        .rt-doc-hero {
+            padding: 22px 24px;
+            border: 1px solid var(--rt-border);
+            background:
+                radial-gradient(circle at 12% 18%, rgba(var(--rt-primary-rgb), .10), transparent 24rem),
+                radial-gradient(circle at 88% 12%, rgba(0, 184, 255, .08), transparent 20rem),
+                var(--rt-surface);
+        }
+
+        .rt-doc-hero__top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .rt-doc-hero__title {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 950;
+            letter-spacing: -.045em;
+            margin: 0 0 8px;
+        }
+
+        .rt-doc-hero__desc {
+            margin: 0;
+            color: var(--rt-muted);
+            line-height: 1.7;
+            max-width: 760px;
+        }
+
+        .rt-doc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .rt-doc-grid--2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .rt-doc-grid--4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .rt-doc-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 280px;
+            gap: 18px;
+            align-items: start;
+            margin-top: 18px;
+        }
+
+        .rt-doc-main {
+            display: grid;
+            gap: 18px;
+        }
+
+        .rt-doc-aside {
+            position: sticky;
+            top: 92px;
+            display: grid;
+            gap: 16px;
+        }
+
+        .rt-doc-aside__card {
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            padding: 16px;
+        }
+
+        .rt-doc-aside__title {
+            margin: 0 0 10px;
+            font-size: .84rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .rt-doc-nav {
+            display: grid;
+            gap: 6px;
+        }
+
+        .rt-doc-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            color: var(--rt-text);
+            font-size: .86rem;
+            font-weight: 700;
+            transition: background .2s ease, color .2s ease, transform .2s ease;
+        }
+
+        .rt-doc-nav a:hover {
+            background: rgba(var(--rt-primary-rgb), .08);
+            color: var(--rt-primary);
+            transform: translateX(2px);
+        }
+
+        .rt-doc-searchbox {
+            display: grid;
+            gap: 8px;
+        }
+
+        .rt-doc-searchbox input {
+            width: 100%;
+            height: 42px;
+            padding: 0 14px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            color: var(--rt-text);
+            outline: none;
+            font-size: .84rem;
+            font-weight: 600;
+        }
+
+        .rt-doc-searchbox input:focus {
+            border-color: rgba(var(--rt-primary-rgb), .4);
+        }
+
+        .rt-doc-searchmeta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 8px;
+            font-size: .78rem;
+            color: var(--rt-muted);
+            font-weight: 700;
+        }
+
+        .rt-doc-section {
+            margin-top: 18px;
+        }
+
+        .rt-doc-section__title {
+            font-size: 1.05rem;
+            font-weight: 950;
+            letter-spacing: -.03em;
+            margin: 0 0 10px;
+        }
+
+        .rt-doc-section__subtitle {
+            margin: 0 0 14px;
+            color: var(--rt-muted);
+            font-size: .88rem;
+            line-height: 1.6;
+        }
+
+        .rt-doc-list {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--rt-muted);
+            line-height: 1.7;
+            font-size: .9rem;
+        }
+
+        .rt-doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--rt-primary);
+            font-weight: 800;
+            font-size: .88rem;
+        }
+
+        .rt-doc-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width: 1024px) {
+
+            .rt-doc-grid,
+            .rt-doc-grid--2,
+            .rt-doc-grid--4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .rt-doc-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .rt-doc-aside {
+                position: static;
+                top: auto;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            .rt-doc-grid,
+            .rt-doc-grid--2,
+            .rt-doc-grid--4 {
+                grid-template-columns: 1fr;
+            }
+
+            .rt-doc-hero {
+                padding: 18px;
+            }
+
+            .rt-doc-card__body {
+                padding: 16px;
+            }
+
+            .rt-doc-searchmeta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rt-admin">
+        <div class="rt-sbr_overlay" id="sidebarOverlay"></div>
+
+        <aside class="rt-sbr" id="sidebar">
+            <div class="rt-sbr_brand">
+                <span class="rt-brand_dot"></span>
+                <span>Retro-term</span>
+            </div>
+
+            <div class="rt-sbr_label">Main Menu</div>
+            <nav class="rt-sbr_nav">
+                <a class="rt-sbr_link" href="dashboard.html">
+                    <i class="rt-icon term-icon-dashboard" aria-hidden="true"></i>
+                    Dashboard
+                </a>
+
+                <div class="rt-sd" data-sd>
+                    <button class="rt-sd_trigger" type="button">
+                        <i class="rt-icon term-icon-users" aria-hidden="true"></i>
+                        UI Elements
+                        <span class="rt-sbr_badge">8</span>
+                        <i class="rt-icon term-icon-chevron-down rt-sd_chevron" aria-hidden="true"></i>
+                    </button>
+                    <div class="rt-sd_children">
+                        <a class="rt-sd_child" href="buttons.html">Buttons</a>
+                        <a class="rt-sd_child" href="badge.html">Badges</a>
+                        <a class="rt-sd_child" href="popup.html">Popup</a>
+                        <a class="rt-sd_child" href="toast.html">Toast</a>
+                        <a class="rt-sd_child" href="table.html">Table</a>
+                        <a class="rt-sd_child" href="input.html">Input Form</a>
+                        <a class="rt-sd_child" href="typography.html">Typography</a>
+                        <a class="rt-sd_child" href="color.html">Color</a>
+                    </div>
+                </div>
+
+                <div class="rt-sbr_label">Documentation</div>
+                <a class="rt-sbr_link is-active" href="doc.html">
+                    <i class="rt-icon term-icon-question" aria-hidden="true"></i>
+                    Doc
+                </a>
+            </nav>
+
+            <div class="rt-sbr_footer">
+                <div class="rt-sbr_user">
+                    <div class="rt-sbr_avatar">C</div>
+                    <div class="rt-sbr_user-info">
+                        <div class="rt-sbr_user-name">2026. Retro-term</div>
+                        <div class="rt-sbr_user-role">All Rights Reserved</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="rt-main">
+            <div class="rt-topbar">
+                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
+                    <i class="rt-icon term-icon-menu" aria-hidden="true"></i>
+                </button>
+                <h1 class="rt-topbar_title">Documentation</h1>
+                <div class="rt-topbar_search">
+                    <i class="rt-icon term-icon-search" aria-hidden="true"></i>
+                    <input type="text" id="docSearch" placeholder="Search components...">
+                </div>
+                <div class="rt-topbar_actions">
+                    <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
+                        <i class="rt-icon term-icon-moon moon-icon" aria-hidden="true"></i>
+                        <i class="rt-icon term-icon-sun sun-icon" aria-hidden="true" style="display:none"></i>
+                    </button>
+
+                    <div class="rt-dd" data-dd>
+                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Quick Links">
+                            <i class="rt-icon term-icon-notification" aria-hidden="true"></i>
+                            <span class="rt-topbar_dot"></span>
+                        </button>
+                        <div class="rt-dd_menu">
+                            <div class="rt-dd_label">Quick Links</div>
+                            <a class="rt-dd_item" href="../index.html#components">
+                                <i class="rt-icon term-icon-info" aria-hidden="true"></i>
+                                Home Components
+                            </a>
+                            <a class="rt-dd_item" href="buttons.html">
+                                <i class="rt-icon term-icon-add" aria-hidden="true"></i>
+                                Buttons Demo
+                            </a>
+                            <a class="rt-dd_item" href="popup.html">
+                                <i class="rt-icon term-icon-window" aria-hidden="true"></i>
+                                Popup Demo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="rt-dd" data-dd>
+                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
+                            <i class="rt-icon term-icon-settings" aria-hidden="true"></i>
+                        </button>
+                        <div class="rt-dd_menu">
+                            <button class="rt-dd_item">
+                                <i class="rt-icon term-icon-person-circle" aria-hidden="true"></i>
+                                Profile
+                            </button>
+                            <div class="rt-dd_divider"></div>
+                            <a class="rt-dd_item" href="../login.html">
+                                <i class="rt-icon term-icon-logout-box" aria-hidden="true"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="rt-doc-layout">
+                <div class="rt-doc-main">
+                    <div class="rt-panel rt-section" id="overview">
+                        <div class="rt-panel_head">
+                            <div>
+                                <div class="rt-panel_title">Element UI Documentation</div>
+                                <div class="rt-panel_subtitle">Overview of all core UI elements in Retro-term</div>
+                            </div>
+                        </div>
+                        <div class="rt-panel_body">
+                            <div class="rt-doc-hero">
+                                <div class="rt-doc-hero__top">
+                                    <div>
+                                        <h2 class="rt-doc-hero__title">Everything you need to understand the UI system
+                                        </h2>
+                                        <p class="rt-doc-hero__desc">
+                                            This page explains the purpose of each UI element used across the framework.
+                                            For full visual examples, use the dedicated demo pages in the sidebar.
+                                        </p>
+                                    </div>
+                                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                                        <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>8
+                                            Modules</span>
+                                        <span class="rt-badge rt-badge--success"><span
+                                                class="rt-badge_dot"></span>Responsive</span>
+                                        <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Theme
+                                            Ready</span>
+                                    </div>
+                                </div>
+
+                                <div class="rt-doc-section">
+                                    <h3 class="rt-doc-section__title">How to use this page</h3>
+                                    <p class="rt-doc-section__subtitle">
+                                        Start with the category cards below, then jump to the detailed demo pages
+                                        whenever you need
+                                        exact styling, states, or component behavior.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rt-doc-grid rt-mt3">
+                        <article class="rt-doc-card" id="navigation-ui" data-doc-card>
+                            <div class="rt-panel_head">
+                                <div>
+                                    <div class="rt-panel_title">Navigation UI</div>
+                                    <div class="rt-panel_subtitle">Sidebar, topbar, dropdowns</div>
+                                </div>
+                            </div>
+                            <div class="rt-doc-card__body">
+                                <ul class="rt-doc-list">
+                                    <li><strong>Sidebar</strong> keeps the app structure visible across pages.</li>
+                                    <li><strong>Topbar</strong> carries title, search, and quick actions.</li>
+                                    <li><strong>Dropdowns</strong> are used for notifications and user actions.</li>
+                                </ul>
+                                <div class="rt-doc-card__sample">
+                                    <span class="rt-doc-chip">Sidebar</span>
+                                    <span class="rt-doc-chip">Topbar</span>
+                                    <span class="rt-doc-chip">Dropdown</span>
+                                </div>
+                                <a class="rt-doc-link" href="dashboard.html">
+                                    Open dashboard layout
+                                    <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="rt-doc-card" id="buttons" data-doc-card>
+                            <div class="rt-panel_head">
+                                <div>
+                                    <div class="rt-panel_title">Buttons</div>
+                                    <div class="rt-panel_subtitle">Primary, secondary, ghost, outline</div>
+                                </div>
+                            </div>
+                            <div class="rt-doc-card__body">
+                                <div class="rt-doc-card__sample">
+                                    <button class="rt-tbl rt-tbl--primary rt-tbl--sm" type="button">Save</button>
+                                    <button class="rt-tbl rt-tbl--secondary rt-tbl--sm" type="button">Preview</button>
+                                    <button class="rt-tbl rt-tbl--ghost rt-tbl--sm" type="button">More</button>
+                                </div>
+                                <div class="rt-doc-card__sample">
+                                    <span class="rt-doc-mini"><code>rt-tbl--primary</code> main action</span>
+                                </div>
+                                <a class="rt-doc-link" href="buttons.html">
+                                    Open buttons demo
+                                    <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="rt-doc-card" id="badges-alerts" data-doc-card>
+                            <div class="rt-panel_head">
+                                <div>
+                                    <div class="rt-panel_title">Badges & Alerts</div>
+                                    <div class="rt-panel_subtitle">Status labels and feedback</div>
+                                </div>
+                            </div>
+                            <div class="rt-doc-card__body">
+                                <ul class="rt-doc-list">
+                                    <li><strong>Badges</strong> are compact state labels.</li>
+                                    <li><strong>Alerts</strong> communicate immediate feedback.</li>
+                                    <li><strong>Toast</strong> is used for temporary notifications.</li>
+                                </ul>
+                                <div class="rt-doc-card__sample">
+                                    <span class="rt-badge rt-badge--primary"><span
+                                            class="rt-badge_dot"></span>New</span>
+                                    <span class="rt-badge rt-badge--success"><span
+                                            class="rt-badge_dot"></span>Active</span>
+                                    <span class="rt-badge rt-badge--warning"><span
+                                            class="rt-badge_dot"></span>Pending</span>
+                                </div>
+                                <a class="rt-doc-link" href="badge.html">
+                                    Open badge demo
+                                    <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="rt-doc-grid rt-doc-grid--2 rt-mt3">
+                        <article class="rt-doc-card" id="forms-inputs" data-doc-card>
+                            <div class="rt-panel_head">
+                                <div>
+                                    <div class="rt-panel_title">Forms & Inputs</div>
+                                    <div class="rt-panel_subtitle">Text, select, textarea, checkbox</div>
+                                </div>
+                            </div>
+                            <div class="rt-doc-card__body">
+                                <p class="rt-feature-card__text" style="margin:0">
+                                    Form controls follow the same border, spacing, and focus treatment across the
+                                    framework.
+                                </p>
+                                <div class="rt-doc-card__sample" style="width:100%">
+                                    <input class="rt-doc-input" type="text" value="demo@retro-term.com"
+                                        aria-label="Sample input">
+                                </div>
+                                <a class="rt-doc-link" href="input.html">
+                                    Open input form demo
+                                    <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="rt-doc-card" id="typography" data-doc-card>
+                            <div class="rt-panel_head">
+                                <div>
+                                    <div class="rt-panel_title">Typography</div>
+                                    <div class="rt-panel_subtitle">Headings, paragraphs, lists, quotes</div>
+                                </div>
+                            </div>
+                            <div class="rt-doc-card__body">
+                                <p class="rt-feature-card__text" style="margin:0">
+                                    The typography page shows how text scales from headings to inline code and
+                                    supporting copy.
+                                </p>
+                                <div class="rt-doc-card__sample">
+                                    <span class="rt-doc-mini"><code>H1</code> Hero title</span>
+                                    <span class="rt-doc-mini"><code>code</code> Inline sample</span>
+                                </div>
+                                <a class="rt-doc-link" href="typography.html">
+                                    Open typography demo
+                                    <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="rt-doc-grid rt-doc-grid--2 rt-mt3">
+                        <article class="rt-doc-card" id="data-display" data-doc-card>
+                            <div class="rt-panel_head">
+                                <div>
+                                    <div class="rt-panel_title">Data Display</div>
+                                    <div class="rt-panel_subtitle">Table, progress, color, cards</div>
+                                </div>
+                            </div>
+                            <div class="rt-doc-card__body">
+                                <ul class="rt-doc-list">
+                                    <li><strong>Table</strong> is for searchable, paginated records.</li>
+                                    <li><strong>Progress</strong> shows task completion.</li>
+                                    <li><strong>Color</strong> documents the palette and theme tokens.</li>
+                                </ul>
+                                <div class="rt-doc-card__sample">
+                                    <span class="rt-doc-mini"><code>75%</code> progress</span>
+                                    <span class="rt-doc-mini"><code>#3b82f6</code> primary</span>
+                                </div>
+                                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                                    <a class="rt-tbl rt-tbl--secondary rt-tbl--sm" href="table.html">Table</a>
+                                    <a class="rt-tbl rt-tbl--secondary rt-tbl--sm" href="color.html">Color</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="rt-doc-card" id="overlays" data-doc-card>
+                            <div class="rt-panel_head">
+                                <div>
+                                    <div class="rt-panel_title">Overlays</div>
+                                    <div class="rt-panel_subtitle">Popup, modal, toast</div>
+                                </div>
+                            </div>
+                            <div class="rt-doc-card__body">
+                                <ul class="rt-doc-list">
+                                    <li><strong>Popup</strong> supports confirmations and forms.</li>
+                                    <li><strong>Toast</strong> is for short lived messages.</li>
+                                    <li><strong>Modal</strong> handles larger interactive content.</li>
+                                </ul>
+                                <div class="rt-doc-card__sample">
+                                    <span class="rt-doc-chip">Popup</span>
+                                    <span class="rt-doc-chip">Modal</span>
+                                    <span class="rt-doc-chip">Toast</span>
+                                </div>
+                                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                                    <a class="rt-tbl rt-tbl--secondary rt-tbl--sm" href="popup.html">Popup</a>
+                                    <a class="rt-tbl rt-tbl--secondary rt-tbl--sm" href="toast.html">Toast</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="rt-panel rt-section" id="quick-reference">
+                        <div class="rt-panel_head">
+                            <div>
+                                <div class="rt-panel_title">Quick Reference</div>
+                                <div class="rt-panel_subtitle">Where to find each detailed demo</div>
+                            </div>
+                        </div>
+                        <div class="rt-panel_body">
+                            <div class="rt-doc-grid rt-doc-grid--4">
+                                <a class="rt-doc-card" href="buttons.html" data-doc-card>
+                                    <div class="rt-doc-card__body">
+                                        <strong>Buttons</strong>
+                                        <span class="rt-feature-card__text">Action buttons and variants</span>
+                                        <span class="rt-doc-mini">4 variants</span>
+                                    </div>
+                                </a>
+                                <a class="rt-doc-card" href="badge.html" data-doc-card>
+                                    <div class="rt-doc-card__body">
+                                        <strong>Badges</strong>
+                                        <span class="rt-feature-card__text">Labels and status markers</span>
+                                        <span class="rt-doc-mini">6 states</span>
+                                    </div>
+                                </a>
+                                <a class="rt-doc-card" href="popup.html" data-doc-card>
+                                    <div class="rt-doc-card__body">
+                                        <strong>Popup</strong>
+                                        <span class="rt-feature-card__text">Overlay and dialog patterns</span>
+                                        <span class="rt-doc-mini">Scrollable</span>
+                                    </div>
+                                </a>
+                                <a class="rt-doc-card" href="toast.html" data-doc-card>
+                                    <div class="rt-doc-card__body">
+                                        <strong>Toast</strong>
+                                        <span class="rt-feature-card__text">Transient notification messages</span>
+                                        <span class="rt-doc-mini">Auto hide</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="rt-doc-aside">
+                    <div class="rt-doc-aside__card">
+                        <h3 class="rt-doc-aside__title">Search</h3>
+                        <div class="rt-doc-searchbox">
+                            <input type="search" id="docSearchAside" placeholder="Filter components">
+                        </div>
+                        <div class="rt-doc-searchmeta">
+                            <span>Live filter</span>
+                            <span id="docSearchCount">0 / 0</span>
+                        </div>
+                    </div>
+
+                    <div class="rt-doc-aside__card">
+                        <h3 class="rt-doc-aside__title">Jump To</h3>
+                        <nav class="rt-doc-nav">
+                            <a href="#overview"><span>Overview</span><span>01</span></a>
+                            <a href="#navigation-ui"><span>Navigation UI</span><span>02</span></a>
+                            <a href="#buttons"><span>Buttons</span><span>03</span></a>
+                            <a href="#badges-alerts"><span>Badges & Alerts</span><span>04</span></a>
+                            <a href="#forms-inputs"><span>Forms & Inputs</span><span>05</span></a>
+                            <a href="#typography"><span>Typography</span><span>06</span></a>
+                            <a href="#data-display"><span>Data Display</span><span>07</span></a>
+                            <a href="#overlays"><span>Overlays</span><span>08</span></a>
+                            <a href="#quick-reference"><span>Quick Reference</span><span>09</span></a>
+                        </nav>
+                    </div>
+
+                    <div class="rt-doc-aside__card">
+                        <h3 class="rt-doc-aside__title">Helpful Links</h3>
+                        <nav class="rt-doc-nav">
+                            <a href="../index.html#components"><span>Home Components</span><span>View</span></a>
+                            <a href="dashboard.html"><span>Dashboard</span><span>UI</span></a>
+                            <a href="table.html"><span>Table Demo</span><span>UI</span></a>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const docSearchInputs = [
+            document.getElementById('docSearch'),
+            document.getElementById('docSearchAside')
+        ].filter(Boolean);
+        const docCards = Array.from(document.querySelectorAll('[data-doc-card]'));
+        const quickReferencePanel = document.getElementById('quick-reference');
+        const searchCount = document.getElementById('docSearchCount');
+
+        function syncDocSearch(value) {
+            docSearchInputs.forEach((input) => {
+                if (input.value !== value) {
+                    input.value = value;
+                }
+            });
+
+            const query = value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            docCards.forEach((card) => {
+                const matched = !query || card.textContent.toLowerCase().includes(query);
+                card.classList.toggle('rt-doc-card--hidden', !matched);
+                if (matched) visibleCount += 1;
+            });
+
+            if (quickReferencePanel) {
+                const quickCards = Array.from(quickReferencePanel.querySelectorAll('[data-doc-card]'));
+                const anyQuickVisible = quickCards.some((card) => !card.classList.contains('rt-doc-card--hidden'));
+                quickReferencePanel.classList.toggle('rt-doc-card--hidden', !anyQuickVisible && query.length > 0);
+            }
+
+            if (searchCount) {
+                searchCount.textContent = `${visibleCount} / ${docCards.length}`;
+            }
+        }
+
+        docSearchInputs.forEach((input) => {
+            input.addEventListener('input', () => syncDocSearch(input.value));
+        });
+
+        syncDocSearch(docSearchInputs[0]?.value || '');
+    </script>
+
+    <script src="../retro-term.js" defer></script>
+</body>
+
+</html>

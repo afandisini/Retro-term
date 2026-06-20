@@ -1,333 +1,175 @@
 <!DOCTYPE html>
-<html lang="id" data-term-theme="retro">
+<html lang="en" data-theme="light">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="../core/js/term-theme.js"></script>
-  <title>Table Demo</title>
-  <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
-  <link rel="stylesheet" href="../main.css">
-  <script defer src="../core/js/term-admin.js"></script>
-  <script defer src="../core/js/term-layout.js"></script>
-  <script defer src="./demo.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro-term - Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
+    <link rel="stylesheet" href="../retro-term.css">
 </head>
-<body class="term-layout-fixed" data-term-theme="retro" data-demo-active="table" data-demo-title="Table" data-demo-desc="table samples">
-  <div class="term-wrapper">
-    <header class="term-header">
-      <div class="term-nav-left">
-        <button class="term-btn term-btn-icon" type="button" data-demo-action="toggle-sidebar" aria-label="Toggle sidebar">
-          <i class="term-icon term-icon-menu" aria-hidden="true"></i>
-        </button>
-        <div class="term-brand">
-          <span>Retro-term</span>
-          <span class="term-brand-subtext">demo / table</span>
-        </div>
-      </div>
-      <div class="term-status-bar"><span>CPU: 12%</span><span>MEM: 4GB</span><span>DEMO</span></div>
-    </header>
-    <div id="demoSidebarMount"></div>
-    <div class="term-overlay" data-demo-action="toggle-sidebar" aria-hidden="true"></div>
-    <main class="term-content">
-      <section class="term-content-header">
-        <div class="term-content-title" id="demoTitle">TABLE</div>
-        <div class="term-breadcrumb">
-          <span class="term-breadcrumb-item">example</span>
-          <span class="term-breadcrumb-item">table</span>
-        </div>
-      </section>
 
-      <section class="term-content-body">
-        <div class="term-card term-mb-3">
-          <div class="term-card-header term-card-header-info">
-            <span class="term-card-title">BASIC TABLE</span>
-          </div>
-          <div class="term-card-body">
-            <div class="term-table-toolbar">
-              <div class="term-table-search">
-                <input id="basicSearch" class="term-form-control" type="search" placeholder="Search basic table">
-                <i class="term-icon term-icon-search term-table-search-icon" aria-hidden="true"></i>
-              </div>
-              <div class="term-table-info" id="basicInfo">Showing 1-8 of 8 entries</div>
+<body>
+    <div class="rt-admin">
+        <div class="rt-sbr_overlay" id="sidebarOverlay"></div>
+        <aside class="rt-sbr" id="sidebar">
+            <div class="rt-sbr_brand"><span class="rt-brand_dot"></span><span>Retro-term</span></div>
+            <div class="rt-sbr_label">Main Menu</div>
+            <nav class="rt-sbr_nav"><a class="rt-sbr_link" href="dashboard.html"><i class="rt-icon term-icon-dashboard"
+                        aria-hidden="true"></i>Dashboard</a>
+                <div class="rt-sd" data-sd><button class="rt-sd_trigger" type="button"><i
+                            class="rt-icon term-icon-users" aria-hidden="true"></i>UI Elements<span
+                            class="rt-sbr_badge">8</span><i class="rt-icon term-icon-chevron-down rt-sd_chevron"
+                            aria-hidden="true"></i></button>
+                    <div class="rt-sd_children"><a class="rt-sd_child" href="buttons.html">Button</a><a
+                            class="rt-sd_child" href="badge.html">Badge</a><a class="rt-sd_child"
+                            href="popup.html">Popup</a><a class="rt-sd_child" href="toast.html">Toast</a><a
+                            class="rt-sd_child" href="table.html">Table</a><a class="rt-sd_child"
+                            href="input.html">Input Form</a><a class="rt-sd_child"
+                            href="typography.html">Typography</a><a class="rt-sd_child" href="color.html">Color</a>
+                    </div>
+                </div>
+                <div class="rt-sbr_label">Documentation</div>
+                <a class="rt-sbr_link" href="doc.html">
+                    <i class="rt-icon term-icon-question" aria-hidden="true"></i>
+                    Doc
+                </a>
+            </nav>
+            <div class="rt-sbr_footer">
+                <div class="rt-sbr_user">
+                    <div class="rt-sbr_avatar">C</div>
+                    <div class="rt-sbr_user-info">
+                        <div class="rt-sbr_user-name">2026. Retro-term</div>
+                        <div class="rt-sbr_user-role">All Rights Reserved</div>
+                    </div>
+                </div>
             </div>
+        </aside>
+        <main class="rt-main">
+            <div class="rt-topbar"><button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu"><i
+                        class="rt-icon term-icon-menu" aria-hidden="true"></i></button>
+                <h1 class="rt-topbar_title">Table</h1>
+                <div class="rt-topbar_search">
+                    <i class="rt-icon term-icon-search" aria-hidden="true"></i>
+                    <input type="text" placeholder="Search something...">
+                </div>
 
-            <div class="term-table-responsive term-table-responsive-stack">
-              <table class="term-table term-table-bordered term-table-hover" id="basicTable">
-                <thead>
-                  <tr>
-                    <th class="term-bg-primary">ID</th>
-                    <th class="term-bg-info">NAME</th>
-                    <th class="term-bg-success">ROLE</th>
-                    <th class="term-bg-warning">DEPARTMENT</th>
-                    <th class="term-bg-danger">STATUS</th>
-                    <th class="term-bg-neutral">ACTION</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td data-label="ID">001</td>
-                    <td data-label="Name">Alya Putri</td>
-                    <td data-label="Role">UI Designer</td>
-                    <td data-label="Department">Product</td>
-                    <td data-label="Status"><span class="term-badge term-badge-success">Active</span></td>
-                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
-                  </tr>
-                  <tr>
-                    <td data-label="ID">002</td>
-                    <td data-label="Name">Bagas Pratama</td>
-                    <td data-label="Role">Frontend Dev</td>
-                    <td data-label="Department">Engineering</td>
-                    <td data-label="Status"><span class="term-badge term-badge-info">Review</span></td>
-                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
-                  </tr>
-                  <tr>
-                    <td data-label="ID">003</td>
-                    <td data-label="Name">Citra Lestari</td>
-                    <td data-label="Role">QA Analyst</td>
-                    <td data-label="Department">Quality</td>
-                    <td data-label="Status"><span class="term-badge term-badge-warning">Pending</span></td>
-                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
-                  </tr>
-                  <tr>
-                    <td data-label="ID">004</td>
-                    <td data-label="Name">Dimas Akbar</td>
-                    <td data-label="Role">Backend Dev</td>
-                    <td data-label="Department">Engineering</td>
-                    <td data-label="Status"><span class="term-badge term-badge-success">Active</span></td>
-                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
-                  </tr>
-                  <tr>
-                    <td data-label="ID">005</td>
-                    <td data-label="Name">Eka Sari</td>
-                    <td data-label="Role">Product Owner</td>
-                    <td data-label="Department">Product</td>
-                    <td data-label="Status"><span class="term-badge term-badge-danger">Blocked</span></td>
-                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
-                  </tr>
-                  <tr>
-                    <td data-label="ID">006</td>
-                    <td data-label="Name">Fajar Nugroho</td>
-                    <td data-label="Role">DevOps</td>
-                    <td data-label="Department">Infrastructure</td>
-                    <td data-label="Status"><span class="term-badge term-badge-success">Active</span></td>
-                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
-                  </tr>
-                  <tr>
-                    <td data-label="ID">007</td>
-                    <td data-label="Name">Gita Maharani</td>
-                    <td data-label="Role">Content Writer</td>
-                    <td data-label="Department">Marketing</td>
-                    <td data-label="Status"><span class="term-badge term-badge-info">Review</span></td>
-                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
-                  </tr>
-                  <tr>
-                    <td data-label="ID">008</td>
-                    <td data-label="Name">Hendra Saputra</td>
-                    <td data-label="Role">Support Lead</td>
-                    <td data-label="Department">Operations</td>
-                    <td data-label="Status"><span class="term-badge term-badge-warning">Pending</span></td>
-                    <td data-label="Action"><button class="term-btn term-btn-view term-btn-tool" type="button">VIEW</button></td>
-                  </tr>
-                </tbody>
-              </table>
+                <div class="rt-topbar_actions">
+                    <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
+                        <i class="rt-icon term-icon-moon moon-icon" aria-hidden="true"></i>
+                        <i class="rt-icon term-icon-sun sun-icon" aria-hidden="true" style="display:none"></i>
+                    </button>
+
+                    <!-- Dropdown Notification -->
+                    <div class="rt-dd" data-dd>
+                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
+                            <i class="rt-icon term-icon-notification" aria-hidden="true"></i>
+                            <span class="rt-topbar_dot"></span>
+                        </button>
+                        <div class="rt-dd_menu">
+                            <div class="rt-dd_label">Notifications</div>
+                            <button class="rt-dd_item">
+                                <i class="rt-icon term-icon-database" aria-hidden="true"></i>
+                                New user signed up
+                            </button>
+                            <button class="rt-dd_item">
+                                <i class="rt-icon term-icon-check" aria-hidden="true"></i>
+                                Project completed
+                            </button>
+                            <button class="rt-dd_item">
+                                <i class="rt-icon term-icon-info" aria-hidden="true"></i>
+                                Payment received
+                            </button>
+                            <div class="rt-dd_divider"></div>
+                            <button class="rt-dd_item">
+                                View all
+                                <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="rt-dd" data-dd>
+                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
+                            <i class="rt-icon term-icon-settings" aria-hidden="true"></i>
+                        </button>
+                        <div class="rt-dd_menu">
+                            <button class="rt-dd_item">
+                                <i class="rt-icon term-icon-person-circle" aria-hidden="true"></i>
+                                Profile
+                            </button>
+                            <div class="rt-dd_divider"></div>
+                            <a class="rt-dd_item" href="../login.html">
+                                <i class="rt-icon term-icon-logout-box" aria-hidden="true"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="term-table-page">
-              <div class="term-table-info">Simple table untuk preview data cepat.</div>
-              <div class="term-pagination" aria-label="Basic table pagination">
-                <button class="term-btn term-btn-secondary term-pagination-button" type="button" disabled>Prev</button>
-                <button class="term-btn term-pagination-button term-is-active" type="button">1</button>
-                <button class="term-btn term-btn-secondary term-pagination-button" type="button">2</button>
-                <button class="term-btn term-btn-secondary term-pagination-button" type="button">3</button>
-                <button class="term-btn term-btn-secondary term-pagination-button" type="button">Next</button>
-              </div>
+            <div class="rt-panel">
+                <div class="rt-panel_head">
+                    <div>
+                        <div class="rt-panel_title">User Table</div>
+                        <div class="rt-panel_subtitle">Search, info, and pagination</div>
+                    </div><button class="rt-tbl rt-tbl-primary rt-tbl--sm"><i class="rt-icon term-icon-add"
+                            aria-hidden="true"></i>Add</button>
+                </div>
+                <div class="rt-table-toolbar">
+                    <form class="rt-table-search" action="javascript:void(0)" role="search"><i
+                            class="rt-icon term-icon-search" aria-hidden="true"></i><input type="text" id="tableSearch"
+                            placeholder="Search Data Table"></form>
+                    <div class="rt-table-filters">
+                        <select id="tableRoleFilter" class="rt-table-filter">
+                            <option value="">All Roles</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Editor">Editor</option>
+                            <option value="Member">Member</option>
+                        </select>
+                        <select id="tableStatusFilter" class="rt-table-filter">
+                            <option value="">All Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                        <button type="button" class="rt-tbl rt-tbl-secondary rt-tbl--sm"
+                            id="tableResetFilter">Reset</button>
+                    </div>
+                </div>
+                <div class="rt-panel_body rt-panel_body--flush">
+                    <div class="rt-table-wrap">
+                        <table class="rt-table rt-table--sm" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Joined</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="rt-table-pagination">
+                    <div class="rt-table-pagination__info" id="paginationInfo">Page 1 / 5</div>
+                    <div class="rt-table-info" id="tableInfo">Showing <strong>1-5</strong> of <strong>25</strong> items
+                    </div>
+                    <div class="rt-table-pagination__nav"><button class="rt-table-pagination__btn" id="prevPage"
+                            title="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="15 18 9 12 15 6" />
+                            </svg></button><span class="rt-table-pagination__text" id="pageText">Page 1 /
+                            5</span><button class="rt-table-pagination__btn" id="nextPage" title="Next"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="9 18 15 12 9 6" />
+                            </svg></button></div>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div class="term-card">
-          <div class="term-card-header term-card-header-success">
-            <span class="term-card-title">SERVER SIDE TABLE</span>
-          </div>
-          <div class="term-card-body">
-            <div class="term-table-toolbar">
-              <div class="term-table-search">
-                <input id="serverSearch" class="term-form-control" type="search" placeholder="Search server-side table">
-                <i class="term-icon term-icon-search term-table-search-icon" aria-hidden="true"></i>
-              </div>
-              <div class="term-table-info" id="serverInfo">Loading data...</div>
-            </div>
-
-            <div class="term-table-responsive term-table-responsive-stack">
-              <table class="term-table term-table-bordered term-table-hover" id="serverTable">
-                <thead>
-                  <tr>
-                    <th class="term-bg-primary">ID</th>
-                    <th class="term-bg-info">CUSTOMER</th>
-                    <th class="term-bg-success">PLAN</th>
-                    <th class="term-bg-warning">SOURCE</th>
-                    <th class="term-bg-danger">AMOUNT</th>
-                    <th class="term-bg-neutral">STATUS</th>
-                  </tr>
-                </thead>
-                <tbody id="serverTableBody"></tbody>
-              </table>
-            </div>
-
-            <div class="term-table-page">
-              <div class="term-table-info" id="serverPageInfo"></div>
-              <div class="term-pagination" id="serverPagination" aria-label="Server side table pagination"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const serverData = Array.from({ length: 30 }, (_, index) => {
-        const id = String(index + 1).padStart(3, '0');
-        const plans = ['Starter', 'Growth', 'Pro'];
-        const sources = ['Organic', 'Referral', 'Ads', 'Direct'];
-        const statuses = [
-          { label: 'Active', tone: 'term-badge-success' },
-          { label: 'Review', tone: 'term-badge-info' },
-          { label: 'Pending', tone: 'term-badge-warning' },
-        ];
-
-        return {
-          id,
-          customer: ['Asha', 'Bima', 'Celine', 'Dewi', 'Edo', 'Fina', 'Gilang', 'Hana', 'Indra', 'Jihan'][index % 10] + ' ' + (index + 1),
-          plan: plans[index % plans.length],
-          source: sources[index % sources.length],
-          amount: 'Rp ' + ((index + 1) * 250000).toLocaleString('id-ID'),
-          status: statuses[index % statuses.length],
-        };
-      });
-
-      const basicSearch = document.getElementById('basicSearch');
-      const basicInfo = document.getElementById('basicInfo');
-      const basicTable = document.getElementById('basicTable');
-      const basicRows = basicTable ? Array.from(basicTable.tBodies[0].rows) : [];
-
-      function updateBasicTable() {
-        const query = (basicSearch?.value || '').trim().toLowerCase();
-        let visible = 0;
-
-        basicRows.forEach((row) => {
-          const match = !query || row.textContent.toLowerCase().includes(query);
-          row.hidden = !match;
-          if (match) {
-            visible += 1;
-          }
-        });
-
-        if (basicInfo) {
-          basicInfo.textContent = visible
-            ? `Showing 1-${visible} of ${visible} entries`
-            : 'Showing 0-0 of 0 entries';
-        }
-      }
-
-      const serverSearch = document.getElementById('serverSearch');
-      const serverInfo = document.getElementById('serverInfo');
-      const serverPageInfo = document.getElementById('serverPageInfo');
-      const serverTableBody = document.getElementById('serverTableBody');
-      const serverPagination = document.getElementById('serverPagination');
-      const pageSize = 10;
-      const state = { page: 1, query: '' };
-
-      function getFilteredServerData() {
-        const query = state.query.trim().toLowerCase();
-        if (!query) {
-          return serverData;
-        }
-
-        return serverData.filter((item) => (
-          [item.id, item.customer, item.plan, item.source, item.amount, item.status.label]
-            .join(' ')
-            .toLowerCase()
-            .includes(query)
-        ));
-      }
-
-      function renderServerTable() {
-        const filtered = getFilteredServerData();
-        const total = filtered.length;
-        const totalPages = Math.max(1, Math.ceil(total / pageSize));
-        state.page = Math.min(state.page, totalPages);
-        const start = (state.page - 1) * pageSize;
-        const end = start + pageSize;
-        const rows = filtered.slice(start, end);
-
-        if (serverTableBody) {
-          serverTableBody.innerHTML = rows.map((item) => `
-            <tr>
-              <td data-label="ID">${item.id}</td>
-              <td data-label="Customer">${item.customer}</td>
-              <td data-label="Plan">${item.plan}</td>
-              <td data-label="Source">${item.source}</td>
-              <td data-label="Amount">${item.amount}</td>
-              <td data-label="Status"><span class="term-badge ${item.status.tone}">${item.status.label}</span></td>
-            </tr>
-          `).join('');
-        }
-
-        if (serverInfo) {
-          serverInfo.textContent = `Showing ${total ? start + 1 : 0}-${Math.min(end, total)} of ${total} entries`;
-        }
-
-        if (serverPageInfo) {
-          serverPageInfo.textContent = `Page ${state.page} of ${totalPages} | 10 rows per page`;
-        }
-
-        if (serverPagination) {
-          const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
-          serverPagination.innerHTML = [
-            `<button class="term-btn term-btn-secondary term-pagination-button" type="button" data-page="prev" ${state.page === 1 ? 'disabled' : ''}>Prev</button>`,
-            ...pages.map((page) => `
-              <button class="term-btn term-pagination-button ${page === state.page ? 'term-is-active' : 'term-btn-secondary'}" type="button" data-page="${page}">${page}</button>
-            `),
-            `<button class="term-btn term-btn-secondary term-pagination-button" type="button" data-page="next" ${state.page === totalPages ? 'disabled' : ''}>Next</button>`
-          ].join('');
-        }
-      }
-
-      basicSearch?.addEventListener('input', updateBasicTable);
-      serverSearch?.addEventListener('input', () => {
-        state.query = serverSearch.value;
-        state.page = 1;
-        renderServerTable();
-      });
-
-      serverPagination?.addEventListener('click', (event) => {
-        const button = event.target.closest('[data-page]');
-        if (!button || button.disabled) {
-          return;
-        }
-
-        const page = button.getAttribute('data-page');
-        const filtered = getFilteredServerData();
-        const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
-
-        if (page === 'prev') {
-          state.page = Math.max(1, state.page - 1);
-        } else if (page === 'next') {
-          state.page = Math.min(totalPages, state.page + 1);
-        } else {
-          state.page = Number(page);
-        }
-
-        renderServerTable();
-      });
-
-      updateBasicTable();
-      renderServerTable();
-    });
-  </script>
+        </main>
+    </div>
+    <script src="../retro-term.js" defer></script>
 </body>
+
 </html>
-
-
-
-

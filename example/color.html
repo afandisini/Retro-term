@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro-term - Badge</title>
+    <title>Retro-term - Color</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
@@ -18,27 +18,18 @@
         <aside class="rt-sbr" id="sidebar">
             <div class="rt-sbr_brand"><span class="rt-brand_dot"></span><span>Retro-term</span></div>
             <div class="rt-sbr_label">Main Menu</div>
-            <nav class="rt-sbr_nav">
-                <a class="rt-sbr_link" href="dashboard.html">
-                    <i class="rt-icon term-icon-dashboard" aria-hidden="true"></i>
-                    Dashboard
-                </a>
-                <div class="rt-sd" data-sd>
-                    <button class="rt-sd_trigger" type="button">
-                        <i class="rt-icon term-icon-users" aria-hidden="true"></i>
-                        UI Elements
-                        <span class="rt-sbr_badge">8</span>
-                        <i class="rt-icon term-icon-chevron-down rt-sd_chevron" aria-hidden="true"></i>
-                    </button>
-                    <div class="rt-sd_children">
-                        <a class="rt-sd_child" href="buttons.html">Button</a>
-                        <a class="rt-sd_child" href="badge.html">Badge</a>
-                        <a class="rt-sd_child" href="popup.html">Popup</a>
-                        <a class="rt-sd_child" href="toast.html">Toast</a>
-                        <a class="rt-sd_child" href="table.html">Table</a>
-                        <a class="rt-sd_child" href="input.html">Input Form</a>
-                        <a class="rt-sd_child" href="typography.html">Typography</a>
-                        <a class="rt-sd_child" href="color.html">Color</a>
+            <nav class="rt-sbr_nav"><a class="rt-sbr_link" href="dashboard.html"><i class="rt-icon term-icon-dashboard"
+                        aria-hidden="true"></i>Dashboard</a>
+                <div class="rt-sd" data-sd><button class="rt-sd_trigger" type="button"><i
+                            class="rt-icon term-icon-users" aria-hidden="true"></i>UI Elements<span
+                            class="rt-sbr_badge">8</span><i class="rt-icon term-icon-chevron-down rt-sd_chevron"
+                            aria-hidden="true"></i></button>
+                    <div class="rt-sd_children"><a class="rt-sd_child" href="buttons.html">Button</a><a
+                            class="rt-sd_child" href="badge.html">Badge</a><a class="rt-sd_child"
+                            href="popup.html">Popup</a><a class="rt-sd_child" href="toast.html">Toast</a><a
+                            class="rt-sd_child" href="table.html">Table</a><a class="rt-sd_child"
+                            href="input.html">Input Form</a><a class="rt-sd_child"
+                            href="typography.html">Typography</a><a class="rt-sd_child" href="color.html">Color</a>
                     </div>
                 </div>
                 <div class="rt-sbr_label">Documentation</div>
@@ -57,13 +48,11 @@
                 </div>
             </div>
         </aside>
-
         <main class="rt-main">
             <div class="rt-topbar">
-                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
-                    <i class="rt-icon term-icon-menu" aria-hidden="true"></i>
-                </button>
-                <h1 class="rt-topbar_title">Badge</h1>
+                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu"><i class="rt-icon term-icon-menu"
+                        aria-hidden="true"></i></button>
+                <h1 class="rt-topbar_title">Color</h1>
                 <div class="rt-topbar_search">
                     <i class="rt-icon term-icon-search" aria-hidden="true"></i>
                     <input type="text" placeholder="Search something...">
@@ -120,53 +109,53 @@
                     </div>
                 </div>
             </div>
-
             <div class="rt-panel rt-section rt-p3">
-                <h2>Basic Badges</h2>
+                <h2>Theme Palette</h2>
                 <div class="rt-row">
-                    <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Primary</span>
-                    <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Success</span>
-                    <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Warning</span>
-                    <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Danger</span>
+                    <div style="min-width:160px;padding:18px;background:var(--rt-primary);color:#fff;font-weight:900">
+                        Primary<br><small style="opacity:.8">#635bff</small></div>
+                    <div style="min-width:160px;padding:18px;background:var(--rt-primary-2);color:#fff;font-weight:900">
+                        Primary 2<br><small style="opacity:.8">#00b8ff</small></div>
+                    <div style="min-width:160px;padding:18px;background:var(--rt-accent);color:#fff;font-weight:900">
+                        Accent<br><small style="opacity:.8">#ff7a59</small></div>
+                    <div style="min-width:160px;padding:18px;background:var(--rt-success);color:#fff;font-weight:900">
+                        Success<br><small style="opacity:.8">#16a34a</small></div>
+                    <div style="min-width:160px;padding:18px;background:var(--rt-warning);color:#111;font-weight:900">
+                        Warning<br><small style="opacity:.8">#f59e0b</small></div>
+                    <div style="min-width:160px;padding:18px;background:var(--rt-danger);color:#fff;font-weight:900">
+                        Danger<br><small style="opacity:.8">#ef4444</small></div>
                 </div>
             </div>
-
             <div class="rt-grid rt-mt3">
                 <div class="rt-panel">
                     <div class="rt-panel_head">
                         <div>
-                            <div class="rt-panel_title">Status Tags</div>
-                            <div class="rt-panel_subtitle">Common usage in cards and tables</div>
+                            <div class="rt-panel_title">Surface Tokens</div>
+                            <div class="rt-panel_subtitle">Backgrounds and borders</div>
                         </div>
                     </div>
-                    <div class="rt-panel_body">
-                        <div class="rt-row">
-                            <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Draft</span>
-                            <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Pending</span>
-                            <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Active</span>
-                            <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Expired</span>
+                    <div class="rt-panel_body" style="display:grid;gap:12px">
+                        <div style="padding:16px;background:var(--rt-surface);border:1px solid var(--rt-border)">Surface
+                            background</div>
+                        <div style="padding:16px;background:var(--rt-surface-solid);border:1px solid var(--rt-border)">
+                            Solid surface</div>
+                        <div style="padding:16px;border:1px dashed var(--rt-border);color:var(--rt-muted)">Border token
                         </div>
-                        <p style="color:var(--rt-muted);font-size:.9rem;line-height:1.7">
-                            Badge dipakai sebagai penanda status, filter cepat, dan label informasi di dashboard.
-                        </p>
                     </div>
                 </div>
-
                 <div class="rt-panel">
                     <div class="rt-panel_head">
                         <div>
-                            <div class="rt-panel_title">Counter Badge</div>
-                            <div class="rt-panel_subtitle">Combine with menu items</div>
+                            <div class="rt-panel_title">Gradients</div>
+                            <div class="rt-panel_subtitle">Used in buttons and chips</div>
                         </div>
                     </div>
-                    <div class="rt-panel_body">
-                        <div class="rt-sbr_link" style="width:fit-content">
-                            Inbox
-                            <span class="rt-sbr_badge">24</span>
+                    <div class="rt-panel_body" style="display:grid;gap:12px">
+                        <div
+                            style="height:56px;background:linear-gradient(135deg,var(--rt-primary),var(--rt-primary-2))">
                         </div>
-                        <div class="rt-sbr_link rt-mt2" style="width:fit-content">
-                            Notifications
-                            <span class="rt-sbr_badge">7</span>
+                        <div style="height:56px;background:linear-gradient(135deg,var(--rt-success),#22d3ee)"></div>
+                        <div style="height:56px;background:linear-gradient(135deg,var(--rt-danger),var(--rt-accent))">
                         </div>
                     </div>
                 </div>

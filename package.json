@@ -1,0 +1,13 @@
+{
+  "name": "retro-term-css-framework",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Retro-term CSS framework and demo assets",
+  "scripts": {
+    "build:css": "node node_modules/sass/sass.js sass/retro-term.scss retro-term.css --no-source-map && node node_modules/sass/sass.js sass/retro-term.scss retro-term.min.css --style=compressed --no-source-map",
+    "watch:css": "node node_modules/sass/sass.js --watch sass/retro-term.scss:retro-term.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  }
+}

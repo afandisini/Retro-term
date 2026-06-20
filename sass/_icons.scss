@@ -1,0 +1,33 @@
+.rt-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  line-height: 1;
+  vertical-align: -0.125em;
+  fill: currentColor;
+  stroke: currentColor;
+  overflow: visible;
+}
+
+.rt-icon-sm {
+  width: 0.875em;
+  height: 0.875em;
+}
+
+.rt-icon-lg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.rt-icon-xl {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.rt-icon svg,
+svg.rt-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}

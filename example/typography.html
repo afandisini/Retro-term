@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro-term - Badge</title>
+    <title>Retro-term - Typography</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
@@ -15,14 +15,20 @@
 <body>
     <div class="rt-admin">
         <div class="rt-sbr_overlay" id="sidebarOverlay"></div>
+
         <aside class="rt-sbr" id="sidebar">
-            <div class="rt-sbr_brand"><span class="rt-brand_dot"></span><span>Retro-term</span></div>
+            <div class="rt-sbr_brand">
+                <span class="rt-brand_dot"></span>
+                <span>Retro-term</span>
+            </div>
+
             <div class="rt-sbr_label">Main Menu</div>
             <nav class="rt-sbr_nav">
                 <a class="rt-sbr_link" href="dashboard.html">
                     <i class="rt-icon term-icon-dashboard" aria-hidden="true"></i>
                     Dashboard
                 </a>
+
                 <div class="rt-sd" data-sd>
                     <button class="rt-sd_trigger" type="button">
                         <i class="rt-icon term-icon-users" aria-hidden="true"></i>
@@ -41,12 +47,14 @@
                         <a class="rt-sd_child" href="color.html">Color</a>
                     </div>
                 </div>
+
                 <div class="rt-sbr_label">Documentation</div>
                 <a class="rt-sbr_link" href="doc.html">
                     <i class="rt-icon term-icon-question" aria-hidden="true"></i>
                     Doc
                 </a>
             </nav>
+
             <div class="rt-sbr_footer">
                 <div class="rt-sbr_user">
                     <div class="rt-sbr_avatar">C</div>
@@ -63,71 +71,47 @@
                 <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
                     <i class="rt-icon term-icon-menu" aria-hidden="true"></i>
                 </button>
-                <h1 class="rt-topbar_title">Badge</h1>
+                <h1 class="rt-topbar_title">Typography</h1>
                 <div class="rt-topbar_search">
                     <i class="rt-icon term-icon-search" aria-hidden="true"></i>
                     <input type="text" placeholder="Search something...">
                 </div>
-
                 <div class="rt-topbar_actions">
                     <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
                         <i class="rt-icon term-icon-moon moon-icon" aria-hidden="true"></i>
                         <i class="rt-icon term-icon-sun sun-icon" aria-hidden="true" style="display:none"></i>
                     </button>
-
-                    <!-- Dropdown Notification -->
                     <div class="rt-dd" data-dd>
                         <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
                             <i class="rt-icon term-icon-notification" aria-hidden="true"></i>
                             <span class="rt-topbar_dot"></span>
                         </button>
                         <div class="rt-dd_menu">
-                            <div class="rt-dd_label">Notifications</div>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-database" aria-hidden="true"></i>
-                                New user signed up
-                            </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-check" aria-hidden="true"></i>
-                                Project completed
-                            </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-info" aria-hidden="true"></i>
-                                Payment received
-                            </button>
-                            <div class="rt-dd_divider"></div>
-                            <button class="rt-dd_item">
-                                View all
-                                <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="rt-dd" data-dd>
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-settings" aria-hidden="true"></i>
-                        </button>
-                        <div class="rt-dd_menu">
+                            <div class="rt-dd_label">Quick Actions</div>
                             <button class="rt-dd_item">
                                 <i class="rt-icon term-icon-person-circle" aria-hidden="true"></i>
                                 Profile
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <a class="rt-dd_item" href="../login.html">
-                                <i class="rt-icon term-icon-logout-box" aria-hidden="true"></i>
-                                Logout
-                            </a>
+                            <button class="rt-dd_item">
+                                <i class="rt-icon term-icon-settings" aria-hidden="true"></i>
+                                Settings
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="rt-panel rt-section rt-p3">
-                <h2>Basic Badges</h2>
-                <div class="rt-row">
-                    <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Primary</span>
-                    <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Success</span>
-                    <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Warning</span>
-                    <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Danger</span>
+                <h2>Headings</h2>
+                <div class="rt-panel">
+                    <div class="rt-panel_body">
+                        <h1>H1 - Retro-term typography</h1>
+                        <h2>H2 - Section heading</h2>
+                        <h3>H3 - Card title</h3>
+                        <h4>H4 - Small heading</h4>
+                        <h5>H5 - Compact heading</h5>
+                        <h6>H6 - Caption heading</h6>
+                    </div>
                 </div>
             </div>
 
@@ -135,19 +119,22 @@
                 <div class="rt-panel">
                     <div class="rt-panel_head">
                         <div>
-                            <div class="rt-panel_title">Status Tags</div>
-                            <div class="rt-panel_subtitle">Common usage in cards and tables</div>
+                            <div class="rt-panel_title">Paragraphs</div>
+                            <div class="rt-panel_subtitle">p, b, strong, em, small, mark, u, code</div>
                         </div>
                     </div>
                     <div class="rt-panel_body">
-                        <div class="rt-row">
-                            <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Draft</span>
-                            <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Pending</span>
-                            <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Active</span>
-                            <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Expired</span>
-                        </div>
-                        <p style="color:var(--rt-muted);font-size:.9rem;line-height:1.7">
-                            Badge dipakai sebagai penanda status, filter cepat, dan label informasi di dashboard.
+                        <p>
+                            Ini adalah contoh paragraf biasa dengan teks <b>bold</b>, <strong>strong</strong>,
+                            <em>italic</em>, <u>underline</u>, dan <mark>highlight</mark>.
+                        </p>
+                        <p>
+                            Retro-term cocok untuk dashboard yang butuh teks tegas dan rapi.
+                            <small>Ini contoh teks kecil untuk catatan tambahan.</small>
+                        </p>
+                        <p>
+                            Inline code bisa dipakai seperti <code>.rt-badge--success</code> atau
+                            <code>.rt-tbl-primary</code>.
                         </p>
                     </div>
                 </div>
@@ -155,19 +142,73 @@
                 <div class="rt-panel">
                     <div class="rt-panel_head">
                         <div>
-                            <div class="rt-panel_title">Counter Badge</div>
-                            <div class="rt-panel_subtitle">Combine with menu items</div>
+                            <div class="rt-panel_title">Lists</div>
+                            <div class="rt-panel_subtitle">ul, ol, li, nested list</div>
                         </div>
                     </div>
                     <div class="rt-panel_body">
-                        <div class="rt-sbr_link" style="width:fit-content">
-                            Inbox
-                            <span class="rt-sbr_badge">24</span>
+                        <p style="margin-bottom:0.75rem">Unordered list:</p>
+                        <ul>
+                            <li>Dashboard navigation</li>
+                            <li>Reusable UI components
+                                <ul>
+                                    <li>Buttons</li>
+                                    <li>Badges</li>
+                                    <li>Popups</li>
+                                </ul>
+                            </li>
+                            <li>Documentation pages</li>
+                        </ul>
+
+                        <p style="margin:1.25rem 0 0.75rem">Ordered list:</p>
+                        <ol>
+                            <li>Start with the layout</li>
+                            <li>Add components</li>
+                            <li>Apply interaction</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rt-grid rt-mt3">
+                <div class="rt-panel">
+                    <div class="rt-panel_head">
+                        <div>
+                            <div class="rt-panel_title">Quotes</div>
+                            <div class="rt-panel_subtitle">blockquote and horizontal rule</div>
                         </div>
-                        <div class="rt-sbr_link rt-mt2" style="width:fit-content">
-                            Notifications
-                            <span class="rt-sbr_badge">7</span>
+                    </div>
+                    <div class="rt-panel_body">
+                        <blockquote>
+                            <p>
+                                Typography yang baik membuat isi lebih mudah dipindai, lebih nyaman dibaca,
+                                dan lebih konsisten di seluruh dashboard.
+                            </p>
+                        </blockquote>
+                        <hr>
+                        <p>
+                            Gunakan <b>bold</b> untuk penekanan, <em>emphasis</em> untuk ritme,
+                            dan <u>underline</u> untuk penanda penting.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="rt-panel">
+                    <div class="rt-panel_head">
+                        <div>
+                            <div class="rt-panel_title">Code & Keys</div>
+                            <div class="rt-panel_subtitle">kbd, pre, inline code</div>
                         </div>
+                    </div>
+                    <div class="rt-panel_body">
+                        <p>
+                            Shortcut contoh: <kbd>Ctrl</kbd> + <kbd>K</kbd> untuk search.
+                        </p>
+                        <pre><code>&lt;p&gt;Ini paragraf contoh.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
                     </div>
                 </div>
             </div>

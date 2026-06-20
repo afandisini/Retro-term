@@ -1,241 +1,208 @@
-# Retro-term
+# Retro-term CSS
 
-`Retro-term` adalah framework UI retro terminal untuk dashboard dan panel admin yang berdiri di atas HTML, CSS, dan JavaScript vanilla. Fokus utamanya adalah tampilan terminal klasik yang tetap modern dalam hal struktur, responsif, dan mudah dipakai ulang di berbagai stack seperti HTML statis, PHP native, Laravel, CodeIgniter, Vue, React, atau halaman hosting biasa.
+Retro-term CSS is a retro-modern UI framework for admin dashboards, landing pages, documentation pages, and form-driven interfaces.
 
-## Konsep
+## What You Get
 
-`Retro-term` dibangun dengan prinsip berikut:
+- `retro-term.css`
+- `retro-term.min.css`
+- `retro-term.js`
+- demo pages in `example/`
+- reusable UI components
 
-1. Core harus mandiri dan tidak bergantung pada framework CSS/JS pihak ketiga.
-2. Semua komponen memakai namespace `term-` agar tidak bentrok dengan class global.
-3. Theme dan state layout dikelola lewat atribut dan localStorage, bukan lewat framework tertentu.
-4. UI harus tetap bisa dijalankan di hosting statis atau shared hosting.
-5. Gaya visual mempertahankan nuansa terminal retro, bukan meniru Bootstrap atau AdminLTE.
+## Project Structure
 
-Framework ini cocok untuk:
+```text
+framework_css_retro/
+|-- index.html
+|-- login.html
+|-- retro-term.css
+|-- retro-term.min.css
+|-- retro-term.js
+|-- example/
+|   |-- badge.html
+|   |-- buttons.html
+|   |-- color.html
+|   |-- dashboard.html
+|   |-- doc.html
+|   |-- input.html
+|   |-- popup.html
+|   |-- table.html
+|   |-- toast.html
+|   `-- typography.html
+|-- assets/
+|   `-- term-icons/
+|       `-- dist/
+|-- sass/
+|-- README.md
+|-- DOCUMENTATION.md
+`-- CHANGELOG.md
+```
 
-- Dashboard admin
-- Panel sistem
-- Halaman login bergaya retro
-- UI CMS internal
-- Demo produk atau portal internal
+## Features
 
-## Ciri Utama
-
-- Theme global `dark`, `light`, `retro`, `amber`, dan `matrix`
-- Sidebar responsive dengan mode `expanded`, `collapse`, dan `open` untuk mobile
-- Header fixed dengan brand, status, clock, notification, dan user menu
-- Komponen card, table, form, modal, toast, alert, badge, timeline, file manager, dan login panel
-- JavaScript vanilla untuk interaksi global seperti toggle theme, sidebar, modal, dan toast
-- Icon system lokal berbasis `term-icons`
-
-## Struktur Arsitektur
-
-`Retro-term` dibagi menjadi tiga lapisan:
-
-1. `core/`
-   - CSS inti untuk layout, komponen, utility, dan theme
-   - JavaScript inti untuk interaksi global
-   - Icon system yang dipakai lintas halaman
-2. `assets/term-icons/`
-   - Paket ikon sumber
-   - Output build ikon CSS dan SVG
-3. `adapters/`
-   - Implementasi contoh untuk stack tertentu
-   - Saat ini tersedia adapter Vue static
-
-Dengan struktur ini, core tetap bisa dipakai di HTML biasa tanpa perlu Vue atau build step.
-
-## File Penting
-
-- [index.html](./index.html) - demo utama
-- [main.css](./main.css) - stylesheet utama demo
-- [main.min.css](./main.min.css) - stylesheet produksi hasil minify
-- [sass/main.scss](./sass/main.scss) - source Sass utama
-- [core/css/term-admin.css](./core/css/term-admin.css) - core layout dan komponen admin
-- [core/css/term-dashboard.css](./core/css/term-dashboard.css) - style dashboard
-- [core/css/term-login.css](./core/css/term-login.css) - style login
-- [core/js/term-admin.js](./core/js/term-admin.js) - API interaksi global
-- [core/js/term-layout.js](./core/js/term-layout.js) - helper render layout
-- [core/js/term-theme.js](./core/js/term-theme.js) - inisialisasi theme awal
-- [assets/term-icons/](./assets/term-icons/) - sumber dan build icon pack
-- [adapters/vue-static/](./adapters/vue-static/) - adapter Vue static
-- [DOCUMENTATION.md](./DOCUMENTATION.md) - dokumentasi teknis
+- Light and dark theme support
+- Flat retro-modern UI language
+- Responsive admin dashboard layout
+- Popup, dropdown, and toast helpers
+- Table demo with search and pagination
+- Documentation page for all UI elements
 
 ## Quick Start
 
-### 1. Jalankan demo HTML
-
-Buka `index.html` langsung di browser, atau jalankan local server:
-
-```bash
-python -m http.server 8000
-```
-
-Lalu akses:
-
-```txt
-http://localhost:8000
-```
-
-### 2. Pakai core di HTML statis
+### Include the files
 
 ```html
-<!doctype html>
-<html lang="id" data-term-theme="dark">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./core/css/term-admin.css">
-  <link rel="stylesheet" href="./core/icons/term-icons.css">
-</head>
-<body class="term-layout-fixed">
-  <div class="term-wrapper">
-    <header class="term-header"></header>
-    <aside class="term-sidebar"></aside>
-    <main class="term-content"></main>
-  </div>
-  <script src="./core/js/term-theme.js"></script>
-  <script defer src="./core/js/term-admin.js"></script>
-</body>
+<link rel="stylesheet" href="retro-term.css">
+<script src="retro-term.js" defer></script>
+<link rel="stylesheet" href="assets/term-icons/dist/term-icons.css">
+```
+
+### Base markup
+
+```html
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro-term</title>
+  </head>
+  <body>
+    ...
+  </body>
 </html>
 ```
 
-### 3. Inisialisasi JavaScript
+### Example components
+
+```html
+<button class="rt-tbl rt-tbl--primary">Save</button>
+<button class="rt-tbl rt-tbl--secondary">Cancel</button>
+
+<span class="rt-badge rt-badge--success">
+  <span class="rt-badge_dot"></span>
+  Active
+</span>
+```
+
+## JavaScript Helper
+
+`retro-term.js` handles:
+
+- theme toggle
+- mobile sidebar
+- dropdowns
+- popups
+- toast demo
+- table search and pagination demo
+
+## Build
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Build CSS:
+
+```bash
+npm run build:css
+```
+
+Watch Sass:
+
+```bash
+npm run watch:css
+```
+
+## Installation Guide
+
+### Plain HTML / PHP / Static Hosting
+
+Use direct relative or root-relative paths:
+
+```html
+<link rel="stylesheet" href="retro-term.css">
+<script src="retro-term.js" defer></script>
+```
+
+If the page is inside `example/`:
+
+```html
+<link rel="stylesheet" href="../retro-term.css">
+<script src="../retro-term.js" defer></script>
+```
+
+### Node.js
+
+Serve the files from a public folder:
 
 ```js
-window.TermAdmin.init('dark', 'expanded');
+app.use(express.static('public'));
 ```
 
-## Theme System
+### Vue.js
 
-Theme dikendalikan lewat atribut:
+Place the assets in `public/` or import the CSS through the Vue build pipeline.
 
-```html
-<html data-term-theme="retro"></html>
+### Nuxt
+
+Load the CSS and JS from `public/` or register them in `nuxt.config.ts`.
+
+### Laravel
+
+Use `public/` and Blade helpers:
+
+```blade
+<link rel="stylesheet" href="{{ asset('retro-term.css') }}">
+<script src="{{ asset('retro-term.js') }}" defer></script>
 ```
 
-Theme yang didukung:
+### CodeIgniter
 
-- `dark`
-- `light`
-- `retro`
-- `amber`
-- `matrix`
+Use `base_url()` for assets:
 
-State theme disimpan ke:
-
-```txt
-term-theme
+```php
+<link rel="stylesheet" href="<?= base_url('retro-term.css') ?>">
+<script src="<?= base_url('retro-term.js') ?>" defer></script>
 ```
 
-## Sidebar System
+### Other Frameworks
 
-Sidebar memakai state global berbasis class pada `body`:
+Retro-term CSS also works with:
 
-- `term-sidebar-open`
-- `term-sidebar-collapse`
+- React
+- Next.js
+- Svelte
+- Astro
+- Alpine.js
+- PHP native
 
-State sidebar disimpan ke:
+The simplest approach is to place the files in a public/static folder and load them in your layout.
 
-```txt
-term-sidebar-state
-```
+## Demo Pages
 
-Perilaku utamanya:
+Reference pages live in `example/`:
 
-- Desktop bisa collapse
-- Mobile menjadi offcanvas
-- Tombol toggle bekerja secara global
+- `example/dashboard.html`
+- `example/doc.html`
+- `example/buttons.html`
+- `example/badge.html`
+- `example/popup.html`
+- `example/toast.html`
+- `example/table.html`
+- `example/input.html`
+- `example/typography.html`
+- `example/color.html`
 
-## Komponen Yang Tersedia
+## Notes
 
-- Header
-- Sidebar
-- Footer
-- Card
-- Button
-- Form control
-- Table
-- Modal
-- Toast
-- Alert
-- Badge
-- Small box
-- Info box
-- Timeline
-- File manager
-- Login panel
+- Keep the `rt-...` namespace unchanged.
+- Update paths when a page moves between root and subfolders.
+- Use the demo pages as reference for structure and behavior.
 
-## Contoh Halaman
+## License
 
-Folder `example/` berisi contoh penggunaan komponen, seperti:
-
-- Dashboard
-- Login
-- Grid
-- Form
-- Card
-- Badge
-- Alert
-- Modal
-- Table
-- Timeline
-- Media object
-- Landing page
-- Documentation page sample
-
-## Icon System
-
-Ikon memakai nama class seperti:
-
-```html
-<i class="term-icon term-icon-dashboard" aria-hidden="true"></i>
-```
-
-Sumber ikon ada di:
-
-- `assets/term-icons/`
-- `core/icons/`
-
-## Build Adapter Vue
-
-Adapter Vue static tersedia di:
-
-```txt
-adapters/vue-static/
-```
-
-Jalankan:
-
-```bash
-cd adapters/vue-static
-npm install
-npm run dev
-```
-
-Build:
-
-```bash
-npm run build
-```
-
-Hasil build ada di:
-
-```txt
-adapters/vue-static/dist/
-```
-
-## Prinsip Penggunaan
-
-- Jangan menambahkan dependency Bootstrap, Tailwind, AdminLTE, atau jQuery ke core.
-- Jangan mengganti namespace `term-` dengan class generik.
-- Jangan menjadikan Vue sebagai satu-satunya cara memakai framework ini.
-- Jangan menghapus nuansa retro terminal saat membuat adapter baru.
-- Gunakan `sass/main.scss` sebagai sumber saat rebuild `main.css` dan `main.min.css`.
-
-## Lisensi
-
-Kode utama `Retro-term` menggunakan lisensi MIT. Detail ada di [LICENSE](./LICENSE).
-
-Catatan legal untuk icon pack ada di [assets/term-icons/NOTICE.md](./assets/term-icons/NOTICE.md).
+MIT. See [LICENSE](LICENSE).

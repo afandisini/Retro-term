@@ -1,367 +1,252 @@
-# Retro-term Documentation
+# Retro-term CSS Documentation
 
-## 1. Ringkasan
+Retro-term CSS is a retro-modern UI framework for building admin dashboards, landing pages, and component demos with a consistent visual system.
 
-`Retro-term` adalah framework UI retro terminal yang fokus pada dashboard, admin panel, dan halaman operasional. Framework ini dirancang agar:
+## Overview
 
-- bisa dipakai tanpa framework CSS pihak ketiga
-- bisa berjalan di HTML statis
-- bisa dipakai di PHP, Laravel, CodeIgniter, Vue, React, atau static hosting
-- tetap ringan dan mudah dirawat
+The project currently uses a simple repository structure:
 
-## 2. Filosofi Desain
-
-### 2.1 Retro, tapi terstruktur
-
-Wajah visualnya memakai referensi terminal klasik:
-
-- permukaan gelap
-- border tegas
-- tipografi mono untuk konteks teknis
-- aksi berbasis tombol dan panel
-- alert dan toast yang terasa seperti notifikasi sistem
-
-### 2.2 Namespace aman
-
-Semua class framework memakai prefix:
-
-```txt
-term-
-```
-
-Tujuannya:
-
-- menghindari bentrok dengan framework lain
-- memudahkan audit CSS
-- memudahkan reuse di project lama
-
-### 2.3 Static-first
-
-Core tidak memaksa build step. Halaman HTML biasa cukup memuat CSS dan JS inti. Adapter framework seperti Vue hanya opsi tambahan.
-
-## 3. Lapisan Sistem
-
-### 3.1 Core
-
-Folder `core/` menyimpan bagian utama:
-
-- `css/` untuk layout, komponen, utility, dan theme
-- `js/` untuk helper global
-- `icons/` untuk asset icon runtime
-
-### 3.2 Assets
-
-Folder `assets/term-icons/` menyimpan sumber icon pack dan proses build-nya.
-
-### 3.3 Adapter
-
-Folder `adapters/` menampung implementasi integrasi, misalnya Vue static adapter untuk hosting biasa.
-
-## 4. Theme System
-
-Theme dikendalikan oleh atribut:
-
-```html
-<html data-term-theme="dark"></html>
-```
-
-atau:
-
-```html
-<body data-term-theme="retro"></body>
-```
-
-### 4.1 Theme yang tersedia
-
-- `dark`
-- `light`
-- `retro`
-- `amber`
-- `matrix`
-
-### 4.2 Penyimpanan state
-
-Theme disimpan ke `localStorage` dengan key:
-
-```txt
-term-theme
-```
-
-### 4.3 Implementasi
-
-`core/js/term-theme.js` bertugas menginisialisasi theme awal agar halaman tidak blank sebelum script utama berjalan.
-
-`core/js/term-admin.js` menyediakan API runtime:
-
-```js
-window.TermAdmin.initTheme()
-window.TermAdmin.setTheme(theme)
-window.TermAdmin.toggleTheme()
-```
-
-## 5. Sidebar System
-
-Sidebar dikendalikan melalui class pada `body`:
-
-- `term-sidebar-open`
-- `term-sidebar-collapse`
-
-### 5.1 Perilaku
-
-- Desktop: sidebar bisa collapse
-- Mobile: sidebar berubah menjadi offcanvas
-- State sidebar tetap tersimpan di browser
-
-### 5.2 Penyimpanan state
-
-Key localStorage:
-
-```txt
-term-sidebar-state
-```
-
-### 5.3 API
-
-```js
-window.TermAdmin.initSidebar()
-window.TermAdmin.setSidebar(state)
-window.TermAdmin.toggleSidebar()
-window.TermAdmin.closeSidebar()
-```
-
-## 6. Interaksi Global
-
-`core/js/term-admin.js` mengelola interaksi global tanpa dependency eksternal.
-
-### 6.1 Modal
-
-```js
-window.TermAdmin.openModal(id)
-window.TermAdmin.closeModal(id)
-window.TermAdmin.closeAllModals()
-```
-
-### 6.2 Toast
-
-```js
-window.TermAdmin.toast(message, type)
-```
-
-Tipe yang umum dipakai:
-
-- `info`
-- `success`
-- `warning`
-- `danger`
-
-### 6.3 Event yang dipancarkan
-
-- `term-theme-change`
-- `term-sidebar-change`
-- `term-modal-open`
-- `term-modal-close`
-- `term-toast`
-
-## 7. Struktur Class
-
-Framework ini memakai class yang konsisten, misalnya:
-
-- `term-wrapper`
-- `term-header`
-- `term-sidebar`
-- `term-content`
-- `term-card`
-- `term-table`
-- `term-form-control`
-- `term-modal-overlay`
-- `term-toast`
-
-Untuk state, class yang umum dipakai:
-
-- `term-is-active`
-- `term-is-open`
-- `term-is-valid`
-- `term-is-invalid`
-- `term-menu-open`
-- `term-menu-active`
-
-## 8. Grid dan Utility
-
-### 8.1 Grid
-
-Class grid tersedia dalam bentuk:
-
-- `term-row`
-- `term-col`
-- `term-col-1` sampai `term-col-12`
-- `term-col-sm-*`
-- `term-col-md-*`
-- `term-col-lg-*`
-- `term-col-xl-*`
-
-### 8.2 Utility spacing
-
-Utility dasar yang tersedia meliputi:
-
-- padding `term-p-*`
-- margin `term-m-*`
-- border `term-border`
-- radius `term-r-*`
-- shadow `term-s-*`
-- background `term-bg-*`
-- text `term-text-*`
-
-## 9. Komponen UI
-
-### 9.1 Header
-
-Header berisi:
-
-- brand
-- toggle sidebar
-- toggle theme
-- status bar
-- notification menu
-- user menu
-- clock
-
-### 9.2 Sidebar
-
-Sidebar mendukung:
-
-- menu header
-- menu item
-- submenu/treeview
-- active state
-
-### 9.3 Card dan panel
-
-Card digunakan sebagai unit visual utama untuk dashboard, form, dan blok informasi.
-
-### 9.4 Table
-
-Table mendukung tampilan desktop dan responsif stack untuk mobile.
-
-### 9.5 Form
-
-Form memakai style outline/underline bernuansa terminal, bukan gaya form Bootstrap.
-
-### 9.6 Modal dan toast
-
-Modal dipakai untuk dialog konfirmasi dan panel tindakan. Toast dipakai untuk feedback singkat.
-
-## 10. Icon System
-
-Icon pack lokal berada di:
-
+- `index.html`
+- `login.html`
+- `retro-term.css`
+- `retro-term.min.css`
+- `retro-term.js`
+- `example/`
 - `assets/term-icons/`
-- `core/icons/`
+- `sass/`
 
-Contoh pemakaian:
+The framework focuses on:
 
-```html
-<i class="term-icon term-icon-user" aria-hidden="true"></i>
-```
+- flat UI styling
+- responsive dashboard layout
+- light and dark themes
+- reusable UI components
+- static demo pages
 
-### 10.1 Aturan
+## Core Files
 
-- jangan bergantung pada CDN icon runtime
-- jangan pakai class `bi` di markup runtime
-- pertahankan nama icon dengan namespace `term-icon-*`
+### `retro-term.css`
 
-### 10.2 Lisensi icon
+Main stylesheet for the framework. It contains:
 
-Beberapa icon berasal dari Bootstrap Icons. Detail atribusi ada di:
+- layout system
+- buttons
+- cards and panels
+- forms
+- tables
+- popups
+- dropdowns
+- badges
+- alerts
+- typography
+- admin dashboard UI
 
-- [assets/term-icons/NOTICE.md](./assets/term-icons/NOTICE.md)
+### `retro-term.min.css`
 
-## 11. Contoh Integrasi
+Minified production version of the stylesheet.
 
-### 11.1 HTML statis
+### `retro-term.js`
 
-```html
-<link rel="stylesheet" href="./core/css/term-admin.css">
-<link rel="stylesheet" href="./core/icons/term-icons.css">
-<script src="./core/js/term-theme.js"></script>
-<script defer src="./core/js/term-admin.js"></script>
-```
+Default JavaScript helper for demo interactions:
 
-### 11.2 Inisialisasi
+- theme toggle
+- mobile sidebar open and close
+- dropdown menus
+- popup open and close
+- toast demo behavior
+- table search and pagination demo behavior
 
-```js
-window.TermAdmin.init('dark', 'expanded');
-```
+## Demo Pages
 
-### 11.3 Theme toggle
+The `example/` folder contains the component and layout demos:
 
-```html
-<button type="button" data-term-theme-toggle="true" data-term-action="toggle-theme">
-  Toggle theme
-</button>
-```
+- `example/dashboard.html`
+- `example/doc.html`
+- `example/buttons.html`
+- `example/badge.html`
+- `example/popup.html`
+- `example/toast.html`
+- `example/table.html`
+- `example/input.html`
+- `example/typography.html`
+- `example/color.html`
 
-### 11.4 Sidebar toggle
+These pages are meant to show how each component should look and behave.
 
-```html
-<button type="button" data-term-action="toggle-sidebar">
-  Toggle sidebar
-</button>
-```
+## Setup
 
-## 12. Adapter Vue Static
-
-Adapter Vue static ada di `adapters/vue-static/`.
-
-Karakteristiknya:
-
-- memakai Vite
-- hasil build bisa di-upload ke shared hosting
-- core tetap dibaca dari struktur framework, bukan dari Vue runtime saja
-
-Perintah umum:
+### Install dependencies
 
 ```bash
-cd adapters/vue-static
 npm install
-npm run dev
 ```
 
-Build:
+### Build CSS
 
 ```bash
-npm run build
+npm run build:css
 ```
 
-Output:
+### Watch changes
 
-```txt
-adapters/vue-static/dist/
+```bash
+npm run watch:css
 ```
 
-## 13. Deployment ke Shared Hosting
+## HTML Usage
 
-Untuk deployment statis:
+### Basic include
 
-1. Build dulu jika memakai adapter.
-2. Upload isi folder `dist/` ke `public_html` atau subfolder hosting.
-3. Pastikan path asset relatif sesuai dengan lokasi upload.
+```html
+<link rel="stylesheet" href="retro-term.css">
+<script src="retro-term.js" defer></script>
+```
 
-Jika dipasang di subfolder, gunakan base path relatif seperti `./` pada build output.
+### Icon set
 
-## 14. Batasan Desain
+```html
+<link rel="stylesheet" href="assets/term-icons/dist/term-icons.css">
+```
 
-Jangan lakukan hal berikut pada core:
+### Base markup
 
-- menambah Bootstrap, Tailwind, AdminLTE, atau jQuery
-- mengganti semua class ke class generik
-- menggantungkan theme pada state framework tertentu
-- mengubah visual retro terminal menjadi layout generik
+```html
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro-term</title>
+  </head>
+  <body>
+    ...
+  </body>
+</html>
+```
 
-## 15. Status Project
+## Component Notes
 
-Project ini diposisikan sebagai:
+### Buttons
 
-- framework UI standalone
-- bukan admin template berbasis library pihak ketiga
-- bukan dashboard backend siap pakai
-- bukan sistem data real-time terhubung server
+Use `rt-tbl` for action buttons.
+
+Common variants:
+
+- `rt-tbl--primary`
+- `rt-tbl--secondary`
+- `rt-tbl--success`
+- `rt-tbl--warning`
+- `rt-tbl--danger`
+- `rt-tbl--accent`
+- `rt-tbl--purple`
+- `rt-tbl--ghost`
+- `rt-tbl--outline`
+
+Common sizes:
+
+- `rt-tbl--sm`
+- `rt-tbl--lg`
+- `rt-tbl--icon`
+
+### Badges
+
+Use `rt-badge` for compact labels and status indicators.
+
+### Popup
+
+Popup markup uses `rt-pp` and size modifiers such as:
+
+- `rt-pp--sm`
+- `rt-pp--md`
+- `rt-pp--lg`
+- `rt-pp--xl`
+- `rt-pp--fullscreen`
+
+### Table
+
+Tables support:
+
+- search
+- pagination
+- responsive layout
+- demo filtering
+
+### Forms
+
+Inputs, selects, textareas, checkboxes, and helper text follow the same UI language across the framework.
+
+## JavaScript Behavior
+
+The default JS supports:
+
+- `#themeToggle`
+- `#menuBtn`
+- `#sidebar`
+- `#sidebarOverlay`
+- `[data-sd]`
+- `[data-dd]`
+- `[data-dd-trigger]`
+- `[data-pp-open]`
+- `[data-pp-close]`
+- `#demoToast`
+- `#tableSearch`
+
+## Path Guidance
+
+### Root pages
+
+Use root-relative links when the file lives in the project root:
+
+```html
+<a href="login.html">Login</a>
+<a href="example/doc.html">Documentation</a>
+```
+
+### Example pages
+
+Use `../` when linking back to root from `example/`:
+
+```html
+<a href="../index.html">Home</a>
+<link rel="stylesheet" href="../retro-term.css">
+<script src="../retro-term.js" defer></script>
+```
+
+## Framework Integration
+
+### Plain HTML
+
+Copy the CSS and JS files into your site and link them directly.
+
+### Node.js
+
+Serve the files from a public folder.
+
+### Vue
+
+Place the files in `public/` or import the CSS through the build pipeline.
+
+### Nuxt
+
+Register the CSS and JS in `nuxt.config.ts` or serve them from `public/`.
+
+### Laravel
+
+Use `public/` plus `asset()` helpers, or import the CSS through Vite.
+
+### CodeIgniter
+
+Use `base_url()` for asset paths from the `public/` folder.
+
+## Troubleshooting
+
+- If CSS does not load, verify the path.
+- If icons do not appear, check `assets/term-icons/dist/`.
+- If popup behavior fails, ensure `retro-term.js` is loaded.
+- If a page is in a subfolder, update relative paths accordingly.
+
+## Maintenance Notes
+
+- Keep the `rt-...` class namespace unchanged.
+- Update documentation whenever new demo pages or components are added.
+- Prefer static, reproducible examples in the `example/` folder.

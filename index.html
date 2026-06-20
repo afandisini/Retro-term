@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" data-base-url="http://localhost:8000/framework_css_retro/">
 
 <head>
     <meta charset="UTF-8">
@@ -300,6 +300,96 @@
         .rt-code-preview code {
             font-size: clamp(0.75rem, 2vw, .88rem);
             line-height: 1.6;
+        }
+
+        .rt-console {
+            border: 1px solid var(--rt-border);
+            background: #0b1220;
+            color: #d7e1f5;
+            overflow: hidden;
+        }
+
+        .rt-console__bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .rt-console__traffic {
+            display: inline-flex;
+            gap: 8px;
+        }
+
+        .rt-console__traffic span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .16);
+        }
+
+        .rt-console__traffic span:nth-child(1) {
+            background: #ff5f57;
+        }
+
+        .rt-console__traffic span:nth-child(2) {
+            background: #febc2e;
+        }
+
+        .rt-console__traffic span:nth-child(3) {
+            background: #28c840;
+        }
+
+        .rt-console__title {
+            font-size: .74rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(215, 225, 245, .72);
+        }
+
+        .rt-console__body {
+            padding: 18px 16px 16px;
+            min-height: 192px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: .9rem;
+            line-height: 1.75;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .rt-console__line {
+            min-height: 1.75em;
+        }
+
+        .rt-console__prompt {
+            color: #60a5fa;
+        }
+
+        .rt-console__typing {
+            color: #e5eefc;
+        }
+
+        .rt-console__cursor {
+            display: inline-block;
+            width: 8px;
+            margin-left: 2px;
+            border-bottom: 2px solid #7dd3fc;
+            transform: translateY(-2px);
+            animation: rtConsoleBlink .8s steps(1) infinite;
+        }
+
+        .rt-console__status {
+            color: #8be9a8;
+        }
+
+        @keyframes rtConsoleBlink {
+            50% {
+                opacity: 0;
+            }
         }
 
         .rt-stats-grid {
@@ -807,7 +897,7 @@
                 <div class="rt-panel_head">
                     <div>
                         <div class="rt-panel_title">View Components</div>
-                        <div class="rt-panel_subtitle">Simple component overview</div>
+                        <div class="rt-panel_subtitle">Install, preview, and explore the UI kit</div>
                     </div>
                 </div>
                 <div class="rt-panel_body">
@@ -820,6 +910,23 @@
                             <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Badges</span>
                             <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Progress</span>
                             <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Modal</span>
+                        </div>
+                        <div class="rt-console" aria-label="Installation console">
+                            <div class="rt-console__bar">
+                                <div class="rt-console__traffic" aria-hidden="true">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="rt-console__title">Terminal</div>
+                            </div>
+                            <div class="rt-console__body">
+                                <div class="rt-console__line"><span class="rt-console__prompt">$</span> <span
+                                        class="rt-console__typing" id="consoleCommand"></span><span
+                                        class="rt-console__cursor" id="consoleCursor"></span></div>
+                                <div class="rt-console__line rt-console__status" id="consoleResult"></div>
+                                <div class="rt-console__line" id="consoleNext"></div>
+                            </div>
                         </div>
                         <a href="example/doc.html" class="rt-tbl rt-tbl--secondary" style="width:fit-content">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -957,23 +1064,6 @@
             }
         }
 
-        const html = document.documentElement;
-        const themeToggle = document.getElementById('themeToggle');
-        const THEME_KEY = 'rt-theme';
-
-        function applyTheme(theme) {
-            html.setAttribute('data-theme', theme);
-            localStorage.setItem(THEME_KEY, theme);
-            themeToggle?.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-        }
-
-        applyTheme(localStorage.getItem(THEME_KEY) || 'light');
-
-        themeToggle?.addEventListener('click', () => {
-            const current = html.getAttribute('data-theme') || 'light';
-            applyTheme(current === 'dark' ? 'light' : 'dark');
-        });
-
         // Intersection Observer for animations
         const observerOptions = {
             root: null,
@@ -997,7 +1087,40 @@
             card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
             observer.observe(card);
         });
+
+        const consoleCommand = document.getElementById('consoleCommand');
+        const consoleResult = document.getElementById('consoleResult');
+        const consoleCursor = document.getElementById('consoleCursor');
+        const consoleNext = document.getElementById('consoleNext');
+
+        if (consoleCommand && consoleResult && consoleNext) {
+            const commandText = 'npm install retro-term-css';
+            const resultText = 'added 1 package, and audited 1 package in 1.4s';
+            const nextPromptText = '$ ';
+            let index = 0;
+
+            consoleCommand.textContent = '';
+            consoleResult.textContent = '';
+            consoleNext.textContent = '';
+
+            const commandTimer = window.setInterval(() => {
+                index += 1;
+                consoleCommand.textContent = commandText.slice(0, index);
+
+                if (index >= commandText.length) {
+                    window.clearInterval(commandTimer);
+                    window.setTimeout(() => {
+                        consoleResult.textContent = resultText;
+                        if (consoleCursor) consoleCursor.style.display = 'none';
+                        window.setTimeout(() => {
+                            consoleNext.innerHTML = `<span class="rt-console__prompt">${nextPromptText}</span>`;
+                        }, 650);
+                    }, 700);
+                }
+            }, 95);
+        }
     </script>
+    <script src="retro-term.js" defer></script>
 
 </body>
 

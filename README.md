@@ -15,6 +15,7 @@ Retro-term CSS is a retro-modern UI framework for admin dashboards, landing page
 - `retro-term.css`
 - `retro-term.min.css`
 - `retro-term.js`
+- npm-ready `dist/` build artifacts
 - demo pages in `example/`
 - reusable UI components
 
@@ -96,6 +97,88 @@ framework_css_retro/
   <span class="rt-badge_dot"></span>
   Active
 </span>
+```
+
+## Install via npm
+
+### npm
+
+```bash
+npm install retro-term-css
+```
+
+If you publish the unscoped package to npm, use:
+
+```bash
+npm publish --access public
+```
+
+If you later switch to a scoped name like `@afandisini/retro-term-css`, keep `--access public` for the first public release.
+
+### pnpm
+
+```bash
+pnpm add retro-term-css
+```
+
+### Vue
+
+Import in `src/main.js` or `src/main.ts`:
+
+```js
+import 'retro-term-css/css'
+import 'retro-term-css/js'
+```
+
+Or import directly from `dist/`:
+
+```js
+import 'retro-term-css/dist/retro-term.min.css'
+import 'retro-term-css/dist/retro-term.js'
+```
+
+### React / Vite
+
+Import in `src/main.jsx` or `src/main.tsx`:
+
+```jsx
+import 'retro-term-css/css'
+import 'retro-term-css/js'
+```
+
+Or import directly from `dist/`:
+
+```jsx
+import 'retro-term-css/dist/retro-term.min.css'
+import 'retro-term-css/dist/retro-term.js'
+```
+
+### Nuxt
+
+Add CSS in `nuxt.config.ts`:
+
+```ts
+export default defineNuxtConfig({
+  css: ['retro-term-css/css']
+})
+```
+
+If you need the helper JavaScript, load it in a client-only plugin.
+
+### Next.js App Router
+
+Import CSS in `app/layout.jsx` or `app/layout.tsx`:
+
+```jsx
+import 'retro-term-css/css'
+```
+
+If you need the helper JavaScript, import it in a client component:
+
+```jsx
+'use client'
+
+import 'retro-term-css/js'
 ```
 
 ## JavaScript Helper

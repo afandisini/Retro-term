@@ -1,6 +1,73 @@
 (function () {
+    const RT = window.RT || (window.RT = {});
+
+    function isExternalUrl(value) {
+        return /^(?:[a-z][a-z\d+\-.]*:|\/\/|#|mailto:|tel:|javascript:)/i.test(value || '');
+    }
+
+    function normalizeBaseUrl(value) {
+        if (!value) return '';
+        const trimmed = String(value).trim();
+        if (!trimmed) return '';
+
+        try {
+            const parsed = new URL(trimmed, window.location.href);
+            return parsed.href.replace(/[#?].*$/, '').replace(/\/?$/, '/');
+        } catch {
+            return trimmed.endsWith('/') ? trimmed : `${trimmed}/`;
+        }
+    }
+
+    RT.config = RT.config || {};
+    RT.config.baseUrl = normalizeBaseUrl(
+        RT.config.baseUrl ||
+        document.documentElement.getAttribute('data-base-url') ||
+        window.RT_BASE_URL ||
+        localStorage.getItem('rt-base-url') ||
+        ''
+    );
+
+    RT.url = function (path) {
+        if (!path || isExternalUrl(path)) return path;
+        if (!RT.config.baseUrl) return path;
+
+        try {
+            return new URL(path, RT.config.baseUrl).href;
+        } catch {
+            return path;
+        }
+    };
+
+    RT.baseUrl = function (path) {
+        return RT.url(path);
+    };
+
+    RT.bindBaseUrls = function (root = document) {
+        root.querySelectorAll('a[href]').forEach((el) => {
+            const value = el.getAttribute('href');
+            if (!value || isExternalUrl(value)) return;
+            el.setAttribute('href', RT.url(value));
+        });
+
+        root.querySelectorAll('[data-rt-href]').forEach((el) => {
+            const value = el.getAttribute('data-rt-href');
+            if (value) el.setAttribute('href', RT.url(value));
+        });
+
+        root.querySelectorAll('[data-rt-src]').forEach((el) => {
+            const value = el.getAttribute('data-rt-src');
+            if (value) el.setAttribute('src', RT.url(value));
+        });
+
+        root.querySelectorAll('[data-rt-action]').forEach((el) => {
+            const value = el.getAttribute('data-rt-action');
+            if (value) el.setAttribute('action', RT.url(value));
+        });
+    };
+
     function initRetroTerm() {
         const html = document.documentElement;
+        RT.bindBaseUrls();
 
         // ===== THEME TOGGLE =====
         const themeToggle = document.getElementById('themeToggle');

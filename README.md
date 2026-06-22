@@ -35,7 +35,7 @@ framework_css_retro/
 |   |-- dashboard.html
 |   |-- doc.html
 |   |-- input.html
-|   |-- popup.html
+|   |-- modal.html
 |   |-- table.html
 |   |-- toast.html
 |   `-- typography.html
@@ -57,7 +57,8 @@ framework_css_retro/
 - Light and dark theme support
 - Flat retro-modern UI language
 - Responsive admin dashboard layout
-- Popup, dropdown, and toast helpers
+- Bootstrap-like grid system with `rt-container`, `rt-row`, and `rt-col-*`
+- Modal, dropdown, and toast helpers
 - Table demo with search and pagination
 - Documentation page for all UI elements
 
@@ -68,7 +69,7 @@ framework_css_retro/
 ```html
 <link rel="stylesheet" href="retro-term.css">
 <script src="retro-term.js" defer></script>
-<link rel="stylesheet" href="assets/term-icons/dist/term-icons.css">
+<link rel="stylesheet" href="assets/term-icons/dist/retro-term-icons.css">
 ```
 
 ### Base markup
@@ -90,8 +91,8 @@ framework_css_retro/
 ### Example components
 
 ```html
-<button class="rt-tbl rt-tbl--primary">Save</button>
-<button class="rt-tbl rt-tbl--secondary">Cancel</button>
+<button class="btn btn-primary">Save</button>
+<button class="btn btn-secondary">Cancel</button>
 
 <span class="rt-badge rt-badge--success">
   <span class="rt-badge_dot"></span>
@@ -188,7 +189,7 @@ import 'retro-term-css/js'
 - theme toggle
 - mobile sidebar
 - dropdowns
-- popups
+- modals
 - toast demo
 - table search and pagination demo
 
@@ -285,7 +286,7 @@ Reference pages live in `example/`:
 - `example/doc.html`
 - `example/buttons.html`
 - `example/badge.html`
-- `example/popup.html`
+- `example/modal.html`
 - `example/toast.html`
 - `example/table.html`
 - `example/input.html`

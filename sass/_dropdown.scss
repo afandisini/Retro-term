@@ -1,9 +1,9 @@
-﻿.rt-dd {
+.dropdown {
   position: relative;
   display: inline-block;
 }
 
-.rt-dd_menu {
+.dropdown-menu {
   position: absolute;
   top: calc(100% + 6px);
   right: 0;
@@ -20,18 +20,19 @@
   transition: all 0.2s ease;
 }
 
-.rt-dd.is-open .rt-dd_menu {
+.dropdown.is-open .dropdown-menu,
+.dropdown.show .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.rt-dd_menu--left {
+.dropdown-menu--left {
   right: auto;
   left: 0;
 }
 
-.rt-dd_item {
+.dropdown-item {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -48,12 +49,12 @@
   text-align: left;
 }
 
-.rt-dd_item:hover {
+.dropdown-item:hover {
   background: rgba(var(--rt-primary-rgb), 0.08);
   color: var(--rt-primary);
 }
 
-.rt-dd_item svg {
+.dropdown-item svg {
   width: 15px;
   height: 15px;
   stroke-width: 2;
@@ -61,26 +62,26 @@
   color: var(--rt-muted);
 }
 
-.rt-dd_item:hover svg {
+.dropdown-item:hover svg {
   color: var(--rt-primary);
 }
 
-.rt-dd_item--danger:hover {
+.dropdown-item--danger:hover {
   background: rgba(239, 68, 68, 0.08);
   color: var(--rt-danger);
 }
 
-.rt-dd_item--danger:hover svg {
+.dropdown-item--danger:hover svg {
   color: var(--rt-danger);
 }
 
-.rt-dd_divider {
+.dropdown-divider {
   height: 1px;
   background: var(--rt-border);
   margin: 4px 0;
 }
 
-.rt-dd_label {
+.dropdown-label {
   padding: 8px 12px 4px;
   font-size: 0.68rem;
   font-weight: 900;
@@ -88,4 +89,3 @@
   text-transform: uppercase;
   color: var(--rt-muted);
 }
-

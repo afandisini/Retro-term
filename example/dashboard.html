@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en" data-theme="light" data-base-url="http://localhost:8000/framework_css_retro/example/">
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-base-url="http://localhost:8000/example/">
 
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
-    <link rel="stylesheet" href="../retro-term.css">
+    <link rel="stylesheet" href="../assets/term-icons/dist/retro-term-icons.css?v=20260621">
+    <link rel="stylesheet" href="../retro-term.css?v=20260621">
 </head>
 
 <body>
@@ -29,41 +29,41 @@
             <div class="rt-sbr_label">Main Menu</div>
             <nav class="rt-sbr_nav">
                 <a class="rt-sbr_link is-active" href="dashboard.html">
-                    <i class="rt-icon term-icon-dashboard" aria-hidden="true"></i>
+                    <i class="rt rt-dashboard" aria-hidden="true"></i>
                     Dashboard
                 </a>
 
                 <!-- Sidebar Dropdown: Retro-term Ui -->
-                <div class="rt-sd" data-sd>
-                    <button class="rt-sd_trigger" type="button">
-                        <i class="rt-icon term-icon-users" aria-hidden="true"></i>
+                <div class="nav-dropdown" data-nav-dropdown>
+                    <button class="nav-dropdown-toggle" type="button">
+                        <i class="rt rt-users" aria-hidden="true"></i>
                         UI Elements
                         <span class="rt-sbr_badge">8</span>
-                        <i class="rt-icon term-icon-chevron-down rt-sd_chevron" aria-hidden="true"></i>
+                        <i class="rt rt-chevron-down nav-dropdown-chevron" aria-hidden="true"></i>
                     </button>
-                    <div class="rt-sd_children">
-                        <a class="rt-sd_child" href="buttons.html">
+                    <div class="nav-dropdown-menu">
+                        <a class="nav-dropdown-item" href="buttons.html">
                             Button
                         </a>
-                        <a class="rt-sd_child" href="badge.html">
+                        <a class="nav-dropdown-item" href="badge.html">
                             Badge
                         </a>
-                        <a class="rt-sd_child" href="popup.html">
-                            Popup
+                        <a class="nav-dropdown-item" href="modal.html">
+                            Modal
                         </a>
-                        <a class="rt-sd_child" href="toast.html">
+                        <a class="nav-dropdown-item" href="toast.html">
                             Toast
                         </a>
-                        <a class="rt-sd_child" href="table.html">
+                        <a class="nav-dropdown-item" href="table.html">
                             Table
                         </a>
-                        <a class="rt-sd_child" href="input.html">
+                        <a class="nav-dropdown-item" href="input.html">
                             Input Form
                         </a>
-                        <a class="rt-sd_child" href="typography.html">
+                        <a class="nav-dropdown-item" href="typography.html">
                             Typography
                         </a>
-                        <a class="rt-sd_child" href="color.html">
+                        <a class="nav-dropdown-item" href="color.html">
                             Color
                         </a>
                     </div>
@@ -71,7 +71,7 @@
 
                 <div class="rt-sbr_label">Documentation</div>
                 <a class="rt-sbr_link" href="doc.html">
-                    <i class="rt-icon term-icon-question" aria-hidden="true"></i>
+                    <i class="rt rt-question" aria-hidden="true"></i>
                     Doc
                 </a>
             </nav>
@@ -92,60 +92,60 @@
             <!-- TOPBAR -->
             <div class="rt-topbar">
                 <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
-                    <i class="rt-icon term-icon-menu" aria-hidden="true"></i>
+                    <i class="rt rt-menu" aria-hidden="true"></i>
                 </button>
                 <h1 class="rt-topbar_title">Dashboard</h1>
 
                 <div class="rt-topbar_search">
-                    <i class="rt-icon term-icon-search" aria-hidden="true"></i>
+                    <i class="rt rt-search" aria-hidden="true"></i>
                     <input type="text" placeholder="Search something...">
                 </div>
 
                 <div class="rt-topbar_actions">
                     <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
-                        <i class="rt-icon term-icon-moon moon-icon" aria-hidden="true"></i>
-                        <i class="rt-icon term-icon-sun sun-icon" aria-hidden="true" style="display:none"></i>
+                        <i class="rt rt-moon moon-icon" aria-hidden="true"></i>
+                        <i class="rt rt-sun sun-icon" aria-hidden="true" style="display:none"></i>
                     </button>
 
                     <!-- Dropdown Notification -->
-                    <div class="rt-dd" data-dd id="notifMenu">
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-notification" aria-hidden="true"></i>
+                    <div class="dropdown" data-dropdown id="notifMenu">
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                            <i class="rt rt-notification" aria-hidden="true"></i>
                             <span class="rt-topbar_dot"></span>
                         </button>
-                        <div class="rt-dd_menu">
-                            <div class="rt-dd_label">Notifications</div>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-database" aria-hidden="true"></i>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-label">Notifications</div>
+                            <button class="dropdown-item">
+                                <i class="rt rt-database" aria-hidden="true"></i>
                                 New user signed up
                             </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-check" aria-hidden="true"></i>
+                            <button class="dropdown-item">
+                                <i class="rt rt-check" aria-hidden="true"></i>
                                 Project completed
                             </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-info" aria-hidden="true"></i>
+                            <button class="dropdown-item">
+                                <i class="rt rt-info" aria-hidden="true"></i>
                                 Payment received
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <button class="rt-dd_item">
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item">
                                 View all
-                                <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                <i class="rt rt-chevron-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="rt-dd" data-dd id="settingsMenu">
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-settings" aria-hidden="true"></i>
+                    <div class="dropdown" data-dropdown id="settingsMenu">
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                            <i class="rt rt-settings" aria-hidden="true"></i>
                         </button>
-                        <div class="rt-dd_menu">
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-person-circle" aria-hidden="true"></i>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item">
+                                <i class="rt rt-person-circle" aria-hidden="true"></i>
                                 Profile
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <a class="rt-dd_item" href="../login.html">
-                                <i class="rt-icon term-icon-logout-box" aria-hidden="true"></i>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../login.html">
+                                <i class="rt rt-logout-box" aria-hidden="true"></i>
                                 Logout
                             </a>
                         </div>
@@ -159,12 +159,12 @@
                     <div class="rt-stat_head">
                         <span class="rt-stat_label">Total Users</span>
                         <div class="rt-stat_icon rt-stat_icon--primary">
-                            <i class="rt-icon term-icon-users" aria-hidden="true"></i>
+                            <i class="rt rt-users" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="rt-stat_value">12,847</div>
                     <div class="rt-stat_trend rt-stat_trend--up">
-                        <i class="rt-icon term-icon-chart-up" aria-hidden="true"></i>
+                        <i class="rt rt-chart-up" aria-hidden="true"></i>
                         +12.5%
                         <span class="rt-stat_sub">from last month</span>
                     </div>
@@ -179,9 +179,7 @@
                     </div>
                     <div class="rt-stat_value">IDR 84.2M</div>
                     <div class="rt-stat_trend rt-stat_trend--up">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                        </svg>
+                        <i class="rt rt-chart-up" aria-hidden="true"></i>
                         +8.2%
                         <span class="rt-stat_sub">from last month</span>
                     </div>
@@ -191,16 +189,12 @@
                     <div class="rt-stat_head">
                         <span class="rt-stat_label">Active Projects</span>
                         <div class="rt-stat_icon rt-stat_icon--accent">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                            </svg>
+                            <i class="rt rt-card-list" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="rt-stat_value">38</div>
                     <div class="rt-stat_trend rt-stat_trend--down">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6" />
-                        </svg>
+                        <i class="rt rt-arrow-down" aria-hidden="true"></i>
                         -2.4%
                         <span class="rt-stat_sub">from last month</span>
                     </div>
@@ -210,16 +204,12 @@
                     <div class="rt-stat_head">
                         <span class="rt-stat_label">Traffic</span>
                         <div class="rt-stat_icon rt-stat_icon--purple">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                            </svg>
+                                    <i class="rt rt-activity-icon" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="rt-stat_value">284K</div>
                     <div class="rt-stat_trend rt-stat_trend--up">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                        </svg>
+                        <i class="rt rt-chart-up" aria-hidden="true"></i>
                         +18.7%
                         <span class="rt-stat_sub">from last month</span>
                     </div>
@@ -229,18 +219,18 @@
             <!-- GRID: CHART + ACTIVITY -->
             <div class="rt-grid rt-mt3">
                 <!-- CHART PANEL -->
-                <div class="rt-panel">
-                    <div class="rt-panel_head">
+                <div class="card">
+                    <div class="card-header">
                         <div>
-                            <div class="rt-panel_title">Visitor Statistics</div>
-                            <div class="rt-panel_subtitle">Last 7 days</div>
+                            <div class="card-title">Visitor Statistics</div>
+                            <div class="card-subtitle">Last 7 days</div>
                         </div>
-                        <div class="rt-panel_actions">
-                            <button class="rt-tbl rt-tbl-secondary rt-tbl--sm">Weekly</button>
-                            <button class="rt-tbl rt-tbl-primary rt-tbl--sm">Monthly</button>
+                        <div class="card-actions">
+                            <button class="btn btn-secondary btn-sm">Weekly</button>
+                            <button class="btn btn-primary btn-sm">Monthly</button>
                         </div>
                     </div>
-                    <div class="rt-panel_body">
+                    <div class="card-body">
                         <div class="rt-chart">
                             <svg class="rt-chart_svg" viewBox="0 0 600 240" preserveAspectRatio="none">
                                 <defs>
@@ -279,24 +269,19 @@
                 </div>
 
                 <!-- ACTIVITY PANEL -->
-                <div class="rt-panel">
-                    <div class="rt-panel_head">
+                <div class="card">
+                    <div class="card-header">
                         <div>
-                            <div class="rt-panel_title">Recent Activity</div>
-                            <div class="rt-panel_subtitle">Update real-time</div>
+                            <div class="card-title">Recent Activity</div>
+                            <div class="card-subtitle">Update real-time</div>
                         </div>
-                        <button class="rt-tbl rt-tbl-outline rt-tbl--sm">View All</button>
+                        <button class="btn btn-outline-primary btn-sm">View All</button>
                     </div>
-                    <div class="rt-panel_body">
+                    <div class="card-body">
                         <div class="rt-activity">
                             <div class="rt-activity_item">
                                 <div class="rt-activity_icon rt-stat_icon--primary">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                        <circle cx="8.5" cy="7" r="4" />
-                                        <line x1="20" y1="8" x2="20" y2="14" />
-                                        <line x1="23" y1="11" x2="17" y2="11" />
-                                    </svg>
+                                    <i class="rt rt-person-plus" aria-hidden="true"></i>
                                 </div>
                                 <div class="rt-activity_content">
                                     <div class="rt-activity_text"><strong>Budi Santoso</strong> signed up as a new
@@ -306,9 +291,7 @@
                             </div>
                             <div class="rt-activity_item">
                                 <div class="rt-activity_icon rt-stat_icon--success">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <polyline points="20 6 9 17 4 12" />
-                                    </svg>
+                                    <i class="rt rt-check" aria-hidden="true"></i>
                                 </div>
                                 <div class="rt-activity_content">
                                     <div class="rt-activity_text"><strong>Landing Page Project</strong> was completed
@@ -318,9 +301,7 @@
                             </div>
                             <div class="rt-activity_item">
                                 <div class="rt-activity_icon rt-stat_icon--accent">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                    </svg>
+                                    <i class="rt rt-info" aria-hidden="true"></i>
                                 </div>
                                 <div class="rt-activity_content">
                                     <div class="rt-activity_text"><strong>Siti Rahma</strong> sent a new message</div>
@@ -341,8 +322,8 @@
                     </div>
                 </div>
             </div>
-            <div class="rt-panel rt-p3">
-                <div class="rt-panel rt-p2">
+            <div class="card rt-p3">
+                <div class="card rt-p2">
                     <div style="font-size:.88rem;font-weight:900;margin-bottom:12px">Traffic Sources</div>
                     <div style="display:grid;gap:10px">
                         <div>
@@ -388,52 +369,42 @@
     </div>
 
     <!-- ============================================
-     POPUPS (rt-pp) - Multiple sizes
+     POPUPS (modal) - Multiple sizes
 ============================================ -->
 
     <!-- SM Popup -->
-    <div class="rt-pp rt-pp--sm" id="pp-sm" data-pp>
-        <div class="rt-pp_panel">
-            <div class="rt-pp_head">
+    <div class="modal modal-sm" id="pp-sm" data-modal>
+        <div class="modal-content">
+            <div class="modal-header">
                 <div>
-                    <h3 class="rt-pp_title">Confirm Delete</h3>
-                    <p class="rt-pp_desc">Are you sure you want to delete this item?</p>
+                    <h3 class="modal-title">Confirm Delete</h3>
+                    <p class="modal-subtitle">Are you sure you want to delete this item?</p>
                 </div>
-                <button class="rt-pp_close" data-pp-close>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
+                <button class="btn-close" data-modal-close></button>
             </div>
-            <div class="rt-pp_body">
+            <div class="modal-body">
                 <p style="color:var(--rt-muted);font-size:.88rem;line-height:1.7">
                     This action cannot be undone. All related items will be permanently removed from the system.
                 </p>
             </div>
-            <div class="rt-pp_footer">
-                <button class="rt-tbl rt-tbl-secondary" data-pp-close>Cancel</button>
-                <button class="rt-tbl rt-tbl-danger" data-pp-close>Yes, Delete</button>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal-close>Cancel</button>
+                <button class="btn btn-danger" data-modal-close>Yes, Delete</button>
             </div>
         </div>
     </div>
 
     <!-- MD Popup -->
-    <div class="rt-pp rt-pp--md" id="pp-md" data-pp>
-        <div class="rt-pp_panel">
-            <div class="rt-pp_head">
+    <div class="modal modal-md" id="pp-md" data-modal>
+        <div class="modal-content">
+            <div class="modal-header">
                 <div>
-                    <h3 class="rt-pp_title">Add New User</h3>
-                    <p class="rt-pp_desc">Fill out the form below to add a new user</p>
+                    <h3 class="modal-title">Add New User</h3>
+                    <p class="modal-subtitle">Fill out the form below to add a new user</p>
                 </div>
-                <button class="rt-pp_close" data-pp-close>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
+                <button class="btn-close" data-modal-close></button>
             </div>
-            <div class="rt-pp_body">
+            <div class="modal-body">
                 <div style="display:grid;gap:14px">
                     <div>
                         <label
@@ -462,29 +433,24 @@
                     </div>
                 </div>
             </div>
-            <div class="rt-pp_footer">
-                <button class="rt-tbl rt-tbl-secondary" data-pp-close>Cancel</button>
-                <button class="rt-tbl rt-tbl-primary" data-pp-close>Save</button>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal-close>Cancel</button>
+                <button class="btn btn-primary" data-modal-close>Save</button>
             </div>
         </div>
     </div>
 
     <!-- LG Popup -->
-    <div class="rt-pp rt-pp--lg" id="pp-lg" data-pp>
-        <div class="rt-pp_panel">
-            <div class="rt-pp_head">
+    <div class="modal modal-lg" id="pp-lg" data-modal>
+        <div class="modal-content">
+            <div class="modal-header">
                 <div>
-                    <h3 class="rt-pp_title">Project Details</h3>
-                    <p class="rt-pp_desc">Complete information about the selected project</p>
+                    <h3 class="modal-title">Project Details</h3>
+                    <p class="modal-subtitle">Complete information about the selected project</p>
                 </div>
-                <button class="rt-pp_close" data-pp-close>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
+                <button class="btn-close" data-modal-close></button>
             </div>
-            <div class="rt-pp_body">
+            <div class="modal-body">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
                     <div>
                         <div
@@ -534,29 +500,24 @@
                     </div>
                 </div>
             </div>
-            <div class="rt-pp_footer">
-                <button class="rt-tbl rt-tbl-secondary" data-pp-close>Close</button>
-                <button class="rt-tbl rt-tbl-primary">Edit Project</button>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal-close>Close</button>
+                <button class="btn btn-primary">Edit Project</button>
             </div>
         </div>
     </div>
 
     <!-- XL Popup -->
-    <div class="rt-pp rt-pp--xl" id="pp-xl" data-pp>
-        <div class="rt-pp_panel">
-            <div class="rt-pp_head">
+    <div class="modal modal-xl" id="pp-xl" data-modal>
+        <div class="modal-content">
+            <div class="modal-header">
                 <div>
-                    <h3 class="rt-pp_title">Analytics Report</h3>
-                    <p class="rt-pp_desc">This month's performance summary</p>
+                    <h3 class="modal-title">Analytics Report</h3>
+                    <p class="modal-subtitle">This month's performance summary</p>
                 </div>
-                <button class="rt-pp_close" data-pp-close>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
+                <button class="btn-close" data-modal-close></button>
             </div>
-            <div class="rt-pp_body">
+            <div class="modal-body">
                 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px">
                     <div style="padding:18px;border:1px solid var(--rt-border);background:var(--rt-surface)">
                         <div
@@ -624,14 +585,10 @@
                     </div>
                 </div>
             </div>
-            <div class="rt-pp_footer">
-                <button class="rt-tbl rt-tbl-secondary" data-pp-close>Close</button>
-                <button class="rt-tbl rt-tbl-primary">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal-close>Close</button>
+                <button class="btn btn-primary">
+                    <i class="rt rt-download" aria-hidden="true"></i>
                     Export PDF
                 </button>
             </div>
@@ -639,38 +596,27 @@
     </div>
 
     <!-- Fullscreen Popup -->
-    <div class="rt-pp rt-pp--fullscreen" id="pp-full" data-pp>
-        <div class="rt-pp_panel">
-            <div class="rt-pp_head">
+    <div class="modal modal-fullscreen" id="pp-full" data-modal>
+        <div class="modal-content">
+            <div class="modal-header">
                 <div>
-                    <h3 class="rt-pp_title">Fullscreen Mode</h3>
-                    <p class="rt-pp_desc">Popup fills the entire screen</p>
+                    <h3 class="modal-title">Fullscreen Mode</h3>
+                    <p class="modal-subtitle">Popup fills the entire screen</p>
                 </div>
-                <button class="rt-pp_close" data-pp-close>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
+                <button class="btn-close" data-modal-close></button>
             </div>
-            <div class="rt-pp_body" style="display:grid;place-items:center;text-align:center">
+            <div class="modal-body" style="display:grid;place-items:center;text-align:center">
                 <div>
                     <div
                         style="width:80px;height:80px;margin:0 auto 20px;border-radius:20px;background:linear-gradient(135deg,var(--rt-primary),var(--rt-primary-2));display:grid;place-items:center;color:#fff">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="15 3 21 3 21 9" />
-                            <polyline points="9 21 3 21 3 15" />
-                            <line x1="21" y1="3" x2="14" y2="10" />
-                            <line x1="3" y1="21" x2="10" y2="14" />
-                        </svg>
+                        <i class="rt rt-fullscreen" aria-hidden="true" style="width:36px;height:36px"></i>
                     </div>
                     <h2 style="font-size:1.8rem;font-weight:950;letter-spacing:-.04em;margin-bottom:10px">Fullscreen
                         Popup</h2>
                     <p style="color:var(--rt-muted);font-size:1rem;max-width:500px;margin:0 auto;line-height:1.7">
                         This popup fills the entire screen. Ideal for complex forms, previews, or multi-step wizards.
                     </p>
-                    <button class="rt-tbl rt-tbl-primary rt-tbl--lg" data-pp-close style="margin-top:24px">Close
+                    <button class="btn btn-primary btn-lg" data-modal-close style="margin-top:24px">Close
                         Popup</button>
                 </div>
             </div>
@@ -679,21 +625,18 @@
 
     <div class="rt-toast rt-toast--success" id="demoToast" aria-live="polite" aria-atomic="true">
         <div class="rt-toast__icon">
-            <i class="rt-icon term-icon-success-circle" aria-hidden="true"></i>
+            <i class="rt rt-success-circle" aria-hidden="true"></i>
         </div>
         <div class="rt-toast__content">
             <div class="rt-toast__title">Toast Success</div>
             <div class="rt-toast__text">Example `rt-toast` element for short-lived messages.</div>
         </div>
         <button class="rt-toast__close" type="button" id="toastCloseBtn" aria-label="Close toast">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <i class="rt rt-close" aria-hidden="true"></i>
         </button>
     </div>
 
-    <script src="../retro-term.js" defer></script>
+    <script src="../retro-term.js?v=20260621" defer></script>
 
 </body>
 

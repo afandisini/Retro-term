@@ -114,12 +114,15 @@
         function syncSidebarState() {
             const currentFile = window.location.pathname.split('/').pop()?.toLowerCase() || 'index.html';
             const navLinks = document.querySelectorAll('.rt-sbr_link');
-            const childLinks = document.querySelectorAll('.rt-sd_child');
-            const dropdowns = document.querySelectorAll('[data-sd]');
+            const childLinks = document.querySelectorAll('.nav-dropdown-item');
+            const dropdowns = document.querySelectorAll('[data-nav-dropdown], .nav-dropdown');
 
             navLinks.forEach(link => link.classList.remove('is-active'));
             childLinks.forEach(child => child.classList.remove('is-active'));
-            dropdowns.forEach(sd => sd.classList.remove('is-open'));
+            dropdowns.forEach(sd => {
+                sd.classList.remove('is-open');
+                sd.classList.remove('show');
+            });
 
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
@@ -136,7 +139,7 @@
                 const target = href.split('/').pop()?.toLowerCase();
                 if (target && target === currentFile) {
                     child.classList.add('is-active');
-                    const parent = child.closest('[data-sd]');
+                    const parent = child.closest('[data-nav-dropdown], .nav-dropdown');
                     parent?.classList.add('is-open');
                 }
             });
@@ -155,16 +158,18 @@
             });
         });
 
-        // ===== SIDEBAR DROPDOWN (rt-sd) =====
-        document.querySelectorAll('[data-sd]').forEach(sd => {
-            const trigger = sd.querySelector('.rt-sd_trigger');
+        // ===== SIDEBAR DROPDOWN (nav-dropdown) =====
+        document.querySelectorAll('[data-nav-dropdown], .nav-dropdown').forEach(sd => {
+            const trigger = sd.querySelector('.nav-dropdown-toggle');
             trigger?.addEventListener('click', (e) => {
                 e.preventDefault();
-                sd.classList.toggle('is-open');
+                const willOpen = !sd.classList.contains('is-open');
+                sd.classList.toggle('is-open', willOpen);
+                sd.classList.toggle('show', willOpen);
             });
         });
 
-        document.querySelectorAll('.rt-sd_child').forEach(child => {
+        document.querySelectorAll('.nav-dropdown-item').forEach(child => {
             child.addEventListener('click', (e) => {
                 if (window.innerWidth <= 1024) {
                     sidebar?.classList.remove('is-open');
@@ -173,27 +178,274 @@
             });
         });
 
-        // ===== DROPDOWN (rt-dd) =====
-        document.querySelectorAll('[data-dd]').forEach(dd => {
-            const trigger = dd.querySelector('[data-dd-trigger]');
+        // ===== DROPDOWN (dropdown) =====
+        document.querySelectorAll('[data-dropdown], .dropdown').forEach(dd => {
+            const trigger = dd.querySelector('[data-dropdown-trigger], .dropdown-toggle');
             trigger?.addEventListener('click', (e) => {
                 e.stopPropagation();
-                document.querySelectorAll('[data-dd]').forEach(o => {
+                document.querySelectorAll('[data-dropdown], .dropdown').forEach(o => {
                     if (o !== dd) o.classList.remove('is-open');
+                    if (o !== dd) o.classList.remove('show');
                 });
-                dd.classList.toggle('is-open');
+                const willOpen = !dd.classList.contains('is-open');
+                dd.classList.toggle('is-open', willOpen);
+                dd.classList.toggle('show', willOpen);
             });
         });
 
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('[data-dd]')) {
-                document.querySelectorAll('[data-dd]').forEach(dd => dd.classList.remove('is-open'));
+            if (!e.target.closest('[data-dropdown], .dropdown')) {
+                document.querySelectorAll('[data-dropdown], .dropdown').forEach(dd => {
+                    dd.classList.remove('is-open');
+                    dd.classList.remove('show');
+                });
             }
         });
 
+        // ===== SEARCHABLE SELECTS =====
+        function initSearchableSelects() {
+            const selectNodes = document.querySelectorAll('select.rt-form-select');
+
+            selectNodes.forEach((select, index) => {
+                if (select.dataset.rtSelectReady === 'true' || select.multiple) return;
+                select.dataset.rtSelectReady = 'true';
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'rt-select';
+
+                const toggle = document.createElement('button');
+                toggle.type = 'button';
+                toggle.className = 'rt-select__toggle';
+                toggle.setAttribute('aria-haspopup', 'listbox');
+                toggle.setAttribute('aria-expanded', 'false');
+
+                const value = document.createElement('span');
+                value.className = 'rt-select__value';
+
+                const caret = document.createElement('span');
+                caret.className = 'rt-select__caret';
+                caret.setAttribute('aria-hidden', 'true');
+
+                toggle.append(value, caret);
+
+                const menu = document.createElement('div');
+                menu.className = 'rt-select__menu';
+                menu.hidden = true;
+
+                const search = document.createElement('div');
+                search.className = 'rt-select__search';
+
+                const searchIcon = document.createElement('span');
+                searchIcon.className = 'rt-select__search-icon';
+                searchIcon.setAttribute('aria-hidden', 'true');
+
+                const searchInput = document.createElement('input');
+                searchInput.type = 'search';
+                searchInput.className = 'rt-select__search-input';
+                searchInput.placeholder = select.getAttribute('data-search-placeholder') || 'Cari opsi...';
+                searchInput.autocomplete = 'off';
+                searchInput.spellcheck = false;
+
+                search.append(searchIcon, searchInput);
+
+                const list = document.createElement('div');
+                list.className = 'rt-select__list';
+                list.setAttribute('role', 'listbox');
+
+                menu.append(search, list);
+
+                select.parentNode.insertBefore(wrapper, select);
+                wrapper.append(select, toggle);
+                document.body.appendChild(menu);
+                select.classList.add('rt-select__native');
+
+                let isOpen = false;
+                let lastScrollX = window.scrollX;
+                let lastScrollY = window.scrollY;
+
+                function positionMenu() {
+                    if (menu.hidden) return;
+                    const rect = toggle.getBoundingClientRect();
+                    const gap = 8;
+                    const viewportPadding = 12;
+                    const minWidth = 180;
+                    const desiredWidth = Math.max(rect.width, minWidth);
+                    const maxWidth = Math.max(0, window.innerWidth - viewportPadding * 2);
+                    const width = Math.min(desiredWidth, maxWidth || desiredWidth);
+                    const left = Math.min(
+                        Math.max(viewportPadding, rect.left),
+                        Math.max(viewportPadding, window.innerWidth - width - viewportPadding)
+                    );
+                    const spaceBelow = window.innerHeight - rect.bottom - gap - viewportPadding;
+                    const spaceAbove = rect.top - gap - viewportPadding;
+                    const openUp = spaceBelow < 220 && spaceAbove > spaceBelow;
+                    const top = openUp
+                        ? Math.max(viewportPadding, rect.top - gap)
+                        : Math.min(window.innerHeight - viewportPadding, rect.bottom + gap);
+
+                    menu.style.position = 'fixed';
+                    menu.style.left = `${left}px`;
+                    menu.style.top = openUp ? `${top}px` : `${top}px`;
+                    menu.style.width = `${width}px`;
+                    menu.style.maxWidth = `${maxWidth || width}px`;
+                    menu.style.transform = openUp ? 'translateY(-100%)' : 'none';
+                    menu.dataset.position = openUp ? 'top' : 'bottom';
+                }
+
+                function getSelectedLabel() {
+                    const selected = select.options[select.selectedIndex];
+                    if (!selected) return select.getAttribute('data-placeholder') || 'Pilih opsi';
+                    const text = (selected.textContent || '').trim();
+                    return text || select.getAttribute('data-placeholder') || 'Pilih opsi';
+                }
+
+                function renderOptions(query = '') {
+                    list.innerHTML = '';
+                    const term = query.trim().toLowerCase();
+                    let matchCount = 0;
+
+                    Array.from(select.options).forEach((option) => {
+                        if (option.hidden) return;
+                        const text = (option.textContent || '').trim();
+                        const haystack = `${text} ${option.value || ''}`.toLowerCase();
+                        if (term && !haystack.includes(term)) return;
+
+                        matchCount += 1;
+                        const item = document.createElement('button');
+                        item.type = 'button';
+                        item.className = 'rt-select__option';
+                        item.textContent = text || option.value || '';
+                        item.disabled = option.disabled;
+                        item.dataset.value = option.value;
+                        item.setAttribute('role', 'option');
+                        item.setAttribute('aria-selected', option.selected ? 'true' : 'false');
+                        if (option.selected) item.classList.add('is-selected');
+
+                        item.addEventListener('click', () => {
+                            if (option.disabled) return;
+                            select.value = option.value;
+                            select.dispatchEvent(new Event('change', { bubbles: true }));
+                            syncFromSelect();
+                            closeMenu();
+                        });
+
+                        list.append(item);
+                    });
+
+                    if (!matchCount) {
+                        const empty = document.createElement('div');
+                        empty.className = 'rt-select__empty';
+                        empty.textContent = 'Tidak ada opsi yang cocok';
+                        list.append(empty);
+                    }
+                }
+
+                function syncFromSelect() {
+                    value.textContent = getSelectedLabel();
+                    toggle.title = value.textContent;
+                    toggle.disabled = select.disabled;
+                    renderOptions(searchInput.value);
+                }
+
+                function openMenu() {
+                    if (select.disabled) return;
+                    document.querySelectorAll('.rt-select.is-open').forEach((node) => {
+                        if (node !== wrapper) node.querySelector('.rt-select__toggle')?.click();
+                    });
+                    menu.hidden = false;
+                    document.body.appendChild(menu);
+                    wrapper.classList.add('is-open');
+                    toggle.setAttribute('aria-expanded', 'true');
+                    isOpen = true;
+                    searchInput.value = '';
+                    renderOptions('');
+                    positionMenu();
+                    window.requestAnimationFrame(() => searchInput.focus());
+                }
+
+                function closeMenu() {
+                    if (!isOpen) return;
+                    menu.hidden = true;
+                    wrapper.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    menu.style.removeProperty('position');
+                    menu.style.removeProperty('left');
+                    menu.style.removeProperty('top');
+                    menu.style.removeProperty('width');
+                    menu.style.removeProperty('max-width');
+                    menu.style.removeProperty('transform');
+                    searchInput.value = '';
+                    isOpen = false;
+                }
+
+                toggle.addEventListener('click', () => {
+                    if (menu.hidden) {
+                        openMenu();
+                    } else {
+                        closeMenu();
+                    }
+                });
+
+                toggle.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openMenu();
+                    }
+
+                    if (e.key === 'Escape') {
+                        closeMenu();
+                    }
+                });
+
+                searchInput.addEventListener('input', () => {
+                    renderOptions(searchInput.value);
+                });
+
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        e.stopPropagation();
+                        closeMenu();
+                        toggle.focus();
+                    }
+                });
+
+                select.addEventListener('change', syncFromSelect);
+                select.addEventListener('input', syncFromSelect);
+
+                document.addEventListener('click', (e) => {
+                    if (!wrapper.contains(e.target) && !menu.contains(e.target)) {
+                        closeMenu();
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closeMenu();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    if (isOpen) positionMenu();
+                });
+
+                window.addEventListener('scroll', () => {
+                    if (!isOpen) return;
+                    if (window.scrollX !== lastScrollX || window.scrollY !== lastScrollY) {
+                        lastScrollX = window.scrollX;
+                        lastScrollY = window.scrollY;
+                        positionMenu();
+                    }
+                }, true);
+
+                syncFromSelect();
+            });
+        }
+
+        initSearchableSelects();
+
         syncSidebarState();
 
-        // ===== POPUP (rt-pp) =====
+        // ===== POPUP (modal) =====
         const popupCloseDelay = 220;
 
         function openPopup(id) {
@@ -201,16 +453,17 @@
             if (!pp) return;
             pp.classList.remove('is-closing');
             pp.classList.add('is-open');
-            document.body.classList.add('rt-pp-open');
+            pp.classList.add('show');
+            document.body.classList.add('modal-open');
         }
 
         function closePopup(pp) {
             if (!pp || !pp.classList.contains('is-open') || pp.classList.contains('is-closing')) return;
             pp.classList.add('is-closing');
-            const panel = pp.querySelector('.rt-pp_panel');
+            const panel = pp.querySelector('.modal-content, .modal-dialog');
             const finish = () => {
-                pp.classList.remove('is-open', 'is-closing');
-                document.body.classList.remove('rt-pp-open');
+                pp.classList.remove('is-open', 'is-closing', 'show');
+                document.body.classList.remove('modal-open');
             };
 
             if (panel) {
@@ -224,18 +477,18 @@
             window.setTimeout(finish, popupCloseDelay);
         }
 
-        document.querySelectorAll('[data-pp-open]').forEach(btn => {
-            btn.addEventListener('click', () => openPopup(btn.getAttribute('data-pp-open')));
+        document.querySelectorAll('[data-modal-open]').forEach(btn => {
+            btn.addEventListener('click', () => openPopup(btn.getAttribute('data-modal-open')));
         });
 
-        document.querySelectorAll('[data-pp-close]').forEach(btn => {
+        document.querySelectorAll('[data-modal-close]').forEach(btn => {
             btn.addEventListener('click', () => {
-                const pp = btn.closest('[data-pp]');
+                const pp = btn.closest('[data-modal]');
                 if (pp) closePopup(pp);
             });
         });
 
-        document.querySelectorAll('[data-pp]').forEach(pp => {
+        document.querySelectorAll('[data-modal]').forEach(pp => {
             pp.addEventListener('click', (e) => {
                 if (e.target === pp) closePopup(pp);
             });
@@ -243,7 +496,7 @@
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                document.querySelectorAll('[data-pp].is-open').forEach(closePopup);
+                document.querySelectorAll('[data-modal].is-open').forEach(closePopup);
             }
         });
 
@@ -416,11 +669,11 @@
                         <td>${item.date}</td>
                         <td>
                             <div style="display:flex;gap:4px">
-                                <button class="rt-tbl rt-tbl-ghost rt-tbl--sm rt-tbl--icon" title="Edit">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                <button class="btn btn-ghost btn-sm btn-icon" title="Edit">
+                                    <i class="rt rt-edit" aria-hidden="true"></i>
                                 </button>
-                                <button class="rt-tbl rt-tbl-ghost rt-tbl--sm rt-tbl--icon" title="Delete" style="color:var(--rt-danger)">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                <button class="btn btn-ghost btn-sm btn-icon" title="Delete" style="color:var(--rt-danger)">
+                                    <i class="rt rt-delete" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </td>

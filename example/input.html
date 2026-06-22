@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-base-url="http://localhost:8000/framework_css_retro/example/">
+<html lang="en" data-theme="light" data-base-url="http://localhost:8000/example/">
 
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
-    <link rel="stylesheet" href="../retro-term.css">
+    <link rel="stylesheet" href="../assets/term-icons/dist/retro-term-icons.css?v=20260621">
+    <link rel="stylesheet" href="../retro-term.css?v=20260621">
 </head>
 
 <body>
@@ -18,23 +18,23 @@
         <aside class="rt-sbr" id="sidebar">
             <div class="rt-sbr_brand"><span class="rt-brand_dot"></span><span>Retro-term</span></div>
             <div class="rt-sbr_label">Main Menu</div>
-            <nav class="rt-sbr_nav"><a class="rt-sbr_link" href="dashboard.html"><i class="rt-icon term-icon-dashboard"
+            <nav class="rt-sbr_nav"><a class="rt-sbr_link" href="dashboard.html"><i class="rt rt-dashboard"
                         aria-hidden="true"></i>Dashboard</a>
-                <div class="rt-sd" data-sd><button class="rt-sd_trigger" type="button"><i
-                            class="rt-icon term-icon-users" aria-hidden="true"></i>UI Elements<span
-                            class="rt-sbr_badge">8</span><i class="rt-icon term-icon-chevron-down rt-sd_chevron"
-                            aria-hidden="true"></i></button>
-                    <div class="rt-sd_children"><a class="rt-sd_child" href="buttons.html">Button</a><a
-                            class="rt-sd_child" href="badge.html">Badge</a><a class="rt-sd_child"
-                            href="popup.html">Popup</a><a class="rt-sd_child" href="toast.html">Toast</a><a
-                            class="rt-sd_child" href="table.html">Table</a><a class="rt-sd_child"
-                            href="input.html">Input Form</a><a class="rt-sd_child"
-                            href="typography.html">Typography</a><a class="rt-sd_child" href="color.html">Color</a>
+                <div class="nav-dropdown" data-nav-dropdown><button class="nav-dropdown-toggle" type="button"><i
+                            class="rt rt-users" aria-hidden="true"></i>UI Elements<span class="rt-sbr_badge">8</span><i
+                            class="rt rt-chevron-down nav-dropdown-chevron" aria-hidden="true"></i></button>
+                    <div class="nav-dropdown-menu"><a class="nav-dropdown-item" href="buttons.html">Button</a><a
+                            class="nav-dropdown-item" href="badge.html">Badge</a><a class="nav-dropdown-item"
+                            href="modal.html">Modal</a><a class="nav-dropdown-item" href="toast.html">Toast</a><a
+                            class="nav-dropdown-item" href="table.html">Table</a><a class="nav-dropdown-item"
+                            href="input.html">Input Form</a><a class="nav-dropdown-item"
+                            href="typography.html">Typography</a><a class="nav-dropdown-item"
+                            href="color.html">Color</a>
                     </div>
                 </div>
                 <div class="rt-sbr_label">Documentation</div>
                 <a class="rt-sbr_link" href="doc.html">
-                    <i class="rt-icon term-icon-question" aria-hidden="true"></i>
+                    <i class="rt rt-question" aria-hidden="true"></i>
                     Doc
                 </a>
             </nav>
@@ -50,59 +50,59 @@
         </aside>
         <main class="rt-main">
             <div class="rt-topbar">
-                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu"><i class="rt-icon term-icon-menu"
+                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu"><i class="rt rt-menu"
                         aria-hidden="true"></i></button>
                 <h1 class="rt-topbar_title">Input Form</h1>
                 <div class="rt-topbar_search">
-                    <i class="rt-icon term-icon-search" aria-hidden="true"></i>
+                    <i class="rt rt-search" aria-hidden="true"></i>
                     <input type="text" placeholder="Search something...">
                 </div>
 
                 <div class="rt-topbar_actions">
                     <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
-                        <i class="rt-icon term-icon-moon moon-icon" aria-hidden="true"></i>
-                        <i class="rt-icon term-icon-sun sun-icon" aria-hidden="true" style="display:none"></i>
+                        <i class="rt rt-moon moon-icon" aria-hidden="true"></i>
+                        <i class="rt rt-sun sun-icon" aria-hidden="true" style="display:none"></i>
                     </button>
 
                     <!-- Dropdown Notification -->
-                    <div class="rt-dd" data-dd>
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-notification" aria-hidden="true"></i>
+                    <div class="dropdown" data-dropdown>
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                            <i class="rt rt-notification" aria-hidden="true"></i>
                             <span class="rt-topbar_dot"></span>
                         </button>
-                        <div class="rt-dd_menu">
-                            <div class="rt-dd_label">Notifications</div>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-database" aria-hidden="true"></i>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-label">Notifications</div>
+                            <button class="dropdown-item">
+                                <i class="rt rt-database" aria-hidden="true"></i>
                                 New user signed up
                             </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-check" aria-hidden="true"></i>
+                            <button class="dropdown-item">
+                                <i class="rt rt-check" aria-hidden="true"></i>
                                 Project completed
                             </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-info" aria-hidden="true"></i>
+                            <button class="dropdown-item">
+                                <i class="rt rt-info" aria-hidden="true"></i>
                                 Payment received
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <button class="rt-dd_item">
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item">
                                 View all
-                                <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                <i class="rt rt-chevron-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="rt-dd" data-dd>
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-settings" aria-hidden="true"></i>
+                    <div class="dropdown" data-dropdown>
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                            <i class="rt rt-settings" aria-hidden="true"></i>
                         </button>
-                        <div class="rt-dd_menu">
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-person-circle" aria-hidden="true"></i>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item">
+                                <i class="rt rt-person-circle" aria-hidden="true"></i>
                                 Profile
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <a class="rt-dd_item" href="../login.html">
-                                <i class="rt-icon term-icon-logout-box" aria-hidden="true"></i>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../login.html">
+                                <i class="rt rt-logout-box" aria-hidden="true"></i>
                                 Logout
                             </a>
                         </div>
@@ -110,43 +110,38 @@
                 </div>
             </div>
             <div class="rt-grid">
-                <div class="rt-panel">
-                    <div class="rt-panel_head">
+                <div class="card rt-form-card">
+                    <div class="card-header">
                         <div>
-                            <div class="rt-panel_title">Basic Inputs</div>
-                            <div class="rt-panel_subtitle">Text, email, select, textarea</div>
+                            <div class="card-title">Basic Inputs</div>
+                            <div class="card-subtitle">Text, email, select, textarea</div>
                         </div>
                     </div>
-                    <div class="rt-panel_body" style="display:grid;gap:14px">
-                        <input type="text" placeholder="Full name"
-                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);outline:none">
-                        <input type="email" placeholder="name@example.com"
-                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);outline:none">
-                        <select
-                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);outline:none">
+                    <div class="card-body rt-form-stack">
+                        <input class="rt-form-control" type="text" placeholder="Full name">
+                        <input class="rt-form-control" type="email" placeholder="name@example.com">
+                        <select class="rt-form-select">
                             <option>Admin</option>
                             <option>Editor</option>
                             <option>Member</option>
                         </select>
-                        <textarea rows="4" placeholder="Write a short bio..."
-                            style="width:100%;padding:12px 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);outline:none;resize:vertical"></textarea>
+                        <textarea class="rt-form-textarea" placeholder="Write a short bio..."></textarea>
                     </div>
                 </div>
-                <div class="rt-panel">
-                    <div class="rt-panel_head">
+                <div class="card rt-form-card">
+                    <div class="card-header">
                         <div>
-                            <div class="rt-panel_title">Form Actions</div>
-                            <div class="rt-panel_subtitle">Checkboxes and buttons</div>
+                            <div class="card-title">Form Actions</div>
+                            <div class="card-subtitle">Checkboxes and buttons</div>
                         </div>
                     </div>
-                    <div class="rt-panel_body" style="display:grid;gap:12px">
-                        <label style="display:flex;align-items:center;gap:10px;font-weight:700"><input type="checkbox"
-                                checked> Remember me</label>
-                        <label style="display:flex;align-items:center;gap:10px;font-weight:700"><input type="checkbox">
-                            Send email notification</label>
-                        <div class="rt-row" style="margin-top:8px">
-                            <button class="rt-tbl rt-tbl-primary">Save</button>
-                            <button class="rt-tbl rt-tbl-secondary">Cancel</button>
+                    <div class="card-body rt-form-stack" style="gap:12px">
+                        <div class="rt-form-check"><input type="checkbox" checked> Remember me</div>
+                        <div class="rt-form-check"><input type="checkbox">
+                            Send email notification</div>
+                        <div class="rt-form-actions rt-flow--sm" style="margin-top:8px">
+                            <button class="btn btn-primary">Save</button>
+                            <button class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -154,7 +149,7 @@
         </main>
     </div>
 
-    <script src="../retro-term.js" defer></script>
+    <script src="../retro-term.js?v=20260621" defer></script>
 </body>
 
 </html>

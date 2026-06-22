@@ -92,7 +92,7 @@
   },
   {
     "name": "grid",
-    "class": "term-icon-grid",
+    "class": "term-icon-layout-grid",
     "symbol": "grid",
     "category": "layout",
     "source": "bootstrap-icons/grid"
@@ -379,7 +379,7 @@
   },
   {
     "name": "activity",
-    "class": "term-icon-activity",
+    "class": "term-icon-activity-icon",
     "symbol": "activity",
     "category": "status",
     "source": "bootstrap-icons/activity"
@@ -428,7 +428,7 @@
   },
   {
     "name": "table",
-    "class": "term-icon-table",
+    "class": "term-icon-data-table-icon",
     "symbol": "table",
     "category": "ui",
     "source": "bootstrap-icons/table"
@@ -504,3 +504,5 @@
     "source": "bootstrap-icons/diagram-3"
   }
 ]
+
+

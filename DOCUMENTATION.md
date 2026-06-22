@@ -19,6 +19,7 @@ The framework focuses on:
 
 - flat UI styling
 - responsive dashboard layout
+- Bootstrap-like grid utilities with `rt-container`, `rt-row`, and `rt-col-*`
 - light and dark themes
 - reusable UI components
 - static demo pages
@@ -30,11 +31,12 @@ The framework focuses on:
 Main stylesheet for the framework. It contains:
 
 - layout system
+- grid system
 - buttons
 - cards and panels
 - forms
 - tables
-- popups
+- modals
 - dropdowns
 - badges
 - alerts
@@ -52,7 +54,7 @@ Default JavaScript helper for demo interactions:
 - theme toggle
 - mobile sidebar open and close
 - dropdown menus
-- popup open and close
+- modal open and close
 - toast demo behavior
 - table search and pagination demo behavior
 
@@ -64,7 +66,7 @@ The `example/` folder contains the component and layout demos:
 - `example/doc.html`
 - `example/buttons.html`
 - `example/badge.html`
-- `example/popup.html`
+- `example/modal.html`
 - `example/toast.html`
 - `example/table.html`
 - `example/input.html`
@@ -105,7 +107,7 @@ npm run watch:css
 ### Icon set
 
 ```html
-<link rel="stylesheet" href="assets/term-icons/dist/term-icons.css">
+<link rel="stylesheet" href="assets/term-icons/dist/retro-term-icons.css">
 ```
 
 ### Base markup
@@ -128,39 +130,39 @@ npm run watch:css
 
 ### Buttons
 
-Use `rt-tbl` for action buttons.
+Use `btn` for action buttons.
 
 Common variants:
 
-- `rt-tbl--primary`
-- `rt-tbl--secondary`
-- `rt-tbl--success`
-- `rt-tbl--warning`
-- `rt-tbl--danger`
-- `rt-tbl--accent`
-- `rt-tbl--purple`
-- `rt-tbl--ghost`
-- `rt-tbl--outline`
+- `btn-primary`
+- `btn-secondary`
+- `btn-success`
+- `btn-warning`
+- `btn-danger`
+- `btn-accent`
+- `btn-purple`
+- `btn-ghost`
+- `btn-outline-primary`
 
 Common sizes:
 
-- `rt-tbl--sm`
-- `rt-tbl--lg`
-- `rt-tbl--icon`
+- `btn-sm`
+- `btn-lg`
+- `btn-icon`
 
 ### Badges
 
 Use `rt-badge` for compact labels and status indicators.
 
-### Popup
+### Modal
 
-Popup markup uses `rt-pp` and size modifiers such as:
+Modal markup uses `modal` and size modifiers such as:
 
-- `rt-pp--sm`
-- `rt-pp--md`
-- `rt-pp--lg`
-- `rt-pp--xl`
-- `rt-pp--fullscreen`
+- `modal-sm`
+- `modal-md`
+- `modal-lg`
+- `modal-xl`
+- `modal-fullscreen`
 
 ### Table
 
@@ -183,11 +185,11 @@ The default JS supports:
 - `#menuBtn`
 - `#sidebar`
 - `#sidebarOverlay`
-- `[data-sd]`
-- `[data-dd]`
-- `[data-dd-trigger]`
-- `[data-pp-open]`
-- `[data-pp-close]`
+- `[data-nav-dropdown]`
+- `[data-dropdown]`
+- `[data-dropdown-trigger]`
+- `[data-modal-open]`
+- `[data-modal-close]`
 - `#demoToast`
 - `#tableSearch`
 
@@ -242,7 +244,7 @@ Use `base_url()` for asset paths from the `public/` folder.
 
 - If CSS does not load, verify the path.
 - If icons do not appear, check `assets/term-icons/dist/`.
-- If popup behavior fails, ensure `retro-term.js` is loaded.
+- If modal behavior fails, ensure `retro-term.js` is loaded.
 - If a page is in a subfolder, update relative paths accordingly.
 
 ## Maintenance Notes

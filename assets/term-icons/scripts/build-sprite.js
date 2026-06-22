@@ -21,7 +21,7 @@ function extractSvgParts(svg) {
 
   return {
     viewBox: viewBoxMatch[1],
-    inner
+    inner: inner.replace(/\sfill="currentColor"/gi, '')
   };
 }
 
@@ -36,10 +36,12 @@ async function main() {
     const svg = await fs.readFile(file, 'utf8');
     const { viewBox, inner } = extractSvgParts(svg);
 
-    symbols.push(`  <symbol id="${icon.name}" viewBox="${viewBox}">${inner}</symbol>`);
+    symbols.push(
+      `  <symbol id="${icon.name}" viewBox="${viewBox}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${inner}</symbol>`
+    );
     manifest.push({
       name: icon.name,
-      class: `term-icon-${icon.name}`,
+      class: `term-icon-${icon.cssName || icon.name}`,
       symbol: icon.name,
       category: icon.category,
       source: `bootstrap-icons/${icon.source}`

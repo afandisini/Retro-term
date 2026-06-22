@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-base-url="http://localhost:8000/framework_css_retro/example/">
+<html lang="en" data-theme="light" data-base-url="http://localhost:8000/example/">
 
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
-    <link rel="stylesheet" href="../retro-term.css">
+    <link rel="stylesheet" href="../assets/term-icons/dist/retro-term-icons.css?v=20260621">
+    <link rel="stylesheet" href="../retro-term.css?v=20260621">
 </head>
 
 <body>
@@ -18,23 +18,23 @@
         <aside class="rt-sbr" id="sidebar">
             <div class="rt-sbr_brand"><span class="rt-brand_dot"></span><span>Retro-term</span></div>
             <div class="rt-sbr_label">Main Menu</div>
-            <nav class="rt-sbr_nav"><a class="rt-sbr_link" href="dashboard.html"><i class="rt-icon term-icon-dashboard"
+            <nav class="rt-sbr_nav"><a class="rt-sbr_link" href="dashboard.html"><i class="rt rt-dashboard"
                         aria-hidden="true"></i>Dashboard</a>
-                <div class="rt-sd" data-sd><button class="rt-sd_trigger" type="button"><i
-                            class="rt-icon term-icon-users" aria-hidden="true"></i>UI Elements<span
-                            class="rt-sbr_badge">8</span><i class="rt-icon term-icon-chevron-down rt-sd_chevron"
-                            aria-hidden="true"></i></button>
-                    <div class="rt-sd_children"><a class="rt-sd_child" href="buttons.html">Button</a><a
-                            class="rt-sd_child" href="badge.html">Badge</a><a class="rt-sd_child"
-                            href="popup.html">Popup</a><a class="rt-sd_child" href="toast.html">Toast</a><a
-                            class="rt-sd_child" href="table.html">Table</a><a class="rt-sd_child"
-                            href="input.html">Input Form</a><a class="rt-sd_child"
-                            href="typography.html">Typography</a><a class="rt-sd_child" href="color.html">Color</a>
+                <div class="nav-dropdown" data-nav-dropdown><button class="nav-dropdown-toggle" type="button"><i
+                            class="rt rt-users" aria-hidden="true"></i>UI Elements<span class="rt-sbr_badge">8</span><i
+                            class="rt rt-chevron-down nav-dropdown-chevron" aria-hidden="true"></i></button>
+                    <div class="nav-dropdown-menu"><a class="nav-dropdown-item" href="buttons.html">Button</a><a
+                            class="nav-dropdown-item" href="badge.html">Badge</a><a class="nav-dropdown-item"
+                            href="modal.html">Modal</a><a class="nav-dropdown-item" href="toast.html">Toast</a><a
+                            class="nav-dropdown-item" href="table.html">Table</a><a class="nav-dropdown-item"
+                            href="input.html">Input Form</a><a class="nav-dropdown-item"
+                            href="typography.html">Typography</a><a class="nav-dropdown-item"
+                            href="color.html">Color</a>
                     </div>
                 </div>
                 <div class="rt-sbr_label">Documentation</div>
                 <a class="rt-sbr_link" href="doc.html">
-                    <i class="rt-icon term-icon-question" aria-hidden="true"></i>
+                    <i class="rt rt-question" aria-hidden="true"></i>
                     Doc
                 </a>
             </nav>
@@ -50,68 +50,68 @@
         </aside>
         <main class="rt-main">
             <div class="rt-topbar">
-                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu"><i class="rt-icon term-icon-menu"
+                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu"><i class="rt rt-menu"
                         aria-hidden="true"></i></button>
                 <h1 class="rt-topbar_title">Color</h1>
                 <div class="rt-topbar_search">
-                    <i class="rt-icon term-icon-search" aria-hidden="true"></i>
+                    <i class="rt rt-search" aria-hidden="true"></i>
                     <input type="text" placeholder="Search something...">
                 </div>
 
                 <div class="rt-topbar_actions">
                     <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
-                        <i class="rt-icon term-icon-moon moon-icon" aria-hidden="true"></i>
-                        <i class="rt-icon term-icon-sun sun-icon" aria-hidden="true" style="display:none"></i>
+                        <i class="rt rt-moon moon-icon" aria-hidden="true"></i>
+                        <i class="rt rt-sun sun-icon" aria-hidden="true" style="display:none"></i>
                     </button>
 
                     <!-- Dropdown Notification -->
-                    <div class="rt-dd" data-dd>
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-notification" aria-hidden="true"></i>
+                    <div class="dropdown" data-dropdown>
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                            <i class="rt rt-notification" aria-hidden="true"></i>
                             <span class="rt-topbar_dot"></span>
                         </button>
-                        <div class="rt-dd_menu">
-                            <div class="rt-dd_label">Notifications</div>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-database" aria-hidden="true"></i>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-label">Notifications</div>
+                            <button class="dropdown-item">
+                                <i class="rt rt-database" aria-hidden="true"></i>
                                 New user signed up
                             </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-check" aria-hidden="true"></i>
+                            <button class="dropdown-item">
+                                <i class="rt rt-check" aria-hidden="true"></i>
                                 Project completed
                             </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-info" aria-hidden="true"></i>
+                            <button class="dropdown-item">
+                                <i class="rt rt-info" aria-hidden="true"></i>
                                 Payment received
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <button class="rt-dd_item">
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item">
                                 View all
-                                <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                <i class="rt rt-chevron-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="rt-dd" data-dd>
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-settings" aria-hidden="true"></i>
+                    <div class="dropdown" data-dropdown>
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                            <i class="rt rt-settings" aria-hidden="true"></i>
                         </button>
-                        <div class="rt-dd_menu">
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-person-circle" aria-hidden="true"></i>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item">
+                                <i class="rt rt-person-circle" aria-hidden="true"></i>
                                 Profile
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <a class="rt-dd_item" href="../login.html">
-                                <i class="rt-icon term-icon-logout-box" aria-hidden="true"></i>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../login.html">
+                                <i class="rt rt-logout-box" aria-hidden="true"></i>
                                 Logout
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="rt-panel rt-section rt-p3">
+            <div class="card rt-section rt-p3">
                 <h2>Theme Palette</h2>
-                <div class="rt-row">
+                <div class="rt-row rt-flow">
                     <div style="min-width:160px;padding:18px;background:var(--rt-primary);color:#fff;font-weight:900">
                         Primary<br><small style="opacity:.8">#635bff</small></div>
                     <div style="min-width:160px;padding:18px;background:var(--rt-primary-2);color:#fff;font-weight:900">
@@ -127,14 +127,14 @@
                 </div>
             </div>
             <div class="rt-grid rt-mt3">
-                <div class="rt-panel">
-                    <div class="rt-panel_head">
+                <div class="card">
+                    <div class="card-header">
                         <div>
-                            <div class="rt-panel_title">Surface Tokens</div>
-                            <div class="rt-panel_subtitle">Backgrounds and borders</div>
+                            <div class="card-title">Surface Tokens</div>
+                            <div class="card-subtitle">Backgrounds and borders</div>
                         </div>
                     </div>
-                    <div class="rt-panel_body" style="display:grid;gap:12px">
+                    <div class="card-body" style="display:grid;gap:12px">
                         <div style="padding:16px;background:var(--rt-surface);border:1px solid var(--rt-border)">Surface
                             background</div>
                         <div style="padding:16px;background:var(--rt-surface-solid);border:1px solid var(--rt-border)">
@@ -143,14 +143,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="rt-panel">
-                    <div class="rt-panel_head">
+                <div class="card">
+                    <div class="card-header">
                         <div>
-                            <div class="rt-panel_title">Gradients</div>
-                            <div class="rt-panel_subtitle">Used in buttons and chips</div>
+                            <div class="card-title">Gradients</div>
+                            <div class="card-subtitle">Used in buttons and chips</div>
                         </div>
                     </div>
-                    <div class="rt-panel_body" style="display:grid;gap:12px">
+                    <div class="card-body" style="display:grid;gap:12px">
                         <div
                             style="height:56px;background:linear-gradient(135deg,var(--rt-primary),var(--rt-primary-2))">
                         </div>
@@ -163,7 +163,7 @@
         </main>
     </div>
 
-    <script src="../retro-term.js" defer></script>
+    <script src="../retro-term.js?v=20260621" defer></script>
 </body>
 
 </html>

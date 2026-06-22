@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en" data-theme="light" data-base-url="http://localhost:8000/framework_css_retro/example/">
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-base-url="http://localhost:8000/example/">
 
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../assets/term-icons/dist/term-icons.css">
-    <link rel="stylesheet" href="../retro-term.css">
+    <link rel="stylesheet" href="../assets/term-icons/dist/retro-term-icons.css?v=20260621">
+    <link rel="stylesheet" href="../retro-term.css?v=20260621">
 </head>
 
 <body>
@@ -29,41 +29,41 @@
             <div class="rt-sbr_label">Main Menu</div>
             <nav class="rt-sbr_nav">
                 <a class="rt-sbr_link" href="dashboard.html">
-                    <i class="rt-icon term-icon-dashboard" aria-hidden="true"></i>
+                    <i class="rt rt-dashboard" aria-hidden="true"></i>
                     Dashboard
                 </a>
 
                 <!-- Sidebar Dropdown: Retro-term Ui -->
-                <div class="rt-sd" data-sd>
-                    <button class="rt-sd_trigger is-active" type="button">
-                        <i class="rt-icon term-icon-users" aria-hidden="true"></i>
+                <div class="nav-dropdown" data-nav-dropdown>
+                    <button class="nav-dropdown-toggle is-active" type="button">
+                        <i class="rt rt-users" aria-hidden="true"></i>
                         UI Elements
                         <span class="rt-sbr_badge">8</span>
-                        <i class="rt-icon term-icon-chevron-down rt-sd_chevron" aria-hidden="true"></i>
+                        <i class="rt rt-chevron-down nav-dropdown-chevron" aria-hidden="true"></i>
                     </button>
-                    <div class="rt-sd_children">
-                        <a class="rt-sd_child is-active" href="buttons.html">
+                    <div class="nav-dropdown-menu">
+                        <a class="nav-dropdown-item is-active" href="buttons.html">
                             Button
                         </a>
-                        <a class="rt-sd_child" href="badge.html">
+                        <a class="nav-dropdown-item" href="badge.html">
                             Badge
                         </a>
-                        <a class="rt-sd_child" href="popup.html">
-                            Popup
+                        <a class="nav-dropdown-item" href="modal.html">
+                            Modal
                         </a>
-                        <a class="rt-sd_child" href="toast.html">
+                        <a class="nav-dropdown-item" href="toast.html">
                             Toast
                         </a>
-                        <a class="rt-sd_child" href="table.html">
+                        <a class="nav-dropdown-item" href="table.html">
                             Table
                         </a>
-                        <a class="rt-sd_child" href="input.html">
+                        <a class="nav-dropdown-item" href="input.html">
                             Input Form
                         </a>
-                        <a class="rt-sd_child" href="typography.html">
+                        <a class="nav-dropdown-item" href="typography.html">
                             Typography
                         </a>
-                        <a class="rt-sd_child" href="color.html">
+                        <a class="nav-dropdown-item" href="color.html">
                             Color
                         </a>
                     </div>
@@ -71,7 +71,7 @@
 
                 <div class="rt-sbr_label">Documentation</div>
                 <a class="rt-sbr_link" href="doc.html">
-                    <i class="rt-icon term-icon-question" aria-hidden="true"></i>
+                    <i class="rt rt-question" aria-hidden="true"></i>
                     Doc
                 </a>
             </nav>
@@ -92,60 +92,60 @@
             <!-- TOPBAR -->
             <div class="rt-topbar">
                 <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
-                    <i class="rt-icon term-icon-menu" aria-hidden="true"></i>
+                    <i class="rt rt-menu" aria-hidden="true"></i>
                 </button>
                 <h1 class="rt-topbar_title">Buttons</h1>
 
                 <div class="rt-topbar_search">
-                    <i class="rt-icon term-icon-search" aria-hidden="true"></i>
+                    <i class="rt rt-search" aria-hidden="true"></i>
                     <input type="text" placeholder="Search something...">
                 </div>
 
                 <div class="rt-topbar_actions">
                     <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
-                        <i class="rt-icon term-icon-moon moon-icon" aria-hidden="true"></i>
-                        <i class="rt-icon term-icon-sun sun-icon" aria-hidden="true" style="display:none"></i>
+                        <i class="rt rt-moon moon-icon" aria-hidden="true"></i>
+                        <i class="rt rt-sun sun-icon" aria-hidden="true" style="display:none"></i>
                     </button>
 
                     <!-- Dropdown Notification -->
-                    <div class="rt-dd" data-dd>
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-notification" aria-hidden="true"></i>
+                    <div class="dropdown" data-dropdown>
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                            <i class="rt rt-notification" aria-hidden="true"></i>
                             <span class="rt-topbar_dot"></span>
                         </button>
-                        <div class="rt-dd_menu">
-                            <div class="rt-dd_label">Notifications</div>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-database" aria-hidden="true"></i>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-label">Notifications</div>
+                            <button class="dropdown-item">
+                                <i class="rt rt-database" aria-hidden="true"></i>
                                 New user signed up
                             </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-check" aria-hidden="true"></i>
+                            <button class="dropdown-item">
+                                <i class="rt rt-check" aria-hidden="true"></i>
                                 Project completed
                             </button>
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-info" aria-hidden="true"></i>
+                            <button class="dropdown-item">
+                                <i class="rt rt-info" aria-hidden="true"></i>
                                 Payment received
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <button class="rt-dd_item">
+                            <div class="dropdown-divider"></div>
+                            <button class="dropdown-item">
                                 View all
-                                <i class="rt-icon term-icon-chevron-right" aria-hidden="true"></i>
+                                <i class="rt rt-chevron-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="rt-dd" data-dd>
-                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
-                            <i class="rt-icon term-icon-settings" aria-hidden="true"></i>
+                    <div class="dropdown" data-dropdown>
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                            <i class="rt rt-settings" aria-hidden="true"></i>
                         </button>
-                        <div class="rt-dd_menu">
-                            <button class="rt-dd_item">
-                                <i class="rt-icon term-icon-person-circle" aria-hidden="true"></i>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item">
+                                <i class="rt rt-person-circle" aria-hidden="true"></i>
                                 Profile
                             </button>
-                            <div class="rt-dd_divider"></div>
-                            <a class="rt-dd_item" href="../login.html">
-                                <i class="rt-icon term-icon-logout-box" aria-hidden="true"></i>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../login.html">
+                                <i class="rt rt-logout-box" aria-hidden="true"></i>
                                 Logout
                             </a>
                         </div>
@@ -153,55 +153,55 @@
                 </div>
             </div>
 
-            <!-- DEMO: BUTTONS (rt-tbl) -->
-            <div class="rt-panel rt-section">
-                <div class="rt-panel_head">
+            <!-- DEMO: BUTTONS (btn) -->
+            <div class="card rt-section">
+                <div class="card-header">
                     <div>
-                        <div class="rt-panel_title">Komponen: Tombol (rt-tbl)</div>
-                        <div class="rt-panel_subtitle">Variasi warna & ukuran</div>
+                        <div class="card-title">Button Component (btn)</div>
+                        <div class="card-subtitle">Color variants and sizes</div>
                     </div>
                 </div>
-                <div class="rt-panel_body">
-                    <div class="rt-label">Warna</div>
-                    <div class="rt-row rt-py2">
-                        <button class="rt-tbl rt-tbl-primary">Primary</button>
-                        <button class="rt-tbl rt-tbl-secondary">Secondary</button>
-                        <button class="rt-tbl rt-tbl-success">Success</button>
-                        <button class="rt-tbl rt-tbl-warning">Warning</button>
-                        <button class="rt-tbl rt-tbl-danger">Danger</button>
-                        <button class="rt-tbl rt-tbl-accent">Accent</button>
-                        <button class="rt-tbl rt-tbl-purple">Purple</button>
-                        <button class="rt-tbl rt-tbl-ghost">Ghost</button>
-                        <button class="rt-tbl rt-tbl-outline">Outline</button>
+                <div class="card-body">
+                    <div class="rt-label">Colors</div>
+                    <div class="rt-flow rt-py2">
+                        <button class="btn btn-primary">Primary</button>
+                        <button class="btn btn-secondary">Secondary</button>
+                        <button class="btn btn-success">Success</button>
+                        <button class="btn btn-warning">Warning</button>
+                        <button class="btn btn-danger">Danger</button>
+                        <button class="btn btn-accent">Accent</button>
+                        <button class="btn btn-purple">Purple</button>
+                        <button class="btn btn-ghost">Ghost</button>
+                        <button class="btn btn-outline-primary">Outline</button>
                     </div>
 
-                    <div class="rt-label">Dengan Ikon</div>
-                    <div class="rt-row rt-py2">
-                        <button class="rt-tbl rt-tbl-primary">
-                            <i class="rt-icon term-icon-add" aria-hidden="true"></i>
+                    <div class="rt-label">With Icons</div>
+                    <div class="rt-flow rt-py2">
+                        <button class="btn btn-primary">
+                            <i class="rt rt-add" aria-hidden="true"></i>
                             Add Data
                         </button>
-                        <button class="rt-tbl rt-tbl-success">
-                            <i class="rt-icon term-icon-check" aria-hidden="true"></i>
+                        <button class="btn btn-success">
+                            <i class="rt rt-check" aria-hidden="true"></i>
                             Save
                         </button>
-                        <button class="rt-tbl rt-tbl-danger">
-                            <i class="rt-icon term-icon-delete" aria-hidden="true"></i>
+                        <button class="btn btn-danger">
+                            <i class="rt rt-delete" aria-hidden="true"></i>
                             Delete
                         </button>
-                        <button class="rt-tbl rt-tbl-outline">
-                            <i class="rt-icon term-icon-download" aria-hidden="true"></i>
+                        <button class="btn btn-outline-primary">
+                            <i class="rt rt-download" aria-hidden="true"></i>
                             Download
                         </button>
                     </div>
 
-                    <div class="rt-label">Ukuran</div>
-                    <div class="rt-row rt-py2">
-                        <button class="rt-tbl rt-tbl-primary rt-tbl--sm">Small</button>
-                        <button class="rt-tbl rt-tbl-primary">Default</button>
-                        <button class="rt-tbl rt-tbl-primary rt-tbl--lg">Large</button>
-                        <button class="rt-tbl rt-tbl-primary rt-tbl--icon" title="Icon only">
-                            <i class="rt-icon term-icon-add" aria-hidden="true"></i>
+                    <div class="rt-label">Sizes</div>
+                    <div class="rt-flow rt-py2">
+                        <button class="btn btn-primary btn-sm">Small</button>
+                        <button class="btn btn-primary">Default</button>
+                        <button class="btn btn-primary btn-lg">Large</button>
+                        <button class="btn btn-primary btn-icon" title="Icon only">
+                            <i class="rt rt-add" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
@@ -209,7 +209,7 @@
         </main>
     </div>
 
-    <script src="../retro-term.js" defer></script>
+    <script src="../retro-term.js?v=20260621" defer></script>
 
 </body>
 

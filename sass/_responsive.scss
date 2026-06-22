@@ -1,4 +1,4 @@
-﻿.rt-sbr_overlay {
+.rt-sbr_overlay {
   display: none;
   position: fixed;
   inset: 0;
@@ -42,6 +42,39 @@
 }
 
 @media (max-width: 620px) {
+  .rt-topbar {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 10px;
+    padding-top: 10px;
+    padding-bottom: 18px;
+  }
+
+  .rt-topbar_menu-tbl {
+    display: inline-grid;
+    width: 40px;
+    height: 40px;
+  }
+
+  .rt-topbar_title {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+
+  .rt-topbar_actions {
+    justify-self: end;
+    gap: 6px;
+  }
+
+  .rt-topbar_icon-tbl {
+    width: 40px;
+    height: 40px;
+  }
+
   .rt-stats {
     grid-template-columns: 1fr;
   }
@@ -55,7 +88,7 @@
   }
 
   .rt-topbar_title {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .rt-table-toolbar {
@@ -73,39 +106,41 @@
         ============================================ */
 *,
 .rt-sbr,
-.rt-panel,
-.rt-stat,
-.rt-topbar_icon-tbl,
-.rt-topbar_search input,
-.rt-sbr_link,
-.rt-sbr_user,
-.rt-sd_trigger,
-.rt-sd_child,
-.rt-table-search input {
+.card,
+  .rt-stat,
+  .rt-topbar_icon-tbl,
+  .rt-topbar_search input,
+  .rt-sbr_link,
+  .rt-sbr_user,
+  .nav-dropdown-toggle,
+  .nav-dropdown-item,
+  .rt-table-search input {
   border-radius: 0 !important;
   box-shadow: none !important;
 }
 
 /* Buttons keep slight radius for affordance */
+.btn,
 .rt-tbl {
   border-radius: 0 !important;
 }
 
 .rt-stat,
-.rt-panel,
+.card,
 .rt-sbr_link,
 .rt-topbar_icon-tbl,
 .rt-sbr_user,
+.btn,
 .rt-tbl,
-.rt-sd_trigger,
-.rt-sd_child,
+.nav-dropdown-toggle,
+.nav-dropdown-item,
 .rt-quick_btn {
   transition-duration: 0.25s !important;
   transition-timing-function: ease !important;
 }
 
 .rt-sbr,
-.rt-panel,
+.card,
 .rt-stat,
 .rt-topbar_icon-tbl,
 .rt-topbar_search input,
@@ -115,7 +150,7 @@
 }
 
 /* Popup keeps radius for modal feel */
-.rt-pp_panel {
+.modal-content {
   border-radius: 0 !important;
 }
 
@@ -130,14 +165,6 @@
   font-size: 1.1rem;
   font-weight: 950;
   letter-spacing: -0.03em;
-  margin-bottom: 14px;
-}
-
-.rt-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
   margin-bottom: 14px;
 }
 

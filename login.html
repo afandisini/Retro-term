@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en" data-theme="light" data-base-url="http://localhost:8000/framework_css_retro/">
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-base-url="http://localhost:8000/">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="retro-term.css">
+    <link rel="stylesheet" href="retro-term.css?v=20260621">
 
     <style>
         html,
@@ -759,7 +759,7 @@
                 <p class="rt-login__subtitle">Sign in to your account to continue to the dashboard.</p>
             </div>
 
-            <a class="rt-tbl rt-tbl--secondary rt-tbl--sm rt-login__home" href="index.html" data-rt-href="index.html">
+            <a class="btn btn-secondary btn-sm rt-login__home" href="index.html" data-rt-href="index.html">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16" aria-hidden="true">
                     <path d="M3 12l9-9 9 9"></path>
                     <path d="M5 10v10h14V10"></path>
@@ -797,8 +797,7 @@
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                         </svg>
-                        <button type="button" class="rt-field__toggle" id="togglePassword"
-                            aria-label="Show password">
+                        <button type="button" class="rt-field__toggle" id="togglePassword" aria-label="Show password">
                             <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                                 <circle cx="12" cy="12" r="3" />
@@ -828,7 +827,7 @@
                 </div>
 
                 <!-- Submit -->
-                <button type="submit" class="rt-tbl rt-tbl--primary rt-login__submit" id="submitBtn">
+                <button type="submit" class="btn btn-primary rt-login__submit" id="submitBtn">
                     <span class="rt-btn-text">Login</span>
                     <span class="rt-spinner"></span>
                 </button>
@@ -1007,4 +1006,3 @@
 </body>
 
 </html>
-

@@ -1,11 +1,12 @@
 ```
 # Build artifacts
 dist/
-*.min.js
 *.min.css
+*.min.js
 
 # Dependencies
 node_modules/
+package-lock.json
 
 # Logs and temp files
 *.log
@@ -19,4 +20,8 @@ node_modules/
 # Editors
 .vscode/
 .idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
 ```

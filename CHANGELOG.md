@@ -2,6 +2,31 @@
 
 All notable changes to Retro-term CSS will be documented in this file.
 
+## [1.1.0] - 2026-06-27
+
+### Added
+
+* Improved documentation for admin panel and landing page usage.
+* Added examples for dashboard, landing page, login, and CRUD table.
+* Added clearer framework positioning.
+* Added accessibility notes.
+* Added CDN installation instructions (jsDelivr).
+* Added comparison table with Bootstrap and Tailwind.
+
+### Improved
+
+* Improved README structure with Overview, Why Retro-term?, Best For sections.
+* Improved component documentation with HTML examples.
+* Improved theme and layout consistency.
+* Improved JavaScript helper documentation.
+
+### Fixed
+
+* Fixed inconsistent naming between documentation and available classes.
+* Fixed minor responsive and dark/light mode inconsistencies.
+
+---
+
 ## [1.0.0] - 2026-06-20
 
 ### Added

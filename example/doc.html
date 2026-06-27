@@ -297,7 +297,7 @@
             font-weight: 700;
         }
 
-        .rt-doc-breadcrumb span + span::before {
+        .rt-doc-breadcrumb span+span::before {
             content: "/";
             margin-right: 8px;
             color: var(--rt-muted);
@@ -358,27 +358,6 @@
         }
 
         @media (max-width: 1024px) {
-            .rt-topbar {
-                flex-wrap: wrap;
-            }
-
-            .rt-topbar_title {
-                order: -2;
-                width: 100%;
-            }
-
-            .rt-topbar_search {
-                order: -1;
-                margin-left: 0;
-                max-width: none;
-                width: 100%;
-            }
-
-            .rt-topbar_actions {
-                width: 100%;
-                justify-content: flex-end;
-            }
-
             .rt-doc-grid,
             .rt-doc-grid-2 {
                 grid-template-columns: 1fr;
@@ -480,7 +459,13 @@
                 <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
                     <i class="rt rt-menu" aria-hidden="true"></i>
                 </button>
-                <h1 class="rt-topbar_title">Documentation</h1>
+                <div class="rt-topbar_title-wrap">
+                    <h1 class="rt-topbar_title" title="Documentation">Documentation</h1>
+                    <span class="rt-topbar_breadcrumb"
+                        title="Documentation / Components / Layout / Forms / Tables / Utilities / Examples">
+                        Documentation / Components / Layout / Forms / Tables / Utilities / Examples
+                    </span>
+                </div>
                 <div class="rt-topbar_search">
                     <i class="rt rt-search" aria-hidden="true"></i>
                     <input type="text" id="docSearch" placeholder="Search components, classes, or states...">
@@ -620,7 +605,8 @@
                         <div class="card-header">
                             <div>
                                 <div class="card-title">Why Retro-term</div>
-                                <div class="card-subtitle">A lighter, dashboard-first alternative to Bootstrap-style setups</div>
+                                <div class="card-subtitle">A lighter, dashboard-first alternative to Bootstrap-style
+                                    setups</div>
                             </div>
                         </div>
                         <div class="card-body rt-doc-card__body">
@@ -803,8 +789,7 @@
                                     <div class="rt-flow rt-flow--sm">
                                         <button class="btn btn-outline-primary btn-sm" type="button">Outline</button>
                                         <button class="btn btn-ghost btn-sm" type="button">Ghost</button>
-                                        <button class="btn btn-primary btn-icon" type="button"
-                                            aria-label="Add item">
+                                        <button class="btn btn-primary btn-icon" type="button" aria-label="Add item">
                                             <i class="rt rt-add" aria-hidden="true"></i>
                                         </button>
                                     </div>
@@ -1132,19 +1117,22 @@
                                 <a class="rt-doc-card" href="input.html">
                                     <div class="rt-doc-card__body">
                                         <strong>Input Form</strong>
-                                        <span class="rt-doc-card__lead">Text fields, selects, textareas, and checkboxes.</span>
+                                        <span class="rt-doc-card__lead">Text fields, selects, textareas, and
+                                            checkboxes.</span>
                                     </div>
                                 </a>
                                 <a class="rt-doc-card" href="table.html">
                                     <div class="rt-doc-card__body">
                                         <strong>Table</strong>
-                                        <span class="rt-doc-card__lead">Search, filters, pagination, and row actions.</span>
+                                        <span class="rt-doc-card__lead">Search, filters, pagination, and row
+                                            actions.</span>
                                     </div>
                                 </a>
                                 <a class="rt-doc-card" href="modal.html">
                                     <div class="rt-doc-card__body">
                                         <strong>Modal</strong>
-                                        <span class="rt-doc-card__lead">Dialog, fullscreen, embed, and form examples.</span>
+                                        <span class="rt-doc-card__lead">Dialog, fullscreen, embed, and form
+                                            examples.</span>
                                     </div>
                                 </a>
                             </div>

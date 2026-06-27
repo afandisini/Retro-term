@@ -1,70 +1,51 @@
 # Retro-term CSS Documentation
 
-Retro-term is a standalone retro-modern CSS framework for admin panels, dashboards, landing pages, and documentation websites. Built from scratch without Bootstrap or Tailwind dependencies.
+Retro-term is a standalone retro-modern CSS framework for admin panels, dashboards, landing pages, documentation sites, and auth flows.
 
-**No Bootstrap. No Tailwind. Just Retro-term.**
-
----
-
-## Introduction
-
-Retro-term is designed for developers who need ready-to-use retro-modern layouts for:
-
-- Admin panels and internal dashboards
-- CRUD interfaces
-- Landing pages
-- Developer portfolios
-- Documentation websites
-
-### Key Features
-
-- ✅ Standalone - zero external dependencies
-- ✅ Light/dark theme system with localStorage persistence
-- ✅ Responsive admin layout with sidebar
-- ✅ Grid system (12 columns)
-- ✅ Interactive components (modal, dropdown, toast, accordion, carousel, navbar)
-- ✅ Form elements with validation styles
-- ✅ Icon system included
-- ✅ Touch-friendly mobile interactions
+No Bootstrap. No Tailwind. No external UI dependency.
 
 ---
 
-## Getting Started
+## 1. Getting Started
 
-### Installation
-
-#### CDN
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/retro-term.min.css">
-<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/retro-term.min.js" defer></script>
-```
-
-#### NPM
+### Install
 
 ```bash
 npm install retro-term-css
 ```
 
-```js
-import 'retro-term-css/css';
-import 'retro-term-css/js';
+### Use via CDN
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/retro-term.min.css">
+<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/retro-term.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term-icons.css">
 ```
 
-### Basic HTML Template
+### Use via NPM
+
+```js
+import "retro-term-css/css";
+import "retro-term-css/js";
+import "retro-term-css/icons";
+```
+
+### Base Template
 
 ```html
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Retro-term</title>
-    <link rel="stylesheet" href="dist/retro-term.min.css">
-    <link rel="stylesheet" href="dist/retro-term-icons.min.css">
+    <link rel="stylesheet" href="dist/retro-term.min.css" />
+    <link rel="stylesheet" href="dist/retro-term-icons.css" />
   </head>
   <body>
-    <h1>Hello Retro-term</h1>
+    <main class="rt-container rt-py4">
+      <h1>Hello Retro-term</h1>
+    </main>
     <script src="dist/retro-term.min.js" defer></script>
   </body>
 </html>
@@ -73,7 +54,7 @@ import 'retro-term-css/js';
 ### Theme Toggle
 
 ```html
-<button id="themeToggle" aria-label="Toggle theme">
+<button id="themeToggle" class="rt-theme-toggle" aria-label="Toggle theme">
   <i class="rt rt-moon moon-icon"></i>
   <i class="rt rt-sun sun-icon"></i>
 </button>
@@ -81,11 +62,9 @@ import 'retro-term-css/js';
 
 ---
 
-## Layout
+## 2. Layout System
 
-### Admin Panel Layout
-
-Complete admin panel structure with sidebar and topbar:
+### Admin Shell
 
 ```html
 <div class="rt-admin">
@@ -96,21 +75,13 @@ Complete admin panel structure with sidebar and topbar:
       <span class="rt-brand_dot"></span>
       <span>Retro-term</span>
     </div>
+
     <nav class="rt-sbr_nav">
-      <a class="rt-sbr_link" href="dashboard.html">
+      <a class="rt-sbr_link is-active" href="#">
         <i class="rt rt-dashboard"></i>
         Dashboard
       </a>
     </nav>
-    <div class="rt-sbr_footer">
-      <div class="rt-sbr_user">
-        <div class="rt-sbr_avatar">A</div>
-        <div class="rt-sbr_user-info">
-          <div class="rt-sbr_user-name">Admin</div>
-          <div class="rt-sbr_user-role">Administrator</div>
-        </div>
-      </div>
-    </div>
   </aside>
 
   <main class="rt-main">
@@ -120,686 +91,669 @@ Complete admin panel structure with sidebar and topbar:
       </button>
       <h1 class="rt-topbar_title">Dashboard</h1>
     </div>
+
     <section class="rt-content">
-      <!-- Content here -->
+      Content
     </section>
   </main>
 </div>
 ```
 
-**Key classes:**
-- `.rt-admin` - Admin wrapper
-- `.rt-sbr` - Sidebar
-- `.rt-main` - Main content area
-- `.rt-topbar` - Top navigation bar
+### Layout Classes
 
-### Landing Page Layout
+| Class | Purpose |
+| --- | --- |
+| `rt-admin` | Admin app wrapper with sidebar and content columns |
+| `rt-sbr` | Fixed sidebar |
+| `rt-sbr_overlay` | Mobile sidebar backdrop |
+| `rt-sbr_brand` | Sidebar brand header |
+| `rt-sbr_nav` | Sidebar nav column |
+| `rt-sbr_link` | Sidebar item |
+| `rt-sbr_badge` | Small count badge in sidebar |
+| `rt-sbr_footer` | Sidebar footer area |
+| `rt-main` | Main content column |
+| `rt-topbar` | Top navigation bar |
+| `rt-topbar_title` | Topbar title |
+| `rt-topbar_search` | Search container in topbar |
+| `rt-topbar_actions` | Right-side action group |
+| `rt-topbar_icon-tbl` | Icon button in topbar |
+| `rt-topbar_dot` | Small notification dot |
+| `rt-content` | Main page content wrapper |
 
-```html
-<body class="rt-landing">
-  <header class="rt-hero">
-    <div class="rt-container">
-      <span class="rt-badge rt-badge--primary">Retro-term CSS</span>
-      <h1 class="rt-hero__title">Build retro-modern landing pages faster.</h1>
-      <p class="rt-hero__subtitle">Standalone CSS framework for admin panels and landing pages.</p>
-      <a href="#" class="rt-btn rt-btn-primary">Get Started</a>
-    </div>
-  </header>
-
-  <section class="rt-section">
-    <div class="rt-container">
-      <!-- Feature cards here -->
-    </div>
-  </section>
-
-  <footer class="rt-footer">
-    <div class="rt-container">
-      <p>&copy; 2026 Retro-term CSS</p>
-    </div>
-  </footer>
-</body>
-```
-
----
-
-## Container
-
-Center content with max-width constraints:
+### Sidebar Dropdown
 
 ```html
-<div class="rt-container">
-  <!-- Centered content -->
+<div class="nav-dropdown" data-nav-dropdown>
+  <button type="button" class="nav-dropdown-toggle">
+    <i class="rt rt-users"></i>
+    UI Elements
+    <i class="rt rt-chevron-down nav-dropdown-chevron"></i>
+  </button>
+
+  <div class="nav-dropdown-menu">
+    <a class="nav-dropdown-item" href="#">Button</a>
+  </div>
 </div>
 ```
 
-**Variants:**
-- `.rt-container` - Default container with max-width
-- `.rt-container-fluid` - Full-width container
-
 ---
 
-## Grid
+## 3. Grid and Spacing
 
-12-column responsive grid system:
+### Grid
 
 ```html
-<div class="rt-row">
-  <div class="rt-col-12 rt-col-md-6 rt-col-lg-4">Column 1</div>
-  <div class="rt-col-12 rt-col-md-6 rt-col-lg-4">Column 2</div>
-  <div class="rt-col-12 rt-col-md-6 rt-col-lg-4">Column 3</div>
+<div class="rt-row rt-g-3">
+  <div class="rt-col-12 rt-col-md-6 rt-col-lg-4">A</div>
+  <div class="rt-col-12 rt-col-md-6 rt-col-lg-4">B</div>
+  <div class="rt-col-12 rt-col-md-6 rt-col-lg-4">C</div>
 </div>
 ```
 
-**Breakpoints:**
-- `rt-col-*` - Mobile (default)
-- `rt-col-sm-*` - Small (≥576px)
-- `rt-col-md-*` - Medium (≥768px)
-- `rt-col-lg-*` - Large (≥992px)
-- `rt-col-xl-*` - Extra large (≥1200px)
+### Grid Classes
+
+| Class | Purpose |
+| --- | --- |
+| `rt-container` | Centered container with responsive max-width |
+| `rt-container-fluid` | Full-width container |
+| `rt-row` | Flex row with gutters |
+| `rt-col` | Equal-width flexible column |
+| `rt-col-auto` | Auto-width column |
+| `rt-col-1` to `rt-col-12` | Fixed width columns |
+| `rt-col-sm-*`, `rt-col-md-*`, `rt-col-lg-*`, `rt-col-xl-*`, `rt-col-xxl-*` | Responsive columns |
+| `rt-offset-*` | Column offsets |
+| `rt-row-cols-*` | Equal row count helpers |
+| `rt-g-*`, `rt-gx-*`, `rt-gy-*` | Gutters |
+
+### Spacing Utilities
+
+Retro-term includes utility spacing classes such as:
+
+- `rt-m1` to `rt-m4`
+- `rt-mt1` to `rt-mt4`
+- `rt-mb1` to `rt-mb4`
+- `rt-ml1` to `rt-ml4`
+- `rt-mr1` to `rt-mr4`
+- `rt-my1` to `rt-my4`
+- `rt-mx1` to `rt-mx4`
+- `rt-p1` to `rt-p4`
+- `rt-pt1` to `rt-pt4`
+- `rt-pb1` to `rt-pb4`
+- `rt-pl1` to `rt-pl4`
+- `rt-pr1` to `rt-pr4`
+- `rt-py1` to `rt-py4`
+- `rt-px1` to `rt-px4`
+
+### Shape and Flex Helpers
+
+- `rt-round`, `rt-round-sm`, `rt-round-lg`, `rt-round-full`
+- `rt-flex`, `rt-flex-start`, `rt-flex-center`, `rt-flex-end`, `rt-flex-between`
 
 ---
 
-## Typography
+## 4. Typography
 
-### Headings
+Retro-term styles standard HTML text tags and adds common utility text helpers.
 
-```html
-<h1>Heading 1</h1>
-<h2>Heading 2</h2>
-<h3>Heading 3</h3>
-<h4>Heading 4</h4>
-<h5>Heading 5</h5>
-<h6>Heading 6</h6>
-```
+### Common Text Helpers
 
-### Body Text
+- `rt-text-lead`
+- `rt-text-muted`
+- `rt-text-small`
+- `rt-link`
+
+### Example
 
 ```html
-<p class="rt-text-lead">Lead paragraph text.</p>
+<p class="rt-text-lead">Lead text.</p>
 <p class="rt-text-muted">Muted text.</p>
-<p class="rt-text-small">Small text.</p>
+<a class="rt-link" href="#">Read more</a>
 ```
 
 ---
 
-## Buttons
+## 5. Buttons
 
-Action buttons with various styles:
+### Canonical Classes
+
+- `btn`
+- `btn-primary`
+- `btn-secondary`
+- `btn-success`
+- `btn-warning`
+- `btn-danger`
+- `btn-accent`
+- `btn-purple`
+- `btn-ghost`
+- `btn-outline-primary`
+- `btn-sm`
+- `btn-lg`
+- `btn-icon`
+- `btn-block`
+- `btn-group`
+
+### Example
 
 ```html
-<button class="rt-btn rt-btn-primary">Primary</button>
-<button class="rt-btn rt-btn-secondary">Secondary</button>
-<button class="rt-btn rt-btn-success">Success</button>
-<button class="rt-btn rt-btn-danger">Danger</button>
-<button class="rt-btn rt-btn-warning">Warning</button>
-<button class="rt-btn rt-btn-accent">Accent</button>
-<button class="rt-btn rt-btn-ghost">Ghost</button>
-<button class="rt-btn rt-btn-outline">Outline</button>
+<div class="rt-btn-group">
+  <button class="btn btn-primary">Save</button>
+  <button class="btn btn-secondary">Cancel</button>
+</div>
 ```
 
-**Sizes:**
-- `.rt-btn-sm` - Small
-- `.rt-btn-lg` - Large
-- `.rt-btn-xl` - Extra large
+### Notes
 
-**Accessibility:** Always use `<button type="button">` or `<button type="submit">` for form buttons.
+- `rt-btn-group` is a compatibility alias for grouped actions.
+- `rt-btn-block` and `btn-block` force full width.
 
 ---
 
-## Forms
+## 6. Forms
 
-### Input Fields
+### Canonical Classes
+
+- `rt-form-group`
+- `rt-form-label`
+- `rt-form-input`
+- `rt-form-select`
+- `rt-form-textarea`
+- `rt-form-check`
+- `rt-form-message`
+- `rt-form-icon`
+
+### Legacy Aliases
+
+- `rt-input`
+- `rt-input-sm`
+- `rt-checkbox`
+
+### Example
 
 ```html
 <form>
   <div class="rt-form-group">
     <label class="rt-form-label" for="email">Email</label>
-    <input type="email" id="email" class="rt-input" placeholder="Enter email">
+    <input id="email" class="rt-form-input" type="email" placeholder="you@example.com">
   </div>
-  
+
   <div class="rt-form-group">
-    <label class="rt-form-label" for="password">Password</label>
-    <input type="password" id="password" class="rt-input" placeholder="Enter password">
+    <label class="rt-form-check">
+      <input type="checkbox">
+      <span>Remember me</span>
+    </label>
   </div>
-  
-  <button type="submit" class="rt-btn rt-btn-primary">Submit</button>
 </form>
 ```
 
-### Select
+### Input Wrapper Pattern
 
 ```html
-<select class="rt-select">
-  <option>Option 1</option>
-  <option>Option 2</option>
-</select>
-```
-
-### Textarea
-
-```html
-<textarea class="rt-textarea" rows="4" placeholder="Enter message"></textarea>
-```
-
-### Checkbox & Radio
-
-```html
-<label class="rt-checkbox">
-  <input type="checkbox">
-  <span>Remember me</span>
-</label>
-
-<label class="rt-radio">
-  <input type="radio" name="option">
-  <span>Option 1</span>
-</label>
+<div class="rt-input-wrapper">
+  <i class="rt rt-user rt-input-icon" aria-hidden="true"></i>
+  <input class="rt-form-input" type="text" placeholder="Your name">
+</div>
 ```
 
 ---
 
-## Cards
+## 7. Cards and Content Blocks
 
-Content containers with header and body:
+### Card Classes
+
+- `card`
+- `card-header`
+- `card-title`
+- `card-subtitle`
+- `card-actions`
+- `card-body`
+- `card-body-flush`
+- `card-footer`
+
+### Example
 
 ```html
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Card Title</h3>
-    <p class="card-subtitle">Card subtitle</p>
+    <div>
+      <h3 class="card-title">Overview</h3>
+      <p class="card-subtitle">Last 7 days</p>
+    </div>
   </div>
   <div class="card-body">
-    Card content goes here.
+    Content
   </div>
 </div>
 ```
 
-**Variants:**
-- `.card-body-flush` - Remove padding from card body
-
 ---
 
-## Badges
+## 8. Tables
 
-Compact labels and status indicators:
+### Canonical Classes
+
+- `rt-table-wrap`
+- `rt-table`
+- `rt-table-toolbar`
+- `rt-table-search`
+- `rt-table-info`
+- `rt-table-pagination`
+- `rt-table-pagination__info`
+- `rt-table-pagination__nav`
+- `rt-table-pagination__btn`
+- `rt-table-pagination__text`
+- `rt-table_user`
+- `rt-table_avatar`
+- `rt-table_name`
+- `rt-table_email`
+
+### Supporting Classes
+
+- `rt-badge`
+- `rt-badge--primary`
+- `rt-badge--success`
+- `rt-badge--warning`
+- `rt-badge--danger`
+- `rt-badge_dot`
+
+### Example
 
 ```html
-<span class="rt-badge rt-badge--primary">Primary</span>
-<span class="rt-badge rt-badge--success">
-  <span class="rt-badge_dot"></span>
-  Active
-</span>
-<span class="rt-badge rt-badge--danger">Error</span>
-<span class="rt-badge rt-badge--warning">Warning</span>
-```
-
----
-
-## Alerts
-
-Notification messages:
-
-```html
-<div class="rt-alert rt-alert--success">
-  <i class="rt rt-check-circle"></i>
-  <span>Operation successful!</span>
+<div class="rt-table-wrap">
+  <table class="rt-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="rt-table_user">
+            <div class="rt-table_avatar">RT</div>
+            <div>
+              <div class="rt-table_name">Retro Term</div>
+              <div class="rt-table_email">hello@example.com</div>
+            </div>
+          </div>
+        </td>
+        <td><span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span> Active</span></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+```
 
-<div class="rt-alert rt-alert--danger">
-  <i class="rt rt-x-circle"></i>
-  <span>Error occurred.</span>
+---
+
+## 9. Feedback Components
+
+### Alerts
+
+- `rt-alert`
+- `rt-alert__icon`
+- `rt-alert__content`
+- `rt-alert__title`
+- `rt-alert__text`
+- `rt-alert--primary`
+- `rt-alert--success`
+- `rt-alert--warning`
+- `rt-alert--danger`
+
+### Toasts
+
+- `rt-toast`
+- `rt-toast__icon`
+- `rt-toast__content`
+- `rt-toast__title`
+- `rt-toast__text`
+- `rt-toast__close`
+- `rt-toast--success`
+- `rt-toast--warning`
+- `rt-toast--danger`
+- `rt-toast--top-left`
+- `rt-toast--top-center`
+- `rt-toast--top-right`
+- `rt-toast--bottom-left`
+- `rt-toast--bottom-center`
+- `rt-toast--bottom-right`
+
+### Example
+
+```html
+<div class="rt-alert rt-alert--primary">
+  <div class="rt-alert__icon"><i class="rt rt-info"></i></div>
+  <div class="rt-alert__content">
+    <div class="rt-alert__title">Heads up</div>
+    <div class="rt-alert__text">This is a framework-level notice.</div>
+  </div>
 </div>
 ```
 
 ---
 
-## Tables
+## 10. Navigation
 
-Responsive data tables:
+### Navbar
 
-```html
-<table class="rt-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>John Doe</td>
-      <td>john@example.com</td>
-      <td><span class="rt-badge rt-badge--success">Active</span></td>
-      <td>
-        <button class="rt-btn rt-btn-sm rt-btn-ghost">Edit</button>
-        <button class="rt-btn rt-btn-sm rt-btn-danger">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-```
+- `rt-navbar`
+- `rt-navbar--scrolled`
+- `rt-navbar-container`
+- `rt-navbar-brand`
+- `rt-navbar-brand-dot`
+- `rt-navbar-menu`
+- `rt-navbar-link`
+- `rt-navbar-actions`
+- `rt-navbar-btn`
+- `rt-navbar-toggle`
+- `rt-navbar--transparent`
+- `rt-navbar--dark`
 
-**Accessibility:** Use `<thead>` for table headers and provide meaningful row data.
+### Dropdown
 
----
+- `dropdown`
+- `dropdown-menu`
+- `dropdown-menu--left`
+- `dropdown-item`
+- `dropdown-item--danger`
+- `dropdown-divider`
+- `dropdown-label`
 
-## Navbar
-
-Navigation bar component:
+### Example
 
 ```html
-<nav class="rt-navbar">
-  <div class="rt-navbar-container">
-    <a href="#" class="rt-navbar-brand">
-      <span class="rt-navbar-brand-dot"></span>
-      Brand
-    </a>
-    
-    <button class="rt-navbar-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    
-    <div class="rt-navbar-menu">
-      <a href="#" class="rt-navbar-link is-active">Home</a>
-      <a href="#" class="rt-navbar-link">About</a>
-      <a href="#" class="rt-navbar-link">Contact</a>
-    </div>
+<div class="dropdown" data-dropdown>
+  <button class="btn btn-secondary" data-dropdown-trigger type="button">Menu</button>
+  <div class="dropdown-menu">
+    <button class="dropdown-item" type="button">Profile</button>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item dropdown-item--danger" type="button">Logout</button>
   </div>
-</nav>
-```
-
-**Variants:**
-- `.rt-navbar--transparent` - Transparent background
-- `.rt-navbar--dark` - Dark theme
-
----
-
-## Sidebar
-
-Admin sidebar navigation:
-
-```html
-<aside class="rt-sbr">
-  <div class="rt-sbr_brand">
-    <span class="rt-brand_dot"></span>
-    <span>Brand</span>
-  </div>
-  
-  <nav class="rt-sbr_nav">
-    <a class="rt-sbr_link is-active" href="dashboard.html">
-      <i class="rt rt-dashboard"></i>
-      Dashboard
-    </a>
-  </nav>
-  
-  <div class="rt-sbr_footer">
-    <div class="rt-sbr_user">
-      <div class="rt-sbr_avatar">A</div>
-      <div class="rt-sbr_user-info">
-        <div class="rt-sbr_user-name">Admin</div>
-        <div class="rt-sbr_user-role">Administrator</div>
-      </div>
-    </div>
-  </div>
-</aside>
+</div>
 ```
 
 ---
 
-## Modal
+## 11. Modal
 
-Dialog overlays:
+### Classes
+
+- `modal`
+- `modal-content`
+- `modal-dialog`
+- `modal-sm`
+- `modal-md`
+- `modal-lg`
+- `modal-xl`
+- `modal-fullscreen`
+- `modal-header`
+- `modal-title`
+- `modal-subtitle`
+- `modal-body`
+- `modal-footer`
+- `modal-close`
+- `modal-embed`
+- `modal-embled`
+- `modal-embed--map`
+- `modal-embed--video`
+
+### Example
 
 ```html
-<div class="modal" id="myModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal" id="demoModal" role="dialog" aria-modal="true">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="modalTitle">Modal Title</h3>
-        <button class="modal-close" data-modal-close aria-label="Close">&times;</button>
+        <h3 class="modal-title">Modal title</h3>
+        <button class="modal-close" type="button" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        Modal content here.
-      </div>
+      <div class="modal-body">Body</div>
       <div class="modal-footer">
-        <button class="rt-btn rt-btn-secondary" data-modal-close>Cancel</button>
-        <button class="rt-btn rt-btn-primary">Confirm</button>
+        <button class="btn btn-secondary" type="button">Cancel</button>
+        <button class="btn btn-primary" type="button">Save</button>
       </div>
     </div>
   </div>
 </div>
 ```
 
-**Sizes:**
-- `.modal-sm` - Small
-- `.modal-md` - Medium (default)
-- `.modal-lg` - Large
-- `.modal-xl` - Extra large
-- `.modal-fullscreen` - Full screen
-
-**Accessibility:** Use `role="dialog"`, `aria-modal="true"`, and `aria-labelledby`.
-
 ---
 
-## Dropdown
+## 12. Widgets
 
-Dropdown menus:
+### Accordion
 
-```html
-<div class="rt-dropdown">
-  <button class="rt-btn rt-btn-primary" data-dropdown-trigger aria-expanded="false">
-    Options
-    <i class="rt rt-chevron-down"></i>
-  </button>
-  <div class="rt-dropdown-menu">
-    <a href="#" class="rt-dropdown-item">Action 1</a>
-    <a href="#" class="rt-dropdown-item">Action 2</a>
-    <a href="#" class="rt-dropdown-item">Action 3</a>
-  </div>
-</div>
-```
+- `rt-accordion`
+- `rt-accordion-item`
+- `rt-accordion-trigger`
+- `rt-accordion-icon`
+- `rt-accordion-content`
+- `rt-accordion-body`
+- `rt-accordion--flush`
 
-**Accessibility:** Use `aria-expanded` to indicate dropdown state.
+### Carousel
 
----
+- `rt-carousel`
+- `rt-carousel-track`
+- `rt-carousel-slide`
+- `rt-carousel-caption`
+- `rt-carousel-title`
+- `rt-carousel-text`
+- `rt-carousel-btn`
+- `rt-carousel-btn--prev`
+- `rt-carousel-btn--next`
+- `rt-carousel-indicators`
+- `rt-carousel-indicator`
+- `rt-carousel--card`
+- `rt-carousel--thumb`
 
-## Toast
+### Dashboard Widgets
 
-Notification toasts:
+- `rt-chart`
+- `rt-chart_svg`
+- `rt-activity`
+- `rt-activity_item`
+- `rt-activity_icon`
+- `rt-activity_content`
+- `rt-activity_text`
+- `rt-activity_time`
+- `rt-progress`
+- `rt-progress_head`
+- `rt-progress_label`
+- `rt-progress_value`
+- `rt-progress_bar`
+- `rt-progress_fill`
+- `rt-progress_fill--accent`
+- `rt-progress_fill--success`
+- `rt-progress_fill--purple`
+- `rt-quick`
+- `rt-quick_btn`
 
-```html
-<div class="rt-toast rt-toast--success">
-  <i class="rt rt-check-circle"></i>
-  <span>Operation successful!</span>
-</div>
-
-<div class="rt-toast rt-toast--danger">
-  <i class="rt rt-x-circle"></i>
-  <span>Error occurred.</span>
-</div>
-```
-
-**Positions:** Toast can be positioned using utility classes.
-
----
-
-## Accordion
-
-Collapsible content sections:
+### Example
 
 ```html
 <div class="rt-accordion">
-  <div class="rt-accordion-item">
-    <button class="rt-accordion-trigger" aria-expanded="false">
-      <span>Section Title</span>
-      <svg class="rt-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
+  <div class="rt-accordion-item is-open">
+    <button class="rt-accordion-trigger is-active" type="button">
+      Section title
+      <i class="rt rt-chevron-down rt-accordion-icon"></i>
     </button>
     <div class="rt-accordion-content">
-      <div class="rt-accordion-body">
-        Your content here...
-      </div>
+      <div class="rt-accordion-body">Accordion content.</div>
     </div>
   </div>
 </div>
 ```
 
-**Multiple open items:** Add `rt-accordion--multiple` to allow multiple sections open simultaneously.
+---
+
+## 13. Landing Page Components
+
+### Classes
+
+- `rt-landing`
+- `rt-hero`
+- `rt-hero__shape`
+- `rt-hero__content`
+- `rt-hero__badge`
+- `rt-hero__title`
+- `rt-hero__subtitle`
+- `rt-hero__actions`
+- `rt-feature-grid`
+- `rt-feature-card`
+- `rt-feature-icon`
+- `rt-feature-title`
+- `rt-feature-desc`
+- `rt-section`
+- `rt-section-alt`
+- `rt-section-header`
+- `rt-stats-grid`
+- `rt-stat-card`
+- `rt-stat-value`
+- `rt-stat-label`
+- `rt-cta`
+- `rt-cta-actions`
+- `rt-footer`
+- `rt-footer-grid`
+- `rt-footer-brand`
+- `rt-footer-links`
+- `rt-footer-bottom`
+- `rt-theme-toggle`
+- `rt-login-page`
+- `rt-login-wrapper`
+- `rt-login-card`
+- `rt-login-header`
+- `rt-login-logo`
+- `rt-login-subtitle`
+- `rt-login-form`
+- `rt-login-options`
+- `rt-login-divider`
+- `rt-login-social`
+- `rt-login-footer`
+- `rt-input-wrapper`
+- `rt-input-icon`
+- `rt-input-search-wrapper`
+- `rt-user-cell`
+- `rt-avatar-sm`
+- `rt-pagination`
+
+### Example Pages
+
+- `example/landing-page.html`
+- `example/login.html`
+- `example/dashboard.html`
+- `example/crud-table.html`
 
 ---
 
-## Carousel
+## 14. Legacy Compatibility
 
-Image slider with touch support:
+Retro-term keeps its current class prefixes. The following aliases exist for compatibility with existing examples:
 
-```html
-<div class="rt-carousel" data-autoplay="5000">
-  <div class="rt-carousel-track">
-    <div class="rt-carousel-slide">
-      <img src="image1.jpg" alt="Slide 1">
-      <div class="rt-carousel-caption">
-        <h3 class="rt-carousel-title">Title</h3>
-        <p class="rt-carousel-text">Description</p>
-      </div>
-    </div>
-  </div>
-  <button class="rt-carousel-btn rt-carousel-btn--prev" aria-label="Previous slide">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="15 18 9 12 15 6"></polyline>
-    </svg>
-  </button>
-  <button class="rt-carousel-btn rt-carousel-btn--next" aria-label="Next slide">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </button>
-  <div class="rt-carousel-indicators">
-    <button class="rt-carousel-indicator is-active" aria-label="Go to slide 1"></button>
-    <button class="rt-carousel-indicator" aria-label="Go to slide 2"></button>
-  </div>
-</div>
-```
+- `rt-input` for legacy input examples
+- `rt-input-sm` for compact legacy inputs
+- `rt-link` for inline anchor styling
+- `rt-btn-block` for full-width buttons
+- `rt-btn-group` for grouped actions
+- `rt-avatar-secondary`, `rt-avatar-accent`, `rt-avatar-danger` for avatar variants
 
-**Features:**
-- Touch/swipe support
-- Keyboard navigation (Arrow keys)
-- Autoplay with `data-autoplay` attribute (milliseconds)
-- Pause on hover
+These aliases do not replace the canonical classes. Prefer `rt-form-input`, `rt-form-select`, `rt-form-textarea`, `rt-form-check`, and the documented layout classes for new work.
 
 ---
 
-## Admin Panel Layout
+## 15. JavaScript Hooks
 
-See [Layout](#layout) section for complete admin panel structure.
+Retro-term JS uses attribute hooks instead of framework dependencies.
 
-**Additional admin components:**
-- Stat cards (`.rt-stats`, `.rt-stat`)
-- Dashboard grids (`.rt-grid`)
-- CRUD table wrappers
+### Common Hooks
 
----
+- `id="themeToggle"`
+- `id="menuBtn"`
+- `id="sidebar"`
+- `id="sidebarOverlay"`
+- `data-dropdown`
+- `data-dropdown-trigger`
+- `data-modal-open`
+- `data-modal-close`
+- `data-nav-dropdown`
 
-## Landing Page Layout
+### Initialization Notes
 
-See [Layout](#layout) section for landing page structure.
-
-**Landing page components:**
-- Hero section (`.rt-hero`)
-- Feature cards
-- CTA section (`.rt-cta`)
-- Timeline section
-- Footer (`.rt-footer`)
-
----
-
-## Theme Toggle
-
-Switch between light and dark themes:
-
-```html
-<button id="themeToggle" aria-label="Toggle theme">
-  <i class="rt rt-moon moon-icon"></i>
-  <i class="rt rt-sun sun-icon"></i>
-</button>
-```
-
-```js
-const html = document.documentElement;
-const current = html.getAttribute('data-theme');
-html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-```
-
-Theme preference is stored in localStorage and persists across sessions.
+- Load `retro-term.min.js` with `defer`.
+- Keep the `data-theme` attribute on `<html>`.
+- Keep sidebar and dropdown IDs consistent with the examples if you reuse the stock script.
 
 ---
 
-## Utility Classes
+## 16. Sass Build
 
-### Display
-
-```html
-<div class="rt-d-none">Hidden</div>
-<div class="rt-d-block">Block</div>
-<div class="rt-d-flex">Flex</div>
-<div class="rt-d-grid">Grid</div>
-```
-
-### Flexbox
-
-```html
-<div class="rt-flex-center">Centered content</div>
-<div class="rt-flex-between">Space between</div>
-<div class="rt-flex-column">Column direction</div>
-```
-
-### Text Alignment
-
-```html
-<p class="rt-text-left">Left aligned</p>
-<p class="rt-text-center">Center aligned</p>
-<p class="rt-text-right">Right aligned</p>
-```
-
-### Spacing
-
-Margin and padding utilities follow pattern: `{property}-{size}`
-
-```html
-<div class="rt-m-1">Margin 1</div>
-<div class="rt-m-2">Margin 2</div>
-<div class="rt-p-3">Padding 3</div>
-<div class="rt-p-4">Padding 4</div>
-```
-
-### Visibility
-
-```html
-<div class="rt-visible-md">Visible on medium screens</div>
-<div class="rt-hidden-sm">Hidden on small screens</div>
-```
-
----
-
-## JavaScript Usage
-
-### Core JavaScript (`retro-term.js`)
-
-Handles interactive behaviors:
-
-- Theme toggle (`#themeToggle`)
-- Mobile sidebar (`#menuBtn`, `#sidebar`, `#sidebarOverlay`)
-- Dropdowns (`[data-dropdown]`)
-- Modals (`[data-modal-open]`, `[data-modal-close]`)
-- Toast notifications
-- Table search/pagination demos
-
-### Components JavaScript (`retro-term-components.js`)
-
-Provides additional components:
-
-- Accordion interactions
-- Carousel with touch/swipe
-- Navbar scroll effects
-
-### Initialization
-
-```html
-<script src="dist/retro-term.min.js" defer></script>
-<script src="dist/retro-term-components.min.js" defer></script>
-```
-
----
-
-## Accessibility Notes
-
-Retro-term follows accessibility best practices:
-
-1. **Buttons**: Always specify `type` attribute
-2. **Modals**: Use `role="dialog"`, `aria-modal="true"`, `aria-labelledby`
-3. **Dropdowns**: Use `aria-expanded` to indicate state
-4. **Sidebar toggle**: Include `aria-label`
-5. **Theme toggle**: Include `aria-label`
-6. **Focus visible**: Maintain visible focus indicators
-7. **Reduced motion**: Respect `prefers-reduced-motion` preference
-
-### Keyboard Navigation
-
-- Tab through interactive elements
-- Enter/Space to activate buttons
-- Escape to close modals/dropdowns
-- Arrow keys for carousel navigation
-
----
-
-## Customization with Sass
-
-### Variables
-
-Override default variables before importing Retro-term:
+### Source Order
 
 ```scss
-// _custom-variables.scss
-$rt-primary: #your-color;
-$rt-primary-rgb: your-rgb-values;
-$rt-border-radius: 12px;
-
-// Then import
-@use 'retro-term' with (
-  $primary: #your-color
-);
+@use "variables";
+@use "base";
+@use "typography";
+@use "icons";
+@use "utilities";
+@use "grid";
+@use "layout";
+@use "buttons";
+@use "popup";
+@use "feedback";
+@use "dropdown";
+@use "table";
+@use "widgets";
+@use "components";
+@use "landing";
+@use "responsive";
 ```
 
-### Build Process
+### Build Commands
 
 ```bash
-npm install
 npm run build:css
+npm run build
 ```
 
-Watch mode:
+### Output Files
 
-```bash
-npm run watch:css
-```
-
-### File Structure
-
-```
-sass/
-├── _variables.scss    # Design tokens
-├── _base.scss         # Reset and base styles
-├── _typography.scss   # Text styles
-├── _grid.scss         # Grid system
-├── _layout.scss       # Admin/layout structures
-├── _buttons.scss      # Button styles
-├── _components.scss   # Reusable components
-├── _feedback.scss     # Alerts and toasts
-├── _popup.scss        # Modals
-├── _dropdown.scss     # Dropdown menus
-├── _table.scss        # Table styles
-├── _widgets.scss      # Widgets
-├── _utilities.scss    # Utility classes
-├── _responsive.scss   # Media queries
-└── retro-term.scss    # Main entry point
-```
+- `retro-term.css`
+- `retro-term.min.css`
+- `dist/retro-term.css`
+- `dist/retro-term.min.css`
 
 ---
 
-## Browser Support
+## 17. Customization Notes
 
-| Browser | Version |
-|---------|---------|
-| Chrome  | Last 2  |
-| Firefox | Last 2  |
-| Safari  | Last 2  |
-| Edge    | Last 2  |
+- Keep the `rt-` prefix for new framework classes.
+- Add compatibility aliases if you need to preserve older examples.
+- Avoid adding external dependencies to the framework layer.
+- Prefer documentation and example updates before changing Sass.
 
 ---
 
-## License
+## 18. Browser Support
 
-MIT License - See [LICENSE](../LICENSE) for details.
+Retro-term is built for modern evergreen browsers with support for:
+
+- CSS variables
+- Flexbox and Grid
+- `backdrop-filter` enhancements
+- `prefers-reduced-motion` friendly behavior where used by the browser
+
+---
+
+## 19. Example Inventory
+
+- `example/dashboard.html` - admin dashboard
+- `example/landing-page.html` - marketing landing page
+- `example/login.html` - login screen
+- `example/crud-table.html` - CRUD table and modal form
+- `example/components-demo.html` - component showcase
+
+---
+
+## 20. License
+
+MIT

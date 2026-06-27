@@ -572,6 +572,216 @@
         toastCloseBtn?.addEventListener('click', hideToast);
         applyToastState();
 
+        // ===== ACCORDION =====
+        document.querySelectorAll('[data-accordion]').forEach(accordion => {
+            const isMultiple = accordion.hasAttribute('data-accordion-multiple');
+            accordion.querySelectorAll('.rt-accordion-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const item = trigger.closest('.rt-accordion-item');
+                    if (!item) return;
+                    const isOpen = item.classList.contains('is-open');
+                    
+                    if (!isMultiple) {
+                        accordion.querySelectorAll('.rt-accordion-item').forEach(i => {
+                            i.classList.remove('is-open');
+                            i.querySelector('.rt-accordion-trigger')?.classList.remove('is-active');
+                        });
+                    }
+                    
+                    if (!isOpen) {
+                        item.classList.add('is-open');
+                        trigger.classList.add('is-active');
+                    }
+                });
+            });
+        });
+
+        // ===== CAROUSEL =====
+        document.querySelectorAll('[data-carousel]').forEach(carousel => {
+            const track = carousel.querySelector('.rt-carousel-track');
+            const prevBtn = carousel.querySelector('[data-carousel-prev]');
+            const nextBtn = carousel.querySelector('[data-carousel-next]');
+            const indicators = carousel.querySelectorAll('.rt-carousel-indicator');
+            let currentIndex = 0;
+            let slideCount = carousel.querySelectorAll('.rt-carousel-slide').length;
+            let autoPlayTimer = null;
+            const autoPlayDelay = carousel.getAttribute('data-carousel-autoplay');
+            
+            function goToSlide(index) {
+                if (index < 0) index = slideCount - 1;
+                if (index >= slideCount) index = 0;
+                currentIndex = index;
+                
+                if (track) {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+                
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle('is-active', i === currentIndex);
+                });
+            }
+            
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+            
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+            
+            function startAutoPlay() {
+                if (!autoPlayDelay) return;
+                stopAutoPlay();
+                autoPlayTimer = setInterval(nextSlide, parseInt(autoPlayDelay));
+            }
+            
+            function stopAutoPlay() {
+                if (autoPlayTimer) {
+                    clearInterval(autoPlayTimer);
+                    autoPlayTimer = null;
+                }
+            }
+            
+            prevBtn?.addEventListener('click', () => {
+                prevSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            });
+            
+            nextBtn?.addEventListener('click', () => {
+                nextSlide();
+                stopAutoPlay();
+                startAutoPlay();
+            });
+            
+            indicators.forEach((ind, index) => {
+                ind.addEventListener('click', () => {
+                    goToSlide(index);
+                    stopAutoPlay();
+                    startAutoPlay();
+                });
+            });
+            
+            carousel.addEventListener('mouseenter', stopAutoPlay);
+            carousel.addEventListener('mouseleave', startAutoPlay);
+            
+            goToSlide(0);
+            startAutoPlay();
+        });
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.querySelector('.rt-navbar');
+        if (navbar) {
+            function handleScroll() {
+                if (window.scrollY > 10) {
+                    navbar.classList.add('rt-navbar--scrolled');
+                } else {
+                    navbar.classList.remove('rt-navbar--scrolled');
+                }
+            }
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+            
+            // Mobile navbar toggle
+            const navbarToggle = navbar.querySelector('.rt-navbar-toggle');
+            const navbarMenu = navbar.querySelector('.rt-navbar-menu');
+            navbarToggle?.addEventListener('click', () => {
+                navbarToggle.classList.toggle('is-open');
+                navbarMenu?.classList.toggle('is-open');
+            });
+        }
+
+        // ===== FORM VALIDATION =====
+        document.querySelectorAll('[data-validate]').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                let isValid = true;
+                
+                form.querySelectorAll('[data-rule]').forEach(field => {
+                    const value = field.value.trim();
+                    const rules = field.getAttribute('data-rule').split('|');
+                    const formGroup = field.closest('.rt-form-group');
+                    
+                    // Clear previous states
+                    field.classList.remove('is-valid', 'is-invalid');
+                    formGroup?.classList.remove('is-valid', 'is-invalid');
+                    
+                    let errorMessage = '';
+                    
+                    rules.forEach(rule => {
+                        if (rule === 'required' && !value) {
+                            errorMessage = 'This field is required';
+                        } else if (rule === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                            errorMessage = 'Please enter a valid email';
+                        } else if (rule.startsWith('minlength:') && value.length < parseInt(rule.split(':')[1])) {
+                            errorMessage = `Minimum ${rule.split(':')[1]} characters required`;
+                        } else if (rule.startsWith('maxlength:') && value.length > parseInt(rule.split(':')[1])) {
+                            errorMessage = `Maximum ${rule.split(':')[1]} characters allowed`;
+                        }
+                    });
+                    
+                    if (errorMessage) {
+                        field.classList.add('is-invalid');
+                        formGroup?.classList.add('is-invalid');
+                        isValid = false;
+                        
+                        const messageEl = formGroup?.querySelector('.rt-form-message--error');
+                        if (messageEl) {
+                            messageEl.textContent = errorMessage;
+                            messageEl.classList.add('is-visible');
+                        }
+                    } else if (value) {
+                        field.classList.add('is-valid');
+                        formGroup?.classList.add('is-valid');
+                        
+                        const successEl = formGroup?.querySelector('.rt-form-message--success');
+                        if (successEl) {
+                            successEl.classList.add('is-visible');
+                        }
+                    }
+                });
+                
+                if (!isValid) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
+            
+            // Real-time validation on blur
+            form.querySelectorAll('[data-rule]').forEach(field => {
+                field.addEventListener('blur', () => {
+                    const value = field.value.trim();
+                    const rules = field.getAttribute('data-rule')?.split('|') || [];
+                    const formGroup = field.closest('.rt-form-group');
+                    
+                    field.classList.remove('is-valid', 'is-invalid');
+                    formGroup?.classList.remove('is-valid', 'is-invalid');
+                    
+                    let errorMessage = '';
+                    
+                    rules.forEach(rule => {
+                        if (rule === 'required' && !value) {
+                            errorMessage = 'This field is required';
+                        } else if (rule === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                            errorMessage = 'Please enter a valid email';
+                        }
+                    });
+                    
+                    if (errorMessage) {
+                        field.classList.add('is-invalid');
+                        formGroup?.classList.add('is-invalid');
+                        const messageEl = formGroup?.querySelector('.rt-form-message--error');
+                        if (messageEl) {
+                            messageEl.textContent = errorMessage;
+                            messageEl.classList.add('is-visible');
+                        }
+                    } else if (value) {
+                        field.classList.add('is-valid');
+                        formGroup?.classList.add('is-valid');
+                    }
+                });
+            });
+        });
+
         // ===== TABLE with Search + Pagination =====
         const tableBody = document.getElementById('tableBody');
         const tableInfo = document.getElementById('tableInfo');

@@ -462,3 +462,105 @@
 .rt-navbar--dark .rt-navbar-link.is-active {
   color: var(--rt-white);
 }
+
+/* ============================================
+           FORM VALIDATION
+        ============================================ */
+.rt-form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.rt-form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--rt-text);
+}
+
+.rt-form-input,
+.rt-form-select,
+.rt-form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--rt-border);
+  border-radius: 10px;
+  background: var(--rt-surface-solid);
+  color: var(--rt-text);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.rt-form-input:focus,
+.rt-form-select:focus,
+.rt-form-textarea:focus {
+  outline: none;
+  border-color: var(--rt-primary);
+  box-shadow: 0 0 0 3px rgba(var(--rt-primary-rgb), 0.15);
+}
+
+.rt-form-input.is-invalid,
+.rt-form-select.is-invalid,
+.rt-form-textarea.is-invalid {
+  border-color: var(--rt-danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.rt-form-input.is-valid,
+.rt-form-select.is-valid,
+.rt-form-textarea.is-valid {
+  border-color: var(--rt-success);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+
+.rt-form-message {
+  display: none;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.rt-form-message.is-visible {
+  display: block;
+}
+
+.rt-form-message--error {
+  color: var(--rt-danger);
+}
+
+.rt-form-message--success {
+  color: var(--rt-success);
+}
+
+.rt-form-icon {
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  width: 18px;
+  height: 18px;
+  display: none;
+}
+
+.rt-form-icon.is-visible {
+  display: block;
+}
+
+.rt-form-icon--error {
+  color: var(--rt-danger);
+}
+
+.rt-form-icon--success {
+  color: var(--rt-success);
+}
+
+/* Validation state wrapper */
+.rt-form-group.is-invalid .rt-form-message--error,
+.rt-form-group.is-invalid .rt-form-icon--error {
+  display: block;
+}
+
+.rt-form-group.is-valid .rt-form-message--success,
+.rt-form-group.is-valid .rt-form-icon--success {
+  display: block;
+}

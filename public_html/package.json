@@ -1,0 +1,88 @@
+{
+  "name": "retro-term-css",
+  "version": "1.0.0",
+  "description": "Retro-modern terminal CSS framework for dashboards, admin panels, landing pages, documentation pages, and form-driven interfaces.",
+  "license": "MIT",
+  "author": "Afan Hermawan",
+  "homepage": "https://github.com/afandisini/Retro-term#readme",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afandisini/Retro-term.git"
+  },
+  "bugs": {
+    "url": "https://github.com/afandisini/Retro-term/issues"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "retro",
+    "terminal",
+    "retro-modern",
+    "admin",
+    "dashboard",
+    "ui",
+    "components",
+    "vue",
+    "react",
+    "nextjs",
+    "nuxt",
+    "php",
+    "laravel"
+  ],
+  "main": "dist/retro-term.js",
+  "module": "dist/retro-term.js",
+  "style": "dist/retro-term.min.css",
+  "browser": "dist/retro-term.js",
+  "files": [
+    "dist",
+    "sass",
+    "assets/term-icons",
+    "README.md",
+    "DOCUMENTATION.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/retro-term.js",
+      "require": "./dist/retro-term.js",
+      "default": "./dist/retro-term.js"
+    },
+    "./css": {
+      "default": "./dist/retro-term.min.css"
+    },
+    "./css/full": {
+      "default": "./dist/retro-term.css"
+    },
+    "./js": {
+      "import": "./dist/retro-term.js",
+      "require": "./dist/retro-term.js",
+      "default": "./dist/retro-term.js"
+    },
+    "./icons": {
+      "default": "./dist/retro-term-icons.css"
+    },
+    "./icons-legacy": {
+      "default": "./dist/term-icons.css"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build:css": "node node_modules/sass/sass.js sass/retro-term.scss retro-term.css --no-source-map && node node_modules/sass/sass.js sass/retro-term.scss retro-term.min.css --style=compressed --no-source-map && node node_modules/sass/sass.js sass/retro-term.scss dist/retro-term.css --no-source-map && node node_modules/sass/sass.js sass/retro-term.scss dist/retro-term.min.css --style=compressed --no-source-map",
+    "build:icons": "node scripts/copy-icons.js",
+    "build:js": "node scripts/copy-js.js",
+    "build": "npm run build:css && npm run build:js && npm run build:icons",
+    "watch:css": "node node_modules/sass/sass.js --watch sass/retro-term.scss:dist/retro-term.css",
+    "pack:test": "npm pack --dry-run",
+    "prepublishOnly": "npm run build && npm run pack:test"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  },
+  "sideEffects": [
+    "*.css",
+    "dist/*.css",
+    "dist/*.js"
+  ]
+}

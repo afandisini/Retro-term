@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-base-url="https://retro-term.afandev.my.id/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro-term - Popup</title>
+    <meta name="description"
+        content="Contoh popup, modal, dan overlay Retro-term CSS untuk dialog, konfirmasi, dan informasi tambahan.">
+    <meta name="keywords" content="retro-term popup, modal ui, dialog, overlay, css component">
+    <meta name="author" content="Afan Hermawan">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <link rel="canonical" href="https://retro-term.afandev.my.id/popup">
+    <meta property="og:site_name" content="Retro-term CSS">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Retro-term - Popup">
+    <meta property="og:description"
+        content="Contoh popup, modal, dan overlay Retro-term CSS untuk dialog, konfirmasi, dan informasi tambahan.">
+    <meta property="og:url" content="https://retro-term.afandev.my.id/popup">
+    <meta property="og:image" content="https://retro-term.afandev.my.id/assets/images/front_page.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Retro-term - Popup">
+    <meta name="twitter:description"
+        content="Contoh popup, modal, dan overlay Retro-term CSS untuk dialog, konfirmasi, dan informasi tambahan.">
+    <meta name="twitter:image" content="https://retro-term.afandev.my.id/assets/images/front_page.png">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/term-icons/dist/term-icons.inline.css">
+    <link rel="stylesheet" href="retro-term.css">
+</head>
+
+<body>
+    <div class="rt-admin">
+        <div class="rt-sbr_overlay" id="sidebarOverlay"></div>
+        <aside class="rt-sbr" id="sidebar">
+            <div class="rt-sbr_brand"><span class="rt-brand_dot"></span><span>Retro-term</span></div>
+            <div class="rt-sbr_label">Main Menu</div>
+            <nav class="rt-sbr_nav">
+                <a class="rt-sbr_link" href="dashboard.html"><i class="rt rt-dashboard"
+                        aria-hidden="true"></i>Dashboard</a>
+                <div class="rt-sd" data-sd>
+                    <button class="rt-sd_trigger" type="button"><i class="rt rt-users" aria-hidden="true"></i>UI
+                        Elements<span class="rt-sbr_badge">8</span><i class="rt rt-chevron-down rt-sd_chevron"
+                            aria-hidden="true"></i></button>
+                    <div class="rt-sd_children">
+                        <a class="rt-sd_child" href="buttons.html">Button</a><a class="rt-sd_child"
+                            href="badge.html">Badge</a><a class="rt-sd_child" href="modal.html">Popup</a><a
+                            class="rt-sd_child" href="toast.html">Toast</a><a class="rt-sd_child"
+                            href="table.html">Table</a><a class="rt-sd_child" href="input.html">Input Form</a><a
+                            class="rt-sd_child" href="typography.html">Typography</a><a class="rt-sd_child"
+                            href="color.html">Color</a>
+                    </div>
+                </div>
+                <div class="rt-sbr_label">Documentation</div>
+                <a class="rt-sbr_link" href="doc.html">
+                    <i class="rt rt-question" aria-hidden="true"></i>
+                    Doc
+                </a>
+            </nav>
+            <div class="rt-sbr_footer">
+                <div class="rt-sbr_user">
+                    <div class="rt-sbr_avatar">C</div>
+                    <div class="rt-sbr_user-info">
+                        <div class="rt-sbr_user-name">2026. Retro-term</div>
+                        <div class="rt-sbr_user-role">All Rights Reserved</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="rt-main">
+            <div class="rt-topbar">
+                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu"><i class="rt rt-menu"
+                        aria-hidden="true"></i></button>
+                <h1 class="rt-topbar_title">Popup</h1>
+                <div class="rt-topbar_search">
+                    <i class="rt rt-search" aria-hidden="true"></i>
+                    <input type="text" placeholder="Search something...">
+                </div>
+
+                <div class="rt-topbar_actions">
+                    <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
+                        <i class="rt rt-moon moon-icon" aria-hidden="true"></i>
+                        <i class="rt rt-sun sun-icon" aria-hidden="true" style="display:none"></i>
+                    </button>
+
+                    <!-- Dropdown Notification -->
+                    <div class="rt-dd" data-dd>
+                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
+                            <i class="rt rt-notification" aria-hidden="true"></i>
+                            <span class="rt-topbar_dot"></span>
+                        </button>
+                        <div class="rt-dd_menu">
+                            <div class="rt-dd_label">Notifications</div>
+                            <button class="rt-dd_item">
+                                <i class="rt rt-database" aria-hidden="true"></i>
+                                New user signed up
+                            </button>
+                            <button class="rt-dd_item">
+                                <i class="rt rt-check" aria-hidden="true"></i>
+                                Project completed
+                            </button>
+                            <button class="rt-dd_item">
+                                <i class="rt rt-info" aria-hidden="true"></i>
+                                Payment received
+                            </button>
+                            <div class="rt-dd_divider"></div>
+                            <button class="rt-dd_item">
+                                View all
+                                <i class="rt rt-chevron-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="rt-dd" data-dd>
+                        <button class="rt-topbar_icon-tbl" data-dd-trigger title="Notifications">
+                            <i class="rt rt-settings" aria-hidden="true"></i>
+                        </button>
+                        <div class="rt-dd_menu">
+                            <button class="rt-dd_item">
+                                <i class="rt rt-person-circle" aria-hidden="true"></i>
+                                Profile
+                            </button>
+                            <div class="rt-dd_divider"></div>
+                            <a class="rt-dd_item" href="login.html">
+                                <i class="rt rt-logout-box" aria-hidden="true"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rt-panel rt-section rt-p3">
+                <h2>Popup Triggers</h2>
+                <div class="rt-row">
+                    <button class="rt-tbl rt-tbl-primary" data-pp-open="pp-sm">Popup SM</button>
+                    <button class="rt-tbl rt-tbl-success" data-pp-open="pp-md">Popup MD</button>
+                    <button class="rt-tbl rt-tbl-accent" data-pp-open="pp-lg">Popup LG</button>
+                    <button class="rt-tbl rt-tbl-purple" data-pp-open="pp-xl">Popup XL</button>
+                    <button class="rt-tbl rt-tbl-danger" data-pp-open="pp-full">Popup Fullscreen</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="rt-pp rt-pp--sm" id="pp-sm" data-pp>
+        <div class="rt-pp_panel">
+            <div class="rt-pp_head">
+                <div>
+                    <h3 class="rt-pp_title">Confirm Delete</h3>
+                    <p class="rt-pp_desc">Compact confirmation dialog for critical actions.</p>
+                </div><button class="rt-pp_close" data-pp-close><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="rt-pp_body">
+                <div class="rt-pp_stack">
+                    <p class="rt-pp_card-text">Are you sure you want to delete this item? This action cannot be undone.
+                    </p>
+                    <div class="rt-pp_meta">
+                        <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Permanent</span>
+                        <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Careful</span>
+                        <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>1 item</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rt-pp_footer"><button class="rt-tbl rt-tbl-secondary" data-pp-close>Cancel</button><button
+                    class="rt-tbl rt-tbl-danger" data-pp-close>Yes, Delete</button></div>
+        </div>
+    </div>
+
+    <div class="rt-pp rt-pp--md" id="pp-md" data-pp>
+        <div class="rt-pp_panel">
+            <div class="rt-pp_head">
+                <div>
+                    <h3 class="rt-pp_title">Add New User</h3>
+                    <p class="rt-pp_desc">Fill out the form below to add a new user</p>
+                </div><button class="rt-pp_close" data-pp-close><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="rt-pp_body">
+                <form class="rt-pp_stack" action="javascript:void(0)">
+                    <div class="rt-pp_grid rt-pp_grid--2">
+                        <input type="text" placeholder="Full name"
+                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text)">
+                        <input type="email" placeholder="name@example.com"
+                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text)">
+                    </div>
+                    <div class="rt-pp_grid rt-pp_grid--2">
+                        <select
+                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text)">
+                            <option>Admin</option>
+                            <option>Editor</option>
+                            <option>Member</option>
+                        </select>
+                        <input type="text" placeholder="Role label"
+                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text)">
+                    </div>
+                    <textarea rows="4" placeholder="Write a short bio..."
+                        style="width:100%;padding:12px 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);resize:vertical"></textarea>
+                    <p class="rt-pp_card-text">This medium popup is sized for quick forms, inline editing, and fast
+                        actions.</p>
+                </form>
+            </div>
+            <div class="rt-pp_footer"><button class="rt-tbl rt-tbl-secondary" data-pp-close>Cancel</button><button
+                    class="rt-tbl rt-tbl-primary" data-pp-close>Save</button></div>
+        </div>
+    </div>
+
+    <div class="rt-pp rt-pp--lg" id="pp-lg" data-pp>
+        <div class="rt-pp_panel">
+            <div class="rt-pp_head">
+                <div>
+                    <h3 class="rt-pp_title">Project Details</h3>
+                    <p class="rt-pp_desc">Complete information about the selected project</p>
+                </div><button class="rt-pp_close" data-pp-close><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="rt-pp_body">
+                <div class="rt-pp_stack">
+                    <div class="rt-pp_card">
+                        <h4 class="rt-pp_card-title">Typography sample</h4>
+                        <p class="rt-pp_card-text">Popup large is ideal for readable content, structured notes, and
+                            longer form previews. Use bold, italic, and inline code to show typographic rhythm.</p>
+                    </div>
+                    <div class="rt-pp_grid rt-pp_grid--2">
+                        <div class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">Heading levels</h4>
+                            <p class="rt-pp_card-text"><strong>H1</strong> to <strong>H6</strong> keep content hierarchy
+                                clear. Titles stay readable even when the modal scrolls.</p>
+                        </div>
+                        <div class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">Lists and code</h4>
+                            <p class="rt-pp_card-text">You can show lists, blocks, and code snippets like
+                                <code>.rt-badge--success</code> or <code>.rt-tbl-primary</code>.
+                            </p>
+                        </div>
+                    </div>
+                    <blockquote class="rt-pp_card" style="margin:0">
+                        <p class="rt-pp_card-text" style="margin:0">Typography yang rapi membuat isi modal lebih mudah
+                            dipindai, terutama saat kontennya sudah lebih panjang.</p>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="rt-pp_footer"><button class="rt-tbl rt-tbl-secondary" data-pp-close>Close</button><button
+                    class="rt-tbl rt-tbl-primary">Edit Project</button></div>
+        </div>
+    </div>
+
+    <div class="rt-pp rt-pp--xl" id="pp-xl" data-pp>
+        <div class="rt-pp_panel">
+            <div class="rt-pp_head">
+                <div>
+                    <h3 class="rt-pp_title">Analytics Report</h3>
+                    <p class="rt-pp_desc">This month's performance summary</p>
+                </div><button class="rt-pp_close" data-pp-close><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="rt-pp_body">
+                <div class="rt-pp_stack">
+                    <div class="rt-pp_grid rt-pp_grid--2">
+                        <div class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">Maps Yogyakarta</h4>
+                            <div class="rt-pp_embed rt-pp_embed--map">
+                                <iframe src="https://www.google.com/maps?q=Yogyakarta&output=embed" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade" title="Maps Yogyakarta"></iframe>
+                            </div>
+                        </div>
+                        <div class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">YouTube preview</h4>
+                            <div class="rt-pp_embed rt-pp_embed--video">
+                                <iframe src="https://www.youtube-nocookie.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1"
+                                    title="YouTube video" loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rt-pp_grid rt-pp_grid--2">
+                        <div class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">Quick facts</h4>
+                            <p class="rt-pp_card-text">This popup demonstrates mixed media content and is long enough to
+                                prove scroll behavior on medium-large panels.</p>
+                        </div>
+                        <div class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">Status</h4>
+                            <div class="rt-pp_meta">
+                                <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Live</span>
+                                <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Embed</span>
+                                <span class="rt-badge rt-badge--warning"><span
+                                        class="rt-badge_dot"></span>Scrollable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rt-pp_footer"><button class="rt-tbl rt-tbl-secondary" data-pp-close>Close</button><button
+                    class="rt-tbl rt-tbl-primary">Export PDF</button></div>
+        </div>
+    </div>
+
+    <div class="rt-pp rt-pp--fullscreen" id="pp-full" data-pp>
+        <div class="rt-pp_panel">
+            <div class="rt-pp_head">
+                <div>
+                    <h3 class="rt-pp_title">Fullscreen Mode</h3>
+                    <p class="rt-pp_desc">Popup fills the entire screen</p>
+                </div><button class="rt-pp_close" data-pp-close><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg></button>
+            </div>
+            <div class="rt-pp_body">
+                <div class="rt-pp_stack">
+                    <section class="rt-pp_card">
+                        <h4 class="rt-pp_card-title">Fullscreen content gallery</h4>
+                        <p class="rt-pp_card-text">This is the longest popup sample. It combines typography, form
+                            controls, maps, video, and narrative content so fullscreen mode feels like a proper
+                            workspace.</p>
+                    </section>
+
+                    <section class="rt-pp_grid rt-pp_grid--2">
+                        <article class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">Typography</h4>
+                            <p class="rt-pp_card-text">
+                                <strong>Bold</strong>, <em>italic</em>, <u>underline</u>, and <mark>highlight</mark> all
+                                work inside the modal.
+                                Inline code like <code>.rt-pp_body</code> keeps the demo practical.
+                            </p>
+                            <hr style="border:none;border-top:1px solid var(--rt-border);margin:14px 0">
+                            <ul
+                                style="margin:0;padding-left:18px;color:var(--rt-muted);line-height:1.75;font-size:.86rem">
+                                <li>Readable headings and paragraphs</li>
+                                <li>Clear spacing for long articles</li>
+                                <li>Content that can scroll independently</li>
+                            </ul>
+                        </article>
+
+                        <article class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">Input form sample</h4>
+                            <div class="rt-pp_stack">
+                                <input type="text" placeholder="Project name"
+                                    style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text)">
+                                <input type="email" placeholder="owner@example.com"
+                                    style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text)">
+                                <select
+                                    style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text)">
+                                    <option>Design</option>
+                                    <option>Development</option>
+                                    <option>Review</option>
+                                </select>
+                                <textarea rows="4" placeholder="Notes..."
+                                    style="width:100%;padding:12px 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);resize:vertical"></textarea>
+                            </div>
+                        </article>
+                    </section>
+
+                    <section class="rt-pp_grid rt-pp_grid--2">
+                        <article class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">Maps Yogyakarta</h4>
+                            <div class="rt-pp_embed rt-pp_embed--map">
+                                <iframe src="https://www.google.com/maps?q=Yogyakarta&output=embed" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Maps Yogyakarta fullscreen"></iframe>
+                            </div>
+                        </article>
+                        <article class="rt-pp_card">
+                            <h4 class="rt-pp_card-title">YouTube embed</h4>
+                            <div class="rt-pp_embed rt-pp_embed--video">
+                                <iframe src="https://www.youtube-nocookie.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1"
+                                    title="YouTube fullscreen demo" loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </article>
+                    </section>
+
+                    <section class="rt-pp_card">
+                        <h4 class="rt-pp_card-title">Long-form notes</h4>
+                        <p class="rt-pp_card-text">
+                            Fullscreen mode is useful when the content needs more room for reading, reviewing, or
+                            editing. The scroll
+                            area stays inside the modal body, so the header and footer remain accessible while the
+                            content grows.
+                        </p>
+                        <p class="rt-pp_card-text" style="margin-top:10px">
+                            Add longer notes, documentation snippets, or even a full workflow preview here. Because the
+                            panel supports
+                            scrolling, the content can keep expanding without breaking the layout.
+                        </p>
+                    </section>
+
+                    <div class="rt-pp_meta">
+                        <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Scrollable</span>
+                        <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Media</span>
+                        <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Forms</span>
+                        <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Fullscreen</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rt-pp_footer">
+                <button class="rt-tbl rt-tbl-secondary" data-pp-close>Close</button>
+                <button class="rt-tbl rt-tbl-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="retro-term.js" defer></script>
+</body>
+
+</html>

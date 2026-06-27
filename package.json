@@ -21,6 +21,9 @@
     "retro-modern",
     "admin",
     "dashboard",
+    "admin-panel",
+    "admin-dashboard",
+    "landing-page",
     "ui",
     "components",
     "vue",
@@ -28,7 +31,11 @@
     "nextjs",
     "nuxt",
     "php",
-    "laravel"
+    "laravel",
+    "vanilla-css",
+    "no-bootstrap",
+    "no-tailwind",
+    "css-framework"
   ],
   "main": "dist/retro-term.js",
   "module": "dist/retro-term.js",

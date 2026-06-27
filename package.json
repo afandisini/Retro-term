@@ -60,6 +60,11 @@
       "require": "./dist/retro-term.js",
       "default": "./dist/retro-term.js"
     },
+    "./js/min": {
+      "import": "./dist/retro-term.min.js",
+      "require": "./dist/retro-term.min.js",
+      "default": "./dist/retro-term.min.js"
+    },
     "./icons": {
       "default": "./dist/retro-term-icons.css"
     },
@@ -78,7 +83,8 @@
     "prepublishOnly": "npm run build && npm run pack:test"
   },
   "devDependencies": {
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "terser": "^5.48.0"
   },
   "sideEffects": [
     "*.css",

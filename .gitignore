@@ -1,17 +1,4 @@
 ```
 # Build artifacts
 dist/
-*.css
-*.min.css
-
-# Dependencies
-node_modules/
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Cache
-.sass-cache/
 ```

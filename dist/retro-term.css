@@ -4715,9 +4715,78 @@ html[data-theme=dark] .rt-table-search:focus-within .rt {
   padding: 40px 0;
   border-top: 1px solid var(--rt-border);
   margin-top: 60px;
-  text-align: center;
+  background: var(--rt-surface);
+}
+
+.rt-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 30px;
+  border-bottom: 1px solid var(--rt-border);
+}
+
+.rt-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rt-footer-brand strong {
+  font-size: 1.2rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  color: var(--rt-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rt-footer-brand p {
   color: var(--rt-muted);
   font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.rt-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rt-footer-links h4 {
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rt-muted);
+  margin: 0 0 8px;
+}
+
+.rt-footer-links a {
+  color: var(--rt-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.rt-footer-links a:hover {
+  color: var(--rt-primary);
+}
+
+.rt-footer-bottom {
+  text-align: center;
+  padding: 20px;
+  color: var(--rt-muted);
+  font-size: 0.85rem;
+}
+
+.rt-footer-bottom p {
+  margin: 0;
 }
 
 /* Theme Toggle for Landing */
@@ -4785,6 +4854,273 @@ html[data-theme=dark] .rt-theme-toggle .sun-icon {
   .rt-hero__actions .rt-btn {
     width: 100%;
     justify-content: center;
+  }
+  .rt-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  .rt-footer-brand {
+    align-items: center;
+  }
+  .rt-footer-links h4 {
+    margin-top: 10px;
+  }
+}
+/* Section styles */
+.rt-section {
+  padding: 60px 0;
+}
+
+.rt-section-alt {
+  background: var(--rt-surface);
+}
+
+.rt-section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.rt-section-header h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  color: var(--rt-text);
+}
+
+.rt-section-header p {
+  font-size: 1.1rem;
+  color: var(--rt-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grid layouts */
+.rt-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Stats grid */
+.rt-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+.rt-stat-card {
+  padding: 30px 20px;
+  border-radius: 18px;
+  background: var(--rt-surface);
+  border: 1px solid var(--rt-border);
+}
+
+.rt-stat-value {
+  font-size: 2.5rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  color: var(--rt-primary);
+  margin-bottom: 8px;
+}
+
+.rt-stat-label {
+  font-size: 0.9rem;
+  color: var(--rt-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* CTA actions */
+.rt-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Login page styles */
+.rt-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(var(--rt-primary-rgb), 0.08), rgba(var(--rt-accent), 0.06));
+}
+
+.rt-login-wrapper {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+.rt-login-card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.rt-login-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.rt-login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.rt-login-logo h1 {
+  font-size: 1.5rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: var(--rt-text);
+}
+
+.rt-login-subtitle {
+  color: var(--rt-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.rt-login-form .rt-form-group {
+  margin-bottom: 20px;
+}
+
+.rt-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.rt-input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--rt-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rt-input-wrapper .rt-input {
+  padding-left: 44px;
+}
+
+.rt-login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.rt-login-divider {
+  position: relative;
+  text-align: center;
+  margin: 24px 0;
+}
+
+.rt-login-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--rt-border);
+}
+
+.rt-login-divider span {
+  position: relative;
+  background: var(--rt-surface);
+  padding: 0 16px;
+  color: var(--rt-muted);
+  font-size: 0.85rem;
+}
+
+.rt-login-social {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.rt-login-footer {
+  text-align: center;
+  color: var(--rt-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* CRUD Table styles */
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rt-input-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.rt-input-search-wrapper .rt-search {
+  position: absolute;
+  left: 12px;
+  color: var(--rt-muted);
+  pointer-events: none;
+}
+
+.rt-input-search-wrapper .rt-input {
+  padding-left: 40px;
+  width: 260px;
+}
+
+.rt-user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rt-avatar-sm {
+  width: 36px;
+  height: 36px;
+  font-size: 0.85rem;
+}
+
+.rt-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .rt-login-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .rt-login-social {
+    grid-template-columns: 1fr;
+  }
+  .card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rt-input-search-wrapper .rt-input {
+    width: 100%;
+  }
+  .rt-pagination {
+    flex-direction: column;
+    text-align: center;
   }
 }
 .rt-sbr_overlay {

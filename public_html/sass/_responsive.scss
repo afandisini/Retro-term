@@ -1,0 +1,179 @@
+.rt-sbr_overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 10, 18, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 99;
+}
+
+@media (max-width: 1024px) {
+  .rt-admin {
+    grid-template-columns: 1fr;
+  }
+
+  .rt-main {
+    grid-column: 1;
+  }
+
+  .rt-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rt-sbr {
+    transform: translateX(-100%);
+  }
+
+  .rt-sbr.is-open {
+    transform: translateX(0);
+  }
+
+  .rt-sbr_overlay.is-open {
+    display: block;
+  }
+
+  .rt-topbar_menu-tbl {
+    display: inline-grid;
+  }
+}
+
+@media (max-width: 620px) {
+  .rt-topbar {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 10px;
+    padding-top: 10px;
+    padding-bottom: 18px;
+  }
+
+  .rt-topbar_menu-tbl {
+    display: inline-grid;
+    width: 40px;
+    height: 40px;
+  }
+
+  .rt-topbar_title {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+
+  .rt-topbar_actions {
+    justify-self: end;
+    gap: 6px;
+  }
+
+  .rt-topbar_icon-tbl {
+    width: 40px;
+    height: 40px;
+  }
+
+  .rt-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .rt-topbar_search {
+    display: none;
+  }
+
+  .rt-quick {
+    grid-template-columns: 1fr;
+  }
+
+  .rt-topbar_title {
+    font-size: 1rem;
+  }
+
+  .rt-table-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .rt-table-search {
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+           FLAT MODE
+        ============================================ */
+*,
+.rt-sbr,
+.card,
+  .rt-stat,
+  .rt-topbar_icon-tbl,
+  .rt-topbar_search input,
+  .rt-sbr_link,
+  .rt-sbr_user,
+  .nav-dropdown-toggle,
+  .nav-dropdown-item,
+  .rt-table-search input {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Buttons keep slight radius for affordance */
+.btn,
+.rt-tbl {
+  border-radius: 0 !important;
+}
+
+.rt-stat,
+.card,
+.rt-sbr_link,
+.rt-topbar_icon-tbl,
+.rt-sbr_user,
+.btn,
+.rt-tbl,
+.nav-dropdown-toggle,
+.nav-dropdown-item,
+.rt-quick_btn {
+  transition-duration: 0.25s !important;
+  transition-timing-function: ease !important;
+}
+
+.rt-sbr,
+.card,
+.rt-stat,
+.rt-topbar_icon-tbl,
+.rt-topbar_search input,
+.rt-table-search input {
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+}
+
+/* Popup keeps radius for modal feel */
+.modal-content {
+  border-radius: 0 !important;
+}
+
+/* Demo section spacing */
+.rt-section {
+  padding: 22px 0;
+  border: 1px solid var(--rt-border);
+  margin-top: 22px;
+}
+
+.rt-section h2 {
+  font-size: 1.1rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+.rt-label {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rt-muted);
+  width: 100%;
+  margin-bottom: -4px;
+}

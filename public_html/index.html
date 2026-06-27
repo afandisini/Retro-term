@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-base-url="https://retro-term.afandev.my.id/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Retro-term CSS - Modern CSS Framework</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="retro-term.css?v=20260621">
+
+    <style>
+        /* Custom Landing Page Styles */
+        .rt-section {
+            padding: 22px 0;
+            border-top: none !important;
+            border-left: none !important;
+            border-right: none !important;
+            border-bottom: 1px solid var(--rt-border) !important;
+            margin-top: 22px;
+        }
+
+        .rt-landing {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        .rt-hero {
+            position: relative;
+            padding: 100px 0 60px;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(var(--rt-primary-rgb), .18), transparent 38rem),
+                radial-gradient(circle at 88% 12%, rgba(0, 184, 255, .14), transparent 30rem),
+                radial-gradient(circle at 82% 88%, rgba(255, 122, 89, .12), transparent 32rem),
+                radial-gradient(circle at 18% 82%, rgba(109, 40, 217, .10), transparent 28rem),
+                var(--rt-bg);
+            overflow: hidden;
+        }
+
+        .rt-hero__shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: .5;
+            pointer-events: none;
+            animation: rtFloat 14s ease-in-out infinite;
+        }
+
+        .rt-hero__shape--1 {
+            width: 320px;
+            height: 320px;
+            background: rgba(var(--rt-primary-rgb), .22);
+            top: -80px;
+            left: -80px;
+        }
+
+        .rt-hero__shape--2 {
+            width: 260px;
+            height: 260px;
+            background: rgba(0, 184, 255, .18);
+            bottom: -60px;
+            right: -60px;
+            animation-delay: -5s;
+        }
+
+        .rt-hero__shape--3 {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 122, 89, .16);
+            top: 30%;
+            right: 10%;
+            animation-delay: -9s;
+        }
+
+        @keyframes rtFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -20px) scale(1.05);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(.95);
+            }
+        }
+
+        .rt-hero__content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .rt-theme-toggle {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 50;
+            width: 44px;
+            height: 44px;
+            display: inline-grid;
+            place-items: center;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            color: var(--rt-text);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            cursor: pointer;
+            transition: transform .2s ease, color .2s ease, background .2s ease;
+        }
+
+        .rt-theme-toggle:hover {
+            transform: translateY(-1px);
+            color: var(--rt-primary);
+        }
+
+        .rt-theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2;
+        }
+
+        .rt-theme-toggle .sun-icon {
+            display: none;
+        }
+
+        html[data-theme='dark'] .rt-theme-toggle .moon-icon {
+            display: none;
+        }
+
+        html[data-theme='dark'] .rt-theme-toggle .sun-icon {
+            display: block;
+        }
+
+        .rt-hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(var(--rt-primary-rgb), .10);
+            border: 1px solid rgba(var(--rt-primary-rgb), .18);
+            color: var(--rt-primary);
+            font-size: .82rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .rt-hero__title {
+            font-size: clamp(1.75rem, 8vw, 4rem);
+            font-weight: 950;
+            letter-spacing: -.05em;
+            line-height: 1.1;
+            margin: 0 0 16px;
+            word-wrap: break-word;
+        }
+
+        .rt-gradient-text {
+            background: linear-gradient(135deg, var(--rt-primary), var(--rt-primary-2), var(--rt-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .rt-hero__subtitle {
+            font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+            color: var(--rt-muted);
+            font-weight: 520;
+            line-height: 1.6;
+            max-width: 680px;
+            margin: 0 auto 24px;
+        }
+
+        .rt-hero__actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .rt-hero__actions .btn svg,
+        .rt-hero__actions .btn i.rt {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+        }
+
+        .rt-hero__actions .btn {
+            line-height: 1;
+        }
+
+        .rt-section {
+            padding: 80px 0;
+        }
+
+        .rt-section__head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .rt-section__eyebrow {
+            font-size: .74rem;
+            font-weight: 950;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+            color: var(--rt-primary);
+            margin-bottom: 12px;
+        }
+
+        .rt-section__title {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            font-weight: 950;
+            letter-spacing: -.045em;
+            line-height: 1.15;
+            margin: 0 0 16px;
+        }
+
+        .rt-section__desc {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: var(--rt-muted);
+            line-height: 1.6;
+        }
+
+        .rt-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .rt-feature-card {
+            padding: 28px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: transform .22s ease, box-shadow .22s ease;
+        }
+
+        .rt-feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--rt-shadow);
+        }
+
+        .rt-feature-card__icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+
+        .rt-feature-card__icon svg {
+            width: 24px;
+            height: 24px;
+            stroke-width: 2;
+        }
+
+        .rt-feature-card__title {
+            font-size: 1.15rem;
+            font-weight: 900;
+            letter-spacing: -.03em;
+            margin: 0 0 10px;
+        }
+
+        .rt-feature-card__text {
+            margin: 0;
+            color: var(--rt-muted);
+            line-height: 1.7;
+            font-size: .92rem;
+        }
+
+        .rt-components-showcase {
+            background: var(--rt-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .rt-code-preview {
+            padding: 20px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            border-radius: 16px;
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+
+        .rt-code-preview pre {
+            margin: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            padding: 0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .rt-code-preview code {
+            font-size: clamp(0.75rem, 2vw, .88rem);
+            line-height: 1.6;
+        }
+
+        .rt-console {
+            border: 1px solid var(--rt-border);
+            background: #0b1220;
+            color: #d7e1f5;
+            overflow: hidden;
+        }
+
+        .rt-console__bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .rt-console__traffic {
+            display: inline-flex;
+            gap: 8px;
+        }
+
+        .rt-console__traffic span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .16);
+        }
+
+        .rt-console__traffic span:nth-child(1) {
+            background: #ff5f57;
+        }
+
+        .rt-console__traffic span:nth-child(2) {
+            background: #febc2e;
+        }
+
+        .rt-console__traffic span:nth-child(3) {
+            background: #28c840;
+        }
+
+        .rt-console__title {
+            font-size: .74rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(215, 225, 245, .72);
+        }
+
+        .rt-console__body {
+            padding: 18px 16px 16px;
+            min-height: 192px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: .9rem;
+            line-height: 1.75;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .rt-console__line {
+            min-height: 1.75em;
+        }
+
+        .rt-console__prompt {
+            color: #60a5fa;
+        }
+
+        .rt-console__typing {
+            color: #e5eefc;
+        }
+
+        .rt-console__cursor {
+            display: inline-block;
+            width: 8px;
+            margin-left: 2px;
+            border-bottom: 2px solid #7dd3fc;
+            transform: translateY(-2px);
+            animation: rtConsoleBlink .8s steps(1) infinite;
+        }
+
+        .rt-console__status {
+            color: #8be9a8;
+        }
+
+        @keyframes rtConsoleBlink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .rt-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 50px;
+        }
+
+        .rt-stat-card {
+            padding: 24px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            text-align: center;
+        }
+
+        .rt-stat-card__value {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 950;
+            letter-spacing: -.05em;
+            line-height: 1;
+            margin-bottom: 6px;
+            color: var(--rt-primary);
+        }
+
+        .rt-stat-card__label {
+            font-size: clamp(0.75rem, 2vw, .88rem);
+            font-weight: 700;
+            color: var(--rt-muted);
+        }
+
+        .rt-cta {
+            padding: 80px 0;
+            text-align: center;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(var(--rt-primary-rgb), .18), transparent 38rem),
+                radial-gradient(circle at 88% 88%, rgba(0, 184, 255, .14), transparent 30rem),
+                var(--rt-bg);
+        }
+
+        .rt-cta__title {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            font-weight: 950;
+            letter-spacing: -.045em;
+            margin: 0 0 16px;
+        }
+
+        .rt-cta__text {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            color: var(--rt-muted);
+            max-width: 600px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+        }
+
+        .rt-footer {
+            padding: 50px 0 30px;
+            border-top: 1px solid var(--rt-border);
+        }
+
+        .rt-footer__grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rt-footer__brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 950;
+            letter-spacing: -.05em;
+            font-size: 1.08rem;
+            margin-bottom: 14px;
+        }
+
+        .rt-footer__brand .rt-brand_dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--rt-primary), var(--rt-primary-2));
+        }
+
+        .rt-footer__text {
+            color: var(--rt-muted);
+            font-size: .92rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .rt-footer__title {
+            font-size: .82rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin: 0 0 16px;
+            color: var(--rt-text);
+        }
+
+        .rt-footer__links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rt-footer__links li {
+            margin: 0;
+        }
+
+        .rt-footer__links a {
+            display: inline-block;
+            padding: 6px 0;
+            color: var(--rt-muted);
+            font-size: .92rem;
+            font-weight: 600;
+            transition: color .2s ease;
+        }
+
+        .rt-footer__links a:hover {
+            color: var(--rt-primary);
+        }
+
+        .rt-footer__bottom {
+            padding-top: 30px;
+            border-top: 1px solid var(--rt-border);
+            text-align: center;
+            color: var(--rt-muted);
+            font-size: clamp(0.75rem, 2vw, .88rem);
+            font-weight: 600;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .rt-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rt-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .rt-footer__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .rt-hero {
+                padding: 80px 0 50px;
+            }
+
+            .rt-section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            .rt-landing {
+                overflow-x: hidden;
+            }
+
+            .rt-hero {
+                padding: 60px 0 40px;
+            }
+
+            .rt-hero__content {
+                padding: 0 16px;
+            }
+
+            .rt-hero__badge {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+
+            .rt-hero__actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+
+            .rt-hero__actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .rt-features-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .rt-feature-card {
+                padding: 22px;
+            }
+
+            .rt-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .rt-stat-card {
+                padding: 18px;
+            }
+
+            .rt-footer__grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .rt-section {
+                padding: 50px 0;
+            }
+
+            .rt-section__head {
+                margin: 0 auto 40px;
+                padding: 0 16px;
+            }
+
+            .rt-cta {
+                padding: 50px 0;
+            }
+
+            .rt-cta__title {
+                margin-bottom: 12px;
+            }
+
+            .rt-cta__text {
+                margin-bottom: 20px;
+            }
+
+            .rt-code-preview {
+                padding: 16px;
+                margin-top: 24px;
+            }
+
+            .rt-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px;
+            }
+
+            .card {
+                margin-bottom: 16px !important;
+            }
+
+            .card-body {
+                padding: 16px;
+            }
+
+            .card-header {
+                padding: 16px;
+            }
+
+            /* Fix button wrapping in panels */
+            .card-body>div {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            /* Ensure badges fit */
+            .rt-badge {
+                font-size: 0.65rem;
+                padding: 0 8px;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 380px) {
+            .rt-hero__title {
+                font-size: 1.5rem;
+            }
+
+            .rt-section__title {
+                font-size: 1.4rem;
+            }
+
+            .rt-cta__title {
+                font-size: 1.4rem;
+            }
+
+            .rt-feature-card {
+                padding: 18px;
+            }
+
+            .rt-stat-card {
+                padding: 16px;
+            }
+        }
+
+        /* Prevent horizontal scroll */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Ensure images and media don't overflow */
+        img,
+        svg,
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Flat mode */
+        .rt-feature-card,
+        .rt-stat-card,
+        .rt-code-preview,
+        .btn {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .rt-feature-card,
+        .rt-stat-card,
+        .btn {
+            transition-duration: .25s !important;
+            transition-timing-function: ease !important;
+        }
+    </style>
+</head>
+
+<body class="rt-landing">
+    <button class="rt-theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+    </button>
+
+    <!-- HERO SECTION -->
+    <section class="rt-hero">
+        <div class="rt-hero__shape rt-hero__shape--1"></div>
+        <div class="rt-hero__shape rt-hero__shape--2"></div>
+        <div class="rt-hero__shape rt-hero__shape--3"></div>
+
+        <div class="rt-hero__content">
+            <div class="rt-hero__badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Version 1.0 is live
+            </div>
+
+            <h1 class="rt-hero__title">
+                Build modern UI with<br>
+                <span class="rt-gradient-text">Retro-term CSS</span>
+            </h1>
+
+            <p class="rt-hero__subtitle">
+                A modern CSS framework with flat design, glassmorphism, and dark mode support.
+                Lightweight, fast, and easy to customize for your web projects.
+            </p>
+
+            <div class="rt-hero__actions">
+                <button class="btn btn-primary btn-lg" onclick="scrollToSection('features')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Get Started
+                </button>
+                <button class="btn btn-secondary btn-lg" onclick="scrollToSection('components')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    View Components
+                </button>
+                <a href="https://github.com/afandisini/Retro-term" class="btn btn-ghost btn-lg" target="_blank"
+                    rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                    Git Repo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="rt-section" id="features">
+        <div class="rt-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="rt-section__head">
+                <div class="rt-section__eyebrow">Core Features</div>
+                <h2 class="rt-section__title">Why Choose Retro-term CSS?</h2>
+                <p class="rt-section__desc">
+                    A framework designed for modern developers with a focus on performance,
+                    usability, and polished visuals.
+                </p>
+            </div>
+
+            <div class="rt-features-grid">
+                <div class="rt-feature-card">
+                    <div class="rt-feature-card__icon rt-stat_icon--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="rt-feature-card__title">Fast Performance</h3>
+                    <p class="rt-feature-card__text">
+                        Small file size and rendering optimizations help your website load faster
+                        without sacrificing design quality.
+                    </p>
+                </div>
+
+                <div class="rt-feature-card">
+                    <div class="rt-feature-card__icon rt-stat_icon--success">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="9" x2="15" y2="9"></line>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="rt-feature-card__title">Flat Design</h3>
+                    <p class="rt-feature-card__text">
+                        A modern flat aesthetic with minimal radius and restrained shadows
+                        for a clean, professional look.
+                    </p>
+                </div>
+
+                <div class="rt-feature-card">
+                    <div class="rt-feature-card__icon rt-stat_icon--accent">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </div>
+                    <h3 class="rt-feature-card__title">Dark Mode</h3>
+                    <p class="rt-feature-card__text">
+                        Built-in dark mode with a CSS variable system that is easy to customize
+                        for your brand or product.
+                    </p>
+                </div>
+
+                <div class="rt-feature-card">
+                    <div class="rt-feature-card__icon rt-stat_icon--purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 class="rt-feature-card__title">Complete Components</h3>
+                    <p class="rt-feature-card__text">
+                        More than 50 ready-to-use components, from buttons and cards to modals,
+                        tables, and admin dashboard pieces.
+                    </p>
+                </div>
+
+                <div class="rt-feature-card">
+                    <div class="rt-feature-card__icon" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="rt-feature-card__title">Glassmorphism</h3>
+                    <p class="rt-feature-card__text">
+                        Glassmorphism with backdrop blur that gives every component a modern
+                        and elegant feel.
+                    </p>
+                </div>
+
+                <div class="rt-feature-card">
+                    <div class="rt-feature-card__icon" style="background: linear-gradient(135deg, #10b981, #14b8a6);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="rt-feature-card__title">Easy to Customize</h3>
+                    <p class="rt-feature-card__text">
+                        A comprehensive CSS variable system makes it easy to adjust colors,
+                        spacing, and styles to match your brand identity.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 24px;">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">View Components</div>
+                        <div class="card-subtitle">Install, preview, and explore the UI kit</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div style="display:grid;gap:14px">
+                        <p class="rt-feature-card__text" style="margin:0">
+                            A quick preview of the core building blocks. The detailed reference lives in the docs page.
+                        </p>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px">
+                            <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Buttons</span>
+                            <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Badges</span>
+                            <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Progress</span>
+                            <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Modal</span>
+                        </div>
+                        <div class="rt-console" aria-label="Installation console">
+                            <div class="rt-console__bar">
+                                <div class="rt-console__traffic" aria-hidden="true">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="rt-console__title">Terminal</div>
+                            </div>
+                            <div class="rt-console__body">
+                                <div class="rt-console__line"><span class="rt-console__prompt">$</span> <span
+                                        class="rt-console__typing" id="consoleCommand"></span><span
+                                        class="rt-console__cursor" id="consoleCursor"></span></div>
+                                <div class="rt-console__line rt-console__status" id="consoleResult"></div>
+                                <div class="rt-console__line" id="consoleNext"></div>
+                            </div>
+                        </div>
+                        <a href="example/doc.html" class="btn btn-secondary" style="width:fit-content">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                            View Components
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="rt-section">
+        <div class="rt-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="rt-section__head">
+                <div class="rt-section__eyebrow">Stats</div>
+                <h2 class="rt-section__title">Trusted by Developers</h2>
+            </div>
+
+            <div class="rt-stats-grid">
+                <div class="rt-stat-card">
+                    <div class="rt-stat-card__value">50+</div>
+                    <div class="rt-stat-card__label">Components</div>
+                </div>
+                <div class="rt-stat-card">
+                    <div class="rt-stat-card__value">100%</div>
+                    <div class="rt-stat-card__label">Responsive</div>
+                </div>
+                <div class="rt-stat-card">
+                    <div class="rt-stat-card__value">15kb</div>
+                    <div class="rt-stat-card__label">File Size</div>
+                </div>
+                <div class="rt-stat-card">
+                    <div class="rt-stat-card__value">24/7</div>
+                    <div class="rt-stat-card__label">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="rt-cta" id="cta">
+        <div class="rt-container" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+            <h2 class="rt-cta__title">Ready to Build a Modern Website?</h2>
+            <p class="rt-cta__text">
+                Start using Retro-term CSS today and enjoy a simpler way to build
+                beautiful, functional interfaces.
+            </p>
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="login.html" class="btn btn-primary btn-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    View Demo
+                </a>
+                <a href="#components" class="btn btn-secondary btn-lg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    Documentation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="rt-footer" id="footer">
+        <div class="rt-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="rt-footer__grid">
+                <div>
+                    <div class="rt-footer__brand">
+                        <span class="rt-brand_dot"></span>
+                        <span>Retro-term CSS</span>
+                    </div>
+                    <p class="rt-footer__text">
+                        A modern CSS framework for building fast, responsive, and beautiful websites
+                        with flat design and glassmorphism.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="rt-footer__title">Product</h4>
+                    <ul class="rt-footer__links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#components">Components</a></li>
+                        <li><a href="#cta">Templates</a></li>
+                        <li><a href="https://github.com/afandisini/Retro-term" target="_blank"
+                                rel="noopener noreferrer">GitHub Repo</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="rt-footer__title">Resources</h4>
+                    <ul class="rt-footer__links">
+                        <li><a href="#components">Documentation</a></li>
+                        <li><a href="#features">Tutorials</a></li>
+                        <li><a href="https://www.afandev.my.id" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                        <li><a href="mailto:hello@afandev.my.id">Community</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="rt-footer__title">Company</h4>
+                    <ul class="rt-footer__links">
+                        <li><a href="https://www.afandev.my.id" target="_blank" rel="noopener noreferrer">About</a></li>
+                        <li><a href="mailto:hello@afandev.my.id">Contact</a></li>
+                        <li><a href="#footer">Privacy</a></li>
+                        <li><a href="#footer">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rt-footer__bottom">
+                � 2026 Retro-term CSS. All rights reserved. Built by <a href="https://www.afandev.my.id" target="_blank"
+                    rel="noopener noreferrer">AfanDev</a>.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll to section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards
+        document.querySelectorAll('.rt-feature-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        const consoleCommand = document.getElementById('consoleCommand');
+        const consoleResult = document.getElementById('consoleResult');
+        const consoleCursor = document.getElementById('consoleCursor');
+        const consoleNext = document.getElementById('consoleNext');
+
+        if (consoleCommand && consoleResult && consoleNext) {
+            const commandText = 'npm install retro-term-css';
+            const resultText = 'added 1 package, and audited 1 package in 1.4s';
+            const nextPromptText = '$ ';
+            let index = 0;
+
+            consoleCommand.textContent = '';
+            consoleResult.textContent = '';
+            consoleNext.textContent = '';
+
+            const commandTimer = window.setInterval(() => {
+                index += 1;
+                consoleCommand.textContent = commandText.slice(0, index);
+
+                if (index >= commandText.length) {
+                    window.clearInterval(commandTimer);
+                    window.setTimeout(() => {
+                        consoleResult.textContent = resultText;
+                        if (consoleCursor) consoleCursor.style.display = 'none';
+                        window.setTimeout(() => {
+                            consoleNext.innerHTML = `<span class="rt-console__prompt">${nextPromptText}</span>`;
+                        }, 650);
+                    }, 700);
+                }
+            }, 95);
+        }
+    </script>
+    <script src="retro-term.js?v=20260621" defer></script>
+
+</body>
+
+</html>

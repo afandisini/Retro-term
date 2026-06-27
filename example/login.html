@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro-term - Login Example</title>
+    <link rel="stylesheet" href="../retro-term.min.css">
+    <link rel="stylesheet" href="../dist/retro-term-icons.min.css">
+    <style>
+        body { 
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="rt-login-page">
+    
+    <!-- Theme Toggle -->
+    <button class="rt-theme-toggle rt-theme-toggle--fixed" id="themeToggle" aria-label="Toggle theme" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+        <i class="rt rt-moon moon-icon"></i>
+        <i class="rt rt-sun sun-icon"></i>
+    </button>
+
+    <div class="rt-container">
+        <div class="rt-login-wrapper">
+            <div class="card rt-login-card">
+                <div class="card-body">
+                    <div class="rt-login-header">
+                        <div class="rt-login-logo">
+                            <span class="rt-brand_dot"></span>
+                            <h1>Retro-term</h1>
+                        </div>
+                        <p class="rt-login-subtitle">Sign in to your account</p>
+                    </div>
+
+                    <form class="rt-login-form" action="#" method="POST">
+                        <div class="rt-form-group">
+                            <label class="rt-form-label" for="email">Email Address</label>
+                            <div class="rt-input-wrapper">
+                                <i class="rt rt-mail rt-input-icon"></i>
+                                <input type="email" id="email" class="rt-input" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="rt-form-group">
+                            <label class="rt-form-label" for="password">Password</label>
+                            <div class="rt-input-wrapper">
+                                <i class="rt rt-lock rt-input-icon"></i>
+                                <input type="password" id="password" class="rt-input" placeholder="Enter your password" required>
+                            </div>
+                        </div>
+
+                        <div class="rt-form-group rt-login-options">
+                            <label class="rt-checkbox">
+                                <input type="checkbox" id="remember">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#" class="rt-link">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="rt-btn rt-btn-primary rt-btn-block rt-btn-lg">
+                            Sign In
+                        </button>
+                    </form>
+
+                    <div class="rt-login-divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <div class="rt-login-social">
+                        <button type="button" class="rt-btn rt-btn-outline rt-btn-block">
+                            <i class="rt rt-github"></i>
+                            GitHub
+                        </button>
+                        <button type="button" class="rt-btn rt-btn-outline rt-btn-block">
+                            <i class="rt rt-google"></i>
+                            Google
+                        </button>
+                    </div>
+
+                    <p class="rt-login-footer">
+                        Don't have an account? <a href="#" class="rt-link">Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../retro-term.min.js" defer></script>
+</body>
+</html>

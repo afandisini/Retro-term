@@ -36,7 +36,8 @@
   margin-bottom: 14px;
 }
 
-.rt-sbr_brand .rt-brand_dot {
+.rt-sbr_brand .rt-brand_dot,
+.rt-brand_dot {
   width: 14px;
   height: 14px;
   border-radius: 999px;
@@ -140,6 +141,21 @@
   font-weight: 900;
   font-size: 0.82rem;
   flex: 0 0 auto;
+}
+
+.rt-sbr_avatar.rt-avatar-secondary,
+.rt-avatar-secondary {
+  background: linear-gradient(135deg, var(--rt-muted), var(--rt-border));
+}
+
+.rt-sbr_avatar.rt-avatar-accent,
+.rt-avatar-accent {
+  background: linear-gradient(135deg, var(--rt-accent), var(--rt-warning));
+}
+
+.rt-sbr_avatar.rt-avatar-danger,
+.rt-avatar-danger {
+  background: linear-gradient(135deg, var(--rt-danger), var(--rt-accent));
 }
 
 .rt-sbr_user-info {
@@ -311,11 +327,43 @@
 }
 
 .rt-topbar_title {
-  font-size: 1.5rem;
-  font-weight: 950;
-  letter-spacing: -0.04em;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  font-size: 1.65rem;
+  margin: 8px 0 0.18em;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: var(--rt-text);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex: 0 0 auto;
+}
+
+.rt-topbar_title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1 1 320px;
+  max-width: 100%;
+  gap: 0;
+  min-height: 42px;
+  justify-content: center;
+}
+
+.rt-topbar_breadcrumb {
+  display: block;
+  max-width: 100%;
+  color: var(--rt-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
 }
 
 .rt-topbar_search {

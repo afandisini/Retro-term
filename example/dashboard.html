@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro-term - Dashboard</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
@@ -13,13 +14,9 @@
 </head>
 
 <body>
-
     <div class="rt-admin">
-
-        <!-- SIDEBAR OVERLAY -->
         <div class="rt-sbr_overlay" id="sidebarOverlay"></div>
 
-        <!-- ===== SIDEBAR ===== -->
         <aside class="rt-sbr" id="sidebar">
             <div class="rt-sbr_brand">
                 <span class="rt-brand_dot"></span>
@@ -33,7 +30,6 @@
                     Dashboard
                 </a>
 
-                <!-- Sidebar Dropdown: Retro-term Ui -->
                 <div class="nav-dropdown" data-nav-dropdown>
                     <button class="nav-dropdown-toggle" type="button">
                         <i class="rt rt-users" aria-hidden="true"></i>
@@ -42,30 +38,14 @@
                         <i class="rt rt-chevron-down nav-dropdown-chevron" aria-hidden="true"></i>
                     </button>
                     <div class="nav-dropdown-menu">
-                        <a class="nav-dropdown-item" href="buttons.html">
-                            Button
-                        </a>
-                        <a class="nav-dropdown-item" href="badge.html">
-                            Badge
-                        </a>
-                        <a class="nav-dropdown-item" href="modal.html">
-                            Modal
-                        </a>
-                        <a class="nav-dropdown-item" href="toast.html">
-                            Toast
-                        </a>
-                        <a class="nav-dropdown-item" href="table.html">
-                            Table
-                        </a>
-                        <a class="nav-dropdown-item" href="input.html">
-                            Input Form
-                        </a>
-                        <a class="nav-dropdown-item" href="typography.html">
-                            Typography
-                        </a>
-                        <a class="nav-dropdown-item" href="color.html">
-                            Color
-                        </a>
+                        <a class="nav-dropdown-item" href="buttons.html">Button</a>
+                        <a class="nav-dropdown-item" href="badge.html">Badge</a>
+                        <a class="nav-dropdown-item" href="modal.html">Modal</a>
+                        <a class="nav-dropdown-item" href="toast.html">Toast</a>
+                        <a class="nav-dropdown-item" href="table.html">Table</a>
+                        <a class="nav-dropdown-item" href="input.html">Input Form</a>
+                        <a class="nav-dropdown-item" href="typography.html">Typography</a>
+                        <a class="nav-dropdown-item" href="color.html">Color</a>
                     </div>
                 </div>
 
@@ -78,7 +58,7 @@
 
             <div class="rt-sbr_footer">
                 <div class="rt-sbr_user">
-                    <div class="rt-sbr_avatar">C</div>
+                    <div class="rt-sbr_avatar rt-avatar-secondary">C</div>
                     <div class="rt-sbr_user-info">
                         <div class="rt-sbr_user-name">2026. Retro-term</div>
                         <div class="rt-sbr_user-role">All Rights Reserved</div>
@@ -87,59 +67,65 @@
             </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
         <main class="rt-main">
-            <!-- TOPBAR -->
             <div class="rt-topbar">
                 <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
                     <i class="rt rt-menu" aria-hidden="true"></i>
                 </button>
-                <h1 class="rt-topbar_title">Dashboard</h1>
+                <div class="rt-topbar_title-wrap">
+                    <h1 class="rt-topbar_title" title="Dashboard Overview and Activity">Dashboard Overview and Activity
+                    </h1>
+                    <span class="rt-topbar_breadcrumb"
+                        title="Admin Panel / Dashboard / Overview / Activity / Quick Actions">
+                        Admin Panel / Dashboard / Overview / Activity / Quick Actions
+                    </span>
+                </div>
 
                 <div class="rt-topbar_search">
                     <i class="rt rt-search" aria-hidden="true"></i>
-                    <input type="text" placeholder="Search something...">
+                    <input type="text" class="rt-input rt-input-sm" placeholder="Search something...">
                 </div>
 
                 <div class="rt-topbar_actions">
-                    <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme">
+                    <button class="rt-topbar_icon-tbl" id="themeToggle" title="Toggle Theme" aria-label="Toggle theme">
                         <i class="rt rt-moon moon-icon" aria-hidden="true"></i>
                         <i class="rt rt-sun sun-icon" aria-hidden="true" style="display:none"></i>
                     </button>
 
-                    <!-- Dropdown Notification -->
                     <div class="dropdown" data-dropdown id="notifMenu">
-                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications"
+                            aria-label="Notifications">
                             <i class="rt rt-notification" aria-hidden="true"></i>
                             <span class="rt-topbar_dot"></span>
                         </button>
                         <div class="dropdown-menu">
                             <div class="dropdown-label">Notifications</div>
-                            <button class="dropdown-item">
+                            <button class="dropdown-item" type="button">
                                 <i class="rt rt-database" aria-hidden="true"></i>
                                 New user signed up
                             </button>
-                            <button class="dropdown-item">
+                            <button class="dropdown-item" type="button">
                                 <i class="rt rt-check" aria-hidden="true"></i>
                                 Project completed
                             </button>
-                            <button class="dropdown-item">
+                            <button class="dropdown-item" type="button">
                                 <i class="rt rt-info" aria-hidden="true"></i>
                                 Payment received
                             </button>
                             <div class="dropdown-divider"></div>
-                            <button class="dropdown-item">
+                            <button class="dropdown-item" type="button">
                                 View all
                                 <i class="rt rt-chevron-right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
+
                     <div class="dropdown" data-dropdown id="settingsMenu">
-                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Notifications">
+                        <button class="rt-topbar_icon-tbl" data-dropdown-trigger title="Settings" aria-label="Settings">
                             <i class="rt rt-settings" aria-hidden="true"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <button class="dropdown-item">
+                            <button class="dropdown-item" type="button">
                                 <i class="rt rt-person-circle" aria-hidden="true"></i>
                                 Profile
                             </button>
@@ -153,7 +139,6 @@
                 </div>
             </div>
 
-            <!-- STATS -->
             <div class="rt-stats">
                 <div class="rt-stat">
                     <div class="rt-stat_head">
@@ -204,7 +189,7 @@
                     <div class="rt-stat_head">
                         <span class="rt-stat_label">Traffic</span>
                         <div class="rt-stat_icon rt-stat_icon--purple">
-                                    <i class="rt rt-activity-icon" aria-hidden="true"></i>
+                            <i class="rt rt-activity-icon" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="rt-stat_value">284K</div>
@@ -216,9 +201,7 @@
                 </div>
             </div>
 
-            <!-- GRID: CHART + ACTIVITY -->
             <div class="rt-grid rt-mt3">
-                <!-- CHART PANEL -->
                 <div class="card">
                     <div class="card-header">
                         <div>
@@ -226,13 +209,14 @@
                             <div class="card-subtitle">Last 7 days</div>
                         </div>
                         <div class="card-actions">
-                            <button class="btn btn-secondary btn-sm">Weekly</button>
-                            <button class="btn btn-primary btn-sm">Monthly</button>
+                            <button class="rt-btn rt-btn-secondary rt-btn-sm" type="button">Weekly</button>
+                            <button class="rt-btn rt-btn-primary rt-btn-sm" type="button">Monthly</button>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="rt-chart">
-                            <svg class="rt-chart_svg" viewBox="0 0 600 240" preserveAspectRatio="none">
+                            <svg class="rt-chart_svg" viewBox="0 0 600 240" preserveAspectRatio="none"
+                                aria-hidden="true">
                                 <defs>
                                     <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
                                         <stop offset="0%" stop-color="rgba(99,91,255,.3)" />
@@ -259,108 +243,122 @@
                                     fill="url(#grad2)" />
                                 <path
                                     d="M0,200 C60,190 100,170 160,175 C220,180 260,140 320,150 C380,160 420,120 480,130 C540,140 580,110 600,120"
-                                    fill="none" stroke="var(--rt-primary-2)" stroke-width="2.5" />
-                                <circle cx="160" cy="110" r="4" fill="var(--rt-primary)" />
-                                <circle cx="320" cy="70" r="4" fill="var(--rt-primary)" />
-                                <circle cx="480" cy="50" r="4" fill="var(--rt-primary)" />
+                                    fill="none" stroke="var(--rt-primary-2)" stroke-width="2" />
                             </svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- ACTIVITY PANEL -->
                 <div class="card">
                     <div class="card-header">
                         <div>
                             <div class="card-title">Recent Activity</div>
-                            <div class="card-subtitle">Update real-time</div>
+                            <div class="card-subtitle">Last 24 hours</div>
                         </div>
-                        <button class="btn btn-outline-primary btn-sm">View All</button>
                     </div>
                     <div class="card-body">
                         <div class="rt-activity">
                             <div class="rt-activity_item">
-                                <div class="rt-activity_icon rt-stat_icon--primary">
-                                    <i class="rt rt-person-plus" aria-hidden="true"></i>
+                                <div class="rt-activity_icon"
+                                    style="background:linear-gradient(135deg,var(--rt-primary),var(--rt-primary-2));">
+                                    <i class="rt rt-user" aria-hidden="true"></i>
                                 </div>
                                 <div class="rt-activity_content">
-                                    <div class="rt-activity_text"><strong>Budi Santoso</strong> signed up as a new
-                                        member</div>
-                                    <div class="rt-activity_time">2 minutes ago</div>
+                                    <div class="rt-activity_text"><strong>Jane</strong> created a new account.</div>
+                                    <div class="rt-activity_time">12 minutes ago</div>
                                 </div>
                             </div>
                             <div class="rt-activity_item">
-                                <div class="rt-activity_icon rt-stat_icon--success">
+                                <div class="rt-activity_icon"
+                                    style="background:linear-gradient(135deg,var(--rt-success),#22d3ee);">
                                     <i class="rt rt-check" aria-hidden="true"></i>
                                 </div>
                                 <div class="rt-activity_content">
-                                    <div class="rt-activity_text"><strong>Landing Page Project</strong> was completed
-                                        successfully</div>
-                                    <div class="rt-activity_time">15 minutes ago</div>
+                                    <div class="rt-activity_text"><strong>Project Orion</strong> moved to done.</div>
+                                    <div class="rt-activity_time">48 minutes ago</div>
                                 </div>
                             </div>
                             <div class="rt-activity_item">
-                                <div class="rt-activity_icon rt-stat_icon--accent">
-                                    <i class="rt rt-info" aria-hidden="true"></i>
+                                <div class="rt-activity_icon"
+                                    style="background:linear-gradient(135deg,var(--rt-warning),#fbbf24);">
+                                    <i class="rt rt-save" aria-hidden="true"></i>
                                 </div>
                                 <div class="rt-activity_content">
-                                    <div class="rt-activity_text"><strong>Siti Rahma</strong> sent a new message</div>
-                                    <div class="rt-activity_time">1 hour ago</div>
-                                </div>
-                            </div>
-                            <div class="rt-activity_item">
-                                <div class="rt-activity_icon rt-stat_icon--purple">
-                                    IDR
-                                </div>
-                                <div class="rt-activity_content">
-                                    <div class="rt-activity_text">Payment of <strong>IDR 2.5M</strong> was received
-                                    </div>
-                                    <div class="rt-activity_time">3 hours ago</div>
+                                    <div class="rt-activity_text"><strong>Monthly report</strong> was exported.</div>
+                                    <div class="rt-activity_time">2 hours ago</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card rt-p3">
-                <div class="card rt-p2">
-                    <div style="font-size:.88rem;font-weight:900;margin-bottom:12px">Traffic Sources</div>
-                    <div style="display:grid;gap:10px">
+
+            <div class="rt-grid rt-mt3">
+                <div class="card">
+                    <div class="card-header">
                         <div>
-                            <div
-                                style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:.82rem;font-weight:800">
-                                <span>Google</span><span>48%</span>
+                            <div class="card-title">System Health</div>
+                            <div class="card-subtitle">Core services</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="rt-progress">
+                            <div>
+                                <div class="rt-progress_head">
+                                    <span class="rt-progress_label">API uptime</span>
+                                    <span class="rt-progress_value">98%</span>
+                                </div>
+                                <div class="rt-progress_bar">
+                                    <div class="rt-progress_fill" style="width:98%"></div>
+                                </div>
                             </div>
-                            <div class="rt-progress_bar">
-                                <div class="rt-progress_fill" style="width:48%"></div>
+                            <div>
+                                <div class="rt-progress_head">
+                                    <span class="rt-progress_label">Database load</span>
+                                    <span class="rt-progress_value">74%</span>
+                                </div>
+                                <div class="rt-progress_bar">
+                                    <div class="rt-progress_fill rt-progress_fill--accent" style="width:74%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="rt-progress_head">
+                                    <span class="rt-progress_label">Cache hit rate</span>
+                                    <span class="rt-progress_value">91%</span>
+                                </div>
+                                <div class="rt-progress_bar">
+                                    <div class="rt-progress_fill rt-progress_fill--success" style="width:91%"></div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
                         <div>
-                            <div
-                                style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:.82rem;font-weight:800">
-                                <span>Direct</span><span>28%</span>
-                            </div>
-                            <div class="rt-progress_bar">
-                                <div class="rt-progress_fill rt-progress_fill--accent" style="width:28%"></div>
-                            </div>
+                            <div class="card-title">Quick Actions</div>
+                            <div class="card-subtitle">Frequently used tasks</div>
                         </div>
-                        <div>
-                            <div
-                                style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:.82rem;font-weight:800">
-                                <span>Social Media</span><span>16%</span>
-                            </div>
-                            <div class="rt-progress_bar">
-                                <div class="rt-progress_fill rt-progress_fill--success" style="width:16%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div
-                                style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:.82rem;font-weight:800">
-                                <span>Others</span><span>8%</span>
-                            </div>
-                            <div class="rt-progress_bar">
-                                <div class="rt-progress_fill rt-progress_fill--purple" style="width:8%"></div>
-                            </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="rt-quick">
+                            <button class="rt-quick_btn" type="button">
+                                <i class="rt rt-add" aria-hidden="true"></i>
+                                <span>Add User</span>
+                            </button>
+                            <button class="rt-quick_btn" type="button">
+                                <i class="rt rt-download" aria-hidden="true"></i>
+                                <span>Export CSV</span>
+                            </button>
+                            <button class="rt-quick_btn" type="button">
+                                <i class="rt rt-refresh" aria-hidden="true"></i>
+                                <span>Refresh Data</span>
+                            </button>
+                            <button class="rt-quick_btn" type="button">
+                                <i class="rt rt-print" aria-hidden="true"></i>
+                                <span>Print Report</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -368,276 +366,7 @@
         </main>
     </div>
 
-    <!-- ============================================
-     POPUPS (modal) - Multiple sizes
-============================================ -->
-
-    <!-- SM Popup -->
-    <div class="modal modal-sm" id="pp-sm" data-modal>
-        <div class="modal-content">
-            <div class="modal-header">
-                <div>
-                    <h3 class="modal-title">Confirm Delete</h3>
-                    <p class="modal-subtitle">Are you sure you want to delete this item?</p>
-                </div>
-                <button class="btn-close" data-modal-close></button>
-            </div>
-            <div class="modal-body">
-                <p style="color:var(--rt-muted);font-size:.88rem;line-height:1.7">
-                    This action cannot be undone. All related items will be permanently removed from the system.
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-modal-close>Cancel</button>
-                <button class="btn btn-danger" data-modal-close>Yes, Delete</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MD Popup -->
-    <div class="modal modal-md" id="pp-md" data-modal>
-        <div class="modal-content">
-            <div class="modal-header">
-                <div>
-                    <h3 class="modal-title">Add New User</h3>
-                    <p class="modal-subtitle">Fill out the form below to add a new user</p>
-                </div>
-                <button class="btn-close" data-modal-close></button>
-            </div>
-            <div class="modal-body">
-                <div style="display:grid;gap:14px">
-                    <div>
-                        <label
-                            style="display:block;font-size:.78rem;font-weight:800;margin-bottom:6px;color:var(--rt-muted)">Full
-                            Name</label>
-                        <input type="text"
-                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);font-size:.88rem;font-weight:600;outline:none"
-                            placeholder="Enter name">
-                    </div>
-                    <div>
-                        <label
-                            style="display:block;font-size:.78rem;font-weight:800;margin-bottom:6px;color:var(--rt-muted)">Email</label>
-                        <input type="email"
-                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);font-size:.88rem;font-weight:600;outline:none"
-                            placeholder="name@example.com">
-                    </div>
-                    <div>
-                        <label
-                            style="display:block;font-size:.78rem;font-weight:800;margin-bottom:6px;color:var(--rt-muted)">Role</label>
-                        <select
-                            style="width:100%;height:42px;padding:0 14px;border:1px solid var(--rt-border);background:var(--rt-surface);color:var(--rt-text);font-size:.88rem;font-weight:600;outline:none">
-                            <option>Admin</option>
-                            <option>Editor</option>
-                            <option>Member</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-modal-close>Cancel</button>
-                <button class="btn btn-primary" data-modal-close>Save</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- LG Popup -->
-    <div class="modal modal-lg" id="pp-lg" data-modal>
-        <div class="modal-content">
-            <div class="modal-header">
-                <div>
-                    <h3 class="modal-title">Project Details</h3>
-                    <p class="modal-subtitle">Complete information about the selected project</p>
-                </div>
-                <button class="btn-close" data-modal-close></button>
-            </div>
-            <div class="modal-body">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-                    <div>
-                        <div
-                            style="font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rt-muted);margin-bottom:8px">
-                            Basic Information</div>
-                        <div style="display:grid;gap:10px;font-size:.88rem">
-                            <div><strong>Name:</strong> Website Company</div>
-                            <div><strong>Client:</strong> PT Maju Bersama</div>
-                            <div><strong>Deadline:</strong> 30 Jun 2026</div>
-                            <div><strong>Status:</strong> <span class="rt-badge rt-badge--success"><span
-                                        class="rt-badge_dot"></span>Active</span></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div
-                            style="font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rt-muted);margin-bottom:8px">
-                            Progress</div>
-                        <div style="display:grid;gap:12px">
-                            <div>
-                                <div
-                                    style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:.82rem;font-weight:800">
-                                    <span>UI Design</span><span style="color:var(--rt-muted)">100%</span>
-                                </div>
-                                <div class="rt-progress_bar">
-                                    <div class="rt-progress_fill rt-progress_fill--success" style="width:100%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div
-                                    style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:.82rem;font-weight:800">
-                                    <span>Development</span><span style="color:var(--rt-muted)">75%</span>
-                                </div>
-                                <div class="rt-progress_bar">
-                                    <div class="rt-progress_fill" style="width:75%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div
-                                    style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:.82rem;font-weight:800">
-                                    <span>Testing</span><span style="color:var(--rt-muted)">30%</span>
-                                </div>
-                                <div class="rt-progress_bar">
-                                    <div class="rt-progress_fill rt-progress_fill--accent" style="width:30%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-modal-close>Close</button>
-                <button class="btn btn-primary">Edit Project</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- XL Popup -->
-    <div class="modal modal-xl" id="pp-xl" data-modal>
-        <div class="modal-content">
-            <div class="modal-header">
-                <div>
-                    <h3 class="modal-title">Analytics Report</h3>
-                    <p class="modal-subtitle">This month's performance summary</p>
-                </div>
-                <button class="btn-close" data-modal-close></button>
-            </div>
-            <div class="modal-body">
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px">
-                    <div style="padding:18px;border:1px solid var(--rt-border);background:var(--rt-surface)">
-                        <div
-                            style="font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rt-muted)">
-                            Total Views</div>
-                        <div style="font-size:1.6rem;font-weight:950;letter-spacing:-.04em;margin-top:6px">128,459</div>
-                        <div style="font-size:.76rem;font-weight:800;color:var(--rt-success);margin-top:4px">+12.5%
-                        </div>
-                    </div>
-                    <div style="padding:18px;border:1px solid var(--rt-border);background:var(--rt-surface)">
-                        <div
-                            style="font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rt-muted)">
-                            Conversion</div>
-                        <div style="font-size:1.6rem;font-weight:950;letter-spacing:-.04em;margin-top:6px">4.82%</div>
-                        <div style="font-size:.76rem;font-weight:800;color:var(--rt-success);margin-top:4px">+2.1%</div>
-                    </div>
-                    <div style="padding:18px;border:1px solid var(--rt-border);background:var(--rt-surface)">
-                        <div
-                            style="font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rt-muted)">
-                            Revenue</div>
-                        <div style="font-size:1.6rem;font-weight:950;letter-spacing:-.04em;margin-top:6px">IDR 84.2M
-                        </div>
-                        <div style="font-size:.76rem;font-weight:800;color:var(--rt-success);margin-top:4px">+8.2%</div>
-                    </div>
-                </div>
-                <div style="padding:18px;border:1px solid var(--rt-border);background:var(--rt-surface)">
-                    <div style="font-size:.88rem;font-weight:900;margin-bottom:12px">Traffic Sources</div>
-                    <div style="display:grid;gap:10px">
-                        <div>
-                            <div
-                                style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:.82rem;font-weight:800">
-                                <span>Google</span><span>48%</span>
-                            </div>
-                            <div class="rt-progress_bar">
-                                <div class="rt-progress_fill" style="width:48%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div
-                                style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:.82rem;font-weight:800">
-                                <span>Direct</span><span>28%</span>
-                            </div>
-                            <div class="rt-progress_bar">
-                                <div class="rt-progress_fill rt-progress_fill--accent" style="width:28%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div
-                                style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:.82rem;font-weight:800">
-                                <span>Social Media</span><span>16%</span>
-                            </div>
-                            <div class="rt-progress_bar">
-                                <div class="rt-progress_fill rt-progress_fill--success" style="width:16%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div
-                                style="display:flex;justify-content:space-between;margin-bottom:4px;font-size:.82rem;font-weight:800">
-                                <span>Others</span><span>8%</span>
-                            </div>
-                            <div class="rt-progress_bar">
-                                <div class="rt-progress_fill rt-progress_fill--purple" style="width:8%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-modal-close>Close</button>
-                <button class="btn btn-primary">
-                    <i class="rt rt-download" aria-hidden="true"></i>
-                    Export PDF
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Fullscreen Popup -->
-    <div class="modal modal-fullscreen" id="pp-full" data-modal>
-        <div class="modal-content">
-            <div class="modal-header">
-                <div>
-                    <h3 class="modal-title">Fullscreen Mode</h3>
-                    <p class="modal-subtitle">Popup fills the entire screen</p>
-                </div>
-                <button class="btn-close" data-modal-close></button>
-            </div>
-            <div class="modal-body" style="display:grid;place-items:center;text-align:center">
-                <div>
-                    <div
-                        style="width:80px;height:80px;margin:0 auto 20px;border-radius:20px;background:linear-gradient(135deg,var(--rt-primary),var(--rt-primary-2));display:grid;place-items:center;color:#fff">
-                        <i class="rt rt-fullscreen" aria-hidden="true" style="width:36px;height:36px"></i>
-                    </div>
-                    <h2 style="font-size:1.8rem;font-weight:950;letter-spacing:-.04em;margin-bottom:10px">Fullscreen
-                        Popup</h2>
-                    <p style="color:var(--rt-muted);font-size:1rem;max-width:500px;margin:0 auto;line-height:1.7">
-                        This popup fills the entire screen. Ideal for complex forms, previews, or multi-step wizards.
-                    </p>
-                    <button class="btn btn-primary btn-lg" data-modal-close style="margin-top:24px">Close
-                        Popup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="rt-toast rt-toast--success" id="demoToast" aria-live="polite" aria-atomic="true">
-        <div class="rt-toast__icon">
-            <i class="rt rt-success-circle" aria-hidden="true"></i>
-        </div>
-        <div class="rt-toast__content">
-            <div class="rt-toast__title">Toast Success</div>
-            <div class="rt-toast__text">Example `rt-toast` element for short-lived messages.</div>
-        </div>
-        <button class="rt-toast__close" type="button" id="toastCloseBtn" aria-label="Close toast">
-            <i class="rt rt-close" aria-hidden="true"></i>
-        </button>
-    </div>
-
-    <script src="../retro-term.js?v=20260621" defer></script>
-
+    <script src="../dist/retro-term.min.js" defer></script>
 </body>
 
 </html>

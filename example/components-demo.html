@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro-term - New Components Demo</title>
-    <link rel="stylesheet" href="dist/retro-term.css">
-    <link rel="stylesheet" href="dist/retro-term-icons.css">
+    <link rel="stylesheet" href="../assets/term-icons/dist/retro-term-icons.css?v=20260621">
+    <link rel="stylesheet" href="../retro-term.css?v=20260621">
     <style>
-        body { padding-bottom: 60px; }
-        .demo-section { margin: 40px 0; }
-        .demo-title { font-size: 1.8rem; font-weight: 950; margin-bottom: 20px; letter-spacing: -0.03em; }
+        body {
+            padding-bottom: 60px;
+        }
+
+        .demo-section {
+            margin: 40px 0;
+        }
+
+        .demo-title {
+            font-size: 1.8rem;
+            font-weight: 950;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
     </style>
 </head>
+
 <body>
     <!-- Navbar Demo -->
     <nav class="rt-navbar" id="mainNavbar">
@@ -20,20 +33,20 @@
                 <span class="rt-navbar-brand-dot"></span>
                 Retro-term
             </a>
-            
+
             <button class="rt-navbar-toggle" id="navbarToggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            
+
             <div class="rt-navbar-menu" id="navbarMenu">
                 <a href="#" class="rt-navbar-link is-active">Home</a>
                 <a href="#" class="rt-navbar-link">Features</a>
                 <a href="#" class="rt-navbar-link">Components</a>
                 <a href="#" class="rt-navbar-link">Documentation</a>
             </div>
-            
+
             <div class="rt-navbar-actions">
                 <button class="rt-navbar-btn" id="themeToggle">
                     <i class="rt rt-moon moon-icon"></i>
@@ -44,60 +57,68 @@
     </nav>
 
     <div style="max-width: 1000px; margin: 0 auto; padding: 40px 20px;">
-        
+
         <!-- Accordion Demo -->
         <section class="demo-section">
             <h2 class="demo-title">Accordion Component</h2>
-            
+
             <div class="rt-accordion">
                 <div class="rt-accordion-item">
                     <button class="rt-accordion-trigger">
                         <span>What is Retro-term?</span>
-                        <svg class="rt-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="rt-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="rt-accordion-content">
                         <div class="rt-accordion-body">
-                            Retro-term is a retro-modern CSS framework designed for building beautiful dashboards, admin panels, and web applications with a unique terminal-inspired aesthetic combined with modern design principles.
+                            Retro-term is a retro-modern CSS framework designed for building beautiful dashboards, admin
+                            panels, and web applications with a unique terminal-inspired aesthetic combined with modern
+                            design principles.
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="rt-accordion-item">
                     <button class="rt-accordion-trigger">
                         <span>What components are included?</span>
-                        <svg class="rt-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="rt-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="rt-accordion-content">
                         <div class="rt-accordion-body">
-                            Retro-term includes buttons, forms, tables, modals, toasts, alerts, dropdowns, accordions, carousels, navbars, cards, and many more UI components to build complete interfaces.
+                            Retro-term includes buttons, forms, tables, modals, toasts, alerts, dropdowns, accordions,
+                            carousels, navbars, cards, and many more UI components to build complete interfaces.
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="rt-accordion-item">
                     <button class="rt-accordion-trigger">
                         <span>Is it responsive?</span>
-                        <svg class="rt-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="rt-accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="rt-accordion-content">
                         <div class="rt-accordion-body">
-                            Yes! All Retro-term components are fully responsive and work seamlessly across desktop, tablet, and mobile devices. The framework includes mobile-specific optimizations and touch-friendly interactions.
+                            Yes! All Retro-term components are fully responsive and work seamlessly across desktop,
+                            tablet, and mobile devices. The framework includes mobile-specific optimizations and
+                            touch-friendly interactions.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Carousel Demo -->
         <section class="demo-section">
             <h2 class="demo-title">Carousel Component</h2>
-            
+
             <div class="rt-carousel" data-autoplay="4000">
                 <div class="rt-carousel-track">
                     <div class="rt-carousel-slide">
@@ -122,7 +143,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <button class="rt-carousel-btn rt-carousel-btn--prev">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="15 18 9 12 15 6"></polyline>
@@ -133,7 +154,7 @@
                         <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                 </button>
-                
+
                 <div class="rt-carousel-indicators">
                     <button class="rt-carousel-indicator is-active"></button>
                     <button class="rt-carousel-indicator"></button>
@@ -141,11 +162,11 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Cards with Content -->
         <section class="demo-section">
             <h2 class="demo-title">Integration Example</h2>
-            
+
             <div class="rt-grid">
                 <div class="card">
                     <div class="card-header">
@@ -166,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <div class="card-header">
                         <div>
@@ -187,10 +208,11 @@
                 </div>
             </div>
         </section>
-        
+
     </div>
 
     <script src="dist/retro-term.js"></script>
     <script src="dist/retro-term-components.js"></script>
 </body>
+
 </html>

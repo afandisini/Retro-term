@@ -1,4 +1,5 @@
 .btn,
+.rt-btn,
 .rt-tbl {
   min-height: 40px;
   padding: 0 18px;
@@ -18,7 +19,14 @@
   overflow: hidden;
 }
 
+.btn-block,
+.rt-tbl-block,
+.rt-btn-block {
+  width: 100%;
+}
+
 .btn svg,
+.rt-btn svg,
 .rt-tbl svg {
   width: 15px;
   height: 15px;
@@ -27,16 +35,19 @@
 }
 
 .btn:hover,
+.rt-btn:hover,
 .rt-tbl:hover {
   transform: translateY(-1px);
 }
 
 .btn:active,
+.rt-btn:active,
 .rt-tbl:active {
   transform: translateY(0);
 }
 
 .btn:disabled,
+.rt-btn:disabled,
 .rt-tbl:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -45,6 +56,7 @@
 
 /* Primary */
 .btn-primary,
+.rt-btn-primary,
 .rt-tbl--primary,
 .rt-tbl-primary {
   background: linear-gradient(135deg, var(--rt-primary), var(--rt-primary-2));
@@ -53,6 +65,7 @@
 }
 
 .btn-primary:hover,
+.rt-btn-primary:hover,
 .rt-tbl--primary:hover,
 .rt-tbl-primary:hover {
   box-shadow: 0 12px 28px rgba(var(--rt-primary-rgb), 0.38);
@@ -60,6 +73,7 @@
 
 /* Secondary */
 .btn-secondary,
+.rt-btn-secondary,
 .rt-tbl--secondary,
 .rt-tbl-secondary {
   background: var(--rt-surface-solid);
@@ -68,6 +82,7 @@
 }
 
 .btn-secondary:hover,
+.rt-btn-secondary:hover,
 .rt-tbl--secondary:hover,
 .rt-tbl-secondary:hover {
   border-color: rgba(var(--rt-primary-rgb), 0.3);
@@ -76,6 +91,7 @@
 
 /* Success */
 .btn-success,
+.rt-btn-success,
 .rt-tbl--success,
 .rt-tbl-success {
   background: linear-gradient(135deg, var(--rt-success), #22d3ee);
@@ -85,6 +101,7 @@
 
 /* Warning */
 .btn-warning,
+.rt-btn-warning,
 .rt-tbl--warning,
 .rt-tbl-warning {
   background: linear-gradient(135deg, var(--rt-warning), #fbbf24);
@@ -94,6 +111,7 @@
 
 /* Danger */
 .btn-danger,
+.rt-btn-danger,
 .rt-tbl--danger,
 .rt-tbl-danger {
   background: linear-gradient(135deg, var(--rt-danger), var(--rt-accent));
@@ -103,6 +121,7 @@
 
 /* Accent */
 .btn-accent,
+.rt-btn-accent,
 .rt-tbl--accent,
 .rt-tbl-accent {
   background: linear-gradient(135deg, var(--rt-accent), var(--rt-warning));
@@ -112,6 +131,7 @@
 
 /* Purple */
 .btn-purple,
+.rt-btn-purple,
 .rt-tbl--purple,
 .rt-tbl-purple {
   background: linear-gradient(135deg, var(--rt-purple), var(--rt-primary));
@@ -121,6 +141,7 @@
 
 /* Ghost */
 .btn-ghost,
+.rt-btn-ghost,
 .rt-tbl--ghost,
 .rt-tbl-ghost {
   background: transparent;
@@ -128,6 +149,7 @@
 }
 
 .btn-ghost:hover,
+.rt-btn-ghost:hover,
 .rt-tbl--ghost:hover,
 .rt-tbl-ghost:hover {
   background: rgba(var(--rt-primary-rgb), 0.08);
@@ -136,6 +158,7 @@
 
 /* Outline */
 .btn-outline-primary,
+.rt-btn-outline,
 .rt-tbl--outline,
 .rt-tbl-outline {
   background: transparent;
@@ -144,6 +167,7 @@
 }
 
 .btn-outline-primary:hover,
+.rt-btn-outline:hover,
 .rt-tbl--outline:hover,
 .rt-tbl-outline:hover {
   background: rgba(var(--rt-primary-rgb), 0.08);
@@ -152,6 +176,7 @@
 
 /* Sizes */
 .btn-sm,
+.rt-btn-sm,
 .rt-tbl--sm,
 .rt-tbl-sm {
   min-height: 32px;
@@ -161,6 +186,7 @@
 }
 
 .btn-lg,
+.rt-btn-lg,
 .rt-tbl--lg,
 .rt-tbl-lg {
   min-height: 48px;
@@ -171,6 +197,7 @@
 
 /* Icon only */
 .btn-icon,
+.rt-btn-icon,
 .rt-tbl--icon,
 .rt-tbl-icon {
   width: 40px;
@@ -179,10 +206,19 @@
 }
 
 .btn-icon.btn-sm,
+.btn-icon.rt-btn-sm,
 .btn-icon.rt-tbl--sm,
 .btn-icon.rt-tbl-sm,
 .rt-tbl--icon.rt-tbl--sm,
 .rt-tbl-icon.rt-tbl-sm {
   width: 32px;
   min-height: 32px;
+}
+
+.btn-group,
+.rt-btn-group {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }

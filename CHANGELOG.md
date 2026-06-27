@@ -2,6 +2,15 @@
 
 All notable changes to Retro-term CSS will be documented in this file.
 
+## [1.1.1] - 2026-06-27
+
+### Changed
+
+* Refreshed README and documentation to match the current class set.
+* Added compatibility aliases for legacy example classes used by auth and table demos.
+* Updated example pages for dashboard, landing page, login, and CRUD table.
+* Regenerated compiled CSS output after Sass updates.
+
 ## [1.1.0] - 2026-06-27
 
 ### Added

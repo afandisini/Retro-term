@@ -1,27 +1,17 @@
 ```
 # Build artifacts
 dist/
+*.css
 *.min.css
-*.min.js
 
 # Dependencies
 node_modules/
-package-lock.json
-
-# Logs and temp files
-*.log
-*.tmp
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# Editors
-.vscode/
-.idea/
-
-# OS generated files
-.DS_Store
-Thumbs.db
+# Cache
+.sass-cache/
 ```

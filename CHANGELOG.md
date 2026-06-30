@@ -2,12 +2,19 @@
 
 All notable changes to Retro-term CSS will be documented in this file.
 
+## [2.0.0] - 2026-06-30
+
+### Changed
+
+* Full `rt-` namespace refactor across Sass, JavaScript, examples, and documentation.
+* Updated the example pages and docs to match the canonical class names.
+* Bumped package metadata and CDN references to the new major version.
+
 ## [1.1.1] - 2026-06-27
 
 ### Changed
 
 * Refreshed README and documentation to match the current class set.
-* Added compatibility aliases for legacy example classes used by auth and table demos.
 * Updated example pages for dashboard, landing page, login, and CRUD table.
 * Regenerated compiled CSS output after Sass updates.
 

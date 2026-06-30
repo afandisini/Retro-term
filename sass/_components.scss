@@ -335,7 +335,7 @@
   margin-left: 16px;
 }
 
-.rt-navbar-btn {
+.rt-navbar-rt-btn {
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -348,13 +348,13 @@
   transition: all 0.2s ease;
 }
 
-.rt-navbar-btn:hover {
+.rt-navbar-rt-btn:hover {
   background: rgba(var(--rt-primary-rgb), 0.08);
   border-color: rgba(var(--rt-primary-rgb), 0.3);
 }
 
-.rt-navbar-btn svg,
-.rt-navbar-btn .rt {
+.rt-navbar-rt-btn svg,
+.rt-navbar-rt-btn .rt {
   width: 18px;
   height: 18px;
 }
@@ -492,7 +492,7 @@
   transition: all 0.2s ease;
 }
 
-.rt-input {
+.rt-form-input {
   width: 100%;
   padding: 10px 14px;
   border: 1px solid var(--rt-border);
@@ -503,13 +503,13 @@
   transition: all 0.2s ease;
 }
 
-.rt-input:focus {
+.rt-form-input:focus {
   outline: none;
   border-color: var(--rt-primary);
   box-shadow: 0 0 0 3px rgba(var(--rt-primary-rgb), 0.15);
 }
 
-.rt-input-sm {
+.rt-form-input-sm {
   min-height: 36px;
   padding: 8px 12px;
   font-size: 0.82rem;
@@ -524,16 +524,16 @@
   box-shadow: 0 0 0 3px rgba(var(--rt-primary-rgb), 0.15);
 }
 
-.rt-form-input.is-invalid,
-.rt-form-select.is-invalid,
-.rt-form-textarea.is-invalid {
+.rt-form-input.rt-is-invalid,
+.rt-form-select.rt-is-invalid,
+.rt-form-textarea.rt-is-invalid {
   border-color: var(--rt-danger);
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
 }
 
-.rt-form-input.is-valid,
-.rt-form-select.is-valid,
-.rt-form-textarea.is-valid {
+.rt-form-input.rt-is-valid,
+.rt-form-select.rt-is-valid,
+.rt-form-textarea.rt-is-valid {
   border-color: var(--rt-success);
   box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
 }
@@ -579,17 +579,17 @@
 }
 
 /* Validation state wrapper */
-.rt-form-group.is-invalid .rt-form-message--error,
-.rt-form-group.is-invalid .rt-form-icon--error {
+.rt-form-group.rt-is-invalid .rt-form-message--error,
+.rt-form-group.rt-is-invalid .rt-form-icon--error {
   display: block;
 }
 
-.rt-form-group.is-valid .rt-form-message--success,
-.rt-form-group.is-valid .rt-form-icon--success {
+.rt-form-group.rt-is-valid .rt-form-message--success,
+.rt-form-group.rt-is-valid .rt-form-icon--success {
   display: block;
 }
 
-.rt-checkbox {
+.rt-form-check {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -597,7 +597,7 @@
   line-height: 1.4;
 }
 
-.rt-checkbox input {
+.rt-form-check input {
   width: 16px;
   height: 16px;
   margin: 0;

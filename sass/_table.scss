@@ -1,4 +1,4 @@
-﻿.rt-table-wrap {
+.rt-table-responsive {
   overflow-x: auto;
 }
 
@@ -33,13 +33,13 @@
   background: rgba(var(--rt-primary-rgb), 0.03);
 }
 
-.rt-table_user {
+.rt-table-user {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.rt-table_avatar {
+.rt-table-avatar {
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -51,11 +51,11 @@
   flex: 0 0 auto;
 }
 
-.rt-table_name {
+.rt-table-name {
   font-weight: 800;
 }
 
-.rt-table_email {
+.rt-table-email {
   font-size: 0.76rem;
   color: var(--rt-muted);
 }
@@ -91,7 +91,7 @@
   color: var(--rt-primary);
 }
 
-.rt-badge_dot {
+.rt-badge-dot {
   width: 6px;
   height: 6px;
   border-radius: 999px;
@@ -195,19 +195,19 @@ html[data-theme="dark"] .rt-table-search:focus-within .rt {
   flex-wrap: wrap;
 }
 
-.rt-table-pagination__info {
+.rt-table-pagination-info {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--rt-muted);
 }
 
-.rt-table-pagination__nav {
+.rt-table-pagination-nav {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.rt-table-pagination__btn {
+.rt-table-pagination-btn {
   width: 34px;
   height: 34px;
   display: inline-grid;
@@ -219,23 +219,23 @@ html[data-theme="dark"] .rt-table-search:focus-within .rt {
   transition: all 0.2s ease;
 }
 
-.rt-table-pagination__btn svg {
+.rt-table-pagination-btn svg {
   width: 16px;
   height: 16px;
   stroke-width: 2.4;
 }
 
-.rt-table-pagination__btn:hover:not(:disabled) {
+.rt-table-pagination-btn:hover:not(:disabled) {
   background: rgba(var(--rt-primary-rgb), 0.08);
   color: var(--rt-primary);
 }
 
-.rt-table-pagination__btn:disabled {
+.rt-table-pagination-btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
 }
 
-.rt-table-pagination__text {
+.rt-table-pagination-text {
   padding: 0 10px;
   font-size: 0.82rem;
   font-weight: 800;
@@ -255,20 +255,20 @@ html[data-theme="dark"] .rt-table-search:focus-within .rt {
     text-align: center;
   }
 
-  .rt-table-pagination__nav {
+  .rt-table-pagination-nav {
     justify-content: center;
     width: 100%;
   }
 }
 
-/* Small table variant */
+/* Small rt-table variant */
 .rt-table--sm th,
 .rt-table--sm td {
   padding: 8px 14px;
   font-size: 0.8rem;
 }
 
-.rt-table--sm .rt-table_avatar {
+.rt-table--sm .rt-table-avatar {
   width: 28px;
   height: 28px;
   font-size: 0.66rem;

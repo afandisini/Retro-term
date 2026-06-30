@@ -19,63 +19,63 @@ Dokumen ini dipakai sebagai checklist kerja redesign class Retro-term.
 
 ### 1. Button
 
-- [x] `.rt-tbl` -> `.btn`
-- [x] `.rt-tbl-primary` / `.rt-tbl--primary` -> `.btn-primary`
-- [x] `.rt-tbl-secondary` -> `.btn-secondary`
-- [x] `.rt-tbl-success` -> `.btn-success`
-- [x] `.rt-tbl-warning` -> `.btn-warning`
-- [x] `.rt-tbl-danger` -> `.btn-danger`
-- [x] `.rt-tbl-accent` -> `.btn-accent`
-- [x] `.rt-tbl-purple` -> `.btn-purple`
-- [x] `.rt-tbl-outline` -> `.btn-outline-primary`
-- [x] `.rt-tbl-ghost` -> `.btn-ghost`
-- [x] `.rt-tbl-sm` -> `.btn-sm`
-- [x] `.rt-tbl-lg` -> `.btn-lg`
-- [x] `.rt-tbl-icon` -> `.btn-icon`
+- [x] `.rt-tbl` -> `.rt-btn`
+- [x] `.rt-tbl-primary` / `.rt-tbl--primary` -> `.rt-btn-primary`
+- [x] `.rt-tbl-secondary` -> `.rt-btn-secondary`
+- [x] `.rt-tbl-success` -> `.rt-btn-success`
+- [x] `.rt-tbl-warning` -> `.rt-btn-warning`
+- [x] `.rt-tbl-danger` -> `.rt-btn-danger`
+- [x] `.rt-tbl-accent` -> `.rt-btn-accent`
+- [x] `.rt-tbl-purple` -> `.rt-btn-purple`
+- [x] `.rt-tbl-outline` -> `.rt-btn-outline-primary`
+- [x] `.rt-tbl-ghost` -> `.rt-btn-ghost`
+- [x] `.rt-tbl-sm` -> `.rt-btn-sm`
+- [x] `.rt-tbl-lg` -> `.rt-btn-lg`
+- [x] `.rt-tbl-icon` -> `.rt-btn-icon`
 
 ### 2. Card
 
-- [x] `.rt-panel` -> `.card`
-- [x] `.rt-panel_head` -> `.card-header`
-- [x] `.rt-panel_title` -> `.card-title`
-- [x] `.rt-panel_subtitle` -> `.card-subtitle`
-- [x] `.rt-panel_actions` -> `.card-actions`
-- [x] `.rt-panel_body` -> `.card-body`
-- [x] `.rt-panel_body--flush` -> `.card-body-flush`
+- [x] `.rt-panel` -> `.rt-card`
+- [x] `.rt-panel-head` -> `.rt-card-header`
+- [x] `.rt-panel-title` -> `.rt-card-title`
+- [x] `.rt-panel-subtitle` -> `.rt-card-subtitle`
+- [x] `.rt-panel-actions` -> `.rt-card-actions`
+- [x] `.rt-panel-body` -> `.rt-card-body`
+- [x] `.rt-panel-body--flush` -> `.rt-card-body-flush`
 
 ### 3. Dropdown
 
-- [x] `.rt-dd` -> `.dropdown`
-- [x] `.rt-dd_menu` -> `.dropdown-menu`
-- [x] `.rt-dd_item` -> `.dropdown-item`
-- [x] `.rt-dd_divider` -> `.dropdown-divider`
-- [x] `data-dropdown` dipakai untuk dropdown baru
-- [x] Sidebar dropdown memakai `.nav-dropdown`
+- [x] `.rt-dd` -> `.rt-dropdown`
+- [x] `.rt-dd-menu` -> `.rt-dropdown-menu`
+- [x] `.rt-dd-item` -> `.rt-dropdown-item`
+- [x] `.rt-dd-divider` -> `.rt-dropdown-divider`
+- [x] `data-rt-dropdown` dipakai untuk rt-dropdown baru
+- [x] Sidebar rt-dropdown memakai `.rt-nav-dropdown`
 
 ### 4. Modal / Popup
 
-- [x] `.rt-pp` -> `.modal`
-- [x] `.rt-pp_panel` -> `.modal-content`
-- [x] `.rt-pp_head` -> `.modal-header`
-- [x] `.rt-pp_title` -> `.modal-title`
-- [x] `.rt-pp_desc` -> `.modal-subtitle`
-- [x] `.rt-pp_close` -> `.btn-close`
-- [x] `.rt-pp_body` -> `.modal-body`
-- [x] `.rt-pp_footer` -> `.modal-footer`
-- [x] `.rt-pp--sm` -> `.modal-sm`
-- [x] `.rt-pp--md` -> `.modal-md`
-- [x] `.rt-pp--lg` -> `.modal-lg`
-- [x] `.rt-pp--xl` -> `.modal-xl`
-- [x] `.rt-pp--fullscreen` -> `.modal-fullscreen`
-- [x] `body.modal-open` ditambahkan
+- [x] `.rt-pp` -> `.rt-modal`
+- [x] `.rt-pp-panel` -> `.rt-modal-content`
+- [x] `.rt-pp-head` -> `.rt-modal-header`
+- [x] `.rt-pp-title` -> `.rt-modal-title`
+- [x] `.rt-pp-desc` -> `.rt-modal-subtitle`
+- [x] `.rt-pp-close` -> `.rt-modal-close`
+- [x] `.rt-pp-body` -> `.rt-modal-body`
+- [x] `.rt-pp-footer` -> `.rt-modal-footer`
+- [x] `.rt-pp--sm` -> `.rt-modal-sm`
+- [x] `.rt-pp--md` -> `.rt-modal-md`
+- [x] `.rt-pp--lg` -> `.rt-modal-lg`
+- [x] `.rt-pp--xl` -> `.rt-modal-xl`
+- [x] `.rt-pp--fullscreen` -> `.rt-modal-fullscreen`
+- [x] `body.rt-modal-open` ditambahkan
 
 ### 5. JavaScript
 
-- [x] Update selector dropdown baru dan legacy
-- [x] Update selector modal baru dan legacy
-- [x] Support `data-modal-open`
-- [x] Support `data-modal-close`
-- [x] Support body lock `modal-open`
+- [x] Update selector rt-dropdown baru dan legacy
+- [x] Update selector rt-modal baru dan legacy
+- [x] Support `data-rt-modal-open`
+- [x] Support `data-rt-modal-close`
+- [x] Support body lock `rt-modal-open`
 
 ### 6. Build & Output
 
@@ -106,19 +106,19 @@ Dokumen ini dipakai sebagai checklist kerja redesign class Retro-term.
 - [x] `.rt-col`, `.rt-col-auto`, `.rt-col-1` sampai `.rt-col-12`
 - [x] Responsive `.rt-col-sm-*`, `.rt-col-md-*`, `.rt-col-lg-*`, `.rt-col-xl-*`, `.rt-col-xxl-*`
 - [x] Gutter utilities `.rt-g-*`, `.rt-gx-*`, `.rt-gy-*`
-- [x] Breakpoint container helpers `.rt-container-sm` sampai `.rt-container-xxl`
+- [x] Breakpoint rt-container helpers `.rt-container-sm` sampai `.rt-container-xxl`
 
 ## Cek Lanjutan
 
-- [ ] Review visual akhir di browser untuk memastikan semua demo tetap rapi
-- [x] Audit wording sisa "popup" yang masih ingin diganti menjadi "modal" di dokumentasi
+- [ ] Review visual akhir di brt-rowser untuk memastikan semua demo tetap rapi
+- [x] Audit wording sisa "popup" yang masih ingin diganti menjadi "rt-modal" di dokumentasi
 - [ ] Cek ulang seluruh demo pada layar mobile
 
-Catatan: dua checklist terakhir tetap pending karena perlu verifikasi manual di browser dan perangkat mobile.
+Catatan: dua checklist terakhir tetap pending karena perlu verifikasi manual di brt-rowser dan perangkat mobile.
 
 ## Catatan
 
 - [x] Namespace CSS tetap memakai `--rt-*`.
 - [x] Tidak ada dependency Bootstrap/Tailwind.
 - [x] Alias lama sudah dibersihkan dari source aktif.
-- [x] Audit wording sudah dirapikan di `README.md` dan `DOCUMENTATION.md`; file demo `popup.html` diganti `modal.html` sebagai nama halaman contoh.
+- [x] Audit wording sudah dirapikan di `README.md` dan `DOCUMENTATION.md`; file demo `popup.html` diganti `rt-modal.html` sebagai nama halaman contoh.

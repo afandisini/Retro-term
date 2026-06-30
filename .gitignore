@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-Nothing should be ignored based on the provided file changes. The only modified file is 'example/login.html', which is a source file and should not be added to .gitignore.
-=======
 node_modules/
 npm-debug.log*
 yarn-debug.log*
@@ -12,6 +9,4 @@ Thumbs.db
 .env.local
 
 # Build artifacts
-dist/
 public_html/
->>>>>>> Stashed changes

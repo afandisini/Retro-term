@@ -81,10 +81,11 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build:css": "node node_modules/sass/sass.js sass/retro-term.scss retro-term.css --no-source-map && node node_modules/sass/sass.js sass/retro-term.scss retro-term.min.css --style=compressed --no-source-map && node node_modules/sass/sass.js sass/retro-term.scss dist/retro-term.css --no-source-map && node node_modules/sass/sass.js sass/retro-term.scss dist/retro-term.min.css --style=compressed --no-source-map",
+    "build:css": "node node_modules/sass/sass.js sass/retro-term.scss dist/retro-term.css --no-source-map && node node_modules/sass/sass.js sass/retro-term.scss dist/retro-term.min.css --style=compressed --no-source-map",
     "build:icons": "node scripts/copy-icons.js",
     "build:js": "node scripts/copy-js.js",
-    "build": "npm run build:css && npm run build:js && npm run build:icons",
+    "build:components": "node scripts/copy-components.js",
+    "build": "npm run build:css && npm run build:js && npm run build:icons && npm run build:components",
     "watch:css": "node node_modules/sass/sass.js --watch sass/retro-term.scss:dist/retro-term.css",
     "pack:test": "npm pack --dry-run",
     "prepublishOnly": "npm run build && npm run pack:test"
@@ -94,7 +95,6 @@
     "terser": "^5.48.0"
   },
   "sideEffects": [
-    "*.css",
     "dist/*.css",
     "dist/*.js"
   ]

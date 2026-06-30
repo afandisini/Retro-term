@@ -1,4 +1,4 @@
-.modal {
+.rt-modal {
   position: fixed;
   inset: 0;
   z-index: 10000;
@@ -11,12 +11,12 @@
   -webkit-backdrop-filter: blur(16px);
 }
 
-.modal.is-open,
-.modal.show {
+.rt-modal.is-open,
+.rt-modal.show {
   display: flex;
 }
 
-.modal.is-closing {
+.rt-modal.is-closing {
   display: flex;
 }
 
@@ -44,25 +44,25 @@
   }
 }
 
-.modal.is-open,
-.modal.show {
+.rt-modal.is-open,
+.rt-modal.show {
   animation: none;
 }
 
-.modal.is-closing {
+.rt-modal.is-closing {
   animation: none;
 }
 
 @media (max-width: 640px) {
-  .modal.is-open,
-  .modal.show,
-  .modal.is-closing {
+  .rt-modal.is-open,
+  .rt-modal.show,
+  .rt-modal.is-closing {
     margin: 0 -1px;
   }
 }
 
-.modal-content,
-.modal-dialog {
+.rt-modal-content,
+.rt-modal-dialog {
   width: 100%;
   max-height: 85vh;
   border: 0;
@@ -78,50 +78,50 @@
   will-change: opacity, transform;
 }
 
-.modal.is-open .modal-content,
-.modal.show .modal-content {
+.rt-modal.is-open .rt-modal-content,
+.rt-modal.show .rt-modal-content {
   opacity: 1;
   transform: translateY(0);
 }
 
-.modal.is-open .modal-content,
-.modal.show .modal-content {
+.rt-modal.is-open .rt-modal-content,
+.rt-modal.show .rt-modal-content {
   animation: rtFadeIn 0.22s ease both;
 }
 
-.modal.is-closing .modal-content {
+.rt-modal.is-closing .rt-modal-content {
   animation: rtFadeOut 0.18s ease both;
 }
 
 /* Size variants */
-.modal-sm .modal-content {
+.rt-modal-sm .rt-modal-content {
   max-width: 420px;
 }
 
-.modal-md .modal-content {
+.rt-modal-md .rt-modal-content {
   max-width: 600px;
 }
 
-.modal-lg .modal-content {
+.rt-modal-lg .rt-modal-content {
   max-width: 820px;
 }
 
-.modal-xl .modal-content {
+.rt-modal-xl .rt-modal-content {
   max-width: 1080px;
 }
 
-.modal-fullscreen .modal-content {
+.rt-modal-fullscreen .rt-modal-content {
   max-width: 100%;
   max-height: 100%;
   height: 100%;
   border-radius: 0;
 }
 
-.modal-fullscreen {
+.rt-modal-fullscreen {
   padding: 0;
 }
 
-.modal-header {
+.rt-modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -135,22 +135,22 @@
   );
 }
 
-.modal-title {
+.rt-modal-title {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 950;
   letter-spacing: -0.03em;
 }
 
-.modal-subtitle {
+.rt-modal-subtitle {
   margin: 6px 0 0;
   color: var(--rt-muted);
   font-size: 0.86rem;
   line-height: 1.6;
 }
 
-.modal-embed,
-.modal-embled {
+.rt-modal-embed,
+.rt-modal-embed {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -160,20 +160,20 @@
   aspect-ratio: 16 / 9;
 }
 
-.modal-embed--map,
-.modal-embled--map {
+.rt-modal-embed--map,
+.rt-modal-embed--map {
   aspect-ratio: 4 / 3;
   min-height: 260px;
 }
 
-.modal-embed--video,
-.modal-embled--video {
+.rt-modal-embed--video,
+.rt-modal-embed--video {
   min-height: 280px;
 }
 
-.modal-iframe,
-.modal-embed iframe,
-.modal-embled iframe {
+.rt-modal-iframe,
+.rt-modal-embed iframe,
+.rt-modal-embed iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -182,8 +182,8 @@
   display: block;
 }
 
-.btn-close,
-.modal-close {
+.rt-modal-close,
+.rt-modal-close {
   width: 36px;
   height: 36px;
   flex: 0 0 auto;
@@ -198,10 +198,10 @@
   position: relative;
 }
 
-.btn-close::before,
-.btn-close::after,
-.modal-close::before,
-.modal-close::after {
+.rt-modal-close::before,
+.rt-modal-close::after,
+.rt-modal-close::before,
+.rt-modal-close::after {
   content: "";
   position: absolute;
   width: 14px;
@@ -210,36 +210,36 @@
   background: currentColor;
 }
 
-.btn-close::before,
-.modal-close::before {
+.rt-modal-close::before,
+.rt-modal-close::before {
   transform: rotate(45deg);
 }
 
-.btn-close::after,
-.modal-close::after {
+.rt-modal-close::after,
+.rt-modal-close::after {
   transform: rotate(-45deg);
 }
 
-.btn-close:hover,
-.modal-close:hover {
+.rt-modal-close:hover,
+.rt-modal-close:hover {
   background: rgba(var(--rt-primary-rgb), 0.08);
   color: var(--rt-primary);
 }
 
-.btn-close svg,
-.modal-close svg {
+.rt-modal-close svg,
+.rt-modal-close svg {
   width: 16px;
   height: 16px;
   stroke-width: 2.2;
 }
 
-.modal-body {
+.rt-modal-body {
   padding: 20px 22px;
   overflow: auto;
   flex: 1;
 }
 
-.modal-footer {
+.rt-modal-footer {
   padding: 16px 22px;
   border-top: 1px solid var(--rt-border);
   display: flex;
@@ -247,6 +247,6 @@
   gap: 8px;
 }
 
-body.modal-open {
+body.rt-modal-open {
   overflow: hidden;
 }

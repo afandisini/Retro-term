@@ -113,9 +113,9 @@
         // ===== SIDEBAR NAV ACTIVE =====
         function syncSidebarState() {
             const currentFile = window.location.pathname.split('/').pop()?.toLowerCase() || 'index.html';
-            const navLinks = document.querySelectorAll('.rt-sbr_link');
-            const childLinks = document.querySelectorAll('.nav-dropdown-item');
-            const dropdowns = document.querySelectorAll('[data-nav-dropdown], .nav-dropdown');
+            const navLinks = document.querySelectorAll('.rt-sbr-link');
+            const childLinks = document.querySelectorAll('.rt-nav-dropdown-item');
+            const dropdowns = document.querySelectorAll('[data-rt-nav-dropdown], .rt-nav-dropdown');
 
             navLinks.forEach(link => link.classList.remove('is-active'));
             childLinks.forEach(child => child.classList.remove('is-active'));
@@ -139,17 +139,17 @@
                 const target = href.split('/').pop()?.toLowerCase();
                 if (target && target === currentFile) {
                     child.classList.add('is-active');
-                    const parent = child.closest('[data-nav-dropdown], .nav-dropdown');
+                    const parent = child.closest('[data-rt-nav-dropdown], .rt-nav-dropdown');
                     parent?.classList.add('is-open');
                 }
             });
         }
 
-        document.querySelectorAll('.rt-sbr_link').forEach(link => {
+        document.querySelectorAll('.rt-sbr-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
                 if (!href || href === '#') return;
-                document.querySelectorAll('.rt-sbr_link').forEach(l => l.classList.remove('is-active'));
+                document.querySelectorAll('.rt-sbr-link').forEach(l => l.classList.remove('is-active'));
                 link.classList.add('is-active');
                 if (window.innerWidth <= 1024) {
                     sidebar?.classList.remove('is-open');
@@ -158,9 +158,9 @@
             });
         });
 
-        // ===== SIDEBAR DROPDOWN (nav-dropdown) =====
-        document.querySelectorAll('[data-nav-dropdown], .nav-dropdown').forEach(sd => {
-            const trigger = sd.querySelector('.nav-dropdown-toggle');
+        // ===== SIDEBAR DROPDOWN (rt-nav-dropdown) =====
+        document.querySelectorAll('[data-rt-nav-dropdown], .rt-nav-dropdown').forEach(sd => {
+            const trigger = sd.querySelector('.rt-nav-dropdown-toggle');
             trigger?.addEventListener('click', (e) => {
                 e.preventDefault();
                 const willOpen = !sd.classList.contains('is-open');
@@ -169,7 +169,7 @@
             });
         });
 
-        document.querySelectorAll('.nav-dropdown-item').forEach(child => {
+        document.querySelectorAll('.rt-nav-dropdown-item').forEach(child => {
             child.addEventListener('click', (e) => {
                 if (window.innerWidth <= 1024) {
                     sidebar?.classList.remove('is-open');
@@ -178,12 +178,12 @@
             });
         });
 
-        // ===== DROPDOWN (dropdown) =====
-        document.querySelectorAll('[data-dropdown], .dropdown').forEach(dd => {
-            const trigger = dd.querySelector('[data-dropdown-trigger], .dropdown-toggle');
+        // ===== DROPDOWN (rt-dropdown) =====
+        document.querySelectorAll('[data-rt-dropdown], .rt-dropdown').forEach(dd => {
+            const trigger = dd.querySelector('[data-rt-dropdown-trigger]');
             trigger?.addEventListener('click', (e) => {
                 e.stopPropagation();
-                document.querySelectorAll('[data-dropdown], .dropdown').forEach(o => {
+                document.querySelectorAll('[data-rt-dropdown], .rt-dropdown').forEach(o => {
                     if (o !== dd) o.classList.remove('is-open');
                     if (o !== dd) o.classList.remove('show');
                 });
@@ -194,8 +194,8 @@
         });
 
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('[data-dropdown], .dropdown')) {
-                document.querySelectorAll('[data-dropdown], .dropdown').forEach(dd => {
+            if (!e.target.closest('[data-rt-dropdown], .rt-dropdown')) {
+                document.querySelectorAll('[data-rt-dropdown], .rt-dropdown').forEach(dd => {
                     dd.classList.remove('is-open');
                     dd.classList.remove('show');
                 });
@@ -215,33 +215,33 @@
 
                 const toggle = document.createElement('button');
                 toggle.type = 'button';
-                toggle.className = 'rt-select__toggle';
+                toggle.className = 'rt-select-toggle';
                 toggle.setAttribute('aria-haspopup', 'listbox');
                 toggle.setAttribute('aria-expanded', 'false');
 
                 const value = document.createElement('span');
-                value.className = 'rt-select__value';
+                value.className = 'rt-select-value';
 
                 const caret = document.createElement('span');
-                caret.className = 'rt-select__caret';
+                caret.className = 'rt-select-caret';
                 caret.setAttribute('aria-hidden', 'true');
 
                 toggle.append(value, caret);
 
                 const menu = document.createElement('div');
-                menu.className = 'rt-select__menu';
+                menu.className = 'rt-select-menu';
                 menu.hidden = true;
 
                 const search = document.createElement('div');
-                search.className = 'rt-select__search';
+                search.className = 'rt-select-search';
 
                 const searchIcon = document.createElement('span');
-                searchIcon.className = 'rt-select__search-icon';
+                searchIcon.className = 'rt-select-search-icon';
                 searchIcon.setAttribute('aria-hidden', 'true');
 
                 const searchInput = document.createElement('input');
                 searchInput.type = 'search';
-                searchInput.className = 'rt-select__search-input';
+                searchInput.className = 'rt-select-search-input';
                 searchInput.placeholder = select.getAttribute('data-search-placeholder') || 'Cari opsi...';
                 searchInput.autocomplete = 'off';
                 searchInput.spellcheck = false;
@@ -249,7 +249,7 @@
                 search.append(searchIcon, searchInput);
 
                 const list = document.createElement('div');
-                list.className = 'rt-select__list';
+                list.className = 'rt-select-list';
                 list.setAttribute('role', 'listbox');
 
                 menu.append(search, list);
@@ -257,7 +257,7 @@
                 select.parentNode.insertBefore(wrapper, select);
                 wrapper.append(select, toggle);
                 document.body.appendChild(menu);
-                select.classList.add('rt-select__native');
+                select.classList.add('rt-select-native');
 
                 let isOpen = false;
                 let lastScrollX = window.scrollX;
@@ -313,7 +313,7 @@
                         matchCount += 1;
                         const item = document.createElement('button');
                         item.type = 'button';
-                        item.className = 'rt-select__option';
+                        item.className = 'rt-select-option';
                         item.textContent = text || option.value || '';
                         item.disabled = option.disabled;
                         item.dataset.value = option.value;
@@ -334,7 +334,7 @@
 
                     if (!matchCount) {
                         const empty = document.createElement('div');
-                        empty.className = 'rt-select__empty';
+                        empty.className = 'rt-select-empty';
                         empty.textContent = 'Tidak ada opsi yang cocok';
                         list.append(empty);
                     }
@@ -350,7 +350,7 @@
                 function openMenu() {
                     if (select.disabled) return;
                     document.querySelectorAll('.rt-select.is-open').forEach((node) => {
-                        if (node !== wrapper) node.querySelector('.rt-select__toggle')?.click();
+                        if (node !== wrapper) node.querySelector('.rt-select-toggle')?.click();
                     });
                     menu.hidden = false;
                     document.body.appendChild(menu);
@@ -445,7 +445,7 @@
 
         syncSidebarState();
 
-        // ===== POPUP (modal) =====
+        // ===== POPUP (rt-modal) =====
         const popupCloseDelay = 220;
 
         function openPopup(id) {
@@ -454,16 +454,16 @@
             pp.classList.remove('is-closing');
             pp.classList.add('is-open');
             pp.classList.add('show');
-            document.body.classList.add('modal-open');
+            document.body.classList.add('rt-modal-open');
         }
 
         function closePopup(pp) {
             if (!pp || !pp.classList.contains('is-open') || pp.classList.contains('is-closing')) return;
             pp.classList.add('is-closing');
-            const panel = pp.querySelector('.modal-content, .modal-dialog');
+            const panel = pp.querySelector('.rt-modal-content, .rt-modal-dialog');
             const finish = () => {
                 pp.classList.remove('is-open', 'is-closing', 'show');
-                document.body.classList.remove('modal-open');
+                document.body.classList.remove('rt-modal-open');
             };
 
             if (panel) {
@@ -477,18 +477,18 @@
             window.setTimeout(finish, popupCloseDelay);
         }
 
-        document.querySelectorAll('[data-modal-open]').forEach(btn => {
-            btn.addEventListener('click', () => openPopup(btn.getAttribute('data-modal-open')));
+        document.querySelectorAll('[data-rt-modal-open]').forEach(btn => {
+            btn.addEventListener('click', () => openPopup(btn.getAttribute('data-rt-modal-open')));
         });
 
-        document.querySelectorAll('[data-modal-close]').forEach(btn => {
+        document.querySelectorAll('[data-rt-modal-close]').forEach(btn => {
             btn.addEventListener('click', () => {
-                const pp = btn.closest('[data-modal]');
+                const pp = btn.closest('[data-rt-modal]');
                 if (pp) closePopup(pp);
             });
         });
 
-        document.querySelectorAll('[data-modal]').forEach(pp => {
+        document.querySelectorAll('[data-rt-modal]').forEach(pp => {
             pp.addEventListener('click', (e) => {
                 if (e.target === pp) closePopup(pp);
             });
@@ -496,7 +496,7 @@
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                document.querySelectorAll('[data-modal].is-open').forEach(closePopup);
+                document.querySelectorAll('[data-rt-modal].is-open').forEach(closePopup);
             }
         });
 
@@ -547,8 +547,8 @@
                 danger: 'This action is risky and needs attention.',
             };
 
-            const titleEl = toast.querySelector('.rt-toast__title');
-            const textEl = toast.querySelector('.rt-toast__text');
+            const titleEl = toast.querySelector('.rt-toast-title');
+            const textEl = toast.querySelector('.rt-toast-text');
             if (titleEl) titleEl.textContent = titleMap[variant] || 'Toast';
             if (textEl) textEl.textContent = textMap[variant] || 'Pesan toast.';
 
@@ -557,15 +557,15 @@
             toastTimer = window.setTimeout(hideToast, 3000);
         }
 
-        document.querySelectorAll('[data-toast-variant]').forEach(btn => {
+        document.querySelectorAll('[data-rt-toast-variant]').forEach(btn => {
             btn.addEventListener('click', () => {
-                showToast(btn.getAttribute('data-toast-variant'), btn.getAttribute('data-toast-position') || toastPosition);
+                showToast(btn.getAttribute('data-rt-toast-variant'), btn.getAttribute('data-rt-toast-position') || toastPosition);
             });
         });
 
-        document.querySelectorAll('[data-toast-position-btn]').forEach(btn => {
+        document.querySelectorAll('[data-rt-toast-position-btn]').forEach(btn => {
             btn.addEventListener('click', () => {
-                showToast(toastVariant, btn.getAttribute('data-toast-position'));
+                showToast(toastVariant, btn.getAttribute('data-rt-toast-position'));
             });
         });
 
@@ -866,23 +866,23 @@
                     return `
                     <tr>
                         <td>
-                            <div class="rt-table_user">
-                                <div class="rt-table_avatar" style="background:${item.color}">${initials}</div>
+                            <div class="rt-table-user">
+                                <div class="rt-table-avatar" style="background:${item.color}">${initials}</div>
                                 <div>
-                                    <div class="rt-table_name">${item.name}</div>
-                                    <div class="rt-table_email">${item.email}</div>
+                                    <div class="rt-table-name">${item.name}</div>
+                                    <div class="rt-table-email">${item.email}</div>
                                 </div>
                             </div>
                         </td>
-                        <td><span class="rt-badge rt-badge--${item.roleClass}"><span class="rt-badge_dot"></span>${item.role}</span></td>
-                        <td><span class="rt-badge rt-badge--${item.statusClass}"><span class="rt-badge_dot"></span>${item.status}</span></td>
+                        <td><span class="rt-badge rt-badge--${item.roleClass}"><span class="rt-badge-dot"></span>${item.role}</span></td>
+                        <td><span class="rt-badge rt-badge--${item.statusClass}"><span class="rt-badge-dot"></span>${item.status}</span></td>
                         <td>${item.date}</td>
                         <td>
                             <div style="display:flex;gap:4px">
-                                <button class="btn btn-ghost btn-sm btn-icon" title="Edit">
+                                <button class="rt-btn rt-btn-ghost rt-btn-sm rt-btn-icon" title="Edit">
                                     <i class="rt rt-edit" aria-hidden="true"></i>
                                 </button>
-                                <button class="btn btn-ghost btn-sm btn-icon" title="Delete" style="color:var(--rt-danger)">
+                                <button class="rt-btn rt-btn-ghost rt-btn-sm rt-btn-icon" title="Delete" style="color:var(--rt-danger)">
                                     <i class="rt rt-delete" aria-hidden="true"></i>
                                 </button>
                             </div>

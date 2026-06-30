@@ -39,7 +39,7 @@
             overflow: hidden;
         }
 
-        .rt-hero__shape {
+        .rt-hero-shape {
             position: absolute;
             border-radius: 50%;
             filter: blur(60px);
@@ -48,7 +48,7 @@
             animation: rtFloat 14s ease-in-out infinite;
         }
 
-        .rt-hero__shape--1 {
+        .rt-hero-shape--1 {
             width: 320px;
             height: 320px;
             background: rgba(var(--rt-primary-rgb), .22);
@@ -56,7 +56,7 @@
             left: -80px;
         }
 
-        .rt-hero__shape--2 {
+        .rt-hero-shape--2 {
             width: 260px;
             height: 260px;
             background: rgba(0, 184, 255, .18);
@@ -65,7 +65,7 @@
             animation-delay: -5s;
         }
 
-        .rt-hero__shape--3 {
+        .rt-hero-shape--3 {
             width: 200px;
             height: 200px;
             background: rgba(255, 122, 89, .16);
@@ -90,7 +90,7 @@
             }
         }
 
-        .rt-hero__content {
+        .rt-hero-content {
             position: relative;
             z-index: 2;
             max-width: 900px;
@@ -140,7 +140,7 @@
             display: block;
         }
 
-        .rt-hero__badge {
+        .rt-hero-rt-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -154,7 +154,7 @@
             margin-bottom: 24px;
         }
 
-        .rt-hero__title {
+        .rt-hero-title {
             font-size: clamp(1.75rem, 8vw, 4rem);
             font-weight: 950;
             letter-spacing: -.05em;
@@ -170,7 +170,7 @@
             color: transparent;
         }
 
-        .rt-hero__subtitle {
+        .rt-hero-subtitle {
             font-size: clamp(0.95rem, 2.5vw, 1.25rem);
             color: var(--rt-muted);
             font-weight: 520;
@@ -179,21 +179,21 @@
             margin: 0 auto 24px;
         }
 
-        .rt-hero__actions {
+        .rt-hero-actions {
             display: flex;
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .rt-hero__actions .btn svg,
-        .rt-hero__actions .btn i.rt {
+        .rt-hero-actions .rt-btn svg,
+        .rt-hero-actions .rt-btn i.rt {
             width: 18px;
             height: 18px;
             flex: 0 0 auto;
         }
 
-        .rt-hero__actions .btn {
+        .rt-hero-actions .rt-btn {
             line-height: 1;
         }
 
@@ -201,14 +201,14 @@
             padding: 80px 0;
         }
 
-        .rt-section__head {
+        .rt-section-head {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 50px;
             padding: 0 20px;
         }
 
-        .rt-section__eyebrow {
+        .rt-section-eyebrt-row {
             font-size: .74rem;
             font-weight: 950;
             letter-spacing: .17em;
@@ -217,7 +217,7 @@
             margin-bottom: 12px;
         }
 
-        .rt-section__title {
+        .rt-section-title {
             font-size: clamp(1.5rem, 5vw, 3rem);
             font-weight: 950;
             letter-spacing: -.045em;
@@ -225,7 +225,7 @@
             margin: 0 0 16px;
         }
 
-        .rt-section__desc {
+        .rt-section-desc {
             font-size: clamp(0.95rem, 2vw, 1.05rem);
             color: var(--rt-muted);
             line-height: 1.6;
@@ -251,7 +251,7 @@
             box-shadow: var(--rt-shadow);
         }
 
-        .rt-feature-card__icon {
+        .rt-feature-card-icon {
             width: 52px;
             height: 52px;
             border-radius: 14px;
@@ -261,20 +261,20 @@
             color: #fff;
         }
 
-        .rt-feature-card__icon svg {
+        .rt-feature-card-icon svg {
             width: 24px;
             height: 24px;
             stroke-width: 2;
         }
 
-        .rt-feature-card__title {
+        .rt-feature-card-title {
             font-size: 1.15rem;
             font-weight: 900;
             letter-spacing: -.03em;
             margin: 0 0 10px;
         }
 
-        .rt-feature-card__text {
+        .rt-feature-card-text {
             margin: 0;
             color: var(--rt-muted);
             line-height: 1.7;
@@ -320,7 +320,7 @@
             overflow: hidden;
         }
 
-        .rt-console__bar {
+        .rt-console-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -330,31 +330,31 @@
             background: rgba(255, 255, 255, .02);
         }
 
-        .rt-console__traffic {
+        .rt-console-traffic {
             display: inline-flex;
             gap: 8px;
         }
 
-        .rt-console__traffic span {
+        .rt-console-traffic span {
             width: 10px;
             height: 10px;
             border-radius: 50%;
             background: rgba(255, 255, 255, .16);
         }
 
-        .rt-console__traffic span:nth-child(1) {
+        .rt-console-traffic span:nth-child(1) {
             background: #ff5f57;
         }
 
-        .rt-console__traffic span:nth-child(2) {
+        .rt-console-traffic span:nth-child(2) {
             background: #febc2e;
         }
 
-        .rt-console__traffic span:nth-child(3) {
+        .rt-console-traffic span:nth-child(3) {
             background: #28c840;
         }
 
-        .rt-console__title {
+        .rt-console-title {
             font-size: .74rem;
             font-weight: 900;
             letter-spacing: .12em;
@@ -362,7 +362,7 @@
             color: rgba(215, 225, 245, .72);
         }
 
-        .rt-console__body {
+        .rt-console-body {
             padding: 18px 16px 16px;
             min-height: 192px;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
@@ -372,19 +372,19 @@
             word-break: break-word;
         }
 
-        .rt-console__line {
+        .rt-console-line {
             min-height: 1.75em;
         }
 
-        .rt-console__prompt {
+        .rt-console-prompt {
             color: #60a5fa;
         }
 
-        .rt-console__typing {
+        .rt-console-typing {
             color: #e5eefc;
         }
 
-        .rt-console__cursor {
+        .rt-console-cursor {
             display: inline-block;
             width: 8px;
             margin-left: 2px;
@@ -393,7 +393,7 @@
             animation: rtConsoleBlink .8s steps(1) infinite;
         }
 
-        .rt-console__status {
+        .rt-console-status {
             color: #8be9a8;
         }
 
@@ -417,7 +417,7 @@
             text-align: center;
         }
 
-        .rt-stat-card__value {
+        .rt-stat-card-value {
             font-size: clamp(1.75rem, 5vw, 2.5rem);
             font-weight: 950;
             letter-spacing: -.05em;
@@ -426,7 +426,7 @@
             color: var(--rt-primary);
         }
 
-        .rt-stat-card__label {
+        .rt-stat-card-label {
             font-size: clamp(0.75rem, 2vw, .88rem);
             font-weight: 700;
             color: var(--rt-muted);
@@ -441,14 +441,14 @@
                 var(--rt-bg);
         }
 
-        .rt-cta__title {
+        .rt-cta-title {
             font-size: clamp(1.5rem, 5vw, 3rem);
             font-weight: 950;
             letter-spacing: -.045em;
             margin: 0 0 16px;
         }
 
-        .rt-cta__text {
+        .rt-cta-text {
             font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             color: var(--rt-muted);
             max-width: 600px;
@@ -461,14 +461,14 @@
             border-top: 1px solid var(--rt-border);
         }
 
-        .rt-footer__grid {
+        .rt-footer-grid {
             display: grid;
             grid-template-columns: 1.5fr repeat(3, 1fr);
             gap: 40px;
             margin-bottom: 40px;
         }
 
-        .rt-footer__brand {
+        .rt-footer-brand {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -478,21 +478,21 @@
             margin-bottom: 14px;
         }
 
-        .rt-footer__brand .rt-brand_dot {
+        .rt-footer-brand .rt-brand-dot {
             width: 14px;
             height: 14px;
             border-radius: 999px;
             background: linear-gradient(135deg, var(--rt-primary), var(--rt-primary-2));
         }
 
-        .rt-footer__text {
+        .rt-footer-text {
             color: var(--rt-muted);
             font-size: .92rem;
             line-height: 1.7;
             margin: 0;
         }
 
-        .rt-footer__title {
+        .rt-footer-title {
             font-size: .82rem;
             font-weight: 900;
             letter-spacing: .12em;
@@ -501,17 +501,17 @@
             color: var(--rt-text);
         }
 
-        .rt-footer__links {
+        .rt-footer-links {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .rt-footer__links li {
+        .rt-footer-links li {
             margin: 0;
         }
 
-        .rt-footer__links a {
+        .rt-footer-links a {
             display: inline-block;
             padding: 6px 0;
             color: var(--rt-muted);
@@ -520,11 +520,11 @@
             transition: color .2s ease;
         }
 
-        .rt-footer__links a:hover {
+        .rt-footer-links a:hover {
             color: var(--rt-primary);
         }
 
-        .rt-footer__bottom {
+        .rt-footer-bottom {
             padding-top: 30px;
             border-top: 1px solid var(--rt-border);
             text-align: center;
@@ -543,7 +543,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .rt-footer__grid {
+            .rt-footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
 
@@ -566,22 +566,22 @@
                 padding: 60px 0 40px;
             }
 
-            .rt-hero__content {
+            .rt-hero-content {
                 padding: 0 16px;
             }
 
-            .rt-hero__badge {
+            .rt-hero-rt-badge {
                 font-size: 0.75rem;
                 padding: 6px 12px;
             }
 
-            .rt-hero__actions {
+            .rt-hero-actions {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 8px;
             }
 
-            .rt-hero__actions .btn {
+            .rt-hero-actions .rt-btn {
                 width: 100%;
                 justify-content: center;
             }
@@ -604,7 +604,7 @@
                 padding: 18px;
             }
 
-            .rt-footer__grid {
+            .rt-footer-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
@@ -613,7 +613,7 @@
                 padding: 50px 0;
             }
 
-            .rt-section__head {
+            .rt-section-head {
                 margin: 0 auto 40px;
                 padding: 0 16px;
             }
@@ -622,11 +622,11 @@
                 padding: 50px 0;
             }
 
-            .rt-cta__title {
+            .rt-cta-title {
                 margin-bottom: 12px;
             }
 
-            .rt-cta__text {
+            .rt-cta-text {
                 margin-bottom: 20px;
             }
 
@@ -640,26 +640,26 @@
                 gap: 16px;
             }
 
-            .card {
+            .rt-card {
                 margin-bottom: 16px !important;
             }
 
-            .card-body {
+            .rt-card-body {
                 padding: 16px;
             }
 
-            .card-header {
+            .rt-card-header {
                 padding: 16px;
             }
 
             /* Fix button wrapping in panels */
-            .card-body>div {
+            .rt-card-body>div {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 8px;
             }
 
-            /* Ensure badges fit */
+            /* Ensure rt-badges fit */
             .rt-badge {
                 font-size: 0.65rem;
                 padding: 0 8px;
@@ -668,15 +668,15 @@
 
         /* Small Mobile */
         @media (max-width: 380px) {
-            .rt-hero__title {
+            .rt-hero-title {
                 font-size: 1.5rem;
             }
 
-            .rt-section__title {
+            .rt-section-title {
                 font-size: 1.4rem;
             }
 
-            .rt-cta__title {
+            .rt-cta-title {
                 font-size: 1.4rem;
             }
 
@@ -712,14 +712,14 @@
         .rt-feature-card,
         .rt-stat-card,
         .rt-code-preview,
-        .btn {
+        .rt-btn {
             border-radius: 0 !important;
             box-shadow: none !important;
         }
 
         .rt-feature-card,
         .rt-stat-card,
-        .btn {
+        .rt-btn {
             transition-duration: .25s !important;
             transition-timing-function: ease !important;
         }
@@ -746,44 +746,44 @@
 
     <!-- HERO SECTION -->
     <section class="rt-hero">
-        <div class="rt-hero__shape rt-hero__shape--1"></div>
-        <div class="rt-hero__shape rt-hero__shape--2"></div>
-        <div class="rt-hero__shape rt-hero__shape--3"></div>
+        <div class="rt-hero-shape rt-hero-shape--1"></div>
+        <div class="rt-hero-shape rt-hero-shape--2"></div>
+        <div class="rt-hero-shape rt-hero-shape--3"></div>
 
-        <div class="rt-hero__content">
-            <div class="rt-hero__badge">
+        <div class="rt-hero-content">
+            <div class="rt-hero-rt-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
                 Version 1.0 is live
             </div>
 
-            <h1 class="rt-hero__title">
+            <h1 class="rt-hero-title">
                 Build modern UI with<br>
                 <span class="rt-gradient-text">Retro-term CSS</span>
             </h1>
 
-            <p class="rt-hero__subtitle">
+            <p class="rt-hero-subtitle">
                 A modern CSS framework with flat design, glassmorphism, and dark mode support.
                 Lightweight, fast, and easy to customize for your web projects.
             </p>
 
-            <div class="rt-hero__actions">
-                <button class="btn btn-primary btn-lg" onclick="scrollToSection('features')">
+            <div class="rt-hero-actions">
+                <button class="rt-btn rt-btn-primary rt-btn-lg" onclick="scrollToSection('features')">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                     </svg>
                     Get Started
                 </button>
-                <button class="btn btn-secondary btn-lg" onclick="scrollToSection('components')">
+                <button class="rt-btn rt-btn-secondary rt-btn-lg" onclick="scrollToSection('components')">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"></circle>
                         <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>
                     View Components
                 </button>
-                <a href="https://github.com/afandisini/Retro-term" class="btn btn-ghost btn-lg" target="_blank"
+                <a href="https://github.com/afandisini/Retro-term" class="rt-btn rt-btn-ghost rt-btn-lg" target="_blank"
                     rel="noopener noreferrer">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
@@ -798,10 +798,10 @@
     <!-- FEATURES SECTION -->
     <section class="rt-section" id="features">
         <div class="rt-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="rt-section__head">
-                <div class="rt-section__eyebrow">Core Features</div>
-                <h2 class="rt-section__title">Why Choose Retro-term CSS?</h2>
-                <p class="rt-section__desc">
+            <div class="rt-section-head">
+                <div class="rt-section-eyebrt-row">Core Features</div>
+                <h2 class="rt-section-title">Why Choose Retro-term CSS?</h2>
+                <p class="rt-section-desc">
                     A framework designed for modern developers with a focus on performance,
                     usability, and polished visuals.
                 </p>
@@ -809,35 +809,35 @@
 
             <div class="rt-features-grid">
                 <div class="rt-feature-card">
-                    <div class="rt-feature-card__icon rt-stat_icon--primary">
+                    <div class="rt-feature-card-icon rt-stat-icon--primary">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline>
                         </svg>
                     </div>
-                    <h3 class="rt-feature-card__title">Fast Performance</h3>
-                    <p class="rt-feature-card__text">
+                    <h3 class="rt-feature-card-title">Fast Performance</h3>
+                    <p class="rt-feature-card-text">
                         Small file size and rendering optimizations help your website load faster
                         without sacrificing design quality.
                     </p>
                 </div>
 
                 <div class="rt-feature-card">
-                    <div class="rt-feature-card__icon rt-stat_icon--success">
+                    <div class="rt-feature-card-icon rt-stat-icon--success">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                             <line x1="9" y1="9" x2="15" y2="9"></line>
                             <line x1="9" y1="15" x2="15" y2="15"></line>
                         </svg>
                     </div>
-                    <h3 class="rt-feature-card__title">Flat Design</h3>
-                    <p class="rt-feature-card__text">
+                    <h3 class="rt-feature-card-title">Flat Design</h3>
+                    <p class="rt-feature-card-text">
                         A modern flat aesthetic with minimal radius and restrained shadows
                         for a clean, professional look.
                     </p>
                 </div>
 
                 <div class="rt-feature-card">
-                    <div class="rt-feature-card__icon rt-stat_icon--accent">
+                    <div class="rt-feature-card-icon rt-stat-icon--accent">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -850,15 +850,15 @@
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
                     </div>
-                    <h3 class="rt-feature-card__title">Dark Mode</h3>
-                    <p class="rt-feature-card__text">
+                    <h3 class="rt-feature-card-title">Dark Mode</h3>
+                    <p class="rt-feature-card-text">
                         Built-in dark mode with a CSS variable system that is easy to customize
                         for your brand or product.
                     </p>
                 </div>
 
                 <div class="rt-feature-card">
-                    <div class="rt-feature-card__icon rt-stat_icon--purple">
+                    <div class="rt-feature-card-icon rt-stat-icon--purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path
                                 d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
@@ -867,79 +867,79 @@
                             <line x1="12" y1="22.08" x2="12" y2="12"></line>
                         </svg>
                     </div>
-                    <h3 class="rt-feature-card__title">Complete Components</h3>
-                    <p class="rt-feature-card__text">
-                        More than 50 ready-to-use components, from buttons and cards to modals,
-                        tables, and admin dashboard pieces.
+                    <h3 class="rt-feature-card-title">Complete Components</h3>
+                    <p class="rt-feature-card-text">
+                        More than 50 ready-to-use components, from buttons and rt-cards to rt-modals,
+                        rt-tables, and admin dashboard pieces.
                     </p>
                 </div>
 
                 <div class="rt-feature-card">
-                    <div class="rt-feature-card__icon" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
+                    <div class="rt-feature-card-icon" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                             <path d="M2 17l10 5 10-5"></path>
                             <path d="M2 12l10 5 10-5"></path>
                         </svg>
                     </div>
-                    <h3 class="rt-feature-card__title">Glassmorphism</h3>
-                    <p class="rt-feature-card__text">
+                    <h3 class="rt-feature-card-title">Glassmorphism</h3>
+                    <p class="rt-feature-card-text">
                         Glassmorphism with backdrop blur that gives every component a modern
                         and elegant feel.
                     </p>
                 </div>
 
                 <div class="rt-feature-card">
-                    <div class="rt-feature-card__icon" style="background: linear-gradient(135deg, #10b981, #14b8a6);">
+                    <div class="rt-feature-card-icon" style="background: linear-gradient(135deg, #10b981, #14b8a6);">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <polyline points="16 18 22 12 16 6"></polyline>
                             <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
                     </div>
-                    <h3 class="rt-feature-card__title">Easy to Customize</h3>
-                    <p class="rt-feature-card__text">
+                    <h3 class="rt-feature-card-title">Easy to Customize</h3>
+                    <p class="rt-feature-card-text">
                         A comprehensive CSS variable system makes it easy to adjust colors,
                         spacing, and styles to match your brand identity.
                     </p>
                 </div>
             </div>
 
-            <div class="card" style="margin-top: 24px;">
-                <div class="card-header">
+            <div class="rt-card" style="margin-top: 24px;">
+                <div class="rt-card-header">
                     <div>
-                        <div class="card-title">View Components</div>
-                        <div class="card-subtitle">Install, preview, and explore the UI kit</div>
+                        <div class="rt-card-title">View Components</div>
+                        <div class="rt-card-subtitle">Install, preview, and explore the UI kit</div>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="rt-card-body">
                     <div style="display:grid;gap:14px">
-                        <p class="rt-feature-card__text" style="margin:0">
+                        <p class="rt-feature-card-text" style="margin:0">
                             A quick preview of the core building blocks. The detailed reference lives in the docs page.
                         </p>
                         <div style="display:flex;flex-wrap:wrap;gap:8px">
-                            <span class="rt-badge rt-badge--primary"><span class="rt-badge_dot"></span>Buttons</span>
-                            <span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>Badges</span>
-                            <span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>Progress</span>
-                            <span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>Modal</span>
+                            <span class="rt-badge rt-badge--primary"><span class="rt-badge-dot"></span>Buttons</span>
+                            <span class="rt-badge rt-badge--success"><span class="rt-badge-dot"></span>Badges</span>
+                            <span class="rt-badge rt-badge--warning"><span class="rt-badge-dot"></span>Progress</span>
+                            <span class="rt-badge rt-badge--danger"><span class="rt-badge-dot"></span>Modal</span>
                         </div>
                         <div class="rt-console" aria-label="Installation console">
-                            <div class="rt-console__bar">
-                                <div class="rt-console__traffic" aria-hidden="true">
+                            <div class="rt-console-bar">
+                                <div class="rt-console-traffic" aria-hidden="true">
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                 </div>
-                                <div class="rt-console__title">Terminal</div>
+                                <div class="rt-console-title">Terminal</div>
                             </div>
-                            <div class="rt-console__body">
-                                <div class="rt-console__line"><span class="rt-console__prompt">$</span> <span
-                                        class="rt-console__typing" id="consoleCommand"></span><span
-                                        class="rt-console__cursor" id="consoleCursor"></span></div>
-                                <div class="rt-console__line rt-console__status" id="consoleResult"></div>
-                                <div class="rt-console__line" id="consoleNext"></div>
+                            <div class="rt-console-body">
+                                <div class="rt-console-line"><span class="rt-console-prompt">$</span> <span
+                                        class="rt-console-typing" id="consoleCommand"></span><span
+                                        class="rt-console-cursor" id="consoleCursor"></span></div>
+                                <div class="rt-console-line rt-console-status" id="consoleResult"></div>
+                                <div class="rt-console-line" id="consoleNext"></div>
                             </div>
                         </div>
-                        <a href="example/doc.html" class="btn btn-secondary" style="width:fit-content">
+                        <a href="example/doc.html" class="rt-btn rt-btn-secondary" style="width:fit-content">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <path d="M12 16v-4"></path>
@@ -956,27 +956,27 @@
     <!-- STATS SECTION -->
     <section class="rt-section">
         <div class="rt-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="rt-section__head">
-                <div class="rt-section__eyebrow">Stats</div>
-                <h2 class="rt-section__title">Trusted by Developers</h2>
+            <div class="rt-section-head">
+                <div class="rt-section-eyebrt-row">Stats</div>
+                <h2 class="rt-section-title">Trusted by Developers</h2>
             </div>
 
             <div class="rt-stats-grid">
                 <div class="rt-stat-card">
-                    <div class="rt-stat-card__value">50+</div>
-                    <div class="rt-stat-card__label">Components</div>
+                    <div class="rt-stat-card-value">50+</div>
+                    <div class="rt-stat-card-label">Components</div>
                 </div>
                 <div class="rt-stat-card">
-                    <div class="rt-stat-card__value">100%</div>
-                    <div class="rt-stat-card__label">Responsive</div>
+                    <div class="rt-stat-card-value">100%</div>
+                    <div class="rt-stat-card-label">Responsive</div>
                 </div>
                 <div class="rt-stat-card">
-                    <div class="rt-stat-card__value">15kb</div>
-                    <div class="rt-stat-card__label">File Size</div>
+                    <div class="rt-stat-card-value">15kb</div>
+                    <div class="rt-stat-card-label">File Size</div>
                 </div>
                 <div class="rt-stat-card">
-                    <div class="rt-stat-card__value">24/7</div>
-                    <div class="rt-stat-card__label">Support</div>
+                    <div class="rt-stat-card-value">24/7</div>
+                    <div class="rt-stat-card-label">Support</div>
                 </div>
             </div>
         </div>
@@ -985,13 +985,13 @@
     <!-- CTA SECTION -->
     <section class="rt-cta" id="cta">
         <div class="rt-container" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
-            <h2 class="rt-cta__title">Ready to Build a Modern Website?</h2>
-            <p class="rt-cta__text">
+            <h2 class="rt-cta-title">Ready to Build a Modern Website?</h2>
+            <p class="rt-cta-text">
                 Start using Retro-term CSS today and enjoy a simpler way to build
                 beautiful, functional interfaces.
             </p>
             <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                <a href="login.html" class="btn btn-primary btn-lg">
+                <a href="login.html" class="rt-btn rt-btn-primary rt-btn-lg">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
@@ -999,7 +999,7 @@
                     </svg>
                     View Demo
                 </a>
-                <a href="#components" class="btn btn-secondary btn-lg">
+                <a href="#components" class="rt-btn rt-btn-secondary rt-btn-lg">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
@@ -1015,21 +1015,21 @@
     <!-- FOOTER -->
     <footer class="rt-footer" id="footer">
         <div class="rt-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="rt-footer__grid">
+            <div class="rt-footer-grid">
                 <div>
-                    <div class="rt-footer__brand">
-                        <span class="rt-brand_dot"></span>
+                    <div class="rt-footer-brand">
+                        <span class="rt-brand-dot"></span>
                         <span>Retro-term CSS</span>
                     </div>
-                    <p class="rt-footer__text">
+                    <p class="rt-footer-text">
                         A modern CSS framework for building fast, responsive, and beautiful websites
                         with flat design and glassmorphism.
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="rt-footer__title">Product</h4>
-                    <ul class="rt-footer__links">
+                    <h4 class="rt-footer-title">Product</h4>
+                    <ul class="rt-footer-links">
                         <li><a href="#features">Features</a></li>
                         <li><a href="#components">Components</a></li>
                         <li><a href="#cta">Templates</a></li>
@@ -1039,8 +1039,8 @@
                 </div>
 
                 <div>
-                    <h4 class="rt-footer__title">Resources</h4>
-                    <ul class="rt-footer__links">
+                    <h4 class="rt-footer-title">Resources</h4>
+                    <ul class="rt-footer-links">
                         <li><a href="#components">Documentation</a></li>
                         <li><a href="#features">Tutorials</a></li>
                         <li><a href="https://www.afandev.my.id" target="_blank" rel="noopener noreferrer">Blog</a></li>
@@ -1049,8 +1049,8 @@
                 </div>
 
                 <div>
-                    <h4 class="rt-footer__title">Company</h4>
-                    <ul class="rt-footer__links">
+                    <h4 class="rt-footer-title">Company</h4>
+                    <ul class="rt-footer-links">
                         <li><a href="https://www.afandev.my.id" target="_blank" rel="noopener noreferrer">About</a></li>
                         <li><a href="mailto:hello@afandev.my.id">Contact</a></li>
                         <li><a href="#footer">Privacy</a></li>
@@ -1059,7 +1059,7 @@
                 </div>
             </div>
 
-            <div class="rt-footer__bottom">
+            <div class="rt-footer-bottom">
                 � 2026 Retro-term CSS. All rights reserved. Built by <a href="https://www.afandev.my.id" target="_blank"
                     rel="noopener noreferrer">AfanDev</a>.
             </div>
@@ -1091,12 +1091,12 @@
             });
         }, observerOptions);
 
-        // Observe all feature cards
-        document.querySelectorAll('.rt-feature-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
-            observer.observe(card);
+        // Observe all feature rt-cards
+        document.querySelectorAll('.rt-feature-card').forEach((rt-card, index) => {
+            rt-card.style.opacity = '0';
+            rt-card.style.transform = 'translateY(20px)';
+            rt-card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            observer.observe(rt-card);
         });
 
         const consoleCommand = document.getElementById('consoleCommand');
@@ -1124,7 +1124,7 @@
                         consoleResult.textContent = resultText;
                         if (consoleCursor) consoleCursor.style.display = 'none';
                         window.setTimeout(() => {
-                            consoleNext.innerHTML = `<span class="rt-console__prompt">${nextPromptText}</span>`;
+                            consoleNext.innerHTML = `<span class="rt-console-prompt">${nextPromptText}</span>`;
                         }, 650);
                     }, 700);
                 }

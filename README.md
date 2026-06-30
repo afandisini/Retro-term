@@ -12,13 +12,22 @@ No Bootstrap. No Tailwind. No external UI dependency.
 
 - Admin dashboard layout with sidebar, topbar, stat cards, charts, activity, and quick actions
 - Landing page system with hero, feature cards, stats, CTA, timeline, and footer blocks
-- Login page layout with centered auth card and form helpers
+- Login page layout with centered auth rt-card and form helpers
 - CRUD table patterns with toolbar, responsive table wrapper, actions, modal forms, and pagination
 - Core UI components such as buttons, badges, alerts, toasts, modals, dropdowns, navbar, accordion, carousel, and form controls
 - Grid, spacing, and utility classes for fast composition
 - Light and dark themes with localStorage persistence
 
 ## Quick Start
+
+### Setup
+
+```bash
+npm install
+npm run build
+```
+
+Folder `node_modules` tidak disertakan di repository. Jalankan `npm install` untuk mengunduh dependency lokal.
 
 ### CDN
 
@@ -55,7 +64,7 @@ import "retro-term-css/icons";
   <body>
     <main class="rt-container rt-py4">
       <h1>Hello Retro-term</h1>
-      <button class="btn btn-primary">Primary Action</button>
+      <button class="rt-btn rt-btn-primary">Primary Action</button>
     </main>
     <script src="dist/retro-term.min.js" defer></script>
   </body>
@@ -74,11 +83,11 @@ import "retro-term-css/icons";
 
 - Layout: `rt-admin`, `rt-sbr`, `rt-main`, `rt-topbar`, `rt-content`
 - Grid: `rt-container`, `rt-row`, `rt-col-*`, `rt-g-*`
-- Buttons: `btn`, `btn-primary`, `btn-secondary`, `btn-success`, `btn-warning`, `btn-danger`, `btn-ghost`, `btn-outline-primary`
+- Buttons: `rt-btn`, `rt-btn-primary`, `rt-btn-secondary`, `rt-btn-success`, `rt-btn-warning`, `rt-btn-danger`, `rt-btn-ghost`, `rt-btn-outline-primary`
 - Forms: `rt-form-group`, `rt-form-label`, `rt-form-input`, `rt-form-select`, `rt-form-textarea`, `rt-form-check`
 - Tables: `rt-table`, `rt-table-wrap`, `rt-table-toolbar`, `rt-table-pagination`, `rt-badge`
 - Feedback: `rt-alert`, `rt-toast`
-- Navigation: `rt-navbar`, `nav-dropdown`, `dropdown`
+- Navigation: `rt-navbar`, `rt-nav-dropdown`, `rt-dropdown`
 - Widgets: `rt-accordion`, `rt-carousel`, `rt-progress`, `rt-activity`, `rt-quick`
 - Landing page: `rt-landing`, `rt-hero`, `rt-feature-grid`, `rt-cta`, `rt-footer`
 
@@ -101,6 +110,6 @@ Build output regenerates:
 
 ## Notes
 
-- Retro-term keeps the existing class prefixes and adds compatibility aliases where needed.
+- Retro-term uses the `rt-` namespace consistently across CSS, JS, examples, and docs.
 - The framework is designed to be used directly in vanilla HTML, PHP, Laravel, CodeIgniter, React, Vue, Next.js, Nuxt, Svelte, and Astro projects.
 - Documentation lives in `DOCUMENTATION.md`.

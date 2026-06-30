@@ -14,39 +14,39 @@
 
 <body>
     <div class="rt-admin">
-        <div class="rt-sbr_overlay" id="sidebarOverlay"></div>
+        <div class="rt-sbr-overlay" id="sidebarOverlay"></div>
 
         <aside class="rt-sbr" id="sidebar">
-            <div class="rt-sbr_brand">
-                <span class="rt-brand_dot"></span>
+            <div class="rt-sbr-brand">
+                <span class="rt-brand-dot"></span>
                 <span>Retro-term</span>
             </div>
 
-            <nav class="rt-sbr_nav">
-                <a class="rt-sbr_link" href="dashboard.html">
+            <nav class="rt-sbr-nav">
+                <a class="rt-sbr-link" href="dashboard.html">
                     <i class="rt rt-dashboard"></i>
                     Dashboard
                 </a>
-                <a class="rt-sbr_link is-active" href="crud-table.html">
+                <a class="rt-sbr-link is-active" href="crud-table.html">
                     <i class="rt rt-table"></i>
                     CRUD Table
                 </a>
-                <a class="rt-sbr_link" href="landing-page.html">
+                <a class="rt-sbr-link" href="landing-page.html">
                     <i class="rt rt-layout-sidebar"></i>
                     Landing Page
                 </a>
-                <a class="rt-sbr_link" href="login.html">
+                <a class="rt-sbr-link" href="login.html">
                     <i class="rt rt-login"></i>
                     Login
                 </a>
             </nav>
 
-            <div class="rt-sbr_footer">
-                <div class="rt-sbr_user">
-                    <div class="rt-sbr_avatar rt-avatar-accent">A</div>
-                    <div class="rt-sbr_user-info">
-                        <div class="rt-sbr_user-name">Admin User</div>
-                        <div class="rt-sbr_user-role">Administrator</div>
+            <div class="rt-sbr-footer">
+                <div class="rt-sbr-user">
+                    <div class="rt-sbr-avatar rt-avatar-accent">A</div>
+                    <div class="rt-sbr-user-info">
+                        <div class="rt-sbr-user-name">Admin User</div>
+                        <div class="rt-sbr-user-role">Administrator</div>
                     </div>
                 </div>
             </div>
@@ -54,15 +54,15 @@
 
         <main class="rt-main">
             <div class="rt-topbar">
-                <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
+                <button class="rt-topbar-menu-tbl" id="menuBtn" aria-label="Menu">
                     <i class="rt rt-menu"></i>
                 </button>
-                <div class="rt-topbar_title-wrap">
-                    <h1 class="rt-topbar_title" title="User Management">User Management</h1>
-                    <span class="rt-topbar_breadcrumb" title="Admin Panel / CRUD Table">Admin Panel / CRUD Table</span>
+                <div class="rt-topbar-title-wrap">
+                    <h1 class="rt-topbar-title" title="User Management">User Management</h1>
+                    <span class="rt-topbar-breadcrumb" title="Admin Panel / CRUD Table">Admin Panel / CRUD Table</span>
                 </div>
-                <div class="rt-topbar_actions">
-                    <button class="rt-topbar_icon-tbl" id="themeToggle" aria-label="Toggle theme">
+                <div class="rt-topbar-actions">
+                    <button class="rt-topbar-icon-tbl" id="themeToggle" aria-label="Toggle theme">
                         <i class="rt rt-moon moon-icon"></i>
                         <i class="rt rt-sun sun-icon"></i>
                     </button>
@@ -70,24 +70,24 @@
             </div>
 
             <section class="rt-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Users List</h3>
-                        <div class="card-actions">
+                <div class="rt-card">
+                    <div class="rt-card-header">
+                        <h3 class="rt-card-title">Users List</h3>
+                        <div class="rt-card-actions">
                             <div class="rt-input-search-wrapper">
                                 <i class="rt rt-search"></i>
                                 <input type="text" class="rt-input rt-input-sm" placeholder="Search users..."
-                                    id="tableSearch">
+                                    id="rt-tableSearch">
                             </div>
-                            <button class="rt-btn rt-btn-primary" data-modal-open="addUserModal" type="button">
+                            <button class="rt-btn rt-btn-primary" data-rt-modal-open="addUserModal" type="button">
                                 <i class="rt rt-add"></i>
                                 Add User
                             </button>
                         </div>
                     </div>
-                    <div class="card-body card-body-flush">
+                    <div class="rt-card-body rt-card-body-flush">
                         <div class="rt-table-wrap">
-                            <table class="rt-table" id="usersTable">
+                            <rt-table class="rt-table" id="usersTable">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -103,17 +103,17 @@
                                     <tr>
                                         <td>#001</td>
                                         <td>
-                                            <div class="rt-table_user">
-                                                <div class="rt-table_avatar">JD</div>
+                                            <div class="rt-table-user">
+                                                <div class="rt-table-avatar">JD</div>
                                                 <div>
-                                                    <strong class="rt-table_name">John Doe</strong>
-                                                    <small class="rt-table_email">john@example.com</small>
+                                                    <strong class="rt-table-name">John Doe</strong>
+                                                    <small class="rt-table-email">john@example.com</small>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>john.doe@example.com</td>
                                         <td><span class="rt-badge rt-badge--primary">Admin</span></td>
-                                        <td><span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>
+                                        <td><span class="rt-badge rt-badge--success"><span class="rt-badge-dot"></span>
                                                 Active</span></td>
                                         <td>Jan 15, 2026</td>
                                         <td>
@@ -132,17 +132,17 @@
                                     <tr>
                                         <td>#002</td>
                                         <td>
-                                            <div class="rt-table_user">
-                                                <div class="rt-table_avatar rt-avatar-secondary">JS</div>
+                                            <div class="rt-table-user">
+                                                <div class="rt-table-avatar rt-avatar-secondary">JS</div>
                                                 <div>
-                                                    <strong class="rt-table_name">Jane Smith</strong>
-                                                    <small class="rt-table_email">jane@example.com</small>
+                                                    <strong class="rt-table-name">Jane Smith</strong>
+                                                    <small class="rt-table-email">jane@example.com</small>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>jane.smith@example.com</td>
                                         <td><span class="rt-badge rt-badge--primary">Editor</span></td>
-                                        <td><span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span>
+                                        <td><span class="rt-badge rt-badge--success"><span class="rt-badge-dot"></span>
                                                 Active</span></td>
                                         <td>Feb 20, 2026</td>
                                         <td>
@@ -161,17 +161,17 @@
                                     <tr>
                                         <td>#003</td>
                                         <td>
-                                            <div class="rt-table_user">
-                                                <div class="rt-table_avatar rt-avatar-accent">BW</div>
+                                            <div class="rt-table-user">
+                                                <div class="rt-table-avatar rt-avatar-accent">BW</div>
                                                 <div>
-                                                    <strong class="rt-table_name">Bob Wilson</strong>
-                                                    <small class="rt-table_email">bob@example.com</small>
+                                                    <strong class="rt-table-name">Bob Wilson</strong>
+                                                    <small class="rt-table-email">bob@example.com</small>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>bob.wilson@example.com</td>
                                         <td><span class="rt-badge rt-badge--primary">Viewer</span></td>
-                                        <td><span class="rt-badge rt-badge--warning"><span class="rt-badge_dot"></span>
+                                        <td><span class="rt-badge rt-badge--warning"><span class="rt-badge-dot"></span>
                                                 Pending</span></td>
                                         <td>Mar 10, 2026</td>
                                         <td>
@@ -190,17 +190,17 @@
                                     <tr>
                                         <td>#004</td>
                                         <td>
-                                            <div class="rt-table_user">
-                                                <div class="rt-table_avatar rt-avatar-danger">AL</div>
+                                            <div class="rt-table-user">
+                                                <div class="rt-table-avatar rt-avatar-danger">AL</div>
                                                 <div>
-                                                    <strong class="rt-table_name">Alice Lee</strong>
-                                                    <small class="rt-table_email">alice@example.com</small>
+                                                    <strong class="rt-table-name">Alice Lee</strong>
+                                                    <small class="rt-table-email">alice@example.com</small>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>alice.lee@example.com</td>
                                         <td><span class="rt-badge rt-badge--primary">Editor</span></td>
-                                        <td><span class="rt-badge rt-badge--danger"><span class="rt-badge_dot"></span>
+                                        <td><span class="rt-badge rt-badge--danger"><span class="rt-badge-dot"></span>
                                                 Inactive</span></td>
                                         <td>Apr 05, 2026</td>
                                         <td>
@@ -217,10 +217,10 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </rt-table>
                         </div>
                     </div>
-                    <div class="card-footer">
+                    <div class="rt-card-footer">
                         <div class="rt-pagination">
                             <span class="rt-text-muted">Showing 1-4 of 24 users</span>
                             <div class="rt-btn-group">
@@ -237,14 +237,14 @@
         </main>
     </div>
 
-    <div class="modal" id="addUserModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="modalTitle">Add New User</h3>
-                    <button class="modal-close" data-modal-close aria-label="Close" type="button"></button>
+    <div class="rt-modal" id="addUserModal" role="dialog" aria-modal="true" aria-labelledby="rt-modalTitle">
+        <div class="rt-modal-dialog rt-modal-md">
+            <div class="rt-modal-content">
+                <div class="rt-modal-header">
+                    <h3 class="rt-modal-title" id="rt-modalTitle">Add New User</h3>
+                    <button class="rt-modal-close" data-rt-modal-close aria-label="Close" type="button"></button>
                 </div>
-                <div class="modal-body">
+                <div class="rt-modal-body">
                     <form>
                         <div class="rt-form-group">
                             <label class="rt-form-label" for="userName">Full Name</label>
@@ -267,8 +267,8 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button class="rt-btn rt-btn-secondary" data-modal-close type="button">Cancel</button>
+                <div class="rt-modal-footer">
+                    <button class="rt-btn rt-btn-secondary" data-rt-modal-close type="button">Cancel</button>
                     <button class="rt-btn rt-btn-primary" type="button">Add User</button>
                 </div>
             </div>

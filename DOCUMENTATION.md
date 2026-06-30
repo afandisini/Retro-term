@@ -68,16 +68,16 @@ import "retro-term-css/icons";
 
 ```html
 <div class="rt-admin">
-  <div class="rt-sbr_overlay" id="sidebarOverlay"></div>
+  <div class="rt-sbr-overlay" id="sidebarOverlay"></div>
 
   <aside class="rt-sbr" id="sidebar">
-    <div class="rt-sbr_brand">
-      <span class="rt-brand_dot"></span>
+    <div class="rt-sbr-brand">
+      <span class="rt-brand-dot"></span>
       <span>Retro-term</span>
     </div>
 
-    <nav class="rt-sbr_nav">
-      <a class="rt-sbr_link is-active" href="#">
+    <nav class="rt-sbr-nav">
+      <a class="rt-sbr-link is-active" href="#">
         <i class="rt rt-dashboard"></i>
         Dashboard
       </a>
@@ -86,10 +86,10 @@ import "retro-term-css/icons";
 
   <main class="rt-main">
     <div class="rt-topbar">
-      <button class="rt-topbar_menu-tbl" id="menuBtn" aria-label="Menu">
+      <button class="rt-topbar-menu-tbl" id="menuBtn" aria-label="Menu">
         <i class="rt rt-menu"></i>
       </button>
-      <h1 class="rt-topbar_title">Dashboard</h1>
+      <h1 class="rt-topbar-title">Dashboard</h1>
     </div>
 
     <section class="rt-content">
@@ -105,33 +105,33 @@ import "retro-term-css/icons";
 | --- | --- |
 | `rt-admin` | Admin app wrapper with sidebar and content columns |
 | `rt-sbr` | Fixed sidebar |
-| `rt-sbr_overlay` | Mobile sidebar backdrop |
-| `rt-sbr_brand` | Sidebar brand header |
-| `rt-sbr_nav` | Sidebar nav column |
-| `rt-sbr_link` | Sidebar item |
-| `rt-sbr_badge` | Small count badge in sidebar |
-| `rt-sbr_footer` | Sidebar footer area |
+| `rt-sbr-overlay` | Mobile sidebar backdrop |
+| `rt-sbr-brand` | Sidebar brand header |
+| `rt-sbr-nav` | Sidebar nav column |
+| `rt-sbr-link` | Sidebar item |
+| `rt-sbr-badge` | Small count rt-badge in sidebar |
+| `rt-sbr-footer` | Sidebar footer area |
 | `rt-main` | Main content column |
 | `rt-topbar` | Top navigation bar |
-| `rt-topbar_title` | Topbar title |
-| `rt-topbar_search` | Search container in topbar |
-| `rt-topbar_actions` | Right-side action group |
-| `rt-topbar_icon-tbl` | Icon button in topbar |
-| `rt-topbar_dot` | Small notification dot |
+| `rt-topbar-title` | Topbar title |
+| `rt-topbar-search` | Search rt-container in topbar |
+| `rt-topbar-actions` | Right-side action group |
+| `rt-topbar-icon-tbl` | Icon button in topbar |
+| `rt-topbar-dot` | Small notification dot |
 | `rt-content` | Main page content wrapper |
 
 ### Sidebar Dropdown
 
 ```html
-<div class="nav-dropdown" data-nav-dropdown>
-  <button type="button" class="nav-dropdown-toggle">
+<div class="rt-nav-dropdown" data-rt-nav-dropdown>
+  <button type="button" class="rt-nav-dropdown-toggle">
     <i class="rt rt-users"></i>
     UI Elements
-    <i class="rt rt-chevron-down nav-dropdown-chevron"></i>
+    <i class="rt rt-chevron-down rt-nav-dropdown-chevron"></i>
   </button>
 
-  <div class="nav-dropdown-menu">
-    <a class="nav-dropdown-item" href="#">Button</a>
+  <div class="rt-nav-dropdown-menu">
+    <a class="rt-nav-dropdown-item" href="#">Button</a>
   </div>
 </div>
 ```
@@ -154,15 +154,15 @@ import "retro-term-css/icons";
 
 | Class | Purpose |
 | --- | --- |
-| `rt-container` | Centered container with responsive max-width |
-| `rt-container-fluid` | Full-width container |
-| `rt-row` | Flex row with gutters |
+| `rt-container` | Centered rt-container with responsive max-width |
+| `rt-container-fluid` | Full-width rt-container |
+| `rt-row` | Flex rt-row with gutters |
 | `rt-col` | Equal-width flexible column |
 | `rt-col-auto` | Auto-width column |
 | `rt-col-1` to `rt-col-12` | Fixed width columns |
 | `rt-col-sm-*`, `rt-col-md-*`, `rt-col-lg-*`, `rt-col-xl-*`, `rt-col-xxl-*` | Responsive columns |
 | `rt-offset-*` | Column offsets |
-| `rt-row-cols-*` | Equal row count helpers |
+| `rt-row-cols-*` | Equal rt-row count helpers |
 | `rt-g-*`, `rt-gx-*`, `rt-gy-*` | Gutters |
 
 ### Spacing Utilities
@@ -216,35 +216,35 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 
 ### Canonical Classes
 
-- `btn`
-- `btn-primary`
-- `btn-secondary`
-- `btn-success`
-- `btn-warning`
-- `btn-danger`
-- `btn-accent`
-- `btn-purple`
-- `btn-ghost`
-- `btn-outline-primary`
-- `btn-sm`
-- `btn-lg`
-- `btn-icon`
-- `btn-block`
-- `btn-group`
+- `rt-btn`
+- `rt-btn-primary`
+- `rt-btn-secondary`
+- `rt-btn-success`
+- `rt-btn-warning`
+- `rt-btn-danger`
+- `rt-btn-accent`
+- `rt-btn-purple`
+- `rt-btn-ghost`
+- `rt-btn-outline-primary`
+- `rt-btn-sm`
+- `rt-btn-lg`
+- `rt-btn-icon`
+- `rt-btn-block`
+- `rt-btn-group`
 
 ### Example
 
 ```html
 <div class="rt-btn-group">
-  <button class="btn btn-primary">Save</button>
-  <button class="btn btn-secondary">Cancel</button>
+  <button class="rt-btn rt-btn-primary">Save</button>
+  <button class="rt-btn rt-btn-secondary">Cancel</button>
 </div>
 ```
 
 ### Notes
 
 - `rt-btn-group` is a compatibility alias for grouped actions.
-- `rt-btn-block` and `btn-block` force full width.
+- `rt-btn-block` and `rt-btn-block` force full width.
 
 ---
 
@@ -300,26 +300,26 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 
 ### Card Classes
 
-- `card`
-- `card-header`
-- `card-title`
-- `card-subtitle`
-- `card-actions`
-- `card-body`
-- `card-body-flush`
-- `card-footer`
+- `rt-card`
+- `rt-card-header`
+- `rt-card-title`
+- `rt-card-subtitle`
+- `rt-card-actions`
+- `rt-card-body`
+- `rt-card-body-flush`
+- `rt-card-footer`
 
 ### Example
 
 ```html
-<div class="card">
-  <div class="card-header">
+<div class="rt-card">
+  <div class="rt-card-header">
     <div>
-      <h3 class="card-title">Overview</h3>
-      <p class="card-subtitle">Last 7 days</p>
+      <h3 class="rt-card-title">Overview</h3>
+      <p class="rt-card-subtitle">Last 7 days</p>
     </div>
   </div>
-  <div class="card-body">
+  <div class="rt-card-body">
     Content
   </div>
 </div>
@@ -337,14 +337,14 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-table-search`
 - `rt-table-info`
 - `rt-table-pagination`
-- `rt-table-pagination__info`
-- `rt-table-pagination__nav`
-- `rt-table-pagination__btn`
-- `rt-table-pagination__text`
-- `rt-table_user`
-- `rt-table_avatar`
-- `rt-table_name`
-- `rt-table_email`
+- `rt-table-pagination-info`
+- `rt-table-pagination-nav`
+- `rt-table-pagination-btn`
+- `rt-table-pagination-text`
+- `rt-table-user`
+- `rt-table-avatar`
+- `rt-table-name`
+- `rt-table-email`
 
 ### Supporting Classes
 
@@ -353,13 +353,13 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-badge--success`
 - `rt-badge--warning`
 - `rt-badge--danger`
-- `rt-badge_dot`
+- `rt-badge-dot`
 
 ### Example
 
 ```html
 <div class="rt-table-wrap">
-  <table class="rt-table">
+  <rt-table class="rt-table">
     <thead>
       <tr>
         <th>Name</th>
@@ -369,18 +369,18 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
     <tbody>
       <tr>
         <td>
-          <div class="rt-table_user">
-            <div class="rt-table_avatar">RT</div>
+          <div class="rt-table-user">
+            <div class="rt-table-avatar">RT</div>
             <div>
-              <div class="rt-table_name">Retro Term</div>
-              <div class="rt-table_email">hello@example.com</div>
+              <div class="rt-table-name">Retro Term</div>
+              <div class="rt-table-email">hello@example.com</div>
             </div>
           </div>
         </td>
-        <td><span class="rt-badge rt-badge--success"><span class="rt-badge_dot"></span> Active</span></td>
+        <td><span class="rt-badge rt-badge--success"><span class="rt-badge-dot"></span> Active</span></td>
       </tr>
     </tbody>
-  </table>
+  </rt-table>
 </div>
 ```
 
@@ -391,10 +391,10 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 ### Alerts
 
 - `rt-alert`
-- `rt-alert__icon`
-- `rt-alert__content`
-- `rt-alert__title`
-- `rt-alert__text`
+- `rt-alert-icon`
+- `rt-alert-content`
+- `rt-alert-title`
+- `rt-alert-text`
 - `rt-alert--primary`
 - `rt-alert--success`
 - `rt-alert--warning`
@@ -403,11 +403,11 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 ### Toasts
 
 - `rt-toast`
-- `rt-toast__icon`
-- `rt-toast__content`
-- `rt-toast__title`
-- `rt-toast__text`
-- `rt-toast__close`
+- `rt-toast-icon`
+- `rt-toast-content`
+- `rt-toast-title`
+- `rt-toast-text`
+- `rt-toast-close`
 - `rt-toast--success`
 - `rt-toast--warning`
 - `rt-toast--danger`
@@ -422,10 +422,10 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 
 ```html
 <div class="rt-alert rt-alert--primary">
-  <div class="rt-alert__icon"><i class="rt rt-info"></i></div>
-  <div class="rt-alert__content">
-    <div class="rt-alert__title">Heads up</div>
-    <div class="rt-alert__text">This is a framework-level notice.</div>
+  <div class="rt-alert-icon"><i class="rt rt-info"></i></div>
+  <div class="rt-alert-content">
+    <div class="rt-alert-title">Heads up</div>
+    <div class="rt-alert-text">This is a framework-level notice.</div>
   </div>
 </div>
 ```
@@ -438,36 +438,36 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 
 - `rt-navbar`
 - `rt-navbar--scrolled`
-- `rt-navbar-container`
+- `rt-navbar-rt-container`
 - `rt-navbar-brand`
 - `rt-navbar-brand-dot`
 - `rt-navbar-menu`
 - `rt-navbar-link`
 - `rt-navbar-actions`
-- `rt-navbar-btn`
+- `rt-navbar-rt-btn`
 - `rt-navbar-toggle`
 - `rt-navbar--transparent`
 - `rt-navbar--dark`
 
 ### Dropdown
 
-- `dropdown`
-- `dropdown-menu`
-- `dropdown-menu--left`
-- `dropdown-item`
-- `dropdown-item--danger`
-- `dropdown-divider`
-- `dropdown-label`
+- `rt-dropdown`
+- `rt-dropdown-menu`
+- `rt-dropdown-menu--left`
+- `rt-dropdown-item`
+- `rt-dropdown-item--danger`
+- `rt-dropdown-divider`
+- `rt-dropdown-label`
 
 ### Example
 
 ```html
-<div class="dropdown" data-dropdown>
-  <button class="btn btn-secondary" data-dropdown-trigger type="button">Menu</button>
-  <div class="dropdown-menu">
-    <button class="dropdown-item" type="button">Profile</button>
-    <div class="dropdown-divider"></div>
-    <button class="dropdown-item dropdown-item--danger" type="button">Logout</button>
+<div class="rt-dropdown" data-rt-dropdown>
+  <button class="rt-btn rt-btn-secondary" data-rt-dropdown-trigger type="button">Menu</button>
+  <div class="rt-dropdown-menu">
+    <button class="rt-dropdown-item" type="button">Profile</button>
+    <div class="rt-dropdown-divider"></div>
+    <button class="rt-dropdown-item rt-dropdown-item--danger" type="button">Logout</button>
   </div>
 </div>
 ```
@@ -478,39 +478,39 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 
 ### Classes
 
-- `modal`
-- `modal-content`
-- `modal-dialog`
-- `modal-sm`
-- `modal-md`
-- `modal-lg`
-- `modal-xl`
-- `modal-fullscreen`
-- `modal-header`
-- `modal-title`
-- `modal-subtitle`
-- `modal-body`
-- `modal-footer`
-- `modal-close`
-- `modal-embed`
-- `modal-embled`
-- `modal-embed--map`
-- `modal-embed--video`
+- `rt-modal`
+- `rt-modal-content`
+- `rt-modal-dialog`
+- `rt-modal-sm`
+- `rt-modal-md`
+- `rt-modal-lg`
+- `rt-modal-xl`
+- `rt-modal-fullscreen`
+- `rt-modal-header`
+- `rt-modal-title`
+- `rt-modal-subtitle`
+- `rt-modal-body`
+- `rt-modal-footer`
+- `rt-modal-close`
+- `rt-modal-embed`
+- `rt-modal-embed`
+- `rt-modal-embed--map`
+- `rt-modal-embed--video`
 
 ### Example
 
 ```html
-<div class="modal" id="demoModal" role="dialog" aria-modal="true">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">Modal title</h3>
-        <button class="modal-close" type="button" aria-label="Close"></button>
+<div class="rt-modal" id="demoModal" role="dialog" aria-modal="true">
+  <div class="rt-modal-dialog rt-modal-md">
+    <div class="rt-modal-content">
+      <div class="rt-modal-header">
+        <h3 class="rt-modal-title">Modal title</h3>
+        <button class="rt-modal-close" type="button" aria-label="Close"></button>
       </div>
-      <div class="modal-body">Body</div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button">Cancel</button>
-        <button class="btn btn-primary" type="button">Save</button>
+      <div class="rt-modal-body">Body</div>
+      <div class="rt-modal-footer">
+        <button class="rt-btn rt-btn-secondary" type="button">Cancel</button>
+        <button class="rt-btn rt-btn-primary" type="button">Save</button>
       </div>
     </div>
   </div>
@@ -550,24 +550,24 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 ### Dashboard Widgets
 
 - `rt-chart`
-- `rt-chart_svg`
+- `rt-chart-svg`
 - `rt-activity`
-- `rt-activity_item`
-- `rt-activity_icon`
-- `rt-activity_content`
-- `rt-activity_text`
-- `rt-activity_time`
+- `rt-activity-item`
+- `rt-activity-icon`
+- `rt-activity-content`
+- `rt-activity-text`
+- `rt-activity-time`
 - `rt-progress`
-- `rt-progress_head`
-- `rt-progress_label`
-- `rt-progress_value`
-- `rt-progress_bar`
-- `rt-progress_fill`
-- `rt-progress_fill--accent`
-- `rt-progress_fill--success`
-- `rt-progress_fill--purple`
+- `rt-progress-head`
+- `rt-progress-label`
+- `rt-progress-value`
+- `rt-progress-bar`
+- `rt-progress-fill`
+- `rt-progress-fill--accent`
+- `rt-progress-fill--success`
+- `rt-progress-fill--purple`
 - `rt-quick`
-- `rt-quick_btn`
+- `rt-quick-btn`
 
 ### Example
 
@@ -593,12 +593,12 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 
 - `rt-landing`
 - `rt-hero`
-- `rt-hero__shape`
-- `rt-hero__content`
-- `rt-hero__badge`
-- `rt-hero__title`
-- `rt-hero__subtitle`
-- `rt-hero__actions`
+- `rt-hero-shape`
+- `rt-hero-content`
+- `rt-hero-rt-badge`
+- `rt-hero-title`
+- `rt-hero-subtitle`
+- `rt-hero-actions`
 - `rt-feature-grid`
 - `rt-feature-card`
 - `rt-feature-icon`
@@ -671,17 +671,17 @@ Retro-term JS uses attribute hooks instead of framework dependencies.
 - `id="menuBtn"`
 - `id="sidebar"`
 - `id="sidebarOverlay"`
-- `data-dropdown`
-- `data-dropdown-trigger`
-- `data-modal-open`
-- `data-modal-close`
-- `data-nav-dropdown`
+- `data-rt-dropdown`
+- `data-rt-dropdown-trigger`
+- `data-rt-modal-open`
+- `data-rt-modal-close`
+- `data-rt-nav-dropdown`
 
 ### Initialization Notes
 
 - Load `retro-term.min.js` with `defer`.
 - Keep the `data-theme` attribute on `<html>`.
-- Keep sidebar and dropdown IDs consistent with the examples if you reuse the stock script.
+- Keep sidebar and rt-dropdown IDs consistent with the examples if you reuse the stock script.
 
 ---
 
@@ -700,8 +700,8 @@ Retro-term JS uses attribute hooks instead of framework dependencies.
 @use "buttons";
 @use "popup";
 @use "feedback";
-@use "dropdown";
-@use "table";
+@use "rt-dropdown";
+@use "rt-table";
 @use "widgets";
 @use "components";
 @use "landing";
@@ -727,7 +727,7 @@ npm run build
 ## 17. Customization Notes
 
 - Keep the `rt-` prefix for new framework classes.
-- Add compatibility aliases if you need to preserve older examples.
+- Keep examples and docs aligned with the canonical `rt-` namespace.
 - Avoid adding external dependencies to the framework layer.
 - Prefer documentation and example updates before changing Sass.
 

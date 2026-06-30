@@ -15,7 +15,8 @@ No Bootstrap. No Tailwind. No external UI dependency.
 - Login page layout with centered auth rt-card and form helpers
 - CRUD table patterns with toolbar, responsive table wrapper, actions, modal forms, and pagination
 - Core UI components such as buttons, badges, alerts, toasts, modals, dropdowns, navbar, accordion, carousel, and form controls
-- Grid, spacing, and utility classes for fast composition
+- Grid, flex, spacing, typography, color, and utility classes for fast composition
+- Icon helpers using the `rt rt-*` class pattern
 - Light and dark themes with localStorage persistence
 
 ## Quick Start
@@ -32,8 +33,8 @@ Folder `node_modules` tidak disertakan di repository. Jalankan `npm install` unt
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/retro-term.min.css">
-<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/retro-term.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.css">
+<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.js" defer></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term-icons.css">
 ```
 
@@ -83,13 +84,19 @@ import "retro-term-css/icons";
 
 - Layout: `rt-admin`, `rt-sbr`, `rt-main`, `rt-topbar`, `rt-content`
 - Grid: `rt-container`, `rt-row`, `rt-col-*`, `rt-g-*`
+- Flex: `rt-flex`, `rt-flex-start`, `rt-flex-center`, `rt-flex-end`, `rt-flex-between`
 - Buttons: `rt-btn`, `rt-btn-primary`, `rt-btn-secondary`, `rt-btn-success`, `rt-btn-warning`, `rt-btn-danger`, `rt-btn-ghost`, `rt-btn-outline-primary`
 - Forms: `rt-form-group`, `rt-form-label`, `rt-form-input`, `rt-form-select`, `rt-form-textarea`, `rt-form-check`
 - Tables: `rt-table`, `rt-table-wrap`, `rt-table-toolbar`, `rt-table-pagination`, `rt-badge`
 - Feedback: `rt-alert`, `rt-toast`
+- Modal: `rt-modal`, `rt-modal-content`, `rt-modal-dialog`, `rt-modal-header`, `rt-modal-body`, `rt-modal-footer`
 - Navigation: `rt-navbar`, `rt-nav-dropdown`, `rt-dropdown`
 - Widgets: `rt-accordion`, `rt-carousel`, `rt-progress`, `rt-activity`, `rt-quick`
+- Spacing: `rt-m*`, `rt-p*`
+- Text color: `rt-text-*`
+- Typography: `rt-text-lead`, `rt-text-muted`, `rt-text-small`
 - Landing page: `rt-landing`, `rt-hero`, `rt-feature-grid`, `rt-cta`, `rt-footer`
+- Icons: `rt rt-*`
 
 ## Build
 
@@ -100,13 +107,12 @@ npm run build
 
 Build output regenerates:
 
-- `retro-term.css`
-- `retro-term.min.css`
 - `dist/retro-term.css`
 - `dist/retro-term.min.css`
 - `dist/retro-term.js`
 - `dist/retro-term.min.js`
 - `dist/retro-term-icons.css`
+- `dist/retro-term-icons.min.css`
 
 ## Notes
 

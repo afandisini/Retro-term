@@ -17,8 +17,8 @@ npm install retro-term-css
 ### Use via CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/retro-term.min.css">
-<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/retro-term.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.css">
+<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.js" defer></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term-icons.css">
 ```
 
@@ -717,10 +717,12 @@ npm run build
 
 ### Output Files
 
-- `retro-term.css`
-- `retro-term.min.css`
 - `dist/retro-term.css`
 - `dist/retro-term.min.css`
+- `dist/retro-term.js`
+- `dist/retro-term.min.js`
+- `dist/retro-term-icons.css`
+- `dist/retro-term-icons.min.css`
 
 ---
 

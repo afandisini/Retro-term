@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;950&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../assets/term-icons/dist/retro-term-icons.css?v=20260621">
-    <link rel="stylesheet" href="../retro-term.css?v=20260621">
+    <link rel="stylesheet" href="../dist/retro-term-icons.css">
+    <link rel="stylesheet" href="../dist/retro-term.min.css">
 
     <style>
         .rt-doc-hero {
@@ -133,6 +133,62 @@
             padding: 14px;
             border: 1px solid var(--rt-border);
             background: var(--rt-surface-solid);
+        }
+
+        .rt-doc-swatch-grid,
+        .rt-doc-icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .rt-doc-swatch {
+            display: grid;
+            gap: 10px;
+            padding: 14px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+        }
+
+        .rt-doc-swatch-color {
+            height: 52px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .rt-doc-swatch-label {
+            margin: 0;
+            font-size: .84rem;
+            font-weight: 900;
+            letter-spacing: -.02em;
+        }
+
+        .rt-doc-swatch-value {
+            margin: 0;
+            color: var(--rt-muted);
+            font-size: .78rem;
+            line-height: 1.5;
+        }
+
+        .rt-doc-icon-item {
+            display: grid;
+            gap: 8px;
+            place-items: center;
+            padding: 14px 12px;
+            border: 1px solid var(--rt-border);
+            background: var(--rt-surface-solid);
+            text-align: center;
+        }
+
+        .rt-doc-icon-item .rt {
+            width: 20px;
+            height: 20px;
+        }
+
+        .rt-doc-icon-name {
+            font-size: .8rem;
+            font-weight: 800;
+            color: var(--rt-text);
         }
 
         .rt-doc-code {
@@ -426,10 +482,10 @@
                     </button>
                     <div class="rt-nav-dropdown-menu">
                         <a class="rt-nav-dropdown-item" href="buttons.html">Buttons</a>
-                        <a class="rt-nav-dropdown-item" href="rt-badge.html">Badges</a>
-                        <a class="rt-nav-dropdown-item" href="rt-modal.html">Modal</a>
+                        <a class="rt-nav-dropdown-item" href="badge.html">Badges</a>
+                        <a class="rt-nav-dropdown-item" href="modal.html">Modal</a>
                         <a class="rt-nav-dropdown-item" href="toast.html">Toast</a>
-                        <a class="rt-nav-dropdown-item" href="rt-table.html">Table</a>
+                        <a class="rt-nav-dropdown-item" href="table.html">Table</a>
                         <a class="rt-nav-dropdown-item" href="input.html">Input Form</a>
                         <a class="rt-nav-dropdown-item" href="typography.html">Typography</a>
                         <a class="rt-nav-dropdown-item" href="color.html">Color</a>
@@ -536,8 +592,8 @@
                                         <p class="rt-doc-desc">
                                             This page is structured like Bootstrap 5.3 documentation:
                                             it includes component summaries, class name guidance, markup examples,
-                                            and quick references for layout, forms, data display, overlays, and
-                                            utilities.
+                                            and quick references for layout, forms, data display, overlays, color,
+                                            typography, icons, and utilities.
                                         </p>
                                     </div>
                                     <div class="rt-doc-pill-rt-row">
@@ -562,14 +618,15 @@
                                         <h3 class="rt-doc-panel-title">Namespace</h3>
                                         <p class="rt-doc-panel-text">
                                             The primary classes use the <span class="rt-doc-inline-code">rt-</span>
-                                            prefix to avoid conflicts with other libraries.
+                                            prefix to avoid conflicts with other libraries. Icons use the separate
+                                            <span class="rt-doc-inline-code">rt rt-*</span> mask pattern.
                                         </p>
                                     </div>
                                     <div class="rt-doc-panel">
                                         <h3 class="rt-doc-panel-title">Components</h3>
                                         <p class="rt-doc-panel-text">
                                             This documentation covers layout, navigation, buttons, forms, rt-tables,
-                                            rt-badges, progress, rt-modal, toast, and utilities.
+                                            rt-badges, progress, rt-modal, toast, typography, color, icons, and utilities.
                                         </p>
                                     </div>
                                 </div>
@@ -844,7 +901,7 @@
                                         <option>Editor</option>
                                         <option>Member</option>
                                     </select>
-                                    <textarea class="rt-form-textarea" rt-rows="3" placeholder="Short bio..."></textarea>
+                                    <textarea class="rt-form-textarea" rows="3" placeholder="Short bio..."></textarea>
                                 </div>
                                 <rt-table class="rt-doc-rt-table">
                                     <thead>
@@ -1003,6 +1060,7 @@
                                 <ul class="rt-doc-list">
                                     <li><code>rt-flow</code> and its modifiers control spacing between items.</li>
                                     <li><code>rt-row</code> is used for flex-wrap based layouts.</li>
+                                    <li><code>rt-flex</code> helpers align and distribute content horizontally.</li>
                                     <li><code>rt-mt1</code> through <code>rt-mt4</code> provide top margin.</li>
                                     <li><code>rt-p1</code> through <code>rt-p4</code> provide padding.</li>
                                     <li><code>rt-row-cols-*</code> is used for rt-row-based responsive grids.</li>
@@ -1011,10 +1069,209 @@
                                     <span class="rt-doc-inline-code">rt-mt3</span>
                                     <span class="rt-doc-inline-code">rt-p2</span>
                                     <span class="rt-doc-inline-code">rt-flow--y</span>
+                                    <span class="rt-doc-inline-code">rt-flex-between</span>
                                     <span class="rt-doc-inline-code">rt-row-cols-3</span>
                                 </div>
                             </div>
                         </article>
+                    </section>
+
+                    <section class="rt-doc-grid rt-doc-grid-2">
+                        <article class="rt-card rt-section rt-doc-rt-card" id="typography" data-doc-rt-card>
+                            <div class="rt-card-header">
+                                <div>
+                                    <div class="rt-card-title">Typography</div>
+                                    <div class="rt-card-subtitle">Headings, helper text, and inline emphasis</div>
+                                </div>
+                            </div>
+                            <div class="rt-card-body rt-doc-rt-card-body">
+                                <div class="rt-doc-sample">
+                                    <h1 style="margin:0">Heading 1</h1>
+                                    <h2 style="margin:0">Heading 2</h2>
+                                    <h3 style="margin:0">Heading 3</h3>
+                                    <p class="rt-text-lead" style="margin:0">Lead text uses a larger, calmer reading
+                                        style.</p>
+                                    <p class="rt-text-muted" style="margin:0">Muted text is for supporting details and
+                                        captions.</p>
+                                    <p style="margin:0">Inline <a class="rt-link" href="#">links</a> and <code>code
+                                            spans</code> remain readable in both light and dark themes.</p>
+                                </div>
+                                <rt-table class="rt-doc-rt-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Function</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>rt-text-lead</code></td>
+                                            <td>Large intro text.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>rt-text-muted</code></td>
+                                            <td>Secondary supporting text.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>rt-text-small</code></td>
+                                            <td>Compact small-print text.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>rt-link</code></td>
+                                            <td>Framework link styling.</td>
+                                        </tr>
+                                    </tbody>
+                                </rt-table>
+                            </div>
+                        </article>
+
+                        <article class="rt-card rt-section rt-doc-rt-card" id="color-theme" data-doc-rt-card>
+                            <div class="rt-card-header">
+                                <div>
+                                    <div class="rt-card-title">Color and Theme</div>
+                                    <div class="rt-card-subtitle">CSS variables used by the palette and dark mode</div>
+                                </div>
+                            </div>
+                            <div class="rt-card-body rt-doc-rt-card-body">
+                                <p class="rt-doc-rt-card-lead">
+                                    Retro-term uses design tokens instead of scattered hard-coded colors. The main
+                                    palette lives in CSS variables such as <code>--rt-primary</code>,
+                                    <code>--rt-accent</code>, and <code>--rt-muted</code>.
+                                </p>
+                                <div class="rt-doc-swatch-grid">
+                                    <div class="rt-doc-swatch">
+                                        <div class="rt-doc-swatch-color" style="background: var(--rt-primary)"></div>
+                                        <p class="rt-doc-swatch-label">Primary</p>
+                                        <p class="rt-doc-swatch-value">--rt-primary / --rt-primary-rgb</p>
+                                    </div>
+                                    <div class="rt-doc-swatch">
+                                        <div class="rt-doc-swatch-color" style="background: var(--rt-accent)"></div>
+                                        <p class="rt-doc-swatch-label">Accent</p>
+                                        <p class="rt-doc-swatch-value">--rt-accent</p>
+                                    </div>
+                                    <div class="rt-doc-swatch">
+                                        <div class="rt-doc-swatch-color" style="background: var(--rt-success)"></div>
+                                        <p class="rt-doc-swatch-label">Success</p>
+                                        <p class="rt-doc-swatch-value">--rt-success / --rt-success-rgb</p>
+                                    </div>
+                                    <div class="rt-doc-swatch">
+                                        <div class="rt-doc-swatch-color" style="background: var(--rt-warning)"></div>
+                                        <p class="rt-doc-swatch-label">Warning</p>
+                                        <p class="rt-doc-swatch-value">--rt-warning / --rt-warning-rgb</p>
+                                    </div>
+                                    <div class="rt-doc-swatch">
+                                        <div class="rt-doc-swatch-color" style="background: var(--rt-danger)"></div>
+                                        <p class="rt-doc-swatch-label">Danger</p>
+                                        <p class="rt-doc-swatch-value">--rt-danger</p>
+                                    </div>
+                                    <div class="rt-doc-swatch">
+                                        <div class="rt-doc-swatch-color" style="background: var(--rt-bg)"></div>
+                                        <p class="rt-doc-swatch-label">Background</p>
+                                        <p class="rt-doc-swatch-value">--rt-bg</p>
+                                    </div>
+                                    <div class="rt-doc-swatch">
+                                        <div class="rt-doc-swatch-color" style="background: var(--rt-surface)"></div>
+                                        <p class="rt-doc-swatch-label">Surface</p>
+                                        <p class="rt-doc-swatch-value">--rt-surface</p>
+                                    </div>
+                                    <div class="rt-doc-swatch">
+                                        <div class="rt-doc-swatch-color" style="background: var(--rt-border)"></div>
+                                        <p class="rt-doc-swatch-label">Border</p>
+                                        <p class="rt-doc-swatch-value">--rt-border</p>
+                                    </div>
+                                </div>
+                                <rt-table class="rt-doc-rt-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Token</th>
+                                            <th>Usage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>--rt-text</code></td>
+                                            <td>Main readable text color.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>--rt-muted</code></td>
+                                            <td>Secondary copy and captions.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>--rt-primary-rgb</code></td>
+                                            <td>Used for alpha overlays and gradients.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>data-theme="dark"</code></td>
+                                            <td>Switches the palette to dark mode tokens.</td>
+                                        </tr>
+                                    </tbody>
+                                </rt-table>
+                            </div>
+                        </article>
+                    </section>
+
+                    <section class="rt-card rt-section rt-doc-rt-card" id="icons" data-doc-rt-card>
+                        <div class="rt-card-header">
+                            <div>
+                                <div class="rt-card-title">Icons</div>
+                                <div class="rt-card-subtitle">Icon font masks using the <code>rt rt-*</code> pattern</div>
+                            </div>
+                        </div>
+                        <div class="rt-card-body rt-doc-rt-card-body">
+                            <p class="rt-doc-rt-card-lead">
+                                Icon styles are loaded from <code>dist/retro-term-icons.css</code>. Each icon uses the
+                                base <code>rt</code> class plus a specific name such as <code>rt-dashboard</code> or
+                                <code>rt-menu</code>.
+                            </p>
+                            <div class="rt-doc-icon-grid">
+                                <div class="rt-doc-icon-item"><i class="rt rt-dashboard" aria-hidden="true"></i><span
+                                        class="rt-doc-icon-name">rt-dashboard</span></div>
+                                <div class="rt-doc-icon-item"><i class="rt rt-users" aria-hidden="true"></i><span
+                                        class="rt-doc-icon-name">rt-users</span></div>
+                                <div class="rt-doc-icon-item"><i class="rt rt-menu" aria-hidden="true"></i><span
+                                        class="rt-doc-icon-name">rt-menu</span></div>
+                                <div class="rt-doc-icon-item"><i class="rt rt-search" aria-hidden="true"></i><span
+                                        class="rt-doc-icon-name">rt-search</span></div>
+                                <div class="rt-doc-icon-item"><i class="rt rt-notification" aria-hidden="true"></i><span
+                                        class="rt-doc-icon-name">rt-notification</span></div>
+                                <div class="rt-doc-icon-item"><i class="rt rt-settings" aria-hidden="true"></i><span
+                                        class="rt-doc-icon-name">rt-settings</span></div>
+                                <div class="rt-doc-icon-item"><i class="rt rt-check" aria-hidden="true"></i><span
+                                        class="rt-doc-icon-name">rt-check</span></div>
+                                <div class="rt-doc-icon-item"><i class="rt rt-info" aria-hidden="true"></i><span
+                                        class="rt-doc-icon-name">rt-info</span></div>
+                            </div>
+                            <rt-table class="rt-doc-rt-table" style="margin-top: 16px;">
+                                <thead>
+                                    <tr>
+                                        <th>Class</th>
+                                        <th>Usage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>rt rt-dashboard</code></td>
+                                        <td>Dashboard navigation and hero icon.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rt rt-menu</code></td>
+                                        <td>Topbar menu trigger.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rt rt-search</code></td>
+                                        <td>Search field or action icon.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rt rt-notification</code></td>
+                                        <td>Notification and quick-action menus.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rt rt-check</code></td>
+                                        <td>Success states and confirmation hints.</td>
+                                    </tr>
+                                </tbody>
+                            </rt-table>
+                        </div>
                     </section>
 
                     <section class="rt-card rt-section rt-doc-rt-card" id="class-reference" data-doc-rt-card>
@@ -1075,6 +1332,21 @@
                                         <td>Status labels, colors, and dot indicators.</td>
                                     </tr>
                                     <tr>
+                                        <td><code>rt-text*</code></td>
+                                        <td>Typography</td>
+                                        <td>Lead, muted, small, and link text helpers.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rt-m*</code> / <code>rt-p*</code></td>
+                                        <td>Spacing</td>
+                                        <td>Margin and padding utilities.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rt-flex*</code></td>
+                                        <td>Layout Utility</td>
+                                        <td>Horizontal alignment and distribution helpers.</td>
+                                    </tr>
+                                    <tr>
                                         <td><code>rt-modal*</code></td>
                                         <td>Overlay</td>
                                         <td>Backdrop, dialog, header, body, footer.</td>
@@ -1093,6 +1365,11 @@
                                         <td><code>rt-row-cols-*</code></td>
                                         <td>Utility</td>
                                         <td>Responsive rt-row-based columns.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rt rt-*</code></td>
+                                        <td>Icons</td>
+                                        <td>Mask-based icon classes loaded from the icon stylesheet.</td>
                                     </tr>
                                 </tbody>
                             </rt-table>
@@ -1114,6 +1391,12 @@
                                         <span class="rt-doc-rt-card-lead">Color variants, sizes, and icon buttons.</span>
                                     </div>
                                 </a>
+                                <a class="rt-doc-rt-card" href="typography.html">
+                                    <div class="rt-doc-rt-card-body">
+                                        <strong>Typography</strong>
+                                        <span class="rt-doc-rt-card-lead">Text scale, links, and reading styles.</span>
+                                    </div>
+                                </a>
                                 <a class="rt-doc-rt-card" href="input.html">
                                     <div class="rt-doc-rt-card-body">
                                         <strong>Input Form</strong>
@@ -1121,18 +1404,30 @@
                                             checkboxes.</span>
                                     </div>
                                 </a>
-                                <a class="rt-doc-rt-card" href="rt-table.html">
+                                <a class="rt-doc-rt-card" href="color.html">
+                                    <div class="rt-doc-rt-card-body">
+                                        <strong>Color</strong>
+                                        <span class="rt-doc-rt-card-lead">Palette, swatches, and theme tokens.</span>
+                                    </div>
+                                </a>
+                                <a class="rt-doc-rt-card" href="table.html">
                                     <div class="rt-doc-rt-card-body">
                                         <strong>Table</strong>
                                         <span class="rt-doc-rt-card-lead">Search, filters, pagination, and rt-row
                                             actions.</span>
                                     </div>
                                 </a>
-                                <a class="rt-doc-rt-card" href="rt-modal.html">
+                                <a class="rt-doc-rt-card" href="modal.html">
                                     <div class="rt-doc-rt-card-body">
                                         <strong>Modal</strong>
                                         <span class="rt-doc-rt-card-lead">Dialog, fullscreen, embed, and form
                                             examples.</span>
+                                    </div>
+                                </a>
+                                <a class="rt-doc-rt-card" href="#icons">
+                                    <div class="rt-doc-rt-card-body">
+                                        <strong>Icons</strong>
+                                        <span class="rt-doc-rt-card-lead">rt rt-* naming and common icon usage.</span>
                                     </div>
                                 </a>
                             </div>
@@ -1165,8 +1460,11 @@
                             <a href="#data-display"><span>Data Display</span><span>08</span></a>
                             <a href="#overlays"><span>Overlays</span><span>09</span></a>
                             <a href="#utilities"><span>Utilities</span><span>10</span></a>
-                            <a href="#class-reference"><span>Class Reference</span><span>11</span></a>
-                            <a href="#page-map"><span>Page Map</span><span>12</span></a>
+                            <a href="#typography"><span>Typography</span><span>11</span></a>
+                            <a href="#color-theme"><span>Color & Theme</span><span>12</span></a>
+                            <a href="#icons"><span>Icons</span><span>13</span></a>
+                            <a href="#class-reference"><span>Class Reference</span><span>14</span></a>
+                            <a href="#page-map"><span>Page Map</span><span>15</span></a>
                         </nav>
                     </div>
 
@@ -1176,6 +1474,14 @@
                             <div class="rt-doc-classitem">
                                 <strong><code>rt-*</code></strong>
                                 <span>Main framework namespace.</span>
+                            </div>
+                            <div class="rt-doc-classitem">
+                                <strong><code>rt-text*</code></strong>
+                                <span>Typography helpers for lead, muted, and small text.</span>
+                            </div>
+                            <div class="rt-doc-classitem">
+                                <strong><code>rt rt-*</code></strong>
+                                <span>Mask-based icon classes loaded from the icon stylesheet.</span>
                             </div>
                             <div class="rt-doc-classitem">
                                 <strong><code>is-*</code></strong>
@@ -1226,7 +1532,8 @@
         syncDocSearch(docSearchInputs[0]?.value || '');
     </script>
 
-    <script src="../retro-term.js?v=20260621" defer></script>
+    <script src="../dist/retro-term.min.js" defer></script>
 </body>
 
 </html>
+

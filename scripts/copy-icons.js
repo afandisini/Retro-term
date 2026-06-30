@@ -19,6 +19,11 @@ const target = path.join(distDir, 'retro-term-icons.css');
 const minTarget = path.join(distDir, 'retro-term-icons.min.css');
 const legacyTarget = path.join(distDir, 'term-icons.css');
 const legacyMinTarget = path.join(distDir, 'term-icons.min.css');
+const iconAssetPrefix = '../assets/term-icons/src/icons/';
+
+function rewriteIconPaths(css) {
+  return css.replace(/\.\.\/src\/icons\//g, iconAssetPrefix);
+}
 
 if (!source) {
   console.warn('term-icons.css not found. Creating empty fallback.');
@@ -32,11 +37,13 @@ if (!source) {
 fs.copyFileSync(source, target);
 const minSource = source.replace(/\.css$/, '.min.css');
 if (fs.existsSync(minSource)) {
-  fs.copyFileSync(minSource, minTarget);
-  fs.copyFileSync(minSource, legacyMinTarget);
+  fs.writeFileSync(minTarget, rewriteIconPaths(fs.readFileSync(minSource, 'utf8')), 'utf8');
+  fs.writeFileSync(legacyMinTarget, rewriteIconPaths(fs.readFileSync(minSource, 'utf8')), 'utf8');
 } else {
-  fs.copyFileSync(source, minTarget);
-  fs.copyFileSync(source, legacyMinTarget);
+  const css = rewriteIconPaths(fs.readFileSync(source, 'utf8'));
+  fs.writeFileSync(minTarget, css, 'utf8');
+  fs.writeFileSync(legacyMinTarget, css, 'utf8');
 }
-fs.copyFileSync(source, legacyTarget);
+fs.writeFileSync(target, rewriteIconPaths(fs.readFileSync(source, 'utf8')), 'utf8');
+fs.writeFileSync(legacyTarget, rewriteIconPaths(fs.readFileSync(source, 'utf8')), 'utf8');
 console.log(`Copied ${source} to dist/retro-term-icons.css`);

@@ -1,10 +1,12 @@
 const fs = require('fs/promises');
 const path = require('path');
-const icons = require('./icon-map');
+const { buildIconCatalog, readSourceIconNames } = require('./icon-map');
 
 const root = path.resolve(__dirname, '..');
 const sourceDir = path.join(root, 'src', 'icons');
 const distDir = path.join(root, 'dist');
+const icons = buildIconCatalog();
+const sourceNames = readSourceIconNames();
 
 function extractSvgParts(svg) {
   const match = svg.match(/<svg\b([^>]*)>([\s\S]*?)<\/svg>/i);
@@ -31,20 +33,26 @@ async function main() {
   const symbols = [];
   const manifest = [];
 
-  for (const icon of icons) {
-    const file = path.join(sourceDir, `${icon.name}.svg`);
+  for (const sourceName of sourceNames) {
+    const file = path.join(sourceDir, `${sourceName}.svg`);
     const svg = await fs.readFile(file, 'utf8');
     const { viewBox, inner } = extractSvgParts(svg);
 
     symbols.push(
-      `  <symbol id="${icon.name}" viewBox="${viewBox}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${inner}</symbol>`
+      `  <symbol id="${sourceName}" viewBox="${viewBox}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${inner}</symbol>`
     );
+  }
+
+  for (const icon of icons) {
     manifest.push({
       name: icon.name,
-      class: `term-icon-${icon.cssName || icon.name}`,
-      symbol: icon.name,
+      class: `rt rt-${icon.name}`,
+      legacyClass: `term-icon term-icon-${icon.name}`,
+      symbol: icon.source,
       category: icon.category,
-      source: `bootstrap-icons/${icon.source}`
+      source: `src/icons/${icon.source}.svg`,
+      legacy: icon.legacy,
+      aliasOf: icon.aliasOf || null
     });
   }
 
@@ -52,7 +60,7 @@ async function main() {
   await fs.writeFile(path.join(distDir, 'term-icons.svg'), sprite, 'utf8');
   await fs.writeFile(path.join(distDir, 'term-icons.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
 
-  console.log(`Built sprite and manifest for ${icons.length} icons`);
+  console.log(`Built sprite for ${sourceNames.length} source icons and manifest for ${icons.length} callable icon classes`);
 }
 
 main().catch((error) => {

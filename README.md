@@ -15,6 +15,8 @@ No Bootstrap. No Tailwind. No external UI dependency.
 - Login page layout with centered auth rt-card and form helpers
 - CRUD table patterns with toolbar, responsive table wrapper, actions, modal forms, and pagination
 - Core UI components such as buttons, badges, alerts, toasts, modals, dropdowns, navbar, accordion, carousel, and form controls
+- Terminal-native UI blocks such as `rt-terminal-window`, command lines, pills, and terminal status cards
+- Expanded generated icon pack sourced from the full local SVG catalog
 - Grid, flex, spacing, typography, color, and utility classes for fast composition
 - Icon helpers using the `rt rt-*` class pattern
 - Light and dark themes with localStorage persistence
@@ -89,14 +91,18 @@ import "retro-term-css/icons";
 - Forms: `rt-form-group`, `rt-form-label`, `rt-form-input`, `rt-form-select`, `rt-form-textarea`, `rt-form-check`
 - Tables: `rt-table`, `rt-table-wrap`, `rt-table-toolbar`, `rt-table-pagination`, `rt-badge`
 - Feedback: `rt-alert`, `rt-toast`
+- Loading: `rt-spinner`, `rt-skeleton-*`
 - Modal: `rt-modal`, `rt-modal-content`, `rt-modal-dialog`, `rt-modal-header`, `rt-modal-body`, `rt-modal-footer`
 - Navigation: `rt-navbar`, `rt-nav-dropdown`, `rt-dropdown`
 - Widgets: `rt-accordion`, `rt-carousel`, `rt-progress`, `rt-activity`, `rt-quick`
+- Terminal: `rt-terminal-window`, `rt-terminal-header`, `rt-terminal-toolbar`, `rt-terminal-body`, `rt-terminal-line`
 - Spacing: `rt-m*`, `rt-p*`
+- Utilities: `rt-gap-*`, `rt-gap-x-*`, `rt-gap-y-*`, `rt-items-*`, `rt-justify-*`, `rt-grid-auto-fit`, `rt-w-full`, `rt-text-center`, `rt-divider`
 - Text color: `rt-text-*`
 - Typography: `rt-text-lead`, `rt-text-muted`, `rt-text-small`
 - Landing page: `rt-landing`, `rt-hero`, `rt-feature-grid`, `rt-cta`, `rt-footer`
 - Icons: `rt rt-*`
+- Icons now compile from the full `assets/term-icons/src/icons` catalog instead of a small manual map
 
 ## Build
 

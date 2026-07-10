@@ -8,6 +8,7 @@
     "icons:optimize": "node scripts/optimize-icons.js",
     "icons:sprite": "node scripts/build-sprite.js",
     "icons:css": "node scripts/build-css-mask.js",
-    "icons:build": "node scripts/seed-icons.js && node scripts/optimize-icons.js && node scripts/build-sprite.js && node scripts/build-css-mask.js"
+    "icons:readme": "node scripts/build-readme.js",
+    "icons:build": "node scripts/seed-icons.js && node scripts/optimize-icons.js && node scripts/build-sprite.js && node scripts/build-css-mask.js && node scripts/build-readme.js"
   }
 }

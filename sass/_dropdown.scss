@@ -10,9 +10,8 @@
   min-width: 200px;
   padding: 6px;
   border: 1px solid var(--rt-border);
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--rt-surface-solid);
-  box-shadow: var(--rt-shadow);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
@@ -37,7 +36,7 @@
   align-items: center;
   gap: 10px;
   padding: 9px 12px;
-  border-radius: 8px;
+  border-radius: 0;
   color: var(--rt-text);
   font-size: 0.84rem;
   font-weight: 700;
@@ -89,3 +88,4 @@
   text-transform: uppercase;
   color: var(--rt-muted);
 }
+

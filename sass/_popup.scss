@@ -66,9 +66,8 @@
   width: 100%;
   max-height: 85vh;
   border: 0;
-  border-radius: 18px;
+  border-radius: 0;
   background: var(--rt-surface-solid);
-  box-shadow: var(--rt-shadow);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -188,7 +187,7 @@
   height: 36px;
   flex: 0 0 auto;
   border: 1px solid var(--rt-border);
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--rt-surface);
   color: var(--rt-text);
   cursor: pointer;
@@ -206,7 +205,7 @@
   position: absolute;
   width: 14px;
   height: 2px;
-  border-radius: 999px;
+  border-radius: 0;
   background: currentColor;
 }
 
@@ -250,3 +249,4 @@
 body.rt-modal-open {
   overflow: hidden;
 }
+

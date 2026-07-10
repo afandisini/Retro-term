@@ -22,7 +22,7 @@
 
 .rt-hero-shape {
   position: absolute;
-  border-radius: 50%;
+  border-radius: 0;
   filter: blur(60px);
   opacity: 0.5;
   pointer-events: none;
@@ -81,7 +81,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border-radius: 999px;
+  border-radius: 0;
   background: rgba(var(--rt-primary-rgb), 0.10);
   border: 1px solid rgba(var(--rt-primary-rgb), 0.18);
   color: var(--rt-primary);
@@ -127,7 +127,7 @@
 .rt-feature-card {
   padding: 28px;
   border: 1px solid var(--rt-border);
-  border-radius: 18px;
+  border-radius: 0;
   background: var(--rt-surface);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -142,7 +142,7 @@
 .rt-feature-icon {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 0;
   background: linear-gradient(135deg, var(--rt-primary), var(--rt-primary-2));
   color: var(--rt-white);
   display: grid;
@@ -175,7 +175,7 @@
   text-align: center;
   padding: 60px 0;
   background: linear-gradient(135deg, rgba(var(--rt-primary-rgb), 0.08), rgba(var(--rt-accent), 0.06));
-  border-radius: 26px;
+  border-radius: 0;
   margin: 22px 0;
 }
 
@@ -223,7 +223,7 @@
   transform: translateX(-50%);
   width: 16px;
   height: 16px;
-  border-radius: 50%;
+  border-radius: 0;
   background: var(--rt-primary);
   border: 3px solid var(--rt-bg);
   z-index: 1;
@@ -232,7 +232,7 @@
 .rt-timeline-content {
   background: var(--rt-surface);
   border: 1px solid var(--rt-border);
-  border-radius: 16px;
+  border-radius: 0;
   padding: 20px;
 }
 
@@ -343,7 +343,7 @@
   -webkit-backdrop-filter: blur(16px);
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .rt-theme-toggle:hover {
@@ -459,7 +459,7 @@ html[data-theme="dark"] .rt-theme-toggle .sun-icon {
 
 .rt-stat-card {
   padding: 30px 20px;
-  border-radius: 18px;
+  border-radius: 0;
   background: var(--rt-surface);
   border: 1px solid var(--rt-border);
 }
@@ -505,7 +505,7 @@ html[data-theme="dark"] .rt-theme-toggle .sun-icon {
 }
 
 .rt-login-card {
-  border-radius: 20px;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -676,3 +676,4 @@ html[data-theme="dark"] .rt-theme-toggle .sun-icon {
     text-align: center;
   }
 }
+

@@ -10,3 +10,6 @@ Thumbs.db
 
 # Build artifacts
 public_html/
+example/
+index.html
+login.html

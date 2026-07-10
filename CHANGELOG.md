@@ -2,6 +2,21 @@
 
 All notable changes to Retro-term CSS will be documented in this file.
 
+## [2.1.0] - 2026-07-10
+
+### Added
+
+* Added terminal-native component set with `rt-terminal-window`, toolbar pills, shell lines, and terminal cards.
+* Added utility helpers for gap, alignment, text alignment, surface blocks, shadows, width and height, and screen-reader-only content.
+* Added broader design tokens for muted surfaces, RGB accents, ring shadow, radius alias, and extended spacing scale.
+* Added framework-level loading primitives with `rt-spinner`, button loading hooks, and `rt-skeleton-*` placeholders.
+* Added generated icon catalog support from the full local SVG icon source set.
+
+### Fixed
+
+* Fixed missing `--rt-radius` token that affected round utilities.
+* Improved theme token consistency for newer component work.
+
 ## [2.0.0] - 2026-06-30
 
 ### Changed

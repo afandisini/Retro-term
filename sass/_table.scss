@@ -42,7 +42,7 @@
 .rt-table-avatar {
   width: 32px;
   height: 32px;
-  border-radius: 8px;
+  border-radius: 0;
   display: grid;
   place-items: center;
   color: var(--rt-white);
@@ -66,7 +66,7 @@
   gap: 5px;
   height: 24px;
   padding: 0 10px;
-  border-radius: 999px;
+  border-radius: 0;
   font-size: 0.7rem;
   font-weight: 900;
 }
@@ -94,7 +94,7 @@
 .rt-badge-dot {
   width: 6px;
   height: 6px;
-  border-radius: 999px;
+  border-radius: 0;
   background: currentColor;
 }
 
@@ -122,7 +122,7 @@
   height: 38px;
   padding: 0 14px 0 38px;
   border: 1px solid var(--rt-border);
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--rt-surface);
   color: var(--rt-text);
   outline: none;
@@ -171,6 +171,42 @@ html[data-theme="dark"] .rt-table-search .rt::before {
 
 html[data-theme="dark"] .rt-table-search:focus-within .rt {
   color: var(--rt-primary-2);
+}
+
+.rt-table-filters {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rt-table-filter {
+  min-width: 168px;
+  min-height: 40px;
+  padding: 0 36px 0 12px;
+  border: 1px solid var(--rt-border);
+  border-radius: 0;
+  background-color: var(--rt-surface-solid);
+  color: var(--rt-text);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.2;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 17px,
+    calc(100% - 12px) 17px;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.rt-table-filter:focus {
+  border-color: rgba(var(--rt-primary-rgb), 0.4);
 }
 
 .rt-table-info {
@@ -273,4 +309,5 @@ html[data-theme="dark"] .rt-table-search:focus-within .rt {
   height: 28px;
   font-size: 0.66rem;
 }
+
 

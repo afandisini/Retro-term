@@ -1,6 +1,6 @@
 # Retro-term CSS Documentation
 
-Retro-term is a standalone retro-modern CSS framework for admin panels, dashboards, landing pages, documentation sites, and auth flows.
+Retro-term is a standalone retro-modern CSS framework for admin panels, dashboards, landing pages, documentation sites, auth flows, and terminal-style interfaces.
 
 No Bootstrap. No Tailwind. No external UI dependency.
 
@@ -45,19 +45,11 @@ import "retro-term-css/icons";
   <body>
     <main class="rt-container rt-py4">
       <h1>Hello Retro-term</h1>
+      <button class="rt-btn rt-btn-primary">Primary Action</button>
     </main>
     <script src="dist/retro-term.min.js" defer></script>
   </body>
 </html>
-```
-
-### Theme Toggle
-
-```html
-<button id="themeToggle" class="rt-theme-toggle" aria-label="Toggle theme">
-  <i class="rt rt-moon moon-icon"></i>
-  <i class="rt rt-sun sun-icon"></i>
-</button>
 ```
 
 ---
@@ -99,46 +91,28 @@ import "retro-term-css/icons";
 </div>
 ```
 
-### Layout Classes
+### Key Layout Classes
 
-| Class | Purpose |
-| --- | --- |
-| `rt-admin` | Admin app wrapper with sidebar and content columns |
-| `rt-sbr` | Fixed sidebar |
-| `rt-sbr-overlay` | Mobile sidebar backdrop |
-| `rt-sbr-brand` | Sidebar brand header |
-| `rt-sbr-nav` | Sidebar nav column |
-| `rt-sbr-link` | Sidebar item |
-| `rt-sbr-badge` | Small count rt-badge in sidebar |
-| `rt-sbr-footer` | Sidebar footer area |
-| `rt-main` | Main content column |
-| `rt-topbar` | Top navigation bar |
-| `rt-topbar-title` | Topbar title |
-| `rt-topbar-search` | Search rt-container in topbar |
-| `rt-topbar-actions` | Right-side action group |
-| `rt-topbar-icon-tbl` | Icon button in topbar |
-| `rt-topbar-dot` | Small notification dot |
-| `rt-content` | Main page content wrapper |
-
-### Sidebar Dropdown
-
-```html
-<div class="rt-nav-dropdown" data-rt-nav-dropdown>
-  <button type="button" class="rt-nav-dropdown-toggle">
-    <i class="rt rt-users"></i>
-    UI Elements
-    <i class="rt rt-chevron-down rt-nav-dropdown-chevron"></i>
-  </button>
-
-  <div class="rt-nav-dropdown-menu">
-    <a class="rt-nav-dropdown-item" href="#">Button</a>
-  </div>
-</div>
-```
+- `rt-admin`
+- `rt-sbr`
+- `rt-sbr-overlay`
+- `rt-sbr-brand`
+- `rt-sbr-nav`
+- `rt-sbr-link`
+- `rt-sbr-badge`
+- `rt-sbr-footer`
+- `rt-main`
+- `rt-topbar`
+- `rt-topbar-title`
+- `rt-topbar-search`
+- `rt-topbar-actions`
+- `rt-topbar-icon-tbl`
+- `rt-topbar-dot`
+- `rt-content`
 
 ---
 
-## 3. Grid and Spacing
+## 3. Grid and Utilities
 
 ### Grid
 
@@ -150,59 +124,24 @@ import "retro-term-css/icons";
 </div>
 ```
 
-### Grid Classes
+### Utility Families
 
-| Class | Purpose |
-| --- | --- |
-| `rt-container` | Centered rt-container with responsive max-width |
-| `rt-container-fluid` | Full-width rt-container |
-| `rt-row` | Flex rt-row with gutters |
-| `rt-col` | Equal-width flexible column |
-| `rt-col-auto` | Auto-width column |
-| `rt-col-1` to `rt-col-12` | Fixed width columns |
-| `rt-col-sm-*`, `rt-col-md-*`, `rt-col-lg-*`, `rt-col-xl-*`, `rt-col-xxl-*` | Responsive columns |
-| `rt-offset-*` | Column offsets |
-| `rt-row-cols-*` | Equal rt-row count helpers |
-| `rt-g-*`, `rt-gx-*`, `rt-gy-*` | Gutters |
-
-### Spacing Utilities
-
-Retro-term includes utility spacing classes such as:
-
-- `rt-m1` to `rt-m4`
-- `rt-mt1` to `rt-mt4`
-- `rt-mb1` to `rt-mb4`
-- `rt-ml1` to `rt-ml4`
-- `rt-mr1` to `rt-mr4`
-- `rt-my1` to `rt-my4`
-- `rt-mx1` to `rt-mx4`
-- `rt-p1` to `rt-p4`
-- `rt-pt1` to `rt-pt4`
-- `rt-pb1` to `rt-pb4`
-- `rt-pl1` to `rt-pl4`
-- `rt-pr1` to `rt-pr4`
-- `rt-py1` to `rt-py4`
-- `rt-px1` to `rt-px4`
-
-### Shape and Flex Helpers
-
-- `rt-round`, `rt-round-sm`, `rt-round-lg`, `rt-round-full`
-- `rt-flex`, `rt-flex-start`, `rt-flex-center`, `rt-flex-end`, `rt-flex-between`
+- Spacing: `rt-m0` to `rt-m6`, `rt-p0` to `rt-p6`, `rt-mx-auto`, `rt-ml-auto`, `rt-mr-auto`
+- Flow and gap: `rt-flow`, `rt-flow--sm`, `rt-flow--lg`, `rt-gap-*`, `rt-gap-x-*`, `rt-gap-y-*`
+- Flex and alignment: `rt-flex`, `rt-flex-col`, `rt-flex-wrap`, `rt-items-*`, `rt-flex-between`, `rt-justify-*`
+- Display and sizing: `rt-d-block`, `rt-d-inline-flex`, `rt-grid`, `rt-grid-auto-fit`, `rt-grid-auto-fill`, `rt-w-full`, `rt-h-full`
+- Text and surfaces: `rt-text-left`, `rt-text-center`, `rt-text-right`, `rt-surface`, `rt-surface-muted`, `rt-divider`
+- Shape helpers: `rt-round`, `rt-round-sm`, `rt-round-lg`, `rt-round-full`
+- Accessibility: `rt-sr-only`
 
 ---
 
 ## 4. Typography
 
-Retro-term styles standard HTML text tags and adds common utility text helpers.
-
-### Common Text Helpers
-
 - `rt-text-lead`
 - `rt-text-muted`
 - `rt-text-small`
 - `rt-link`
-
-### Example
 
 ```html
 <p class="rt-text-lead">Lead text.</p>
@@ -226,25 +165,24 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-btn-purple`
 - `rt-btn-ghost`
 - `rt-btn-outline-primary`
+- `rt-btn-outline`
 - `rt-btn-sm`
 - `rt-btn-lg`
 - `rt-btn-icon`
 - `rt-btn-block`
 - `rt-btn-group`
+- `rt-btn-group--nowrap`
 
-### Example
+### Loading State
 
 ```html
-<div class="rt-btn-group">
-  <button class="rt-btn rt-btn-primary">Save</button>
-  <button class="rt-btn rt-btn-secondary">Cancel</button>
-</div>
+<button class="rt-btn rt-btn-primary is-loading" type="button">
+  <span class="rt-spinner is-active"></span>
+  <span>Processing</span>
+</button>
 ```
 
-### Notes
-
-- `rt-btn-group` is a compatibility alias for grouped actions.
-- `rt-btn-block` and `rt-btn-block` force full width.
+`is-loading` is the canonical hook for button loading behavior.
 
 ---
 
@@ -260,45 +198,26 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-form-check`
 - `rt-form-message`
 - `rt-form-icon`
+- `rt-form-stack`
+- `rt-form-grid`
+- `rt-form-grid--2`
 
-### Legacy Aliases
+### Searchable Select
 
-- `rt-input`
-- `rt-input-sm`
-- `rt-checkbox`
+`select.rt-form-select` is enhanced by the stock JS into:
 
-### Example
-
-```html
-<form>
-  <div class="rt-form-group">
-    <label class="rt-form-label" for="email">Email</label>
-    <input id="email" class="rt-form-input" type="email" placeholder="you@example.com">
-  </div>
-
-  <div class="rt-form-group">
-    <label class="rt-form-check">
-      <input type="checkbox">
-      <span>Remember me</span>
-    </label>
-  </div>
-</form>
-```
-
-### Input Wrapper Pattern
-
-```html
-<div class="rt-input-wrapper">
-  <i class="rt rt-user rt-input-icon" aria-hidden="true"></i>
-  <input class="rt-form-input" type="text" placeholder="Your name">
-</div>
-```
+- `rt-select`
+- `rt-select-toggle`
+- `rt-select-value`
+- `rt-select-caret`
+- `rt-select-menu`
+- `rt-select-search-input`
+- `rt-select-list`
+- `rt-select-option`
 
 ---
 
 ## 7. Cards and Content Blocks
-
-### Card Classes
 
 - `rt-card`
 - `rt-card-header`
@@ -309,27 +228,11 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-card-body-flush`
 - `rt-card-footer`
 
-### Example
-
-```html
-<div class="rt-card">
-  <div class="rt-card-header">
-    <div>
-      <h3 class="rt-card-title">Overview</h3>
-      <p class="rt-card-subtitle">Last 7 days</p>
-    </div>
-  </div>
-  <div class="rt-card-body">
-    Content
-  </div>
-</div>
-```
-
 ---
 
-## 8. Tables
+## 8. Tables and Data Display
 
-### Canonical Classes
+### Table Classes
 
 - `rt-table-wrap`
 - `rt-table`
@@ -346,7 +249,7 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-table-name`
 - `rt-table-email`
 
-### Supporting Classes
+### Supporting Data UI
 
 - `rt-badge`
 - `rt-badge--primary`
@@ -354,41 +257,15 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-badge--warning`
 - `rt-badge--danger`
 - `rt-badge-dot`
-
-### Example
-
-```html
-<div class="rt-table-wrap">
-  <rt-table class="rt-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <div class="rt-table-user">
-            <div class="rt-table-avatar">RT</div>
-            <div>
-              <div class="rt-table-name">Retro Term</div>
-              <div class="rt-table-email">hello@example.com</div>
-            </div>
-          </div>
-        </td>
-        <td><span class="rt-badge rt-badge--success"><span class="rt-badge-dot"></span> Active</span></td>
-      </tr>
-    </tbody>
-  </rt-table>
-</div>
-```
+- `rt-progress`
+- `rt-progress-bar`
+- `rt-progress-fill`
 
 ---
 
-## 9. Feedback Components
+## 9. Feedback and Loading
 
-### Alerts
+### Feedback
 
 - `rt-alert`
 - `rt-alert-icon`
@@ -399,46 +276,39 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-alert--success`
 - `rt-alert--warning`
 - `rt-alert--danger`
-
-### Toasts
-
 - `rt-toast`
 - `rt-toast-icon`
 - `rt-toast-content`
 - `rt-toast-title`
 - `rt-toast-text`
 - `rt-toast-close`
-- `rt-toast--success`
-- `rt-toast--warning`
-- `rt-toast--danger`
-- `rt-toast--top-left`
-- `rt-toast--top-center`
-- `rt-toast--top-right`
-- `rt-toast--bottom-left`
-- `rt-toast--bottom-center`
-- `rt-toast--bottom-right`
 
-### Example
+### Loading
 
-```html
-<div class="rt-alert rt-alert--primary">
-  <div class="rt-alert-icon"><i class="rt rt-info"></i></div>
-  <div class="rt-alert-content">
-    <div class="rt-alert-title">Heads up</div>
-    <div class="rt-alert-text">This is a framework-level notice.</div>
-  </div>
-</div>
-```
+- `rt-spinner`
+- `rt-skeleton-page`
+- `rt-skeleton-card`
+- `rt-skeleton-line`
+- `rt-skeleton-title`
+- `rt-skeleton-button`
+- `rt-skeleton-input`
+- `rt-skeleton-cell`
+- `rt-skeleton-avatar`
+- `rt-skeleton-chart`
+- `rt-skeleton-grid`
+- `rt-skeleton-row`
+- `rt-skeleton-table`
+- `rt-skeleton-stepper`
+
+`rt-spinner` is the framework-level rounded spinner primitive.
 
 ---
 
-## 10. Navigation
-
-### Navbar
+## 10. Navigation and Dropdowns
 
 - `rt-navbar`
 - `rt-navbar--scrolled`
-- `rt-navbar-rt-container`
+- `rt-navbar-container`
 - `rt-navbar-brand`
 - `rt-navbar-brand-dot`
 - `rt-navbar-menu`
@@ -448,35 +318,20 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-navbar-toggle`
 - `rt-navbar--transparent`
 - `rt-navbar--dark`
-
-### Dropdown
-
 - `rt-dropdown`
 - `rt-dropdown-menu`
-- `rt-dropdown-menu--left`
 - `rt-dropdown-item`
 - `rt-dropdown-item--danger`
 - `rt-dropdown-divider`
 - `rt-dropdown-label`
-
-### Example
-
-```html
-<div class="rt-dropdown" data-rt-dropdown>
-  <button class="rt-btn rt-btn-secondary" data-rt-dropdown-trigger type="button">Menu</button>
-  <div class="rt-dropdown-menu">
-    <button class="rt-dropdown-item" type="button">Profile</button>
-    <div class="rt-dropdown-divider"></div>
-    <button class="rt-dropdown-item rt-dropdown-item--danger" type="button">Logout</button>
-  </div>
-</div>
-```
+- `rt-nav-dropdown`
+- `rt-nav-dropdown-toggle`
+- `rt-nav-dropdown-menu`
+- `rt-nav-dropdown-item`
 
 ---
 
 ## 11. Modal
-
-### Classes
 
 - `rt-modal`
 - `rt-modal-content`
@@ -493,35 +348,14 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-modal-footer`
 - `rt-modal-close`
 - `rt-modal-embed`
-- `rt-modal-embed`
 - `rt-modal-embed--map`
 - `rt-modal-embed--video`
-
-### Example
-
-```html
-<div class="rt-modal" id="demoModal" role="dialog" aria-modal="true">
-  <div class="rt-modal-dialog rt-modal-md">
-    <div class="rt-modal-content">
-      <div class="rt-modal-header">
-        <h3 class="rt-modal-title">Modal title</h3>
-        <button class="rt-modal-close" type="button" aria-label="Close"></button>
-      </div>
-      <div class="rt-modal-body">Body</div>
-      <div class="rt-modal-footer">
-        <button class="rt-btn rt-btn-secondary" type="button">Cancel</button>
-        <button class="rt-btn rt-btn-primary" type="button">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-```
 
 ---
 
 ## 12. Widgets
 
-### Accordion
+### Accordion and Carousel
 
 - `rt-accordion`
 - `rt-accordion-item`
@@ -530,9 +364,6 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-accordion-content`
 - `rt-accordion-body`
 - `rt-accordion--flush`
-
-### Carousel
-
 - `rt-carousel`
 - `rt-carousel-track`
 - `rt-carousel-slide`
@@ -553,33 +384,56 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-chart-svg`
 - `rt-activity`
 - `rt-activity-item`
-- `rt-activity-icon`
+- `rt-i-activity`
 - `rt-activity-content`
 - `rt-activity-text`
 - `rt-activity-time`
-- `rt-progress`
-- `rt-progress-head`
-- `rt-progress-label`
-- `rt-progress-value`
-- `rt-progress-bar`
-- `rt-progress-fill`
-- `rt-progress-fill--accent`
-- `rt-progress-fill--success`
-- `rt-progress-fill--purple`
 - `rt-quick`
 - `rt-quick-btn`
 
-### Example
+---
+
+## 13. Terminal Components
+
+Retro-term now includes terminal-native presentation primitives.
+
+- `rt-terminal-window`
+- `rt-terminal-header`
+- `rt-terminal-title`
+- `rt-terminal-controls`
+- `rt-terminal-dot`
+- `rt-terminal-dot--danger`
+- `rt-terminal-dot--warning`
+- `rt-terminal-dot--success`
+- `rt-terminal-toolbar`
+- `rt-terminal-pill`
+- `rt-terminal-body`
+- `rt-terminal-line`
+- `rt-terminal-prompt`
+- `rt-terminal-command`
+- `rt-terminal-response`
+- `rt-terminal-response--success`
+- `rt-terminal-response--warning`
+- `rt-terminal-response--danger`
+- `rt-terminal-kbd`
+- `rt-terminal-grid`
+- `rt-terminal-card`
+- `rt-terminal-card-title`
+- `rt-terminal-card-text`
 
 ```html
-<div class="rt-accordion">
-  <div class="rt-accordion-item is-open">
-    <button class="rt-accordion-trigger is-active" type="button">
-      Section title
-      <i class="rt rt-chevron-down rt-accordion-icon"></i>
-    </button>
-    <div class="rt-accordion-content">
-      <div class="rt-accordion-body">Accordion content.</div>
+<div class="rt-terminal-window">
+  <div class="rt-terminal-header">
+    <div class="rt-terminal-title">
+      <i class="rt rt-terminal"></i>
+      RETRO-TERM SHELL
+    </div>
+  </div>
+  <div class="rt-terminal-body">
+    <div class="rt-terminal-line">
+      <span class="rt-terminal-prompt">$</span>
+      <span class="rt-terminal-command">npm run build</span>
+      <span class="rt-terminal-response rt-terminal-response--success">Assets updated successfully.</span>
     </div>
   </div>
 </div>
@@ -587,15 +441,13 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 
 ---
 
-## 13. Landing Page Components
-
-### Classes
+## 14. Landing and Auth
 
 - `rt-landing`
 - `rt-hero`
 - `rt-hero-shape`
 - `rt-hero-content`
-- `rt-hero-rt-badge`
+- `rt-hero-badge`
 - `rt-hero-title`
 - `rt-hero-subtitle`
 - `rt-hero-actions`
@@ -637,35 +489,30 @@ Retro-term styles standard HTML text tags and adds common utility text helpers.
 - `rt-avatar-sm`
 - `rt-pagination`
 
-### Example Pages
+---
 
-- `example/landing-page.html`
-- `example/login.html`
-- `example/dashboard.html`
-- `example/crud-table.html`
+## 15. Icons
+
+Retro-term icon CSS is generated from the full local SVG catalog in `assets/term-icons/src/icons`.
+
+Usage pattern:
+
+```html
+<i class="rt rt-dashboard" aria-hidden="true"></i>
+<i class="rt rt-bell" aria-hidden="true"></i>
+<i class="rt rt-window-split" aria-hidden="true"></i>
+```
+
+Key points:
+
+- Base class: `rt`
+- Size helpers: `rt-sm`, `rt-lg`, `rt-xl`
+- The icon catalog is generated, not manually limited
+- Output files: `dist/retro-term-icons.css` and `dist/retro-term-icons.min.css`
 
 ---
 
-## 14. Legacy Compatibility
-
-Retro-term keeps its current class prefixes. The following aliases exist for compatibility with existing examples:
-
-- `rt-input` for legacy input examples
-- `rt-input-sm` for compact legacy inputs
-- `rt-link` for inline anchor styling
-- `rt-btn-block` for full-width buttons
-- `rt-btn-group` for grouped actions
-- `rt-avatar-secondary`, `rt-avatar-accent`, `rt-avatar-danger` for avatar variants
-
-These aliases do not replace the canonical classes. Prefer `rt-form-input`, `rt-form-select`, `rt-form-textarea`, `rt-form-check`, and the documented layout classes for new work.
-
----
-
-## 15. JavaScript Hooks
-
-Retro-term JS uses attribute hooks instead of framework dependencies.
-
-### Common Hooks
+## 16. JavaScript Hooks
 
 - `id="themeToggle"`
 - `id="menuBtn"`
@@ -677,15 +524,11 @@ Retro-term JS uses attribute hooks instead of framework dependencies.
 - `data-rt-modal-close`
 - `data-rt-nav-dropdown`
 
-### Initialization Notes
-
-- Load `retro-term.min.js` with `defer`.
-- Keep the `data-theme` attribute on `<html>`.
-- Keep sidebar and rt-dropdown IDs consistent with the examples if you reuse the stock script.
+Load `retro-term.min.js` with `defer` and keep `data-theme` on `<html>`.
 
 ---
 
-## 16. Sass Build
+## 17. Sass Build
 
 ### Source Order
 
@@ -700,8 +543,8 @@ Retro-term JS uses attribute hooks instead of framework dependencies.
 @use "buttons";
 @use "popup";
 @use "feedback";
-@use "rt-dropdown";
-@use "rt-table";
+@use "dropdown";
+@use "table";
 @use "widgets";
 @use "components";
 @use "landing";
@@ -712,6 +555,7 @@ Retro-term JS uses attribute hooks instead of framework dependencies.
 
 ```bash
 npm run build:css
+npm run build:icons
 npm run build
 ```
 
@@ -726,33 +570,25 @@ npm run build
 
 ---
 
-## 17. Customization Notes
+## 18. Example Inventory
 
-- Keep the `rt-` prefix for new framework classes.
-- Keep examples and docs aligned with the canonical `rt-` namespace.
-- Avoid adding external dependencies to the framework layer.
-- Prefer documentation and example updates before changing Sass.
+- `example/dashboard.html`
+- `example/landing-page.html`
+- `example/login.html`
+- `example/crud-table.html`
+- `example/components-demo.html`
+- `example/doc.html`
 
 ---
 
-## 18. Browser Support
+## 19. Browser Support
 
-Retro-term is built for modern evergreen browsers with support for:
+Retro-term targets modern evergreen browsers with support for:
 
 - CSS variables
 - Flexbox and Grid
-- `backdrop-filter` enhancements
-- `prefers-reduced-motion` friendly behavior where used by the browser
-
----
-
-## 19. Example Inventory
-
-- `example/dashboard.html` - admin dashboard
-- `example/landing-page.html` - marketing landing page
-- `example/login.html` - login screen
-- `example/crud-table.html` - CRUD table and modal form
-- `example/components-demo.html` - component showcase
+- `backdrop-filter`
+- `prefers-reduced-motion`
 
 ---
 

@@ -17,9 +17,18 @@ npm install retro-term-css
 ### Use via CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.css">
-<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.js" defer></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term-icons.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.css"
+/>
+<script
+  src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.js"
+  defer
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term-icons.css"
+/>
 ```
 
 ### Use via NPM
@@ -45,7 +54,9 @@ import "retro-term-css/icons";
   <body>
     <main class="rt-container rt-py4">
       <h1>Hello Retro-term</h1>
-      <button class="rt-btn rt-btn-primary">Primary Action</button>
+      <button class="rt-btn rt-anishow rt-anishow rt-btn-primary">
+        Primary Action
+      </button>
     </main>
     <script src="dist/retro-term.min.js" defer></script>
   </body>
@@ -84,9 +95,7 @@ import "retro-term-css/icons";
       <h1 class="rt-topbar-title">Dashboard</h1>
     </div>
 
-    <section class="rt-content">
-      Content
-    </section>
+    <section class="rt-content">Content</section>
   </main>
 </div>
 ```
@@ -176,7 +185,10 @@ import "retro-term-css/icons";
 ### Loading State
 
 ```html
-<button class="rt-btn rt-btn-primary is-loading" type="button">
+<button
+  class="rt-btn rt-anishow rt-anishow rt-btn-primary is-loading"
+  type="button"
+>
   <span class="rt-spinner is-active"></span>
   <span>Processing</span>
 </button>
@@ -433,7 +445,9 @@ Retro-term now includes terminal-native presentation primitives.
     <div class="rt-terminal-line">
       <span class="rt-terminal-prompt">$</span>
       <span class="rt-terminal-command">npm run build</span>
-      <span class="rt-terminal-response rt-terminal-response--success">Assets updated successfully.</span>
+      <span class="rt-terminal-response rt-terminal-response--success"
+        >Assets updated successfully.</span
+      >
     </div>
   </div>
 </div>

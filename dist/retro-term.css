@@ -2466,7 +2466,7 @@ svg.rt {
         ============================================ */
 .rt-main {
   grid-column: 2;
-  padding: 22px var(--rt-page-gutter) 40px;
+  padding: 0 var(--rt-page-gutter) 40px;
   min-width: 0;
 }
 
@@ -6070,6 +6070,24 @@ html[data-theme=dark] .rt-theme-toggle .sun-icon {
   .rt-table-search {
     max-width: 100%;
   }
+}
+
+.rt-anishow {
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease, background-color 0.24s ease, color 0.24s ease, opacity 0.24s ease !important;
+}
+
+.rt-anishow:hover,
+.rt-anishow:focus-visible {
+  border-color: rgba(var(--rt-primary-rgb), 0.4) !important;
+  box-shadow: 0 0 0 5px rgba(var(--rt-primary-rgb), 0.14) !important;
+}
+
+.rt-anishow:hover {
+  transform: translateY(-1px);
+}
+
+.rt-anishow:active {
+  transform: translateY(0);
 }
 /* ============================================
            FLAT MODE

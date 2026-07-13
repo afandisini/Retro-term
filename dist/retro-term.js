@@ -76,10 +76,7 @@
     const moonIcon = themeToggle?.querySelector(".moon-icon");
     const sunIcon = themeToggle?.querySelector(".sun-icon");
 
-    function setTheme(theme) {
-      html.setAttribute("data-theme", theme);
-      localStorage.setItem("rt-theme", theme);
-
+    function syncThemeIcons(theme) {
       if (!moonIcon || !sunIcon) return;
       if (theme === "dark") {
         moonIcon.style.display = "none";
@@ -90,12 +87,38 @@
       }
     }
 
-    setTheme(localStorage.getItem("rt-theme") || "light");
+    function applyTheme(theme) {
+      if (typeof window.setTheme === "function") {
+        window.setTheme(theme);
+      } else {
+        html.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        localStorage.setItem("rt-theme", theme);
+      }
+      syncThemeIcons(theme);
+    }
 
-    themeToggle?.addEventListener("click", () => {
-      const current = html.getAttribute("data-theme");
-      setTheme(current === "dark" ? "light" : "dark");
-    });
+    const initialTheme =
+      html.getAttribute("data-theme") ||
+      localStorage.getItem("theme") ||
+      localStorage.getItem("rt-theme") ||
+      "light";
+
+    applyTheme(initialTheme);
+
+    if (themeToggle && themeToggle.dataset.rtThemeBound !== "true") {
+      themeToggle.dataset.rtThemeBound = "true";
+      themeToggle.addEventListener("click", () => {
+        if (typeof window.toggleTheme === "function") {
+          window.toggleTheme();
+        } else {
+          const current = html.getAttribute("data-theme");
+          applyTheme(current === "dark" ? "light" : "dark");
+        }
+
+        syncThemeIcons(html.getAttribute("data-theme") || "light");
+      });
+    }
 
     // ===== SIDEBAR TOGGLE (mobile) =====
     const menuBtn = document.getElementById("menuBtn");
@@ -853,6 +876,39 @@
             formGroup?.classList.add("is-valid");
           }
         });
+      });
+    });
+
+    // ===== SUBMIT LOADING =====
+    const ensureSubmitSpinner = (button) => {
+      if (!button) return null;
+
+      let spinner = button.querySelector(".rt-spinner");
+      if (!spinner) {
+        spinner = document.createElement("span");
+        spinner.className = "rt-spinner";
+        spinner.setAttribute("aria-hidden", "true");
+        button.insertBefore(spinner, button.firstChild);
+      }
+
+      return spinner;
+    };
+
+    document.querySelectorAll("form").forEach((form) => {
+      form.addEventListener("submit", (e) => {
+        if (e.defaultPrevented) return;
+
+        const submitter =
+          e.submitter ||
+          form.querySelector('button[type="submit"], input[type="submit"]');
+
+        if (!(submitter instanceof HTMLElement)) return;
+
+        const spinner = ensureSubmitSpinner(submitter);
+        spinner?.classList.add("is-active");
+        submitter.classList.add("is-loading");
+        submitter.setAttribute("aria-busy", "true");
+        submitter.setAttribute("disabled", "disabled");
       });
     });
 

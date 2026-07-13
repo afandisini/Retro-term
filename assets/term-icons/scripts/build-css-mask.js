@@ -57,8 +57,6 @@ async function main() {
   const minCss = `${await buildCss(true)}\n`;
   await fs.writeFile(path.join(distDir, 'retro-term-icons.css'), css, 'utf8');
   await fs.writeFile(path.join(distDir, 'retro-term-icons.min.css'), minCss, 'utf8');
-  await fs.writeFile(path.join(distDir, 'term-icons.css'), css, 'utf8');
-  await fs.writeFile(path.join(distDir, 'term-icons.min.css'), minCss, 'utf8');
   console.log(`Built CSS mask for ${icons.length} callable icon classes`);
 }
 

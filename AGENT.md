@@ -1,16 +1,16 @@
 # AGENT.md
 
-Repo ini memakai namespace penuh `rt-` untuk semua class framework resmi.
+This repository uses the full `rt-` namespace for all official framework classes.
 
-Aturan kerja:
-- Jangan tambahkan alias kompatibilitas untuk class lama yang sudah digantikan namespace `rt-`.
-- Semua variable CSS framework harus memakai prefix `--rt-*`.
-- Hindari underscore pada nama class; gunakan dash untuk seluruh namespace.
-- Data attribute framework harus memakai prefix `data-rt-*`.
-- Setelah ubah Sass atau JS framework, jalankan build CSS/asset yang relevan dan verifikasi hasilnya.
-- Dokumentasi dan example harus mengikuti namespace yang sama dengan source.
+Working rules:
+- Do not add compatibility aliases for old classes that have already been replaced by the `rt-` namespace.
+- All framework CSS variables must use the `--rt-*` prefix.
+- Avoid underscores in class names; use dashes throughout the namespace.
+- Framework data attributes must use the `data-rt-*` prefix.
+- After changing framework Sass or JS, run the relevant CSS/asset build and verify the result.
+- Documentation and examples must follow the same namespace as the source.
 
-Prioritas file:
+File priorities:
 - `sass/**/*.scss`
 - `retro-term.js`
 - `*.html`

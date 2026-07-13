@@ -1,27 +1,27 @@
-## 📋 Ringkasan Fitur Baru
+## New Feature Summary
 
-1. Tombol (rt-tbl) — Variasi Warna
+1. Buttons (rt-tbl) - Color Variants
    Class
-   Warna
-   rt-tbl--primary : Gradient ungu-biru (default)
-   rt-tbl--secondary : Putih dengan border
-   rt-tbl--success : Gradient hijau-cyan
-   rt-tbl--warning : Gradient kuning-amber
-   rt-tbl--danger : Gradient merah-oranye
-   rt-tbl--accent : Gradient oranye-kuning
-   rt-tbl--purple : Gradient ungu tua
-   rt-tbl--ghost : Transparan, hover ada bg
-   rt-tbl--outline : Border primary saja
-   Ukuran:
+   Color
+   rt-tbl--primary : Purple-blue gradient (default)
+   rt-tbl--secondary : White with border
+   rt-tbl--success : Green-cyan gradient
+   rt-tbl--warning : Yellow-amber gradient
+   rt-tbl--danger : Red-orange gradient
+   rt-tbl--accent : Orange-yellow gradient
+   rt-tbl--purple : Deep purple gradient
+   rt-tbl--ghost : Transparent, with background on hover
+   rt-tbl--outline : Primary border only
+   Sizes:
    Size: rt-tbl--sm, rt-tbl--lg, rt-tbl--icon
 
-2. Popup (rt-pp) — 5 Ukuran
-   rt-pp--sm (420px) → konfirmasi
-   rt-pp--md (600px) → form
-   rt-pp--lg (820px) → detail
-   rt-pp--xl (1080px) → laporan
-   rt-pp--fullscreen (100%) → mode penuh
-   Trigger: data-pp-open="id" | Close: data-pp-close atau klik backdrop / ESC
+2. Popup (rt-pp) - 5 Sizes
+   rt-pp--sm (420px) -> confirmation
+   rt-pp--md (600px) -> form
+   rt-pp--lg (820px) -> detail view
+   rt-pp--xl (1080px) -> report
+   rt-pp--fullscreen (100%) -> full-screen mode
+   Trigger: data-pp-open="id" | Close: data-pp-close or click the backdrop / press ESC
 3. Dropdown (rt-dd)
    - html
    - 12345678
@@ -29,7 +29,7 @@
    - html
    - 12345678910
 5. Table Responsive + Search + Info + Pagination
-   Format pagination: < Halaman 1 / 5 >
-   Search memfilter nama/email/role/status
-   Info menampilkan "Menampilkan 1-5 dari 25 data"
-   Tabel kecil: tambahkan class rt-table--sm
+   Pagination format: < Page 1 / 5 >
+   Search filters name/email/role/status
+   Info displays "Showing 1-5 of 25 entries"
+   Small table: add the `rt-table--sm` class

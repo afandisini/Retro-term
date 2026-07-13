@@ -9,8 +9,9 @@ Thumbs.db
 .env.local
 
 # Build artifacts
-public_html/
-example/
-index.html
-login.html
+# example/
+*.zip
+# index.html
+# login.html
+sitemap.xml
 PLAN_BARU.md

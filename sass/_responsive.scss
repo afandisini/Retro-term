@@ -28,6 +28,10 @@
     transform: translateX(-100%);
   }
 
+  .rt-sbr-toggle {
+    display: none;
+  }
+
   .rt-sbr.is-open {
     transform: translateX(0);
   }
@@ -66,8 +70,8 @@
 
   .rt-topbar-menu-tbl {
     display: inline-grid;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
   .rt-topbar-title {

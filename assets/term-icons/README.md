@@ -5,7 +5,6 @@ Term Icons is the local icon pack for Retro-term. The generated CSS now follows 
 ## Outputs
 
 - `dist/retro-term-icons.css` and `dist/retro-term-icons.min.css` for CSS mask usage
-- `dist/term-icons.css` and `dist/term-icons.min.css` as mirrored output names
 - `dist/term-icons.svg` for sprite compatibility
 - `dist/term-icons.json` for manifest metadata
 

@@ -577,6 +577,37 @@
   background: var(--rt-border);
 }
 
+.rt-anishow {
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease,
+    background-color 0.24s ease,
+    color 0.24s ease,
+    opacity 0.24s ease !important;
+}
+
+.rt-anishow:hover,
+.rt-anishow:focus-visible {
+  border-color: rgba(var(--rt-primary-rgb), 0.4) !important;
+  box-shadow: 0 0 0 4px rgba(var(--rt-primary-rgb), 0.14) !important;
+}
+
+.rt-anishow:hover {
+  transform: translateY(-1px);
+}
+
+.rt-anishow:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rt-anishow {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
 .rt-sr-only {
   position: absolute;
   width: 1px;

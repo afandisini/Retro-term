@@ -235,7 +235,7 @@
   box-sizing: border-box;
   border: 2px solid rgba(100, 116, 139, 0.28);
   border-top-color: currentColor;
-  border-radius: 0;
+  border-radius: 999px !important;
   animation: rtSpin 0.7s linear infinite;
   flex: 0 0 auto;
   font-size: 0;

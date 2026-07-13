@@ -2,6 +2,13 @@
 
 All notable changes to Retro-term CSS will be documented in this file.
 
+## [2.1.1] - 2026-07-13
+
+### Changed
+
+* Renamed `ATURAN.md` to `RULES.md` for naming consistency with the English documentation set.
+* Translated remaining Indonesian content in project markdown files to English.
+
 ## [2.1.0] - 2026-07-10
 
 ### Added

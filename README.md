@@ -30,7 +30,7 @@ npm install
 npm run build
 ```
 
-Folder `node_modules` tidak disertakan di repository. Jalankan `npm install` untuk mengunduh dependency lokal.
+The `node_modules` folder is not included in the repository. Run `npm install` to download the local dependencies.
 
 ### CDN
 

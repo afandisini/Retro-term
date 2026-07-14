@@ -42,22 +42,12 @@ yarn add retro-term-css
 
 The `/npm/` URL becomes available after `retro-term-css@2.1.0` is published to the npm registry. For production usage, prefer a pinned version such as `@2.1.0` instead of `@latest`.
 
-### jsDelivr via GitHub
-
-```html
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v2.1.0/dist/retro-term.min.css"
->
-<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v2.1.0/dist/retro-term.min.js"></script>
-```
-
 ### Optional icon pack
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v2.1.0/dist/retro-term-icons.css"
+  href="https://cdn.jsdelivr.net/npm/retro-term-css@2.1.0/dist/retro-term-icons.css"
 >
 ```
 

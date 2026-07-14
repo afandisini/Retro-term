@@ -1,17 +1,8 @@
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+*.log
+*.zip
+*.tgz
 .DS_Store
 Thumbs.db
 .env
 .env.local
-
-# Build artifacts
-# example/
-*.zip
-# index.html
-# login.html
-sitemap.xml
-PLAN_BARU.md

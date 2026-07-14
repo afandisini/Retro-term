@@ -4,15 +4,15 @@ const { minify } = require('terser');
 
 const root = process.cwd();
 const distDir = path.join(root, 'dist');
-const source = path.join(root, 'retro-term.js');
+const source = path.join(root, 'src', 'js', 'retro-term.js');
 const target = path.join(distDir, 'retro-term.js');
 const targetMin = path.join(distDir, 'retro-term.min.js');
 
 fs.mkdirSync(distDir, { recursive: true });
 
 if (!fs.existsSync(source)) {
-  console.warn('retro-term.js not found. Skipping JS copy.');
-  process.exit(0);
+  console.error('src/js/retro-term.js not found.');
+  process.exit(1);
 }
 
 fs.copyFileSync(source, target);

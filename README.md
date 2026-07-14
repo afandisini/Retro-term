@@ -1,6 +1,6 @@
 # Retro-term
 
-Retro-term is a standalone retro-modern CSS framework for admin panels, dashboards, landing pages, documentation sites, and form-heavy interfaces.
+Retro-term is a standalone CSS framework for dashboards, admin panels, documentation pages, internal tools, and landing pages.
 
 No Bootstrap. No Tailwind. No external UI dependency.
 
@@ -8,43 +8,60 @@ No Bootstrap. No Tailwind. No external UI dependency.
 ![Admin Panel Preview](assets/images/admin_panel.png)
 ![Login Page Preview](assets/images/login_page.png)
 
-## What It Includes
+## Installation
 
-- Admin dashboard layout with sidebar, topbar, stat cards, charts, activity, and quick actions
-- Landing page system with hero, feature cards, stats, CTA, timeline, and footer blocks
-- Login page layout with centered auth rt-card and form helpers
-- CRUD table patterns with toolbar, responsive table wrapper, actions, modal forms, and pagination
-- Core UI components such as buttons, badges, alerts, toasts, modals, dropdowns, navbar, accordion, carousel, and form controls
-- Terminal-native UI blocks such as `rt-terminal-window`, command lines, pills, and terminal status cards
-- Expanded generated icon pack sourced from the full local SVG catalog
-- Grid, flex, spacing, typography, color, and utility classes for fast composition
-- Icon helpers using the `rt rt-*` class pattern
-- Light and dark themes with localStorage persistence
-
-## Quick Start
-
-### Setup
-
-```bash
-npm install
-npm run build
-```
-
-The `node_modules` folder is not included in the repository. Run `npm install` to download the local dependencies.
-
-### CDN
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.css">
-<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term.min.js" defer></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@main/dist/retro-term-icons.css">
-```
-
-### NPM
+### npm
 
 ```bash
 npm install retro-term-css
 ```
+
+### pnpm
+
+```bash
+pnpm add retro-term-css
+```
+
+### yarn
+
+```bash
+yarn add retro-term-css
+```
+
+## CDN
+
+### jsDelivr via npm
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/retro-term-css@2.1.0/dist/retro-term.min.css"
+>
+<script src="https://cdn.jsdelivr.net/npm/retro-term-css@2.1.0/dist/retro-term.min.js"></script>
+```
+
+The `/npm/` URL becomes available after `retro-term-css@2.1.0` is published to the npm registry. For production usage, prefer a pinned version such as `@2.1.0` instead of `@latest`.
+
+### jsDelivr via GitHub
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v2.1.0/dist/retro-term.min.css"
+>
+<script src="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v2.1.0/dist/retro-term.min.js"></script>
+```
+
+### Optional icon pack
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v2.1.0/dist/retro-term-icons.css"
+>
+```
+
+## Package entry points
 
 ```js
 import "retro-term-css/css";
@@ -52,7 +69,13 @@ import "retro-term-css/js";
 import "retro-term-css/icons";
 ```
 
-### Starter Template
+Sass entry:
+
+```scss
+@use "retro-term-css/scss";
+```
+
+## Starter template
 
 ```html
 <!DOCTYPE html>
@@ -62,47 +85,18 @@ import "retro-term-css/icons";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Retro-term</title>
     <link rel="stylesheet" href="dist/retro-term.min.css" />
-    <link rel="stylesheet" href="dist/retro-term-icons.css" />
   </head>
   <body>
     <main class="rt-container rt-py4">
       <h1>Hello Retro-term</h1>
       <button class="rt-btn rt-btn-primary">Primary Action</button>
     </main>
-    <script src="dist/retro-term.min.js" defer></script>
+    <script src="dist/retro-term.min.js"></script>
   </body>
- </html>
+</html>
 ```
 
-## Example Pages
-
-- `example/dashboard.html`
-- `example/landing-page.html`
-- `example/login.html`
-- `example/crud-table.html`
-- `example/components-demo.html`
-
-## Core Class Families
-
-- Layout: `rt-admin`, `rt-sbr`, `rt-main`, `rt-topbar`, `rt-content`
-- Grid: `rt-container`, `rt-row`, `rt-col-*`, `rt-g-*`
-- Flex: `rt-flex`, `rt-flex-start`, `rt-flex-center`, `rt-flex-end`, `rt-flex-between`
-- Buttons: `rt-btn`, `rt-btn-primary`, `rt-btn-secondary`, `rt-btn-success`, `rt-btn-warning`, `rt-btn-danger`, `rt-btn-ghost`, `rt-btn-outline-primary`
-- Forms: `rt-form-group`, `rt-form-label`, `rt-form-input`, `rt-form-select`, `rt-form-textarea`, `rt-form-check`
-- Tables: `rt-table`, `rt-table-wrap`, `rt-table-toolbar`, `rt-table-pagination`, `rt-badge`
-- Feedback: `rt-alert`, `rt-toast`
-- Loading: `rt-spinner`, `rt-skeleton-*`
-- Modal: `rt-modal`, `rt-modal-content`, `rt-modal-dialog`, `rt-modal-header`, `rt-modal-body`, `rt-modal-footer`
-- Navigation: `rt-navbar`, `rt-nav-dropdown`, `rt-dropdown`
-- Widgets: `rt-accordion`, `rt-carousel`, `rt-progress`, `rt-activity`, `rt-quick`
-- Terminal: `rt-terminal-window`, `rt-terminal-header`, `rt-terminal-toolbar`, `rt-terminal-body`, `rt-terminal-line`
-- Spacing: `rt-m*`, `rt-p*`
-- Utilities: `rt-gap-*`, `rt-gap-x-*`, `rt-gap-y-*`, `rt-items-*`, `rt-justify-*`, `rt-grid-auto-fit`, `rt-w-full`, `rt-text-center`, `rt-divider`
-- Text color: `rt-text-*`
-- Typography: `rt-text-lead`, `rt-text-muted`, `rt-text-small`
-- Landing page: `rt-landing`, `rt-hero`, `rt-feature-grid`, `rt-cta`, `rt-footer`
-- Icons: `rt rt-*`
-- Icons now compile from the full `assets/term-icons/src/icons` catalog instead of a small manual map
+If you need the bundled icon utilities, also load `dist/retro-term-icons.css`.
 
 ## Build
 
@@ -111,17 +105,20 @@ npm install
 npm run build
 ```
 
-Build output regenerates:
+Core build output:
 
 - `dist/retro-term.css`
 - `dist/retro-term.min.css`
 - `dist/retro-term.js`
 - `dist/retro-term.min.js`
+
+Additional icon assets generated for the icon export:
+
 - `dist/retro-term-icons.css`
 - `dist/retro-term-icons.min.css`
 
-## Notes
+## Repository notes
 
-- Retro-term uses the `rt-` namespace consistently across CSS, JS, examples, and docs.
-- The framework is designed to be used directly in vanilla HTML, PHP, Laravel, CodeIgniter, React, Vue, Next.js, Nuxt, Svelte, and Astro projects.
-- Documentation lives in `DOCUMENTATION.md`.
+- Source Sass stays in `sass/`
+- Distribution files are generated into `dist/`
+- Publish workflow notes are available in `NPM_PUBLISH.md`

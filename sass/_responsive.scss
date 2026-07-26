@@ -228,6 +228,23 @@ html[data-shape="rounded"] .rt-carousel {
   -webkit-backdrop-filter: blur(16px) saturate(170%);
 }
 
+@media (max-width: 767px) {
+  .rt-card.rt-img-r,
+  .rt-card.rt-img-l {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rt-card.rt-img-r > .rt-card-image,
+  .rt-card.rt-img-l > .rt-card-image {
+    order: -1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+}
+
 /* Popup keeps radius for rt-modal feel */
 .rt-modal-content {
   border-radius: 0;

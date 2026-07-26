@@ -27,21 +27,21 @@ yarn add retro-term-css
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/retro-term-css@2.1.0/dist/retro-term.min.css"
+  href="https://cdn.jsdelivr.net/npm/retro-term-css@3.0.0/dist/retro-term.min.css"
 />
 <script
-  src="https://cdn.jsdelivr.net/npm/retro-term-css@2.1.0/dist/retro-term.min.js"
+  src="https://cdn.jsdelivr.net/npm/retro-term-css@3.0.0/dist/retro-term.min.js"
 ></script>
 ```
 
-The `/npm/` URL becomes available after `retro-term-css@2.1.0` is published to the npm registry. For production usage, prefer a pinned version such as `@2.1.0`.
+The `/npm/` URL becomes available after `retro-term-css@3.0.0` is published to the npm registry. For production usage, prefer a pinned version such as `@3.0.0`.
 
 ### Optional icon pack via jsDelivr through npm
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/retro-term-css@2.1.0/dist/retro-term-icons.css"
+  href="https://cdn.jsdelivr.net/npm/retro-term-css@3.0.0/dist/retro-term-icons.css"
 />
 ```
 

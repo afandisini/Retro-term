@@ -2,6 +2,20 @@
 
 All notable changes to Retro-term CSS will be documented in this file.
 
+## [3.0.0] - 2026-07-26
+
+### Added
+
+* Added responsive card image layouts with `rt-img-t`, `rt-img-r`, and `rt-img-l`.
+* Added proportional card media handling with `rt-card-image` and `object-fit: cover`.
+* Added terminal card documentation for `rt-terminal-card`, `rt-terminal-card-title`, and `rt-terminal-card-text`.
+
+### Changed
+
+* Updated card image layouts to adapt cleanly from desktop side-by-side content to mobile stacked content.
+* Updated framework documentation and examples for the new card utilities.
+* Bumped package metadata and CDN examples to `3.0.0`.
+
 ## [2.1.1] - 2026-07-13
 
 ### Changed

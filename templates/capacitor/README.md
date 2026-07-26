@@ -35,4 +35,4 @@ npm run sync
 
 Untuk sync satu platform saja, gunakan `npm run android` atau `npm run ios`.
 
-Ganti `appId` dan `appName` di `capacitor.config.ts` sebelum rilis. Untuk menggunakan template di luar monorepo ini, ubah dependency `retro-term-css` pada `package.json` menjadi versi npm, misalnya `^2.1.0`.
+Ganti `appId` dan `appName` di `capacitor.config.ts` sebelum rilis. Untuk menggunakan template di luar monorepo ini, ubah dependency `retro-term-css` pada `package.json` menjadi versi npm, misalnya `^3.0.0`.

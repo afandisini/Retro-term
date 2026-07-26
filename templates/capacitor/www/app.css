@@ -1,0 +1,48 @@
+:root {
+  --rt-mobile-bottom-height: 76px;
+}
+
+body {
+  padding-bottom: calc(var(--rt-mobile-bottom-height) + env(safe-area-inset-bottom));
+}
+
+.rt-mobile-shell {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  padding: 20px var(--rt-page-gutter) 28px;
+}
+
+.rt-mobile-header,
+.rt-mobile-section-heading,
+.rt-mobile-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.rt-mobile-title { margin-top: 4px; font-size: clamp(1.35rem, 5vw, 2rem); }
+.rt-mobile-hero { margin-top: 24px; padding: 22px; }
+.rt-mobile-hero strong { display: block; margin: 8px 0 4px; font-size: 1.1rem; }
+.rt-status-dot { display: block; width: 10px; height: 10px; margin-bottom: 12px; border-radius: 50%; background: var(--rt-success); box-shadow: 0 0 0 5px rgba(var(--rt-success-rgb), .14); }
+.rt-mobile-section { margin-top: 28px; }
+.rt-mobile-section h2 { font-size: 1rem; }
+.rt-mobile-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.rt-mobile-action { display: grid; place-items: center; gap: 8px; min-height: 100px; padding: 14px 8px; color: var(--rt-text); font-size: .78rem; font-weight: 800; cursor: pointer; }
+.rt-mobile-action .rt { color: var(--rt-primary); font-size: 1.35rem; }
+.rt-mobile-list { margin-top: 12px; padding: 4px 16px; }
+.rt-mobile-list-item { justify-content: flex-start; padding: 14px 0; border-bottom: 1px solid var(--rt-border); }
+.rt-mobile-list-item:last-child { border-bottom: 0; }
+.rt-mobile-list-item > .rt { flex: 0 0 auto; font-size: 1.2rem; }
+.rt-mobile-list-item strong { font-size: .86rem; }
+.rt-mobile-bottom-nav { position: fixed; right: 0; bottom: 0; left: 0; z-index: 900; padding-bottom: calc(8px + env(safe-area-inset-bottom)); }
+
+@media (min-width: 721px) {
+  .rt-mobile-bottom-nav { right: 16px; bottom: 16px; left: auto; width: 360px; border: 1px solid var(--rt-border); }
+}
+
+@media (max-width: 360px) {
+  .rt-mobile-actions { grid-template-columns: 1fr; }
+  .rt-mobile-action { min-height: 64px; grid-template-columns: 28px 1fr; justify-items: start; text-align: left; }
+}
+

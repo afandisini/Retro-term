@@ -1,0 +1,25 @@
+{
+  "name": "retro-term-capacitor-template",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Capacitor starter template powered by Retro-term CSS.",
+  "scripts": {
+    "prepare:web": "node scripts/prepare-web.js",
+    "sync": "npm run prepare:web && npx cap sync",
+    "add:android": "npm run prepare:web && npx cap add android",
+    "add:ios": "npm run prepare:web && npx cap add ios",
+    "android": "npm run prepare:web && npx cap sync android",
+    "ios": "npm run prepare:web && npx cap sync ios",
+    "open:android": "npm run prepare:web && npx cap sync android && npx cap open android",
+    "open:ios": "npm run prepare:web && npx cap sync ios && npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.0",
+    "@capacitor/core": "^7.4.0",
+    "@capacitor/ios": "^7.4.0",
+    "retro-term-css": "file:../.."
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.0"
+  }
+}

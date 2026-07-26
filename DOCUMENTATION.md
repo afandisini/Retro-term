@@ -598,7 +598,29 @@ npm run build
 
 ---
 
-## 18. Example Inventory
+## 18. Capacitor Mobile Template
+
+The repository includes a Capacitor starter in `templates/capacitor`. It uses the existing Retro-term CSS and JavaScript inside a WebView, so the same web UI can be packaged for Android and iOS.
+
+```bash
+cd templates/capacitor
+npm install
+npm run prepare:web
+npm run add:android
+# or: npm run add:ios
+```
+
+After changing the web source, sync the generated files with the native project:
+
+```bash
+npm run sync
+```
+
+The template includes safe-area handling, mobile bottom navigation, theme switching, and a bottom sheet. Update `capacitor.config.ts` with the real app ID and name before release.
+
+---
+
+## 19. Example Inventory
 
 - `example/dashboard.html`
 - `example/landing-page.html`
@@ -609,7 +631,7 @@ npm run build
 
 ---
 
-## 19. Browser Support
+## 20. Browser Support
 
 Retro-term targets modern evergreen browsers with support for:
 
@@ -620,6 +642,6 @@ Retro-term targets modern evergreen browsers with support for:
 
 ---
 
-## 20. License
+## 21. License
 
 MIT

@@ -42,7 +42,7 @@
   --rt-radius-md: 18px;
   --rt-radius-sm: 10px;
   --rt-round: 12px;
-  --rt-radius: var(--rt-round);
+  --rt-radius: 0px;
   --rt-page-gutter: clamp(14px, 2vw, 32px);
   --rt-shell-padding: clamp(24px, 4vw, 46px);
   --rt-panel-padding: clamp(16px, 2vw, 22px);
@@ -87,3 +87,12 @@ html[data-theme="dark"] {
   --rt-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
+html[data-radius="rounded"],
+html[data-shape="rounded"] {
+  --rt-radius: var(--rt-round);
+}
+
+html[data-radius="flat"],
+html[data-shape="flat"] {
+  --rt-radius: 0px;
+}

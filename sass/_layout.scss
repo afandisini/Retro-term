@@ -442,14 +442,14 @@
   width: 48px;
   height: 48px;
   border: 1px solid var(--rt-border);
-  border-radius: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 247, 255, 0.88));
+  border-radius: var(--rt-radius);
+  background: var(--rt-surface-solid);
   color: var(--rt-text);
   cursor: pointer;
   place-items: center;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: var(--rt-shadow-sm);
+  box-shadow: none !important;
   transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
@@ -517,7 +517,7 @@
   height: 42px;
   padding: 0 14px 0 40px;
   border: 1px solid var(--rt-border);
-  border-radius: 0;
+  border-radius: var(--rt-radius);
   background: var(--rt-surface);
   color: var(--rt-text);
   outline: none;
@@ -810,4 +810,3 @@ html[data-theme="dark"] .rt-topbar-search svg {
 .rt-card-body-flush {
   padding: 0;
 }
-

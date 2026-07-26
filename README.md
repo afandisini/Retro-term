@@ -107,6 +107,20 @@ Additional icon assets generated for the icon export:
 - `dist/retro-term-icons.css`
 - `dist/retro-term-icons.min.css`
 
+## Capacitor app template
+
+Retro-term also includes a mobile app starter for Capacitor in [`templates/capacitor`](templates/capacitor). It provides one WebView-based UI source for Android and iOS, including a mobile shell, bottom navigation, safe-area handling, theme toggle, and bottom sheet.
+
+```bash
+cd templates/capacitor
+npm install
+npm run android
+# or
+npm run ios
+```
+
+See [`templates/capacitor/README.md`](templates/capacitor/README.md) for platform requirements and sync commands.
+
 ## Repository notes
 
 - Source Sass stays in `sass/`

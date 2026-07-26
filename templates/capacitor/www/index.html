@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#070a12" />
+    <title>Retro-term App</title>
+    <link rel="stylesheet" href="vendor/retro-term.min.css" />
+    <link rel="stylesheet" href="vendor/retro-term-icons.min.css" />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <main class="rt-mobile-shell">
+      <header class="rt-mobile-header">
+        <div>
+          <p class="rt-text-small rt-text-muted">RETRO-TERM APP</p>
+          <h1 class="rt-mobile-title">Good evening, operator.</h1>
+        </div>
+        <button class="rt-btn rt-btn-icon rt-btn-ghost" type="button" data-theme-toggle aria-label="Toggle theme">
+          <i class="rt rt-sun" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <section class="rt-mobile-hero rt-card">
+        <span class="rt-status-dot" aria-hidden="true"></span>
+        <p class="rt-text-small rt-text-muted">SYSTEM STATUS</p>
+        <strong>All systems operational</strong>
+        <p class="rt-text-muted">Your mobile workspace is ready.</p>
+      </section>
+
+      <section class="rt-mobile-section">
+        <div class="rt-mobile-section-heading">
+          <h2>Quick actions</h2>
+          <button class="rt-link" type="button" data-sheet-open>View all</button>
+        </div>
+        <div class="rt-mobile-actions">
+          <button class="rt-mobile-action rt-card" type="button" data-sheet-open>
+            <i class="rt rt-plus-circle" aria-hidden="true"></i>
+            <span>New item</span>
+          </button>
+          <button class="rt-mobile-action rt-card" type="button">
+            <i class="rt rt-bar-chart-line" aria-hidden="true"></i>
+            <span>Reports</span>
+          </button>
+          <button class="rt-mobile-action rt-card" type="button">
+            <i class="rt rt-gear" aria-hidden="true"></i>
+            <span>Settings</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="rt-mobile-section">
+        <div class="rt-mobile-section-heading">
+          <h2>Recent activity</h2>
+          <span class="rt-text-small rt-text-muted">Today</span>
+        </div>
+        <div class="rt-card rt-mobile-list">
+          <div class="rt-mobile-list-item">
+            <i class="rt rt-check-circle-fill rt-text-success" aria-hidden="true"></i>
+            <div><strong>Workspace synced</strong><p class="rt-text-small rt-text-muted">Just now</p></div>
+          </div>
+          <div class="rt-mobile-list-item">
+            <i class="rt rt-cloud-arrow-up-fill rt-text-primary" aria-hidden="true"></i>
+            <div><strong>Backup completed</strong><p class="rt-text-small rt-text-muted">12 minutes ago</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="rt-bottom-nav rt-mobile-bottom-nav" aria-label="Primary navigation">
+      <a class="rt-bottom-nav__item is-active" href="#home"><i class="rt rt-house-fill rt-bottom-nav__icon" aria-hidden="true"></i><span>Home</span></a>
+      <a class="rt-bottom-nav__item" href="#activity"><i class="rt rt-clock-history rt-bottom-nav__icon" aria-hidden="true"></i><span>Activity</span></a>
+      <button class="rt-bottom-nav__action rt-btn rt-btn-primary" type="button" data-sheet-open aria-label="Create item"><i class="rt rt-plus" aria-hidden="true"></i></button>
+      <a class="rt-bottom-nav__item" href="#inbox"><i class="rt rt-inbox rt-bottom-nav__icon" aria-hidden="true"></i><span>Inbox</span></a>
+      <a class="rt-bottom-nav__item" href="#profile"><i class="rt rt-person-fill rt-bottom-nav__icon" aria-hidden="true"></i><span>Profile</span></a>
+    </nav>
+
+    <section class="rt-bottom-sheet" data-sheet aria-hidden="true">
+      <button class="rt-bottom-sheet__backdrop" type="button" data-sheet-close aria-label="Close"></button>
+      <div class="rt-bottom-sheet__content" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+        <div class="rt-bottom-sheet__handle" aria-hidden="true"></div>
+        <div class="rt-bottom-sheet__header">
+          <div><p class="rt-bottom-sheet__eyebrow">QUICK ACTION</p><h2 id="sheet-title">Create something new</h2><p>Choose an action for this workspace.</p></div>
+          <button class="rt-btn rt-btn-icon rt-btn-ghost" type="button" data-sheet-close aria-label="Close">&times;</button>
+        </div>
+        <div class="rt-bottom-sheet__actions rt-btn-group rt-btn-group--nowrap">
+          <button class="rt-btn rt-btn-primary" type="button" data-sheet-close>New project</button>
+          <button class="rt-btn rt-btn-outline" type="button" data-sheet-close>Import</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="vendor/retro-term.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+

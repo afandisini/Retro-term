@@ -153,7 +153,7 @@ import "retro-term-css/icons";
 - Flow and gap: `rt-flow`, `rt-flow--sm`, `rt-flow--lg`, `rt-gap-*`, `rt-gap-x-*`, `rt-gap-y-*`
 - Flex and alignment: `rt-flex`, `rt-flex-col`, `rt-flex-wrap`, `rt-items-*`, `rt-flex-between`, `rt-justify-*`
 - Display and sizing: `rt-d-block`, `rt-d-inline-flex`, `rt-grid`, `rt-grid-auto-fit`, `rt-grid-auto-fill`, `rt-w-full`, `rt-h-full`
-- Text and surfaces: `rt-text-left`, `rt-text-center`, `rt-text-right`, `rt-surface`, `rt-surface-muted`, `rt-divider`
+- Text and surfaces: `rt-text-left`, `rt-text-center`, `rt-text-right`, `rt-text-*`, `rt-bg-*`, `rt-surface`, `rt-surface-muted`, `rt-divider`
 - Shape helpers: `rt-round`, `rt-round-sm`, `rt-round-lg`, `rt-round-full`
 - Accessibility: `rt-sr-only`
 
@@ -241,6 +241,11 @@ import "retro-term-css/icons";
 - `rt-select-list`
 - `rt-select-option`
 
+Every `rt-form-select` is rendered as a dropdown with a client-side search
+field. Add `data-ajax-url="/api/options"` (or `data-search-url`) when options
+must be fetched remotely; the endpoint receives both `q` and `search` query
+parameters and may return an array of `{ "value": "...", "label": "..." }`.
+
 ---
 
 ## 7. Cards and Content Blocks
@@ -260,14 +265,39 @@ import "retro-term-css/icons";
 
 ### Table Classes
 
-- `rt-table-wrap`
+- `rt-table-wrap` / `rt-table-responsive`
 - `rt-table`
+- `rt-table-component`
 - `rt-table-toolbar`
+- `rt-table-toolbar-left`
+- `rt-table-toolbar-right`
+- `rt-table-page-size`
 - `rt-table-search`
 - `rt-table-info`
 - `rt-table-pagination`
 - `rt-table-pagination-info`
 - `rt-table-pagination-nav`
+
+`table.rt-table` is enhanced automatically. Its standard behavior is:
+
+- page-size options `10`, `25`, `50`, `100`, and `Semua`, with 10 as default;
+- live search, sortable headers, horizontal scrolling, and pagination;
+- pagination text in the form `Page 1 / 10` and `Showing 1-10 of 25 items`.
+
+Use `data-page-size="25"` on the table or its `data-rt-table` wrapper to
+change the initial page size. The table emits `rt:table:search` and
+`rt:table:render` events for server/AJAX integrations.
+
+### Theme and shape modes
+
+```html
+<html data-theme="light" data-radius="flat">
+```
+
+The stock JS persists Dark/Light and Flat/Rounded preferences. Use
+`[data-rt-theme-toggle]` for theme and `[data-rt-radius-toggle]` or
+`[data-rt-shape-toggle]` for shape controls. The legacy `#themeToggle` hook
+continues to work.
 - `rt-table-pagination-btn`
 - `rt-table-pagination-text`
 - `rt-table-user`
@@ -543,6 +573,9 @@ Key points:
 ## 16. JavaScript Hooks
 
 - `id="themeToggle"`
+- `data-rt-theme-toggle`
+- `data-rt-radius-toggle`
+- `data-rt-shape-toggle`
 - `id="menuBtn"`
 - `id="sidebar"`
 - `id="sidebarOverlay"`

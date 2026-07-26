@@ -72,7 +72,10 @@
     RT.bindBaseUrls();
 
     // ===== THEME TOGGLE =====
-    const themeToggle = document.getElementById("themeToggle");
+    const themeToggles = document.querySelectorAll(
+      '#themeToggle, [data-rt-theme-toggle], [data-theme-toggle]',
+    );
+    const themeToggle = themeToggles[0];
     const moonIcon = themeToggle?.querySelector(".moon-icon");
     const sunIcon = themeToggle?.querySelector(".sun-icon");
 
@@ -106,9 +109,10 @@
 
     applyTheme(initialTheme);
 
-    if (themeToggle && themeToggle.dataset.rtThemeBound !== "true") {
-      themeToggle.dataset.rtThemeBound = "true";
-      themeToggle.addEventListener("click", () => {
+    themeToggles.forEach((toggle) => {
+      if (toggle.dataset.rtThemeBound === "true") return;
+      toggle.dataset.rtThemeBound = "true";
+      toggle.addEventListener("click", () => {
         if (typeof window.toggleTheme === "function") {
           window.toggleTheme();
         } else {
@@ -117,6 +121,47 @@
         }
 
         syncThemeIcons(html.getAttribute("data-theme") || "light");
+      });
+    });
+
+    // ===== SHAPE MODE (flat / rounded) =====
+    const shapeToggles = document.querySelectorAll(
+      '#radiusToggle, #shapeToggle, [data-rt-radius-toggle], [data-rt-shape-toggle], [data-radius-toggle]',
+    );
+
+    function applyShape(shape) {
+      const normalized = shape === "rounded" ? "rounded" : "flat";
+      html.setAttribute("data-radius", normalized);
+      html.setAttribute("data-shape", normalized);
+      localStorage.setItem("rt-radius", normalized);
+      localStorage.setItem("rt-shape", normalized);
+      document.querySelectorAll("[data-rt-shape-value]").forEach((node) => {
+        node.textContent = normalized;
+      });
+    }
+
+    applyShape(
+      html.getAttribute("data-radius") ||
+        html.getAttribute("data-shape") ||
+        localStorage.getItem("rt-radius") ||
+        localStorage.getItem("rt-shape") ||
+        "flat",
+    );
+
+    // Application shells may already own the legacy radius hooks. Avoid
+    // binding a second click handler, which would toggle twice per click.
+    const hasExternalShapeApi =
+      typeof window.setRadius === "function" ||
+      typeof window.toggleRadius === "function";
+
+    if (!hasExternalShapeApi) {
+      shapeToggles.forEach((toggle) => {
+        if (toggle.dataset.rtShapeBound === "true") return;
+        toggle.dataset.rtShapeBound = "true";
+        toggle.addEventListener("click", () => {
+          const current = html.getAttribute("data-radius") || "flat";
+          applyShape(current === "rounded" ? "flat" : "rounded");
+        });
       });
     }
 
@@ -392,6 +437,33 @@
           }
         }
 
+        async function loadRemoteOptions(query) {
+          const endpoint = select.getAttribute("data-ajax-url") || select.getAttribute("data-search-url");
+          if (!endpoint) return;
+          const url = new URL(endpoint, window.location.href);
+          url.searchParams.set("q", query);
+          url.searchParams.set("search", query);
+          try {
+            const response = await fetch(url.href, { headers: { Accept: "application/json" } });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const payload = await response.json();
+            const options = Array.isArray(payload) ? payload : payload.options;
+            if (!Array.isArray(options)) return;
+            select.querySelectorAll("option[data-rt-remote]").forEach((option) => option.remove());
+            options.forEach((item) => {
+              const option = document.createElement("option");
+              option.dataset.rtRemote = "true";
+              option.value = typeof item === "object" ? item.value : item;
+              option.textContent = typeof item === "object" ? (item.label ?? item.text ?? item.value) : item;
+              if (typeof item === "object" && item.disabled) option.disabled = true;
+              select.appendChild(option);
+            });
+            syncFromSelect();
+          } catch (error) {
+            select.dispatchEvent(new CustomEvent("rt:select:error", { detail: error }));
+          }
+        }
+
         function syncFromSelect() {
           value.textContent = getSelectedLabel();
           toggle.title = value.textContent;
@@ -452,6 +524,11 @@
 
         searchInput.addEventListener("input", () => {
           renderOptions(searchInput.value);
+          window.clearTimeout(searchInput._rtRemoteTimer);
+          searchInput._rtRemoteTimer = window.setTimeout(
+            () => loadRemoteOptions(searchInput.value.trim()),
+            180,
+          );
         });
 
         searchInput.addEventListener("keydown", (e) => {
@@ -912,7 +989,168 @@
       });
     });
 
-    // ===== TABLE with Search + Pagination =====
+    // ===== STANDARD TABLE with Search, Sort, Page Size and Pagination =====
+    function initStandardTables() {
+      document.querySelectorAll("table.rt-table").forEach((table) => {
+        if (table.dataset.rtTableReady === "true") return;
+        const isServerTable = table.hasAttribute("data-rt-table-server");
+        // The documentation demo has a custom renderer below; keep it intact.
+        if (table.querySelector("tbody#tableBody")) return;
+
+        const body = table.tBodies[0];
+        if (!body) return;
+
+        const existingScroll = table.closest(".rt-table-responsive");
+        const host = table.closest("[data-rt-table]") ||
+          (existingScroll ? existingScroll.parentElement : table.parentElement);
+        if (!host) return;
+        table.dataset.rtTableReady = "true";
+        host.classList.add("rt-table-component");
+
+        let scroll = existingScroll;
+        if (!scroll) {
+          scroll = document.createElement("div");
+          scroll.className = "rt-table-responsive";
+          table.parentNode.insertBefore(scroll, table);
+          scroll.appendChild(table);
+        }
+
+        let toolbar = host.querySelector(".rt-table-toolbar");
+        if (!toolbar) {
+          toolbar = document.createElement("div");
+          toolbar.className = "rt-table-toolbar";
+          const toolbarParent = scroll.parentElement || host;
+          toolbarParent.insertBefore(toolbar, scroll);
+        }
+
+        const left = toolbar.querySelector(".rt-table-toolbar-left") || document.createElement("div");
+        left.className = "rt-table-toolbar-left";
+        if (!left.parentNode) toolbar.appendChild(left);
+
+        let pageSize = left.querySelector(".rt-table-page-size");
+        if (!pageSize) {
+          pageSize = document.createElement("select");
+          pageSize.className = "rt-table-page-size";
+          pageSize.setAttribute("aria-label", "Jumlah baris per halaman");
+          pageSize.innerHTML = '<option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="0">Semua</option>';
+          left.appendChild(pageSize);
+        }
+        if (!pageSize.id) pageSize.id = `${table.id || "rt-table"}-page-size`;
+        if (!left.querySelector(".rt-table-page-size-label")) {
+          const label = document.createElement("label");
+          label.className = "rt-table-page-size-label rt-text-muted";
+          label.htmlFor = pageSize.id;
+          label.textContent = "Rows";
+          left.insertBefore(label, pageSize);
+        }
+
+        const right = toolbar.querySelector(".rt-table-toolbar-right") || document.createElement("div");
+        right.className = "rt-table-toolbar-right";
+        if (!right.parentNode) toolbar.appendChild(right);
+
+        let search = right.querySelector(".rt-table-search");
+        if (!search) {
+          search = document.createElement("label");
+          search.className = "rt-table-search";
+          search.innerHTML = '<span class="rt rt-search" aria-hidden="true"></span><input type="search" autocomplete="off" placeholder="Search..." aria-label="Search table data">';
+          right.appendChild(search);
+        }
+        const searchInput = search.querySelector("input");
+        if (searchInput && !searchInput.id) searchInput.id = `${table.id || "rt-table"}-search`;
+
+        let pagination = host.querySelector(":scope > .rt-table-pagination");
+        if (!pagination) {
+          pagination = document.createElement("div");
+          pagination.className = "rt-table-pagination";
+          host.appendChild(pagination);
+        }
+        let info = pagination.querySelector(".rt-table-pagination-info");
+        if (!info) {
+          info = document.createElement("div");
+          info.className = "rt-table-pagination-info";
+          pagination.appendChild(info);
+        }
+        let nav = pagination.querySelector(".rt-table-pagination-nav");
+        if (!nav) {
+          nav = document.createElement("div");
+          nav.className = "rt-table-pagination-nav";
+          pagination.appendChild(nav);
+        }
+        nav.innerHTML = '<button class="rt-table-pagination-btn" type="button" data-page="prev" aria-label="Halaman sebelumnya">‹</button><span class="rt-table-pagination-text"></span><button class="rt-table-pagination-btn" type="button" data-page="next" aria-label="Halaman berikutnya">›</button>';
+        const pageText = nav.querySelector(".rt-table-pagination-text");
+        const previous = nav.querySelector('[data-page="prev"]');
+        const next = nav.querySelector('[data-page="next"]');
+        table.dispatchEvent(new CustomEvent("rt:table:ready", { detail: { pageSize, searchInput, pagination, pageText, previous, next } }));
+        if (isServerTable) return;
+        const originalRows = Array.from(body.rows).map((row) => row.cloneNode(true));
+        const pageSizeFromMarkup = Number(table.dataset.pageSize || host.dataset.pageSize || 10);
+        pageSize.value = [10, 25, 50, 100, 0].includes(pageSizeFromMarkup) ? String(pageSizeFromMarkup) : "10";
+        let currentPage = 1;
+        let sortColumn = -1;
+        let sortDirection = 1;
+
+        const getRows = () => {
+          const query = (searchInput?.value || "").trim().toLowerCase();
+          let rows = originalRows.filter((row) => !query || row.textContent.toLowerCase().includes(query));
+          if (sortColumn >= 0) {
+            rows = rows.sort((a, b) => {
+              const leftText = a.cells[sortColumn]?.textContent.trim().toLowerCase() || "";
+              const rightText = b.cells[sortColumn]?.textContent.trim().toLowerCase() || "";
+              return leftText.localeCompare(rightText, undefined, { numeric: true }) * sortDirection;
+            });
+          }
+          return rows;
+        };
+
+        const render = () => {
+          const rows = getRows();
+          const limit = Number(pageSize.value);
+          const totalPages = limit === 0 ? 1 : Math.max(1, Math.ceil(rows.length / limit));
+          currentPage = Math.min(currentPage, totalPages);
+          const start = limit === 0 ? 0 : (currentPage - 1) * limit;
+          const visible = limit === 0 ? rows : rows.slice(start, start + limit);
+          body.replaceChildren(...visible.map((row) => row.cloneNode(true)));
+          const end = rows.length === 0 ? 0 : (limit === 0 ? rows.length : Math.min(start + limit, rows.length));
+          info.textContent = `Showing ${rows.length === 0 ? 0 : start + 1}-${end} of ${rows.length} items`;
+          pageText.textContent = `Page ${currentPage} / ${totalPages}`;
+          previous.disabled = currentPage <= 1;
+          next.disabled = currentPage >= totalPages;
+          table.dispatchEvent(new CustomEvent("rt:table:render", { detail: { page: currentPage, pageSize: limit, total: rows.length, query: searchInput?.value || "" } }));
+        };
+
+        table.querySelectorAll("thead th").forEach((th, index) => {
+          if (th.hasAttribute("data-no-sort")) return;
+          th.classList.add("rt-table-sortable");
+          th.setAttribute("tabindex", "0");
+          const sort = () => {
+            if (sortColumn === index) sortDirection *= -1;
+            else { sortColumn = index; sortDirection = 1; }
+            currentPage = 1;
+            render();
+          };
+          th.addEventListener("click", sort);
+          th.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") { event.preventDefault(); sort(); }
+          });
+        });
+        searchInput?.addEventListener("input", () => {
+          currentPage = 1;
+          window.clearTimeout(table._rtSearchTimer);
+          table._rtSearchTimer = window.setTimeout(() => {
+            table.dispatchEvent(new CustomEvent("rt:table:search", { detail: { query: searchInput.value } }));
+            render();
+          }, 120);
+        });
+        pageSize.addEventListener("change", () => { currentPage = 1; render(); });
+        previous.addEventListener("click", () => { if (currentPage > 1) { currentPage -= 1; render(); } });
+        next.addEventListener("click", () => { currentPage += 1; render(); });
+        render();
+      });
+    }
+
+    initStandardTables();
+
+    // ===== TABLE demo compatibility renderer =====
     const tableBody = document.getElementById("tableBody");
     const tableInfo = document.getElementById("tableInfo");
     const paginationInfo = document.getElementById("paginationInfo");
@@ -1188,7 +1426,7 @@
       },
     ];
 
-    const PER_PAGE = 5;
+    const PER_PAGE = 10;
     let currentPage = 1;
     let filteredData = [...tableData];
 

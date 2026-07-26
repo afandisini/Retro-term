@@ -553,6 +553,58 @@
   color: var(--rt-white) !important;
 }
 
+.rt-bg-transparent {
+  background-color: transparent !important;
+}
+
+.rt-bg-primary {
+  background-color: var(--rt-primary) !important;
+}
+
+.rt-bg-secondary {
+  background-color: var(--rt-primary-2) !important;
+}
+
+.rt-bg-accent {
+  background-color: var(--rt-accent) !important;
+}
+
+.rt-bg-success {
+  background-color: var(--rt-success) !important;
+}
+
+.rt-bg-warning {
+  background-color: var(--rt-warning) !important;
+}
+
+.rt-bg-danger {
+  background-color: var(--rt-danger) !important;
+}
+
+.rt-bg-purple {
+  background-color: var(--rt-purple) !important;
+}
+
+.rt-bg-surface {
+  background-color: var(--rt-surface) !important;
+}
+
+.rt-bg-surface-muted {
+  background-color: var(--rt-surface-muted) !important;
+}
+
+.rt-bg-body {
+  background-color: var(--rt-bg) !important;
+}
+
+.rt-bg-white {
+  background-color: var(--rt-white) !important;
+}
+
+.rt-bg-dark {
+  background-color: var(--rt-dark-bg) !important;
+}
+
 .rt-surface {
   background: var(--rt-surface) !important;
   border: 1px solid var(--rt-border) !important;
@@ -619,4 +671,3 @@
   white-space: nowrap;
   border: 0;
 }
-

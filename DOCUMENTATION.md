@@ -57,7 +57,7 @@ import "retro-term-css/icons";
 
 ```html
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -291,7 +291,7 @@ change the initial page size. The table emits `rt:table:search` and
 ### Theme and shape modes
 
 ```html
-<html data-theme="light" data-radius="flat">
+<html data-theme="dark" data-radius="flat">
 ```
 
 The stock JS persists Dark/Light and Flat/Rounded preferences. Use

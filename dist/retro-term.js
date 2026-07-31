@@ -105,7 +105,7 @@
       html.getAttribute("data-theme") ||
       localStorage.getItem("theme") ||
       localStorage.getItem("rt-theme") ||
-      "light";
+      "dark";
 
     applyTheme(initialTheme);
 

@@ -132,9 +132,7 @@
     function applyShape(shape) {
       const normalized = shape === "rounded" ? "rounded" : "flat";
       html.setAttribute("data-radius", normalized);
-      html.setAttribute("data-shape", normalized);
       localStorage.setItem("rt-radius", normalized);
-      localStorage.setItem("rt-shape", normalized);
       document.querySelectorAll("[data-rt-shape-value]").forEach((node) => {
         node.textContent = normalized;
       });
@@ -142,9 +140,7 @@
 
     applyShape(
       html.getAttribute("data-radius") ||
-        html.getAttribute("data-shape") ||
         localStorage.getItem("rt-radius") ||
-        localStorage.getItem("rt-shape") ||
         "flat",
     );
 
@@ -170,14 +166,18 @@
     const sidebar = document.getElementById("sidebar");
     const overlay = document.getElementById("sidebarOverlay");
 
+    function setMobileSidebar(isOpen) {
+      sidebar?.classList.toggle("is-open", isOpen);
+      overlay?.classList.toggle("is-open", isOpen);
+      menuBtn?.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+
     menuBtn?.addEventListener("click", () => {
-      sidebar?.classList.toggle("is-open");
-      overlay?.classList.toggle("is-open");
+      setMobileSidebar(!sidebar?.classList.contains("is-open"));
     });
 
     overlay?.addEventListener("click", () => {
-      sidebar?.classList.remove("is-open");
-      overlay?.classList.remove("is-open");
+      setMobileSidebar(false);
     });
 
     // ===== SIDEBAR NAV ACTIVE =====
@@ -230,8 +230,7 @@
           .forEach((l) => l.classList.remove("is-active"));
         link.classList.add("is-active");
         if (window.innerWidth <= 1024) {
-          sidebar?.classList.remove("is-open");
-          overlay?.classList.remove("is-open");
+          setMobileSidebar(false);
         }
       });
     });
@@ -252,8 +251,7 @@
     document.querySelectorAll(".rt-nav-dropdown-item").forEach((child) => {
       child.addEventListener("click", (e) => {
         if (window.innerWidth <= 1024) {
-          sidebar?.classList.remove("is-open");
-          overlay?.classList.remove("is-open");
+          setMobileSidebar(false);
         }
       });
     });
@@ -1000,8 +998,8 @@
         const body = table.tBodies[0];
         if (!body) return;
 
-        const existingScroll = table.closest(".rt-table-responsive");
-        const host = table.closest("[data-rt-table]") ||
+        const existingScroll = table.closest(".rt-table-responsive, .rt-table-wrap");
+        const host = table.closest("[data-rt-table], .rt-card") ||
           (existingScroll ? existingScroll.parentElement : table.parentElement);
         if (!host) return;
         table.dataset.rtTableReady = "true";
@@ -1019,8 +1017,10 @@
         if (!toolbar) {
           toolbar = document.createElement("div");
           toolbar.className = "rt-table-toolbar";
-          const toolbarParent = scroll.parentElement || host;
-          toolbarParent.insertBefore(toolbar, scroll);
+          const toolbarBlock = scroll.parentElement && scroll.parentElement !== host
+            ? scroll.parentElement
+            : scroll;
+          host.insertBefore(toolbar, toolbarBlock);
         }
 
         const left = toolbar.querySelector(".rt-table-toolbar-left") || document.createElement("div");
@@ -1058,6 +1058,16 @@
         const searchInput = search.querySelector("input");
         if (searchInput && !searchInput.id) searchInput.id = `${table.id || "rt-table"}-search`;
 
+        let reset = right.querySelector("[data-rt-table-reset]");
+        if (!reset) {
+          reset = document.createElement("button");
+          reset.type = "button";
+          reset.className = "rt-btn rt-btn-secondary rt-btn-sm rt-table-reset";
+          reset.setAttribute("data-rt-table-reset", "true");
+          reset.textContent = "Reset";
+          right.appendChild(reset);
+        }
+
         let pagination = host.querySelector(":scope > .rt-table-pagination");
         if (!pagination) {
           pagination = document.createElement("div");
@@ -1080,7 +1090,7 @@
         const pageText = nav.querySelector(".rt-table-pagination-text");
         const previous = nav.querySelector('[data-page="prev"]');
         const next = nav.querySelector('[data-page="next"]');
-        table.dispatchEvent(new CustomEvent("rt:table:ready", { detail: { pageSize, searchInput, pagination, pageText, previous, next } }));
+        table.dispatchEvent(new CustomEvent("rt:table:ready", { detail: { pageSize, searchInput, reset, pagination, pageText, previous, next } }));
         if (isServerTable) return;
         const originalRows = Array.from(body.rows).map((row) => row.cloneNode(true));
         const pageSizeFromMarkup = Number(table.dataset.pageSize || host.dataset.pageSize || 10);
@@ -1117,6 +1127,13 @@
           next.disabled = currentPage >= totalPages;
           table.dispatchEvent(new CustomEvent("rt:table:render", { detail: { page: currentPage, pageSize: limit, total: rows.length, query: searchInput?.value || "" } }));
         };
+
+        reset.addEventListener("click", () => {
+          searchInput.value = "";
+          pageSize.value = String(pageSizeFromMarkup);
+          currentPage = 1;
+          render();
+        });
 
         table.querySelectorAll("thead th").forEach((th, index) => {
           if (th.hasAttribute("data-no-sort")) return;

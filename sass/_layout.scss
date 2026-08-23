@@ -441,22 +441,25 @@
   display: none;
   width: 48px;
   height: 48px;
-  border: 1px solid var(--rt-border);
-  border-radius: var(--rt-radius);
-  background: var(--rt-surface-solid);
-  color: var(--rt-text);
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--rt-primary), var(--rt-purple));
+  color: var(--rt-white);
   cursor: pointer;
   place-items: center;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   box-shadow: none !important;
-  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
 }
 
 .rt-topbar-menu-tbl:hover {
   transform: translateY(-1px);
-  border-color: rgba(var(--rt-primary-rgb), 0.24);
-  color: var(--rt-primary);
+  color: var(--rt-white);
+  opacity: 0.92;
+}
+
+.rt-topbar-menu-tbl:focus-visible {
+  outline: 3px solid rgba(var(--rt-primary-rgb), 0.32);
+  outline-offset: 3px;
 }
 
 .rt-topbar-menu-tbl .rt {

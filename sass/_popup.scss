@@ -78,17 +78,22 @@
 }
 
 .rt-modal.is-open .rt-modal-content,
-.rt-modal.show .rt-modal-content {
+.rt-modal.show .rt-modal-content,
+.rt-modal.is-open .rt-modal-dialog,
+.rt-modal.show .rt-modal-dialog {
   opacity: 1;
   transform: translateY(0);
 }
 
 .rt-modal.is-open .rt-modal-content,
-.rt-modal.show .rt-modal-content {
+.rt-modal.show .rt-modal-content,
+.rt-modal.is-open .rt-modal-dialog,
+.rt-modal.show .rt-modal-dialog {
   animation: rtFadeIn 0.22s ease both;
 }
 
-.rt-modal.is-closing .rt-modal-content {
+.rt-modal.is-closing .rt-modal-content,
+.rt-modal.is-closing .rt-modal-dialog {
   animation: rtFadeOut 0.18s ease both;
 }
 

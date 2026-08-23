@@ -102,12 +102,10 @@ html[data-theme="dark"] {
   --rt-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-html[data-radius="rounded"],
-html[data-shape="rounded"] {
+html[data-radius="rounded"] {
   --rt-radius: var(--rt-round);
 }
 
-html[data-radius="flat"],
-html[data-shape="flat"] {
+html[data-radius="flat"] {
   --rt-radius: 0px;
 }

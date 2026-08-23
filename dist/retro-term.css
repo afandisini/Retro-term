@@ -102,13 +102,11 @@ html[data-theme=dark] {
   --rt-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-html[data-radius=rounded],
-html[data-shape=rounded] {
+html[data-radius=rounded] {
   --rt-radius: var(--rt-round);
 }
 
-html[data-radius=flat],
-html[data-shape=flat] {
+html[data-radius=flat] {
   --rt-radius: 0px;
 }
 
@@ -2704,22 +2702,25 @@ svg.rt {
   display: none;
   width: 48px;
   height: 48px;
-  border: 1px solid var(--rt-border);
-  border-radius: var(--rt-radius);
-  background: var(--rt-surface-solid);
-  color: var(--rt-text);
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--rt-primary), var(--rt-purple));
+  color: var(--rt-white);
   cursor: pointer;
   place-items: center;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   box-shadow: none !important;
-  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
 }
 
 .rt-topbar-menu-tbl:hover {
   transform: translateY(-1px);
-  border-color: rgba(var(--rt-primary-rgb), 0.24);
-  color: var(--rt-primary);
+  color: var(--rt-white);
+  opacity: 0.92;
+}
+
+.rt-topbar-menu-tbl:focus-visible {
+  outline: 3px solid rgba(var(--rt-primary-rgb), 0.32);
+  outline-offset: 3px;
 }
 
 .rt-topbar-menu-tbl .rt {
@@ -3386,17 +3387,22 @@ button.is-loading .rt-spinner {
 }
 
 .rt-modal.is-open .rt-modal-content,
-.rt-modal.show .rt-modal-content {
+.rt-modal.show .rt-modal-content,
+.rt-modal.is-open .rt-modal-dialog,
+.rt-modal.show .rt-modal-dialog {
   opacity: 1;
   transform: translateY(0);
 }
 
 .rt-modal.is-open .rt-modal-content,
-.rt-modal.show .rt-modal-content {
+.rt-modal.show .rt-modal-content,
+.rt-modal.is-open .rt-modal-dialog,
+.rt-modal.show .rt-modal-dialog {
   animation: rtFadeIn 0.22s ease both;
 }
 
-.rt-modal.is-closing .rt-modal-content {
+.rt-modal.is-closing .rt-modal-content,
+.rt-modal.is-closing .rt-modal-dialog {
   animation: rtFadeOut 0.18s ease both;
 }
 
@@ -6521,6 +6527,20 @@ html[data-theme=dark] .rt-theme-toggle .sun-icon {
   .rt-topbar-menu-tbl {
     display: inline-grid;
   }
+  .rt-topbar {
+    flex-wrap: wrap;
+  }
+  .rt-topbar-title-wrap {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+  .rt-topbar-search {
+    order: 3;
+    flex: 1 1 100%;
+    max-width: none;
+    min-width: 0;
+    margin-left: 0;
+  }
 }
 @media (min-width: 621px) {
   .rt-topbar-title-wrap {
@@ -6546,6 +6566,7 @@ html[data-theme=dark] .rt-theme-toggle .sun-icon {
     display: inline-grid;
     width: 44px;
     height: 44px;
+    background: var(--rt-primary);
   }
   .rt-topbar-title {
     font-size: 1rem;
@@ -6591,76 +6612,50 @@ html[data-theme=dark] .rt-theme-toggle .sun-icon {
 /* ============================================
            SHAPE MODES
         ============================================ */
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-sbr,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-card,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-stat,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-topbar-icon-tbl,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-topbar-search input,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-sbr-link,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-sbr-user,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-nav-dropdown-toggle,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-nav-dropdown-item,
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-table-search input {
+html:not([data-radius=rounded]) .rt-sbr,
+html:not([data-radius=rounded]) .rt-card,
+html:not([data-radius=rounded]) .rt-stat,
+html:not([data-radius=rounded]) .rt-topbar-icon-tbl,
+html:not([data-radius=rounded]) .rt-topbar-search input,
+html:not([data-radius=rounded]) .rt-sbr-link,
+html:not([data-radius=rounded]) .rt-sbr-user,
+html:not([data-radius=rounded]) .rt-nav-dropdown-toggle,
+html:not([data-radius=rounded]) .rt-nav-dropdown-item,
+html:not([data-radius=rounded]) .rt-table-search input {
   border-radius: 0;
   box-shadow: none !important;
 }
 
-html:not([data-radius=rounded]):not([data-shape=rounded]) .rt-btn {
+html:not([data-radius=rounded]) .rt-btn {
   border-radius: 0;
 }
 
 html[data-radius=rounded] .rt-card,
-html[data-shape=rounded] .rt-card,
 html[data-radius=rounded] .rt-stat,
-html[data-shape=rounded] .rt-stat,
-html[data-radius=rounded] .rt-topbar-menu-tbl,
-html[data-shape=rounded] .rt-topbar-menu-tbl,
 html[data-radius=rounded] .rt-topbar-icon-tbl,
-html[data-shape=rounded] .rt-topbar-icon-tbl,
 html[data-radius=rounded] .rt-topbar-search input,
-html[data-shape=rounded] .rt-topbar-search input,
 html[data-radius=rounded] .rt-sbr-link,
-html[data-shape=rounded] .rt-sbr-link,
 html[data-radius=rounded] .rt-sbr-user,
-html[data-shape=rounded] .rt-sbr-user,
 html[data-radius=rounded] .rt-nav-dropdown-toggle,
-html[data-shape=rounded] .rt-nav-dropdown-toggle,
 html[data-radius=rounded] .rt-nav-dropdown-item,
-html[data-shape=rounded] .rt-nav-dropdown-item,
 html[data-radius=rounded] .rt-table-search input,
-html[data-shape=rounded] .rt-table-search input,
 html[data-radius=rounded] .rt-btn,
-html[data-shape=rounded] .rt-btn,
 html[data-radius=rounded] .rt-alert,
-html[data-shape=rounded] .rt-alert,
 html[data-radius=rounded] .rt-toast,
-html[data-shape=rounded] .rt-toast,
 html[data-radius=rounded] .rt-table-component,
-html[data-shape=rounded] .rt-table-component,
 html[data-radius=rounded] .rt-table-filter,
-html[data-shape=rounded] .rt-table-filter,
 html[data-radius=rounded] .rt-table-page-size,
-html[data-shape=rounded] .rt-table-page-size,
 html[data-radius=rounded] .rt-form-control,
-html[data-shape=rounded] .rt-form-control,
 html[data-radius=rounded] .rt-form-select,
-html[data-shape=rounded] .rt-form-select,
 html[data-radius=rounded] .rt-form-textarea,
-html[data-shape=rounded] .rt-form-textarea,
 html[data-radius=rounded] .rt-select-toggle,
-html[data-shape=rounded] .rt-select-toggle,
 html[data-radius=rounded] .rt-select-menu,
-html[data-shape=rounded] .rt-select-menu,
 html[data-radius=rounded] .rt-select-search-input,
-html[data-shape=rounded] .rt-select-search-input,
 html[data-radius=rounded] .rt-dropdown-menu,
-html[data-shape=rounded] .rt-dropdown-menu,
 html[data-radius=rounded] .rt-modal-content,
-html[data-shape=rounded] .rt-modal-content,
+html[data-radius=rounded] .rt-modal-dialog,
 html[data-radius=rounded] .rt-accordion-item,
-html[data-shape=rounded] .rt-accordion-item,
-html[data-radius=rounded] .rt-carousel,
-html[data-shape=rounded] .rt-carousel {
+html[data-radius=rounded] .rt-carousel {
   border-radius: var(--rt-radius);
 }
 
@@ -6703,11 +6698,6 @@ html[data-shape=rounded] .rt-carousel {
     min-height: 0;
   }
 }
-/* Popup keeps radius for rt-modal feel */
-.rt-modal-content {
-  border-radius: 0;
-}
-
 /* Demo section spacing */
 .rt-section {
   padding: 22px 0;

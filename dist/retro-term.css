@@ -4903,6 +4903,14 @@ html[data-theme=dark] .rt-table-search:focus-within .rt {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%), linear-gradient(180deg, rgba(36, 36, 36, 0.96), rgba(23, 23, 23, 0.98));
 }
 
+/* Fixed-height terminal used by the Frontpage hero. */
+.rt-home-terminal {
+  height: 500px;
+  min-height: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
 .rt-terminal-window::before {
   content: "";
   position: absolute;
@@ -5840,6 +5848,47 @@ html[data-theme=dark] .rt-table-search:focus-within .rt {
   width: 100%;
 }
 
+/* Frontpage user list uses a four-card viewport with a clipped fifth card as a scroll cue. */
+.rt-home-grid.rt-home-users-scroll,
+.rt-home-grid .rt-home-users-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px;
+  --rt-home-scroll-peek: 96px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  animation: none !important;
+}
+
+.rt-home-grid.rt-home-users-scroll > *,
+.rt-home-grid .rt-home-users-scroll > * {
+  flex: 0 0 calc((100% - 48px - var(--rt-home-scroll-peek)) / 4);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.rt-home-grid.rt-home-users-scroll::-webkit-scrollbar,
+.rt-home-grid .rt-home-users-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .rt-home-grid.rt-home-users-scroll > *,
+  .rt-home-grid .rt-home-users-scroll > * {
+    flex-basis: calc((100% - 32px - var(--rt-home-scroll-peek)) / 3);
+  }
+}
+@media (max-width: 640px) {
+  .rt-home-grid.rt-home-users-scroll > *,
+  .rt-home-grid .rt-home-users-scroll > * {
+    --rt-home-scroll-peek: 56px;
+    flex-basis: calc((100% - 12px - var(--rt-home-scroll-peek)) / 1.5);
+  }
+}
 /* Hero Section */
 .rt-hero {
   position: relative;

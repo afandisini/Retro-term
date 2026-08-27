@@ -327,7 +327,7 @@
         searchInput.type = "search";
         searchInput.className = "rt-select-search-input";
         searchInput.placeholder =
-          select.getAttribute("data-search-placeholder") || "Cari opsi...";
+          select.getAttribute("data-search-placeholder") || "Search options...";
         searchInput.autocomplete = "off";
         searchInput.spellcheck = false;
 
@@ -384,10 +384,10 @@
         function getSelectedLabel() {
           const selected = select.options[select.selectedIndex];
           if (!selected)
-            return select.getAttribute("data-placeholder") || "Pilih opsi";
+            return select.getAttribute("data-placeholder") || "Select an option";
           const text = (selected.textContent || "").trim();
           return (
-            text || select.getAttribute("data-placeholder") || "Pilih opsi"
+            text || select.getAttribute("data-placeholder") || "Select an option"
           );
         }
 
@@ -430,7 +430,7 @@
           if (!matchCount) {
             const empty = document.createElement("div");
             empty.className = "rt-select-empty";
-            empty.textContent = "Tidak ada opsi yang cocok";
+            empty.textContent = "No matching options";
             list.append(empty);
           }
         }
@@ -1031,8 +1031,8 @@
         if (!pageSize) {
           pageSize = document.createElement("select");
           pageSize.className = "rt-table-page-size";
-          pageSize.setAttribute("aria-label", "Jumlah baris per halaman");
-          pageSize.innerHTML = '<option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="0">Semua</option>';
+          pageSize.setAttribute("aria-label", "Rows per page");
+          pageSize.innerHTML = '<option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="0">All</option>';
           left.appendChild(pageSize);
         }
         if (!pageSize.id) pageSize.id = `${table.id || "rt-table"}-page-size`;
@@ -1086,7 +1086,7 @@
           nav.className = "rt-table-pagination-nav";
           pagination.appendChild(nav);
         }
-        nav.innerHTML = '<button class="rt-table-pagination-btn" type="button" data-page="prev" aria-label="Halaman sebelumnya">‹</button><span class="rt-table-pagination-text"></span><button class="rt-table-pagination-btn" type="button" data-page="next" aria-label="Halaman berikutnya">›</button>';
+        nav.innerHTML = '<button class="rt-table-pagination-btn" type="button" data-page="prev" aria-label="Previous page">‹</button><span class="rt-table-pagination-text"></span><button class="rt-table-pagination-btn" type="button" data-page="next" aria-label="Next page">›</button>';
         const pageText = nav.querySelector(".rt-table-pagination-text");
         const previous = nav.querySelector('[data-page="prev"]');
         const next = nav.querySelector('[data-page="next"]');

@@ -280,7 +280,7 @@ parameters and may return an array of `{ "value": "...", "label": "..." }`.
 
 `table.rt-table` is enhanced automatically. Its standard behavior is:
 
-- page-size options `10`, `25`, `50`, `100`, and `Semua`, with 10 as default;
+- page-size options `10`, `25`, `50`, `100`, and `All`, with 10 as default;
 - live search, sortable headers, horizontal scrolling, and pagination;
 - pagination text in the form `Page 1 / 10` and `Showing 1-10 of 25 items`.
 
@@ -476,6 +476,8 @@ Retro-term now includes terminal-native presentation primitives.
 - `rt-terminal-card`
 - `rt-terminal-card-title`
 - `rt-terminal-card-text`
+- `rt-home-terminal` (fixed-height Frontpage terminal modifier)
+- `rt-home-grid .rt-home-users-scroll` disables auto-animation, hides the scrollbar, and shows four full cards plus a clipped fifth card for manual scrolling
 
 ```html
 <div class="rt-terminal-window">

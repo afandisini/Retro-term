@@ -5,6 +5,7 @@ Term Icons is the local icon pack for Retro-term. The generated CSS now follows 
 ## Outputs
 
 - `dist/retro-term-icons.css` and `dist/retro-term-icons.min.css` for CSS mask usage
+- `dist/term-icons.css` and `dist/term-icons.min.css` as mirrored output names
 - `dist/term-icons.svg` for sprite compatibility
 - `dist/term-icons.json` for manifest metadata
 
@@ -56,7 +57,7 @@ Size helpers:
 
 Source SVG count: **1837**
 
-Callable `rt rt-*` class count: **1837**
+Callable `rt rt-*` class count: **1839**
 
 - `rt rt-1-circle`
 - `rt rt-1-circle-fill`
@@ -95,6 +96,8 @@ Callable `rt rt-*` class count: **1837**
 - `rt rt-9-square`
 - `rt rt-9-square-fill`
 - `rt rt-123`
+- `rt rt-activity`
+- `rt rt-activity-icon`
 - `rt rt-add`
 - `rt rt-airplane`
 - `rt rt-airplane-engines`

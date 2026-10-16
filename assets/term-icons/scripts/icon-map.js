@@ -9,13 +9,13 @@ const excludedIcons = new Set([
 ]);
 
 const excludedCallableNames = new Set([
-  'activity',
   'grid',
   'table'
 ]);
 
 const legacyAliases = [
   { name: 'layout-grid', source: 'grid', category: 'layout' },
+  { name: 'activity-icon', source: 'activity', category: 'status' },
   { name: 'i-activity', source: 'activity', category: 'status' },
   { name: 'i-table', source: 'table', category: 'ui' }
 ];

@@ -370,6 +370,16 @@
     "aliasOf": null
   },
   {
+    "name": "activity",
+    "class": "rt rt-activity",
+    "legacyClass": "term-icon term-icon-activity",
+    "symbol": "activity",
+    "category": "status",
+    "source": "src/icons/activity.svg",
+    "legacy": false,
+    "aliasOf": null
+  },
+  {
     "name": "activity-icon",
     "class": "rt rt-activity-icon",
     "legacyClass": "term-icon term-icon-activity-icon",
@@ -6400,16 +6410,6 @@
     "aliasOf": null
   },
   {
-    "name": "data-table-icon",
-    "class": "rt rt-data-table-icon",
-    "legacyClass": "term-icon term-icon-data-table-icon",
-    "symbol": "table",
-    "category": "ui",
-    "source": "src/icons/table.svg",
-    "legacy": true,
-    "aliasOf": "table"
-  },
-  {
     "name": "database",
     "class": "rt rt-database",
     "legacyClass": "term-icon term-icon-database",
@@ -10958,6 +10958,26 @@
     "source": "src/icons/hypnotize.svg",
     "legacy": false,
     "aliasOf": null
+  },
+  {
+    "name": "i-activity",
+    "class": "rt rt-i-activity",
+    "legacyClass": "term-icon term-icon-i-activity",
+    "symbol": "activity",
+    "category": "status",
+    "source": "src/icons/activity.svg",
+    "legacy": true,
+    "aliasOf": "activity"
+  },
+  {
+    "name": "i-table",
+    "class": "rt rt-i-table",
+    "legacyClass": "term-icon term-icon-i-table",
+    "symbol": "table",
+    "category": "ui",
+    "source": "src/icons/table.svg",
+    "legacy": true,
+    "aliasOf": "table"
   },
   {
     "name": "image",

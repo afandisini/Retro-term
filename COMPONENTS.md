@@ -75,6 +75,25 @@ RT.toast.show('Saved successfully.', {
 Supported variants are `success`, `warning`, and `danger`. Supported positions are
 `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-center`, and `bottom-right`.
 
+## Scroll X/Y
+
+Use `rt-scroll-x`, `rt-scroll-y`, or `rt-scroll` for the scroll container. Add a
+button with `data-rt-scroll-target` for smooth scrolling; use `x` or `y` for the
+axis and `prev`/`next` (or `up`/`down`) for the direction.
+
+```html
+<div class="rt-scroll-x" id="user-strip">Long horizontal content...</div>
+<div class="rt-scroll-controls">
+  <button class="rt-scroll-btn" data-rt-scroll-target="#user-strip"
+          data-rt-scroll-axis="x" data-rt-scroll-direction="prev">Prev</button>
+  <button class="rt-scroll-btn" data-rt-scroll-target="#user-strip"
+          data-rt-scroll-axis="x" data-rt-scroll-direction="next">Next</button>
+</div>
+```
+
+Buttons automatically disable at the start/end of the axis and support
+`data-rt-scroll-step` in pixels.
+
 ## Cards
 
 The core card families are:

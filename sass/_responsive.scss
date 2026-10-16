@@ -177,6 +177,10 @@ html:not([data-radius="rounded"]) .rt-ref-badge {
   border-radius: 0;
 }
 
+html:not([data-radius="rounded"]) .rt-scroll-btn {
+  border-radius: 0;
+}
+
 html[data-radius="rounded"] .rt-card,
 html[data-radius="rounded"] .rt-stat,
 html[data-radius="rounded"] .rt-topbar-icon-tbl,
@@ -197,6 +201,7 @@ html[data-radius="rounded"] .rt-badge-dot,
 html[data-radius="rounded"] .rt-sbr-badge,
 html[data-radius="rounded"] .rt-hero-badge,
 html[data-radius="rounded"] .rt-ref-badge,
+html[data-radius="rounded"] .rt-scroll-btn,
 html[data-radius="rounded"] .rt-table-component,
 html[data-radius="rounded"] .rt-table-filter,
 html[data-radius="rounded"] .rt-table-page-size,

@@ -150,6 +150,49 @@
       toggle: () => applyShape(html.getAttribute("data-radius") === "rounded" ? "flat" : "rounded"),
     };
 
+    // Generic horizontal/vertical scroll controls.
+    document.querySelectorAll("[data-rt-scroll-target]").forEach((button) => {
+      const targetSelector = button.getAttribute("data-rt-scroll-target");
+      let target = null;
+      try {
+        target = targetSelector ? document.querySelector(targetSelector) : null;
+      } catch (error) {
+        target = null;
+      }
+      if (!target) return;
+
+      const axis = button.getAttribute("data-rt-scroll-axis") === "y" ? "y" : "x";
+      const action = button.getAttribute("data-rt-scroll-direction") || button.getAttribute("data-rt-scroll") || "next";
+      const stepValue = Number(button.getAttribute("data-rt-scroll-step"));
+
+      const updateState = () => {
+        const max = axis === "y"
+          ? target.scrollHeight - target.clientHeight
+          : target.scrollWidth - target.clientWidth;
+        const position = axis === "y" ? target.scrollTop : target.scrollLeft;
+        const isPrevious = ["prev", "previous", "up", "left"].includes(action);
+        const disabled = max <= 1 || (isPrevious ? position <= 1 : position >= max - 1);
+        button.disabled = disabled;
+        button.setAttribute("aria-disabled", String(disabled));
+      };
+
+      button.addEventListener("click", () => {
+        const distance = Number.isFinite(stepValue) && stepValue > 0
+          ? stepValue
+          : (axis === "y" ? target.clientHeight * 0.8 : target.clientWidth * 0.8);
+        const amount = ["prev", "previous", "up", "left"].includes(action) ? -distance : distance;
+        target.scrollBy({
+          left: axis === "x" ? amount : 0,
+          top: axis === "y" ? amount : 0,
+          behavior: "smooth",
+        });
+      });
+
+      target.addEventListener("scroll", updateState, { passive: true });
+      window.addEventListener("resize", updateState);
+      updateState();
+    });
+
     applyShape(
       html.getAttribute("data-radius") ||
         localStorage.getItem("rt-radius") ||

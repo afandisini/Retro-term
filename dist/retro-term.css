@@ -6693,7 +6693,8 @@ html:not([data-radius=rounded]) .rt-btn {
 
 html:not([data-radius=rounded]) .rt-toast-icon,
 html:not([data-radius=rounded]) .rt-toast-close,
-html:not([data-radius=rounded]) .rt-activity-icon {
+html:not([data-radius=rounded]) .rt-activity-icon,
+html:not([data-radius=rounded]) .rt-select-option {
   border-radius: 0;
 }
 
@@ -6720,6 +6721,7 @@ html[data-radius=rounded] .rt-form-select,
 html[data-radius=rounded] .rt-form-textarea,
 html[data-radius=rounded] .rt-select-toggle,
 html[data-radius=rounded] .rt-select-menu,
+html[data-radius=rounded] .rt-select-option,
 html[data-radius=rounded] .rt-select-search-input,
 html[data-radius=rounded] .rt-dropdown-menu,
 html[data-radius=rounded] .rt-modal-content,

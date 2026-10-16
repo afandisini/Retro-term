@@ -101,6 +101,12 @@
       syncThemeIcons(theme);
     }
 
+    RT.theme = RT.theme || {
+      get: () => html.getAttribute("data-theme") || "dark",
+      set: (theme) => applyTheme(theme === "light" ? "light" : "dark"),
+      toggle: () => applyTheme(html.getAttribute("data-theme") === "dark" ? "light" : "dark"),
+    };
+
     const initialTheme =
       html.getAttribute("data-theme") ||
       localStorage.getItem("theme") ||
@@ -137,6 +143,12 @@
         node.textContent = normalized;
       });
     }
+
+    RT.radius = RT.radius || {
+      get: () => html.getAttribute("data-radius") || "flat",
+      set: (shape) => applyShape(shape),
+      toggle: () => applyShape(html.getAttribute("data-radius") === "rounded" ? "flat" : "rounded"),
+    };
 
     applyShape(
       html.getAttribute("data-radius") ||
@@ -617,6 +629,11 @@
       window.setTimeout(finish, popupCloseDelay);
     }
 
+    RT.modal = RT.modal || {
+      open: openPopup,
+      close: closePopup,
+    };
+
     document.querySelectorAll("[data-rt-modal-open]").forEach((btn) => {
       btn.addEventListener("click", () =>
         openPopup(btn.getAttribute("data-rt-modal-open")),
@@ -645,11 +662,34 @@
     });
 
     // ===== TOAST =====
-    const toast = document.getElementById("demoToast");
-    const toastCloseBtn = document.getElementById("toastCloseBtn");
+    let toast = document.getElementById("demoToast");
+    let toastCloseBtn = document.getElementById("toastCloseBtn");
     let toastTimer = null;
     let toastVariant = "success";
     let toastPosition = "bottom-right";
+
+    function ensureToast() {
+      if (toast) return toast;
+
+      toast = document.createElement("div");
+      toast.id = "rt-toast-live";
+      toast.className = "rt-toast rt-toast--success rt-toast--bottom-right";
+      toast.setAttribute("aria-live", "polite");
+      toast.setAttribute("aria-atomic", "true");
+      toast.innerHTML = `
+        <div class="rt-toast-icon"><i class="rt rt-info-circle" aria-hidden="true"></i></div>
+        <div class="rt-toast-content">
+          <div class="rt-toast-title">Notification</div>
+          <div class="rt-toast-text"></div>
+        </div>
+        <button class="rt-toast-close" type="button" aria-label="Close notification">
+          <i class="rt rt-close" aria-hidden="true"></i>
+        </button>`;
+      document.body.appendChild(toast);
+      toastCloseBtn = toast.querySelector(".rt-toast-close");
+      toastCloseBtn?.addEventListener("click", hideToast);
+      return toast;
+    }
 
     function applyToastState() {
       if (!toast) return;
@@ -678,7 +718,7 @@
     }
 
     function showToast(variant = toastVariant, position = toastPosition) {
-      if (!toast) return;
+      ensureToast();
       toastVariant = variant;
       toastPosition = position;
       applyToastState();
@@ -721,6 +761,22 @@
 
     toastCloseBtn?.addEventListener("click", hideToast);
     applyToastState();
+
+    RT.toast = RT.toast || {
+      show(message, options = {}) {
+        const config = typeof message === "object" ? message : { message, ...options };
+        const variant = ["success", "warning", "danger"].includes(config.variant)
+          ? config.variant
+          : "success";
+        const position = config.position || "bottom-right";
+        showToast(variant, position);
+        const text = ensureToast().querySelector(".rt-toast-text");
+        const title = ensureToast().querySelector(".rt-toast-title");
+        if (title && config.title) title.textContent = config.title;
+        if (text && config.message) text.textContent = config.message;
+      },
+      hide: hideToast,
+    };
 
     // ===== ACCORDION =====
     document.querySelectorAll("[data-accordion]").forEach((accordion) => {
@@ -1091,7 +1147,76 @@
         const previous = nav.querySelector('[data-page="prev"]');
         const next = nav.querySelector('[data-page="next"]');
         table.dispatchEvent(new CustomEvent("rt:table:ready", { detail: { pageSize, searchInput, reset, pagination, pageText, previous, next } }));
-        if (isServerTable) return;
+        if (isServerTable) {
+          const endpoint = table.dataset.rtTableUrl || table.dataset.rtTableEndpoint;
+          if (!endpoint) return;
+
+          let serverPage = Number(table.dataset.page || 1);
+          let serverTotal = 0;
+          const loadServerPage = async (page = 1) => {
+            serverPage = Math.max(1, page);
+            table.classList.add("is-loading");
+            const url = new URL(endpoint, window.location.href);
+            url.searchParams.set("page", String(serverPage));
+            url.searchParams.set("page_size", String(pageSize.value || 10));
+            url.searchParams.set("search", searchInput?.value || "");
+
+            try {
+              const response = await fetch(url.href, {
+                headers: { Accept: "application/json" },
+              });
+              if (!response.ok) throw new Error(`Table request failed: ${response.status}`);
+              const payload = await response.json();
+              const rows = Array.isArray(payload.rows) ? payload.rows : (Array.isArray(payload.data) ? payload.data : []);
+              const html = typeof payload.html === "string" ? payload.html : null;
+              if (html !== null) {
+                body.innerHTML = html;
+              } else if (rows.length > 0) {
+                const columns = String(table.dataset.rtTableColumns || "").split(",").map((column) => column.trim()).filter(Boolean);
+                body.replaceChildren(...rows.map((row) => {
+                  const tr = document.createElement("tr");
+                  columns.forEach((column) => {
+                    const td = document.createElement("td");
+                    td.textContent = row?.[column] == null ? "" : String(row[column]);
+                    tr.appendChild(td);
+                  });
+                  return tr;
+                }));
+              } else {
+                body.innerHTML = '<tr><td colspan="99" class="rt-table-empty">No items found</td></tr>';
+              }
+
+              serverTotal = Number(payload.total ?? rows.length);
+              const limit = Number(pageSize.value || 10);
+              const totalPages = limit === 0 ? 1 : Math.max(1, Math.ceil(serverTotal / limit));
+              pageText.textContent = `Page ${serverPage} / ${totalPages}`;
+              info.textContent = `Showing ${serverTotal === 0 ? 0 : ((serverPage - 1) * limit) + 1}-${Math.min(serverPage * limit, serverTotal)} of ${serverTotal} items`;
+              previous.disabled = serverPage <= 1;
+              next.disabled = serverPage >= totalPages;
+              table.dispatchEvent(new CustomEvent("rt:table:render", { detail: { page: serverPage, pageSize: limit, total: serverTotal, query: searchInput?.value || "", payload } }));
+            } catch (error) {
+              body.innerHTML = '<tr><td colspan="99" class="rt-table-empty">Unable to load table data.</td></tr>';
+              table.dispatchEvent(new CustomEvent("rt:table:error", { detail: { error } }));
+            } finally {
+              table.classList.remove("is-loading");
+            }
+          };
+
+          searchInput?.addEventListener("input", () => {
+            window.clearTimeout(table._rtServerSearchTimer);
+            table._rtServerSearchTimer = window.setTimeout(() => loadServerPage(1), 180);
+          });
+          pageSize.addEventListener("change", () => loadServerPage(1));
+          reset.addEventListener("click", () => {
+            if (searchInput) searchInput.value = "";
+            pageSize.value = String(table.dataset.pageSize || 10);
+            loadServerPage(1);
+          });
+          previous.addEventListener("click", () => loadServerPage(serverPage - 1));
+          next.addEventListener("click", () => loadServerPage(serverPage + 1));
+          loadServerPage(serverPage);
+          return;
+        }
         const originalRows = Array.from(body.rows).map((row) => row.cloneNode(true));
         const pageSizeFromMarkup = Number(table.dataset.pageSize || host.dataset.pageSize || 10);
         pageSize.value = [10, 25, 50, 100, 0].includes(pageSizeFromMarkup) ? String(pageSizeFromMarkup) : "10";

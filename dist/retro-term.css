@@ -4097,6 +4097,18 @@ body.rt-modal-open {
   overflow: hidden;
 }
 
+.rt-table.is-loading {
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+.rt-table-empty {
+  padding: 2rem 1rem;
+  color: var(--rt-muted);
+  text-align: center;
+  font-weight: 700;
+}
+
 .rt-table {
   width: 100%;
   border-collapse: collapse;

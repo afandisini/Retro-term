@@ -2,6 +2,8 @@
 
 Retro-term is a standalone CSS framework for dashboards, admin panels, documentation pages, internal tools, and landing pages.
 
+The canonical framework feature contract is documented in [`COMPONENTS.md`](COMPONENTS.md).
+
 No Bootstrap. No Tailwind. No external UI dependency.
 
 ![Front Page Preview](assets/images/front_page.png)
@@ -35,19 +37,19 @@ yarn add retro-term-css
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/retro-term-css@3.0.0/dist/retro-term.min.css"
+  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v3.0.0/dist/retro-term.min.css"
 >
-<script src="https://cdn.jsdelivr.net/npm/retro-term-css@3.0.0/dist/retro-term.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/retro-term@2.1.0/dist/retro-term.min.js"></script>
 ```
 
-The `/npm/` URL becomes available after `retro-term-css@3.0.0` is published to the npm registry. For production usage, prefer a pinned version such as `@3.0.0` instead of `@latest`.
+The CSS package is available as the pinned `retro-term-css@3.0.0` release. The currently available CDN JavaScript remains `retro-term@2.1.0`.
 
 ### Optional icon pack
 
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/retro-term-css@3.0.0/dist/retro-term-icons.css"
+  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v3.0.0/dist/retro-term-icons.css"
 >
 ```
 

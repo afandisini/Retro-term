@@ -6691,6 +6691,12 @@ html:not([data-radius=rounded]) .rt-btn {
   border-radius: 0;
 }
 
+html:not([data-radius=rounded]) .rt-toast-icon,
+html:not([data-radius=rounded]) .rt-toast-close,
+html:not([data-radius=rounded]) .rt-activity-icon {
+  border-radius: 0;
+}
+
 html[data-radius=rounded] .rt-card,
 html[data-radius=rounded] .rt-stat,
 html[data-radius=rounded] .rt-topbar-icon-tbl,
@@ -6703,6 +6709,9 @@ html[data-radius=rounded] .rt-table-search input,
 html[data-radius=rounded] .rt-btn,
 html[data-radius=rounded] .rt-alert,
 html[data-radius=rounded] .rt-toast,
+html[data-radius=rounded] .rt-toast-icon,
+html[data-radius=rounded] .rt-toast-close,
+html[data-radius=rounded] .rt-activity-icon,
 html[data-radius=rounded] .rt-table-component,
 html[data-radius=rounded] .rt-table-filter,
 html[data-radius=rounded] .rt-table-page-size,

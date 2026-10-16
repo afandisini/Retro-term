@@ -37,7 +37,7 @@ yarn add retro-term-css
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v3.0.0/dist/retro-term.min.css"
+  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@38e4a301a1dec9447c97ae14895ba15e7c38da06/dist/retro-term.min.css"
 >
 <script src="https://cdn.jsdelivr.net/npm/retro-term@2.1.0/dist/retro-term.min.js"></script>
 ```
@@ -49,7 +49,7 @@ The CSS package is available as the pinned `retro-term-css@3.0.0` release. The c
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@v3.0.0/dist/retro-term-icons.css"
+  href="https://cdn.jsdelivr.net/gh/afandisini/Retro-term@38e4a301a1dec9447c97ae14895ba15e7c38da06/dist/retro-term-icons.css"
 >
 ```
 

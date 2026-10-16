@@ -6551,6 +6551,65 @@ html[data-theme=dark] .rt-theme-toggle .sun-icon {
     text-align: center;
   }
 }
+.rt-scroll,
+.rt-scroll-x,
+.rt-scroll-y {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.rt-scroll {
+  overflow: auto;
+}
+
+.rt-scroll-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.rt-scroll-y {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.rt-scroll-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rt-scroll-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--rt-border);
+  border-radius: 0;
+  background: var(--rt-surface-solid);
+  color: var(--rt-text);
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, opacity 0.18s ease;
+}
+
+.rt-scroll-btn:hover:not(:disabled),
+.rt-scroll-btn:focus-visible:not(:disabled) {
+  outline: none;
+  background: rgba(var(--rt-primary-rgb), 0.1);
+  color: var(--rt-primary);
+}
+
+.rt-scroll-btn:disabled,
+.rt-scroll-btn[aria-disabled=true] {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.rt-scroll-btn .rt {
+  width: 1rem;
+  height: 1rem;
+}
+
 .rt-sbr-overlay {
   display: none;
   position: fixed;
@@ -6818,63 +6877,4 @@ html[data-radius=rounded] .rt-carousel {
 .rt-terminal-card {
   border-radius: 0;
   box-shadow: none !important;
-}
-
-.rt-scroll,
-.rt-scroll-x,
-.rt-scroll-y {
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-}
-
-.rt-scroll {
-  overflow: auto;
-}
-
-.rt-scroll-x {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-.rt-scroll-y {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.rt-scroll-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.rt-scroll-btn {
-  width: 36px;
-  height: 36px;
-  display: inline-grid;
-  place-items: center;
-  padding: 0;
-  border: 1px solid var(--rt-border);
-  border-radius: 0;
-  background: var(--rt-surface-solid);
-  color: var(--rt-text);
-  cursor: pointer;
-  transition: background-color 0.18s ease, color 0.18s ease, opacity 0.18s ease;
-}
-
-.rt-scroll-btn:hover:not(:disabled),
-.rt-scroll-btn:focus-visible:not(:disabled) {
-  outline: none;
-  background: rgba(var(--rt-primary-rgb), 0.1);
-  color: var(--rt-primary);
-}
-
-.rt-scroll-btn:disabled,
-.rt-scroll-btn[aria-disabled=true] {
-  opacity: 0.42;
-  cursor: not-allowed;
-}
-
-.rt-scroll-btn .rt {
-  width: 1rem;
-  height: 1rem;
 }

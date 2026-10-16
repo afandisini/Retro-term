@@ -168,7 +168,12 @@ html:not([data-radius="rounded"]) .rt-btn {
 html:not([data-radius="rounded"]) .rt-toast-icon,
 html:not([data-radius="rounded"]) .rt-toast-close,
 html:not([data-radius="rounded"]) .rt-activity-icon,
-html:not([data-radius="rounded"]) .rt-select-option {
+html:not([data-radius="rounded"]) .rt-select-option,
+html:not([data-radius="rounded"]) .rt-badge,
+html:not([data-radius="rounded"]) .rt-badge-dot,
+html:not([data-radius="rounded"]) .rt-sbr-badge,
+html:not([data-radius="rounded"]) .rt-hero-badge,
+html:not([data-radius="rounded"]) .rt-ref-badge {
   border-radius: 0;
 }
 
@@ -187,6 +192,11 @@ html[data-radius="rounded"] .rt-toast,
 html[data-radius="rounded"] .rt-toast-icon,
 html[data-radius="rounded"] .rt-toast-close,
 html[data-radius="rounded"] .rt-activity-icon,
+html[data-radius="rounded"] .rt-badge,
+html[data-radius="rounded"] .rt-badge-dot,
+html[data-radius="rounded"] .rt-sbr-badge,
+html[data-radius="rounded"] .rt-hero-badge,
+html[data-radius="rounded"] .rt-ref-badge,
 html[data-radius="rounded"] .rt-table-component,
 html[data-radius="rounded"] .rt-table-filter,
 html[data-radius="rounded"] .rt-table-page-size,
